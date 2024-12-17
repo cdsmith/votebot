@@ -105,7 +105,7 @@ class Election(abc.ABC):
 
     def get_results(self, show_details: bool = True) -> discord.Embed:
         self.open = False
-        winners = self.get_winners()
+        winners, details = self.tabulate()
         embed = discord.Embed(title=f"Results for {self.title}", color=0x00FF00)
         if len(winners) == 0:
             embed.add_field(name="Winners", value="No winner determined", inline=False)
@@ -119,7 +119,6 @@ class Election(abc.ABC):
                 name="Winners (Tie)", value=f"{winners_str} :trophy:", inline=False
             )
         if show_details:
-            details = self.get_tabulation_details()
             embed.add_field(name="Details", value=details, inline=False)
         return embed
 
@@ -129,11 +128,10 @@ class Election(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_winners(self) -> list[str]:
-        """Return list of winners (usually one, but multiple in case of a tie)."""
-        pass
+    def tabulate(self) -> tuple[list[str], str]:
+        """Returns tabulated results.
 
-    @abc.abstractmethod
-    def get_tabulation_details(self) -> str:
-        """Return an explanation of how the winner was computed."""
+        The first result should be a list of winners (usually one, but multiple in case of a tie)
+        The second result should be an explanation of how the winner was chosen.
+        """
         pass
