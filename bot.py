@@ -2,11 +2,11 @@ import os
 import discord
 import dotenv
 from election import Election
-from plurality import PluralityElection
-from approval import ApprovalElection
-from copeland import CopelandElection
-from score_election import ScoreElection
-from star import STARElection
+from elections.plurality import PluralityElection
+from elections.approval import ApprovalElection
+from elections.copeland import CopelandElection
+from elections.score import ScoreElection
+from elections.star import STARElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")

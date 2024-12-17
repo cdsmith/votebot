@@ -1,5 +1,5 @@
 from election import Election
-from ranked_ballot import RankedBallot
+from ballots.ranked import RankedBallot
 
 
 class CopelandElection(Election):

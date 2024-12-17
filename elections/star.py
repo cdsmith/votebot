@@ -1,5 +1,5 @@
 from election import Election
-from score_ballot import ScoreBallot
+from ballots.score import ScoreBallot
 
 
 class STARElection(Election):

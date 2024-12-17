@@ -1,5 +1,5 @@
 from election import Election
-from simple_ballot import SimpleBallot
+from ballots.simple import SimpleBallot
 
 
 class PluralityElection(Election):
