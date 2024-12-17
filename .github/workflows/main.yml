@@ -1,0 +1,21 @@
+name: Trigger Bot Restart on Push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+              
+      - name: HTTP Request Action
+        uses: fjogeleit/http-request-action@v1.16.3
+        
+        with:
+          url: 'https://panel.cybrancee.com/api/client/servers/${{ vars.SERVER_ID }}/power'
+          method: 'POST'
+          customHeaders: '{"Accept": "application/json", "Content-Type": "application/json", "Authorization": "Bearer ${{ secrets.PTERODACTYL_API_KEY }}"}'
+          data: '{"signal": "restart"}'
