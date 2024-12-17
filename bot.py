@@ -8,6 +8,7 @@ from elections.copeland import CopelandElection
 from elections.score import ScoreElection
 from elections.star import STARElection
 from elections.irv import IRVElection
+from elections.ranked_pairs import RankedPairsElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -23,6 +24,7 @@ METHODS = {
     "Score": ScoreElection,
     "STAR": STARElection,
     "IRV": IRVElection,
+    "Ranked Pairs": RankedPairsElection,
 }
 
 method_choices = [

@@ -13,6 +13,7 @@ This is a Discord bot that facilitates running elections using various voting me
   - **Score**: Voters rate candidates from 0 to 5 stars, and the candidate with the highest average score wins.
   - **STAR**: Voters rate candidates from 0 to 5 stars.  The two candidates with the highest average scores advance to a runoff, in which the candidate preferred by the most ballots wins.
   - **IRV**: Voters rank candidates, and the candidate with the fewest first-place votes is eliminated in each round until a candidate has a majority of first-place votes.
+  - **Ranked Pairs**: Voters rank candidates, and a consistent candidate ordering is chosen from the strongest pairwise preferences.
 
 - **Private and Interactive Ballots**:  
   Users click a "Vote" button on the public election message to open a private, ephemeral ballot. They can select or rearrange their choices using Discord’s message components (buttons, selects), and submit when ready.
