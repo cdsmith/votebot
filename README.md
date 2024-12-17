@@ -10,6 +10,8 @@ This is a Discord bot that facilitates running elections using various voting me
   - **Plurality**: Voters choose a single candidate.
   - **Approval**: Voters approve any number of candidates.
   - **Copeland**: Voters rank candidates, and the candidate who wins the most head-to-head comparisons is chosen.  This gives a Condorcet-consistent result.
+  - **Score**: Voters rate candidates from 0 to 5 stars, and the candidate with the highest average score wins.
+  - **STAR**: Voters rate candidates from 0 to 5 stars.  The two candidates with the highest average scores advance to a runoff, in which the candidate preferred by the most ballots wins.
 
 - **Private and Interactive Ballots**:  
   Users click a "Vote" button on the public election message to open a private, ephemeral ballot. They can select or rearrange their choices using Discord’s message components (buttons, selects), and submit when ready.
@@ -20,7 +22,7 @@ This is a Discord bot that facilitates running elections using various voting me
 ### What it doesn't do
 
 - Most notably, there is **no persistence**.  This is currently only suitable for short-term votes on the order of a few minutes.  If the bot software is restarted for any reason, all data is lost and you'll need to restart your votes.  I do intend to fix this, but not yet.
-- The selection of voting methods is currently scarce.  I've only implemented enough to validate the overall approach.
+- The selection of voting methods is currently incomplete.  I've only implemented enough to validate the overall approach.
 - It doesn't look pretty.  If that's your talent, I'd be grateful for your help.
 - A bunch of little usability things are missing.  It can't schedule the end of the election and automatically end it at the right time.  It won't send reminders when the election is ending soon.  It won't warn you if you forget to submit your ballot after filling it out, or if you try to end an election when people have unsubmitted ballots.  It doesn't tell you how many people have voted so far.
 - It doesn't catch and report errors nicely, and is almost certainly missing all sorts of validation.
@@ -136,6 +138,8 @@ If there is no ballot format defined for the election method you want to impleme
 ```
 
 Ballot formats are typically somewhat involved, and require knowing something about the Discord API and available user interface elements.  You can refer to the existing `Ballot` subclasses for hints on implementation.
+
+Note that you do not need to implement a new ballot format if your election method can use an existing one!  There are already ballots implemented for single-choice, multiple-choice, ranked-choice, and scored-choice elections.
 
 ## Contributing
 

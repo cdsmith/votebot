@@ -1,6 +1,7 @@
 from election import Election
 from ranked_ballot import RankedBallot
 
+
 class CopelandElection(Election):
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
@@ -53,7 +54,9 @@ class CopelandElection(Election):
     def get_tabulation_details(self) -> str:
         scores, pair_results = self.compute_copeland_scores()
 
-        candidate_stats = {c: {"wins": 0, "losses": 0, "ties": 0} for c in self.candidates}
+        candidate_stats = {
+            c: {"wins": 0, "losses": 0, "ties": 0} for c in self.candidates
+        }
 
         lines = []
         lines.append("**Pairwise Matchups:**")
@@ -71,7 +74,9 @@ class CopelandElection(Election):
                 candidate_stats[a]["ties"] += 1
                 candidate_stats[b]["ties"] += 1
 
-            lines.append(f"- {a} vs {b}: {a_wins} ({a_wins / (a_wins + b_wins):.2%}) - {b_wins} ({b_wins / (a_wins + b_wins):.2%}). {result}")
+            lines.append(
+                f"- {a} vs {b}: {a_wins} ({a_wins / (a_wins + b_wins):.2%}) - {b_wins} ({b_wins / (a_wins + b_wins):.2%}). {result}"
+            )
 
         lines.append("")
         lines.append("**Scores (number of head-to-head wins):**")

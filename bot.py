@@ -5,6 +5,8 @@ from election import Election
 from plurality import PluralityElection
 from approval import ApprovalElection
 from copeland import CopelandElection
+from score_election import ScoreElection
+from star import STARElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -17,6 +19,8 @@ METHODS = {
     "Plurality": PluralityElection,
     "Approval": ApprovalElection,
     "Copeland": CopelandElection,
+    "Score": ScoreElection,
+    "STAR": STARElection,
 }
 
 method_choices = [
