@@ -26,12 +26,17 @@ class Election(abc.ABC):
             async def callback(self, interaction: discord.Interaction):
                 await self.election.send_ballot(interaction)
 
+        embed = discord.Embed(
+            title=self.title,
+            description=self.description,
+        ).add_field(
+            name="Candidates", value="\n".join(f"- {c}" for c in self.candidates), inline=False
+        ).add_field(
+            name="Votes cast", value=str(len(self.submitted_ballots)), inline=False
+        )
+
         return {
-            "embed": discord.Embed(
-                title=self.title, description=self.description
-            ).add_field(
-                name="Candidates", value="\n".join(self.candidates), inline=False
-            ),
+            "embed": embed,
             "view": discord.ui.View(timeout=None).add_item(VoteButton(self)),
         }
 
@@ -96,6 +101,8 @@ class Election(abc.ABC):
                 **self.submitted_ballots[interaction.user.id].render_submitted(),
                 view=discord.ui.View().add_item(RevoteButton(self)),
             )
+            if self.original_message is not None:
+                await self.original_message.edit(**self.get_public_view())
         else:
             await interaction.response.edit_message(
                 content="Your vote **was not recorded** because you did not have a ballot open.  To cast or update your ballot, click the Vote button again.",

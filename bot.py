@@ -77,6 +77,7 @@ async def start_election(
     ongoing_elections[interaction.channel_id] = election
 
     await interaction.response.send_message(**election.get_public_view())
+    election.original_message = await interaction.original_response()
 
 
 @tree.command(
