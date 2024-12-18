@@ -1,7 +1,7 @@
 from election import Election
 from ballots.ranked import RankedBallot
 import numpy as np
-from scipy.optimize import linprog
+from scipy.optimize import minimize, LinearConstraint
 import random
 
 
@@ -42,25 +42,41 @@ class RivestShenGTElection(Election):
                             j_pref_i += 1
                     M[i][j] = i_pref_j - j_pref_i
 
-        min_val = min(min(row) for row in M)
-        if min_val <= 0:
-            w = 1 - min_val
-        else:
-            w = 0.0
+        w = 1 - min(min(row) for row in M)
+        M_prime = np.array(M, dtype=float) + w
+        sum_p = 1.0 / w
 
-        M_prime = [[M[i][j] + w for j in range(m)] for i in range(m)]
+        A = M_prime.T
+        b = np.ones(m)
 
-        c = [1.0] * m
-        A_ub = (-1) * np.array(M_prime, dtype=float).T
-        b_ub = -1 * np.ones(m, dtype=float)
+        def objective(p):
+            return np.sum(p ** 2)
+
+        def grad_objective(p):
+            return 2 * p
+
+        A_eq_sum = np.ones((1, m))
+        b_eq_sum = np.array([sum_p])
+        eq_constraint = LinearConstraint(A_eq_sum, b_eq_sum, b_eq_sum)
+
+        ineq_constraint = LinearConstraint(A, b, np.full(m, np.inf))
         bounds = [(0, None)] * m
-        res = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method="highs")
 
-        if not res.success:
+        qp_res = minimize(
+            objective,
+            x0=np.full(m, sum_p / m),
+            jac=grad_objective,
+            constraints=[eq_constraint, ineq_constraint],
+            bounds=bounds,
+            method="trust-constr",
+            options={"verbose": 0},
+        )
+
+        if not qp_res.success:
             return [], "No optimal solution found for the Rivest-Shen GT equilibrium."
 
-        p = res.x
-        p_star = [w * val for val in p]
+        p = qp_res.x
+        p_star = p * w
 
         total = sum(p_star)
         if total > 0:
