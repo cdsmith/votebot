@@ -52,5 +52,5 @@ class ScoreBallot(Ballot):
         for c in self.election.candidates:
             r = self.ratings.get(c, 0)
             stars = " ".join([STAR] * r) if r else "(zero stars)"
-            lines.append(f"**{c}**: {stars}")
-        return "\n".join(lines) if lines else "No ratings recorded"
+            lines.append(f"**{c}**:\n{stars}")
+        return "\n\n".join(lines) if lines else "No ratings recorded"
