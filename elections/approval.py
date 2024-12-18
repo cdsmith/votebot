@@ -3,6 +3,9 @@ from ballots.multichoice import MultiChoiceBallot
 
 
 class ApprovalElection(Election):
+    def name(self) -> str:
+        return "Approval"
+
     def blank_ballot(self) -> MultiChoiceBallot:
         return MultiChoiceBallot(self)
 

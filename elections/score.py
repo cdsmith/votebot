@@ -3,6 +3,9 @@ from ballots.score import ScoreBallot
 
 
 class ScoreElection(Election):
+    def name(self) -> str:
+        return "Score"
+
     def blank_ballot(self) -> ScoreBallot:
         return ScoreBallot(self)
 

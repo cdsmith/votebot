@@ -3,6 +3,9 @@ from ballots.simple import SimpleBallot
 
 
 class PluralityElection(Election):
+    def name(self) -> str:
+        return "Plurality"
+
     def blank_ballot(self) -> SimpleBallot:
         return SimpleBallot(self)
 

@@ -6,6 +6,9 @@ import random
 
 
 class RivestShenGTElection(Election):
+    def name(self) -> str:
+        return "Rivest-Shen GT"
+
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 

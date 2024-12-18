@@ -3,6 +3,9 @@ from ballots.ranked import RankedBallot
 
 
 class CopelandElection(Election):
+    def name(self) -> str:
+        return "Copeland"
+
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 

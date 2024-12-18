@@ -94,7 +94,7 @@ async def end_election(interaction: discord.Interaction, details: bool):
         )
         return
 
-    results_embed = election.get_results(show_details=details)
+    results_embed = election.get_results(show_details=details).set_footer(text=f"Computed using {election.name()}")
     await interaction.response.send_message(embed=results_embed)
 
 

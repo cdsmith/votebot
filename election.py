@@ -32,8 +32,8 @@ class Election(abc.ABC):
         ).add_field(
             name="Candidates", value="\n".join(f"- {c}" for c in self.candidates), inline=False
         ).add_field(
-            name="Votes cast", value=str(len(self.submitted_ballots)), inline=False
-        )
+            name="Method", value=self.name(), inline=False
+        ).set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
 
         return {
             "embed": embed,
@@ -77,20 +77,13 @@ class Election(abc.ABC):
                 content="This ballot has been superceded by a new ballot.",
                 embed=None,
                 view=None,
+                delete_after=5,
             )
             return False
         return True
 
     async def submit_ballot(self, interaction: discord.Interaction):
         """Submit the user's current interim ballot as their submitted vote."""
-
-        class RevoteButton(discord.ui.Button):
-            def __init__(self, election: "Election"):
-                super().__init__(style=discord.ButtonStyle.primary, label="Change Vote")
-                self.election = election
-
-            async def callback(self, interaction: discord.Interaction):
-                await self.election.send_ballot(interaction)
 
         if interaction.user.id in self.interim_ballots:
             self.submitted_ballots[interaction.user.id] = self.interim_ballots[
@@ -99,7 +92,7 @@ class Election(abc.ABC):
             del self.interim_ballots[interaction.user.id]
             await interaction.response.edit_message(
                 **self.submitted_ballots[interaction.user.id].render_submitted(),
-                view=discord.ui.View().add_item(RevoteButton(self)),
+                view=None,
             )
             if self.original_message is not None:
                 await self.original_message.edit(**self.get_public_view())
@@ -108,6 +101,7 @@ class Election(abc.ABC):
                 content="Your vote **was not recorded** because you did not have a ballot open.  To cast or update your ballot, click the Vote button again.",
                 embed=None,
                 view=None,
+                delete_after=5,
             )
 
     def get_results(self, show_details: bool = True) -> discord.Embed:
@@ -118,16 +112,21 @@ class Election(abc.ABC):
             embed.add_field(name="Winners", value="No winner determined", inline=False)
         elif len(winners) == 1:
             embed.add_field(
-                name="Winner", value=f"**{winners[0]}** :trophy:", inline=False
+                name="Winner", value=f":trophy: **{winners[0]}** :trophy:", inline=False
             )
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
             embed.add_field(
-                name="Winners (Tie)", value=f"{winners_str} :trophy:", inline=False
+                name="Winners (Tie)", value=f":trophy: {winners_str} :trophy:", inline=False
             )
         if show_details:
             embed.add_field(name="Details", value=details, inline=False)
         return embed
+
+    @abc.abstractmethod
+    def name(self) -> str:
+        """Return the name of the election method."""
+        pass
 
     @abc.abstractmethod
     def blank_ballot(self) -> Ballot:

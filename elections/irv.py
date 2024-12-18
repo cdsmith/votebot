@@ -4,6 +4,9 @@ import random
 
 
 class IRVElection(Election):
+    def name(self) -> str:
+        return "Instant Runoff"
+
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 
