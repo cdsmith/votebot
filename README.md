@@ -98,7 +98,7 @@ The bot will post a public message in the channel announcing the election.  Anyo
 Currently, elections run until they are manually ended.  When you're ready to tally the results, issue this command:
 
 ```
-/end_election details:<true or false>
+/end_election details:<true/false>
 ```
 
 A message will be sent announcing the winner, as well as (if requested) explaining the tabulation process that led to the selection of that winner.
@@ -112,6 +112,11 @@ This bot is a one-day project, so it's lacking a number of features.  If you'd l
 To implement a new election method, define a new subclass of `Election`.  You will need to implement the following.
 
 ```python
+    @abc.abstractmethod
+    def name(self) -> str:
+        """Return the name of the election method."""
+        pass
+
     @abc.abstractmethod
     def blank_ballot(self) -> Ballot:
         """Return a new, empty ballot."""
@@ -135,22 +140,36 @@ If there is no ballot format defined for the election method you want to impleme
 
 ```python
     @abc.abstractmethod
-    def copy(self) -> "Ballot":
-        """Return a copy of the ballot.  Mutable fields should be copied."""
+    def candidates_per_page(self) -> Optional[int]:
+        """How many candidates can fit on a page.  If None, there is one page for all candidates."""
         pass
 
     @abc.abstractmethod
-    def render_interim(self, session_id: int) -> Dict[str, Any]:
-        """Return a dictionary representation of the ballot as Discord message fields."""
+    def clear(self) -> None:
+        """Clear all votes from the ballot."""
         pass
 
     @abc.abstractmethod
-    def render_submitted(self) -> Dict[str, Any]:
-        """Return a dictionary representation of the ballot as Discord message fields."""
+    def get_items(self, candidates: list[str], session_id: int) -> list[discord.ui.Item]:
+        """Return a list of discord.Item objects for a page of candidates."""
+        pass
+
+    @abc.abstractmethod
+    def submittable(self) -> bool:
+        """Determines if the ballot is complete enough to submit."""
+        pass
+
+    @abc.abstractmethod
+    def to_markdown(self) -> str:
+        """Return a ballot choice in markdown."""
         pass
 ```
 
-Ballot formats are typically somewhat involved, and require knowing something about the Discord API and available user interface elements.  You can refer to the existing `Ballot` subclasses for hints on implementation.
+Ballot formats are typically somewhat involved, and require knowing something about the Discord API and available user interface elements.  You can refer to the existing `Ballot` subclasses for hints on implementation.  Because Discord
+limits the UI elements that can be used in a message, ballots are automatically
+paginated if there are more than 5 candidates.  The `candidates_per_page` method
+should return the number of candidates that can fit on a single page, or `None`
+if all candidates should be on a single page.
 
 Note that you do not need to implement a new ballot format if your election method can use an existing one!  There are already ballots implemented for single-choice, multiple-choice, ranked-choice, and scored-choice elections.
 
