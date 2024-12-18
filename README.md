@@ -22,12 +22,13 @@ This is a Discord bot that facilitates running elections using various voting me
 - **Detailed Results**:  
   When the election is ended, the winner is displayed.  Optionally, detailed tabulation info is also provided to explain how the result is obtained.
 
-### What it doesn't do
+### What it doesn't do (yet)
 
 - Most notably, there is **no persistence**.  This is currently only suitable for short-term votes on the order of a few minutes.  If the bot software is restarted for any reason, all data is lost and you'll need to restart your votes.  I do intend to fix this, but not yet.
-- The selection of voting methods is currently incomplete.  I've only implemented enough to validate the overall approach.
+- It doesn't do multi-winner elections, or anything like open party-list methods that requires voters to make more than a single decision between candidates.
+- The selection of voting methods is currently incomplete.  I've implemented a number of methods, but the selection is ad hoc rather than comprehensive.
 - It doesn't look pretty.  If that's your talent, I'd be grateful for your help.
-- A bunch of little usability things are missing.  It can't schedule the end of the election and automatically end it at the right time.  It won't send reminders when the election is ending soon.  It won't warn you if you forget to submit your ballot after filling it out, or if you try to end an election when people have unsubmitted ballots.  It doesn't tell you how many people have voted so far.
+- A bunch of little usability things are missing.  It can't schedule the end of the election and automatically end it at the right time.  It won't send reminders when the election is ending soon.  It won't warn you if you forget to submit your ballot after filling it out, or if you try to end an election when people have unsubmitted ballots.
 - It doesn't catch and report errors nicely, and is almost certainly missing all sorts of validation.
 
 ## Setup
