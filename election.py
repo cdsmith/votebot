@@ -1,9 +1,11 @@
+from __future__ import annotations
 import abc
-from typing import Any
+from typing import Any, TYPE_CHECKING
 import discord
-from ballot import Ballot
 import time
 
+if TYPE_CHECKING:
+    from ballot import Ballot
 
 class Election(abc.ABC):
     def __init__(self, title: str, description: str, candidates: list[str]):

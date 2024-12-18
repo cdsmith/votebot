@@ -62,9 +62,13 @@ class CopelandElection(Election):
                     candidate_stats[a]["ties"] += 1
                     candidate_stats[b]["ties"] += 1
 
-                lines.append(
-                    f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):.2%} - {b_prefs / (a_prefs + b_prefs):.2%}). {result}"
-                )
+                total = a_prefs + b_prefs
+                if total > 0:
+                    lines.append(
+                        f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):.2%} - {b_prefs / (a_prefs + b_prefs):.2%}). {result}"
+                    )
+                else:
+                    lines.append(f"- {a} vs {b}: 0 - 0 (tied on all ballots). {result}")
 
         scores = {
             c: candidate_stats[c]["wins"] + 0.5 * candidate_stats[c]["ties"]
