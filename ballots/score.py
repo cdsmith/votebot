@@ -113,10 +113,11 @@ class ScoreBallot(Ballot):
         if self.page < self.total_pages() - 1:
             view.add_item(NextPageButton(self, session_id))
 
-        embed = discord.Embed(
-            title=self.election.title,
-            description="Rate candidates from 0 to 5 stars.",
-        ).set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
+        instruction = "Rate candidates from 0 to 5 stars."
+
+        embed = discord.Embed(title=self.election.title, description=instruction)
+        if self.total_pages() > 1:
+            embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
 
         return {
             "embed": embed,
@@ -128,10 +129,7 @@ class ScoreBallot(Ballot):
         for c in self.election.candidates:
             r = self.ratings.get(c, 0)
             embed.add_field(name=c, value=" ".join([STAR] * r), inline=False)
-        return {
-            "content": "Your vote has been submitted.",
-            "embed": embed,
-        }
+        return {"content": "Your vote has been submitted.", "embed": embed}
 
     def copy(self) -> "ScoreBallot":
         ballot = ScoreBallot(self.election)

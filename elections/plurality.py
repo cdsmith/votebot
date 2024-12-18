@@ -12,8 +12,9 @@ class PluralityElection(Election):
     def tabulate(self) -> tuple[list[str], str]:
         counts = {c: 0 for c in self.candidates}
         for ballot in self.submitted_ballots.values():
-            if ballot.vote in counts:
-                counts[ballot.vote] += 1
+            for candidate in ballot.votes:
+                if candidate in counts:
+                    counts[candidate] += 1
         sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
         if counts:
             max_score = max(counts.values())

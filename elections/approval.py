@@ -1,13 +1,13 @@
 from election import Election
-from ballots.multichoice import MultiChoiceBallot
+from ballots.simple import SimpleBallot
 
 
 class ApprovalElection(Election):
     def name(self) -> str:
         return "Approval"
 
-    def blank_ballot(self) -> MultiChoiceBallot:
-        return MultiChoiceBallot(self)
+    def blank_ballot(self) -> SimpleBallot:
+        return SimpleBallot(self, multiple_votes=True)
 
     def tabulate(self) -> tuple[list[str], str]:
         counts = {c: 0 for c in self.candidates}
