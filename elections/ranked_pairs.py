@@ -29,13 +29,16 @@ class RankedPairsElection(Election):
             a_wins = pairwise[(a, b)]
             b_wins = pairwise[(b, a)]
             if a_wins > b_wins:
-                lines.append(f"- {a} defeats {b}: {a_wins}-{b_wins}")
+                if a < b:
+                    lines.append(f"- {a} defeats {b}: {a_wins}-{b_wins}")
                 margins[(a, b)] = a_wins - b_wins
             elif b_wins > a_wins:
-                lines.append(f"- {b} defeats {a}: {b_wins}-{a_wins}")
+                if a < b:
+                    lines.append(f"- {b} defeats {a}: {b_wins}-{a_wins}")
                 margins[(b, a)] = b_wins - a_wins
             else:
-                lines.append(f"- {a} and {b} tie: {a_wins}-{b_wins}")
+                if a < b:
+                    lines.append(f"- {a} and {b} tie: {a_wins}-{b_wins}")
 
         lines.append("")
         lines.append("**Locked rankings:**")
