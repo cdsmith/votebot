@@ -32,6 +32,16 @@ This is a Discord bot that facilitates running elections using various voting me
 
 ## Setup
 
+You can use this bot by simply adding it to your server (easiest) or by running your own instance.  You only need to run your own instance if you plan to make changes to the code.
+
+### Adding to a server
+
+To add the bot to your server, simply visit the [authorization link](https://discord.com/oauth2/authorize?client_id=1318357026493042799&permissions=2048&integration_type=0&scope=bot) in your web browser, and authorize it to join.  Once the bot has joined the server, you can use the `/election` command to begin an election, and the `/end_election` command to end it and report results.
+
+### Running your own instance
+
+Note that you ONLY need to run your own instance if you plan to make changes to the code.  If you just want to use the bot, you can add it to your server as described above.
+
 1. **Clone the repository**:
    ```bash
    git clone git@github.com:cdsmith/votebot.git
@@ -107,17 +117,16 @@ To implement a new election method, define a new subclass of `Election`.  You wi
         pass
 
     @abc.abstractmethod
-    def get_winners(self) -> list[str]:
-        """Return list of winners (usually one, but multiple in case of a tie)."""
-        pass
+    def tabulate(self) -> tuple[list[str], str]:
+        """Returns tabulated results.
 
-    @abc.abstractmethod
-    def get_tabulation_details(self) -> str:
-        """Return an explanation of how the winner was computed."""
+        The first result should be a list of winners (usually one, but multiple in case of a tie)
+        The second result should be an explanation of how the winner was chosen.
+        """
         pass
 ```
 
-This is generally the easiest kind of extension you can make.
+This is generally the easiest kind of extension you can make.  The code is self-contained and doesn't rely on Discord APIs or other complex systems.  You can refer to the existing `Election` subclasses for hints on implementation.
 
 ### Implementing a new ballot format
 
