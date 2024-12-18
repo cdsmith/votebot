@@ -33,7 +33,7 @@ method_choices = [
     discord.app_commands.Choice(name=name, value=name) for name in METHODS
 ]
 
-ongoing_elections: dict[int, Election] = {}
+ongoing_elections: dict[tuple[int, str], Election] = {}
 
 
 @client.event
@@ -57,6 +57,14 @@ async def start_election(
     candidates: str,
     description: str = "",
 ):
+    title = title.strip()
+    if (interaction.channel_id, title) in ongoing_elections:
+        await interaction.response.send_message(
+            f"An election with the title `{title}` is already ongoing in this channel.",
+            ephemeral=True,
+        )
+        return
+
     method_class = METHODS.get(method)
     if not method_class:
         await interaction.response.send_message(
@@ -74,26 +82,28 @@ async def start_election(
     election = method_class(
         title=title, description=description, candidates=candidate_list
     )
-    ongoing_elections[interaction.channel_id] = election
+    ongoing_elections[(interaction.channel_id, title)] = election
 
     await interaction.response.send_message(**election.get_public_view())
     election.original_message = await interaction.original_response()
 
 
 @tree.command(
-    name="end_election", description="Ends the current election and shows results."
+    name="end_election", description="Ends an election in this channel and shows results."
 )
 @discord.app_commands.describe(
+    title="The title of the election to end",
     details="Whether to show detailed results (if false, just the winner)"
 )
-async def end_election(interaction: discord.Interaction, details: bool):
-    election = ongoing_elections.pop(interaction.channel_id, None)
+async def end_election(interaction: discord.Interaction, title: str, details: bool = True):
+    title = title.strip()
+    election = ongoing_elections.pop((interaction.channel_id, title), None)
     if not election:
         await interaction.response.send_message(
-            "No active election in this channel.", ephemeral=True
+            f"No active election with the title `{title}` in this channel.",
+            ephemeral=True,
         )
         return
-
     results_embed = election.get_results(show_details=details).set_footer(text=f"Computed using {election.name()}")
     await interaction.response.send_message(embed=results_embed)
 
