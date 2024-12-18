@@ -36,7 +36,7 @@ class MultiChoiceBallot(Ballot):
 
         class SubmitButton(discord.ui.Button):
             def __init__(self, ballot: "MultiChoiceBallot", session_id: int):
-                super().__init__(style=discord.ButtonStyle.green, label="Submit Vote")
+                super().__init__(style=discord.ButtonStyle.green, label="Submit Vote", row=4)
                 self.ballot = ballot
                 self.session_id = session_id
 
