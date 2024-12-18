@@ -2,14 +2,26 @@ from ballot import Ballot
 from typing import Any
 import discord
 from election import Election
+import math
 
 STAR = "⭐"
+CANDIDATES_PER_PAGE = 4
 
 
 class ScoreBallot(Ballot):
     def __init__(self, election: Election):
         self.election: Election = election
         self.ratings: dict[str, int] = {}
+        self.page: int = 0
+        self.visited_pages: set[int] = set()
+
+    def total_pages(self) -> int:
+        return math.ceil(len(self.election.candidates) / CANDIDATES_PER_PAGE)
+
+    def candidates_on_page(self) -> list[str]:
+        start = self.page * CANDIDATES_PER_PAGE
+        end = start + CANDIDATES_PER_PAGE
+        return self.election.candidates[start:end]
 
     def render_interim(self, session_id: int) -> dict[str, Any]:
         class CandidateSelect(discord.ui.Select):
@@ -37,9 +49,51 @@ class ScoreBallot(Ballot):
                         **self.ballot.render_interim(session_id)
                     )
 
+        class NextPageButton(discord.ui.Button):
+            def __init__(self, ballot: "ScoreBallot", session_id: int):
+                super().__init__(
+                    style=discord.ButtonStyle.primary, label="Next Page", row=4
+                )
+                self.ballot = ballot
+                self.session_id = session_id
+
+            async def callback(self, interaction: discord.Interaction):
+                if await self.ballot.election.check_session(
+                    interaction, self.session_id
+                ):
+                    if self.ballot.page < self.ballot.total_pages() - 1:
+                        self.ballot.page += 1
+                    else:
+                        self.ballot.page = 0
+                    await interaction.response.edit_message(
+                        **self.ballot.render_interim(self.session_id)
+                    )
+
+        class PrevPageButton(discord.ui.Button):
+            def __init__(self, ballot: "ScoreBallot", session_id: int):
+                super().__init__(
+                    style=discord.ButtonStyle.primary, label="Prev Page", row=4
+                )
+                self.ballot = ballot
+                self.session_id = session_id
+
+            async def callback(self, interaction: discord.Interaction):
+                if await self.ballot.election.check_session(
+                    interaction, self.session_id
+                ):
+                    if self.ballot.page > 0:
+                        self.ballot.page -= 1
+                    else:
+                        self.ballot.page = self.ballot.total_pages() - 1
+                    await interaction.response.edit_message(
+                        **self.ballot.render_interim(self.session_id)
+                    )
+
         class SubmitButton(discord.ui.Button):
             def __init__(self, ballot: "ScoreBallot", session_id: int):
-                super().__init__(style=discord.ButtonStyle.green, label="Submit Vote")
+                super().__init__(
+                    style=discord.ButtonStyle.green, label="Submit Vote", row=4
+                )
                 self.ballot = ballot
                 self.session_id = session_id
 
@@ -47,17 +101,25 @@ class ScoreBallot(Ballot):
                 if await self.ballot.election.check_session(interaction, session_id):
                     await self.ballot.election.submit_ballot(interaction)
 
+        self.visited_pages.add(self.page)
+
         view = discord.ui.View()
-        for c in self.election.candidates:
+        for c in self.candidates_on_page():
             view.add_item(CandidateSelect(self, c, session_id))
-        if self.ratings:
+        if self.page > 0:
+            view.add_item(PrevPageButton(self, session_id))
+        if self.ratings and len(self.visited_pages) >= self.total_pages():
             view.add_item(SubmitButton(self, session_id))
+        if self.page < self.total_pages() - 1:
+            view.add_item(NextPageButton(self, session_id))
+
+        embed = discord.Embed(
+            title=self.election.title,
+            description="Rate candidates from 0 to 5 stars.",
+        ).set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
 
         return {
-            "embed": discord.Embed(
-                title=self.election.title,
-                description="Rate candidates from 0 to 5 stars.",
-            ),
+            "embed": embed,
             "view": view,
         }
 
@@ -74,4 +136,9 @@ class ScoreBallot(Ballot):
     def copy(self) -> "ScoreBallot":
         ballot = ScoreBallot(self.election)
         ballot.ratings = self.ratings.copy()
+        ballot.visited_pages = self.visited_pages.copy()
+
+        # Page number is transient and should not be copied to a duplicate ballot.
+        ballot.page = 0
+
         return ballot
