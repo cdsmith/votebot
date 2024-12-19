@@ -12,6 +12,7 @@ from elections.ranked_pairs import RankedPairsElection
 from elections.rivestshen import RivestShenGTElection
 from elections.tideman_alt import TidemanAlternativeElection
 from elections.borda import BordaElection
+from elections.kemeny_young import KemenyYoungElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -25,6 +26,7 @@ METHODS = {
     "Borda Count": BordaElection,
     "Copeland": CopelandElection,
     "Instant Runoff": IRVElection,
+    "Kemeny-Young": KemenyYoungElection,
     "Plurality": PluralityElection,
     "Ranked Pairs": RankedPairsElection,
     "Rivest-Shen GT": RivestShenGTElection,
