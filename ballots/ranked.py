@@ -26,7 +26,7 @@ class RankedBallot(Ballot):
         self, candidates: list[str], session_id: int
     ) -> list[discord.ui.Item]:
         remaining_candidates = [
-            c for c in self.election.candidates if c not in self.ranking
+            c for c in candidates if c not in self.ranking
         ]
 
         class CandidateSelect(discord.ui.Select):

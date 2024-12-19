@@ -47,7 +47,7 @@ class ScoreBallot(Ballot):
 
     def to_markdown(self) -> str:
         lines = []
-        for c in self.election.candidates:
+        for c in self.candidates:
             r = self.ratings.get(c, 0)
             stars = " ".join([STAR] * r) if r else "(zero stars)"
             lines.append(f"**{c}**:\n{stars}")

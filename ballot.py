@@ -4,6 +4,7 @@ import copy
 from election import Election
 import math
 import discord
+import random
 
 
 class Ballot(abc.ABC):
@@ -12,6 +13,8 @@ class Ballot(abc.ABC):
         self.instructions: str = instructions
         self.page: int = 0
         self.visited_pages: set[int] = set()
+        self.candidates = list(election.candidates)
+        random.shuffle(self.candidates)
 
     def copy(self) -> "Ballot":
         """Return a duplicate Ballot with the same data as this one."""
@@ -29,16 +32,16 @@ class Ballot(abc.ABC):
 
     def total_pages(self) -> int:
         per_page = self.candidates_per_page()
-        return math.ceil(len(self.election.candidates) / per_page) if per_page else 1
+        return math.ceil(len(self.candidates) / per_page) if per_page else 1
 
     def candidates_on_page(self) -> list[str]:
         per_page = self.candidates_per_page()
         if per_page:
             start = self.page * per_page
             end = start + per_page
-            return self.election.candidates[start:end]
+            return self.candidates[start:end]
         else:
-            return self.election.candidates
+            return self.candidates
 
     def render_interim(self, session_id: int) -> dict[str, Any]:
         class NextPageButton(discord.ui.Button):
