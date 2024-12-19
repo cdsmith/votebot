@@ -48,9 +48,9 @@ class KemenyYoungElection(Election):
                     score += pairwise_preference[a][b]
             if score > best_score:
                 best_score = score
-                best_rankings = [permutation]
+                best_permutation = [permutation]
             elif score == best_score:
-                best_rankings.append(permutation)
+                best_permutation.append(permutation)
 
         lines.append(f"**Best Kemeny Score**: {best_score}")
         if len(best_permutation) == 1:
@@ -61,5 +61,5 @@ class KemenyYoungElection(Election):
             for r in best_permutation:
                 lines.append("- " + ", ".join(r))
 
-        winners = list(set(r[0] for r in best_rankings))
+        winners = list(set(r[0] for r in best_permutation))
         return winners, "\n".join(lines)
