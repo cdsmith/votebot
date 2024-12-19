@@ -2,17 +2,7 @@ import os
 import discord
 import dotenv
 from election import Election
-from elections.plurality import PluralityElection
-from elections.approval import ApprovalElection
-from elections.copeland import CopelandElection
-from elections.score import ScoreElection
-from elections.star import STARElection
-from elections.irv import IRVElection
-from elections.ranked_pairs import RankedPairsElection
-from elections.rivestshen import RivestShenGTElection
-from elections.tideman_alt import TidemanAlternativeElection
-from elections.borda import BordaElection
-from elections.kemeny_young import KemenyYoungElection
+import methods
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -21,22 +11,8 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 
-METHODS = {
-    "Approval": ApprovalElection,
-    "Borda Count": BordaElection,
-    "Copeland": CopelandElection,
-    "Instant Runoff": IRVElection,
-    "Kemeny-Young": KemenyYoungElection,
-    "Plurality": PluralityElection,
-    "Ranked Pairs": RankedPairsElection,
-    "Rivest-Shen GT": RivestShenGTElection,
-    "Score": ScoreElection,
-    "STAR": STARElection,
-    "Tideman's Alternative Method": TidemanAlternativeElection,
-}
-
 method_choices = [
-    discord.app_commands.Choice(name=name, value=name) for name in METHODS
+    discord.app_commands.Choice(name=name, value=name) for name in methods.NAMED_METHODS
 ]
 
 ongoing_elections: dict[tuple[int, str], Election] = {}
@@ -71,10 +47,10 @@ async def start_election(
         )
         return
 
-    method_class = METHODS.get(method)
+    method_class = methods.NAMED_METHODS.get(method)
     if not method_class:
         await interaction.response.send_message(
-            f"Unknown method `{method}`. Available methods: {', '.join(METHODS.keys())}",
+            f"Unknown method `{method}`. Available methods: {', '.join(methods.NAMED_METHODS.keys())}",
             ephemeral=True,
         )
         return
@@ -114,7 +90,7 @@ async def end_election(
         )
         return
     results_embed = election.get_results(show_details=details).set_footer(
-        text=f"Computed using {election.name()}"
+        text=f"Computed using {election.method_name()}"
     )
     await interaction.response.send_message(embed=results_embed)
 

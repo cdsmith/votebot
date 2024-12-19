@@ -3,8 +3,10 @@ from ballots.ranked import RankedBallot
 from typing import Iterable
 from ballot import Ballot
 
+
 class BordaElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Borda Count"
 
     def blank_ballot(self) -> RankedBallot:
@@ -18,7 +20,7 @@ class BordaElection(Election):
         scores = {c: 0 for c in candidates}
         for ballot in ballots:
             for i, candidate in enumerate(ballot.ranking):
-                scores[candidate] += (num_candidates - 1 - i)
+                scores[candidate] += num_candidates - 1 - i
 
         sorted_candidates = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 

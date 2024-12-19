@@ -40,7 +40,7 @@ class Election(abc.ABC):
                 value="\n".join(f"- {c}" for c in self.candidates),
                 inline=False,
             )
-            .add_field(name="Method", value=self.name(), inline=False)
+            .add_field(name="Method", value=self.method_name(), inline=False)
             .set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
         )
 
@@ -141,8 +141,9 @@ class Election(abc.ABC):
             embed.add_field(name="Details", value=details, inline=False)
         return embed
 
+    @classmethod
     @abc.abstractmethod
-    def name(self) -> str:
+    def method_name(self) -> str:
         """Return the name of the election method."""
         pass
 

@@ -5,7 +5,8 @@ from typing import Iterable
 
 
 class CopelandElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Copeland"
 
     def blank_ballot(self) -> RankedBallot:

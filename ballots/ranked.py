@@ -25,9 +25,7 @@ class RankedBallot(Ballot):
     def get_items(
         self, candidates: list[str], session_id: int
     ) -> list[discord.ui.Item]:
-        remaining_candidates = [
-            c for c in candidates if c not in self.ranking
-        ]
+        remaining_candidates = [c for c in candidates if c not in self.ranking]
 
         class CandidateSelect(discord.ui.Select):
             def __init__(inner_self, candidates: list[str], partial: bool):

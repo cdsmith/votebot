@@ -8,7 +8,8 @@ from typing import Iterable
 
 
 class RivestShenGTElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Rivest-Shen GT"
 
     def blank_ballot(self) -> RankedBallot:

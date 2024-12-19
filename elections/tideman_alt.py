@@ -7,7 +7,8 @@ from typing import Iterable
 
 
 class TidemanAlternativeElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Tideman's Alternative Method"
 
     def blank_ballot(self) -> RankedBallot:

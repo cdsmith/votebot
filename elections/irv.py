@@ -6,7 +6,8 @@ from typing import Iterable
 
 
 class IRVElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Instant Runoff"
 
     def blank_ballot(self) -> RankedBallot:

@@ -4,8 +4,10 @@ from typing import Iterable
 from ballot import Ballot
 import itertools
 
+
 class KemenyYoungElection(Election):
-    def name(self) -> str:
+    @classmethod
+    def method_name(self) -> str:
         return "Kemeny-Young"
 
     def blank_ballot(self) -> RankedBallot:
@@ -19,10 +21,12 @@ class KemenyYoungElection(Election):
 
         lines = []
 
-        pairwise_preference = {a: {b: 0 for b in self.candidates if b != a} for a in self.candidates}
+        pairwise_preference = {
+            a: {b: 0 for b in self.candidates if b != a} for a in self.candidates
+        }
         for ballot in ballots:
             for i, a in enumerate(ballot.ranking):
-                for b in ballot.ranking[i+1:]:
+                for b in ballot.ranking[i + 1 :]:
                     pairwise_preference[a][b] += 1
                 for c in self.candidates:
                     if c not in ballot.ranking:
@@ -35,7 +39,9 @@ class KemenyYoungElection(Election):
                     a_prefs = pairwise_preference[a][b]
                     b_prefs = pairwise_preference[b][a]
                     if a_prefs + b_prefs > 0:
-                        lines.append(f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):2%} - {b_prefs / (a_prefs + b_prefs):2%})")
+                        lines.append(
+                            f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):2%} - {b_prefs / (a_prefs + b_prefs):2%})"
+                        )
                     else:
                         lines.append(f"- {a} vs {b}: 0 - 0")
 
@@ -44,7 +50,7 @@ class KemenyYoungElection(Election):
         for permutation in itertools.permutations(self.candidates):
             score = 0
             for i, a in enumerate(permutation):
-                for b in permutation[i+1:]:
+                for b in permutation[i + 1 :]:
                     score += pairwise_preference[a][b]
             if score > best_score:
                 best_score = score
