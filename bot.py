@@ -11,6 +11,7 @@ from elections.irv import IRVElection
 from elections.ranked_pairs import RankedPairsElection
 from elections.rivestshen import RivestShenGTElection
 from elections.tideman_alt import TidemanAlternativeElection
+from elections.borda import BordaElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -20,14 +21,15 @@ client = discord.Client(intents=intents)
 tree = discord.app_commands.CommandTree(client)
 
 METHODS = {
-    "Plurality": PluralityElection,
     "Approval": ApprovalElection,
+    "Borda Count": BordaElection,
     "Copeland": CopelandElection,
-    "Score": ScoreElection,
-    "STAR": STARElection,
-    "IRV": IRVElection,
+    "Instant Runoff": IRVElection,
+    "Plurality": PluralityElection,
     "Ranked Pairs": RankedPairsElection,
     "Rivest-Shen GT": RivestShenGTElection,
+    "Score": ScoreElection,
+    "STAR": STARElection,
     "Tideman's Alternative Method": TidemanAlternativeElection,
 }
 

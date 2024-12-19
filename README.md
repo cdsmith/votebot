@@ -7,16 +7,16 @@ This is a Discord bot that facilitates running elections using various voting me
 ### What it does
 
 - **Multiple Voting Methods**: The intent is to implement most commonly used single-winner and multi-winner election methods.  Current support includes:
-  - **Plurality**: Voters choose a single candidate.  The candidate with the most votes wins.
   - **Approval**: Voters approve any number of candidates. The candidate with the most approvals wins.
+  - **Borda Count**: Voters rank candidates, and candidates are awarded points based on their position in the ranking. The candidate with the highest Borda count wins.
   - **Copeland**: Voters rank candidates, and the candidate who wins the most head-to-head comparisons is chosen.  This gives a Condorcet-consistent result.
-  - **Score**: Voters rate candidates from 0 to 5 stars, and the candidate with the highest average score wins.
-  - **STAR**: Voters rate candidates from 0 to 5 stars.  The two candidates with the highest average scores advance to a runoff, in which the candidate preferred by the most ballots wins.
-  - **IRV**: Voters rank candidates, and the candidate with the fewest first-place votes is eliminated in each round until a candidate has a majority of first-place votes.
+  - **Instant Runoff**: Voters rank candidates, and the candidate with the fewest first-place votes is eliminated in each round until a candidate has a majority of first-place votes.  Also known as RCV ("Ranked Choice Voting").
+  - **Plurality**: Voters choose a single candidate.  The candidate with the most votes wins. Also known as FPTP ("First Past the Post").
   - **Ranked Pairs**: Voters rank candidates, and a consistent candidate ordering is chosen from the strongest pairwise preferences.
   - **Rivest-Shen GT**: Voters rank candidates, and the winner is chosen according to the unique strategy that maximizes the expected number of voters preferring this outcome versus any alternative.  This is Condorcet-consistent, but when there is no Condorcet winner, a winner is chosen partially by chance.
-  - **Tideman's Alternative Method**: Voters rank candidates.  In each round,
-  if there are candidates not in the Smith set, they are eliminated.  Otherwise, the candidate with the fewest first-place votes is eliminated.  A winner is chosen when a candidate has a majority of first-place votes.
+  - **Score**: Voters rate candidates from 0 to 5 stars, and the candidate with the highest average score wins.
+  - **STAR**: Voters rate candidates from 0 to 5 stars.  The two candidates with the highest average scores advance to a runoff, in which the candidate preferred by the most ballots wins.
+  - **Tideman's Alternative Method**: Voters rank candidates.  In each round, if there are candidates not in the Smith set, they are eliminated.  Otherwise, the candidate with the fewest first-place votes is eliminated.  A winner is chosen when a candidate has a majority of first-place votes.
 
 - **Private and Interactive Ballots**:  
   Users click a "Vote" button on the public election message to open a private, ephemeral ballot. They can select or rearrange their choices using Discord’s message components (buttons, selects), and submit when ready.
