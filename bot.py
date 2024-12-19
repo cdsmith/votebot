@@ -10,6 +10,7 @@ from elections.star import STARElection
 from elections.irv import IRVElection
 from elections.ranked_pairs import RankedPairsElection
 from elections.rivestshen import RivestShenGTElection
+from elections.tideman_alt import TidemanAlternativeElection
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -27,6 +28,7 @@ METHODS = {
     "IRV": IRVElection,
     "Ranked Pairs": RankedPairsElection,
     "Rivest-Shen GT": RivestShenGTElection,
+    "Tideman's Alternative Method": TidemanAlternativeElection,
 }
 
 method_choices = [
