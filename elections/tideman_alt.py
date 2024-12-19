@@ -2,6 +2,8 @@ from election import Election
 from ballots.ranked import RankedBallot
 import random
 from collections import defaultdict
+from ballot import Ballot
+from typing import Iterable
 
 
 class TidemanAlternativeElection(Election):
@@ -11,7 +13,7 @@ class TidemanAlternativeElection(Election):
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         lines = []
         active_candidates = set(self.candidates)
         round_num = 1
@@ -22,7 +24,7 @@ class TidemanAlternativeElection(Election):
             total_exhausted = 0
 
             # Count first-place votes for active candidates
-            for ballot in self.submitted_ballots.values():
+            for ballot in ballots:
                 active = [c for c in ballot.ranking if c in active_candidates]
                 if active:
                     counts[active[0]] += 1
@@ -58,7 +60,7 @@ class TidemanAlternativeElection(Election):
                 a: {b: 0 for b in active_candidates if b != a}
                 for a in active_candidates
             }
-            for ballot in self.submitted_ballots.values():
+            for ballot in ballots:
                 ranking = [c for c in ballot.ranking if c in active_candidates]
                 for i in range(len(ranking)):
                     for j in range(i + 1, len(ranking)):

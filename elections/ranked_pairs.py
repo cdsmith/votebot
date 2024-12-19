@@ -1,5 +1,7 @@
 from election import Election
 from ballots.ranked import RankedBallot
+from ballot import Ballot
+from typing import Iterable
 
 
 class RankedPairsElection(Election):
@@ -9,11 +11,11 @@ class RankedPairsElection(Election):
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         pairwise = {
             (a, b): 0 for a in self.candidates for b in self.candidates if a != b
         }
-        for ballot in self.submitted_ballots.values():
+        for ballot in ballots:
             for i, a in enumerate(ballot.ranking):
                 for b in ballot.ranking[i + 1 :]:
                     pairwise[(a, b)] += 1

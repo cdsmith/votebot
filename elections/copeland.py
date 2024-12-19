@@ -1,5 +1,7 @@
 from election import Election
 from ballots.ranked import RankedBallot
+from ballot import Ballot
+from typing import Iterable
 
 
 class CopelandElection(Election):
@@ -17,7 +19,7 @@ class CopelandElection(Election):
         else:
             return []
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if not self.candidates:
             return [], "No candidates were found."
 
@@ -33,7 +35,7 @@ class CopelandElection(Election):
                 b = self.candidates[j]
                 a_prefs = 0
                 b_prefs = 0
-                for ballot in self.submitted_ballots.values():
+                for ballot in ballots:
                     a_pos = (
                         ballot.ranking.index(a)
                         if a in ballot.ranking

@@ -1,5 +1,7 @@
 from election import Election
 from ballots.score import ScoreBallot
+from ballot import Ballot
+from typing import Iterable
 
 
 class STARElection(Election):
@@ -9,15 +11,16 @@ class STARElection(Election):
     def blank_ballot(self) -> ScoreBallot:
         return ScoreBallot(self)
 
-    def tabulate(self) -> tuple[list[str], str]:
-        if not self.submitted_ballots:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
+        ballots = list(ballots)
+        if not ballots:
             return [], "No ballots were submitted."
         scores = {c: 0 for c in self.candidates}
-        for ballot in self.submitted_ballots.values():
+        for ballot in ballots:
             for cand, rating in ballot.ratings.items():
                 if cand in scores:
                     scores[cand] += rating
-        scores = {c: s / len(self.submitted_ballots) for c, s in scores.items()}
+        scores = {c: s / len(ballots) for c, s in scores.items()}
         sorted_candidates = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
         lines = ["**Average Scores:**"]
@@ -44,7 +47,7 @@ class STARElection(Election):
 
         a_preferred = 0
         b_preferred = 0
-        for ballot in self.submitted_ballots.values():
+        for ballot in ballots:
             a_score = ballot.ratings.get(finalist_a, 0)
             b_score = ballot.ratings.get(finalist_b, 0)
             if a_score > b_score:

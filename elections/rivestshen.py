@@ -3,6 +3,8 @@ from ballots.ranked import RankedBallot
 import numpy as np
 from scipy.optimize import minimize, LinearConstraint
 import random
+from ballot import Ballot
+from typing import Iterable
 
 
 class RivestShenGTElection(Election):
@@ -12,13 +14,11 @@ class RivestShenGTElection(Election):
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if not self.candidates:
             return [], "No candidates were found."
 
         m = len(self.candidates)
-        ballots = list(self.submitted_ballots.values())
-
         M = [[0] * m for _ in range(m)]
 
         for i in range(m):

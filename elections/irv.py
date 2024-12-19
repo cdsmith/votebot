@@ -1,6 +1,8 @@
 from election import Election
 from ballots.ranked import RankedBallot
 import random
+from ballot import Ballot
+from typing import Iterable
 
 
 class IRVElection(Election):
@@ -10,7 +12,7 @@ class IRVElection(Election):
     def blank_ballot(self) -> RankedBallot:
         return RankedBallot(self)
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         lines = []
         active_candidates = set(self.candidates)
         round = 1
@@ -20,7 +22,7 @@ class IRVElection(Election):
             total_ballots = 0
             total_exhausted = 0
 
-            for ballot in self.submitted_ballots.values():
+            for ballot in ballots:
                 active = [c for c in ballot.ranking if c in active_candidates]
                 if active:
                     counts[active[0]] += 1

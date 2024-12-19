@@ -1,6 +1,6 @@
 from __future__ import annotations
 import abc
-from typing import Any, TYPE_CHECKING
+from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import time
 
@@ -115,7 +115,7 @@ class Election(abc.ABC):
 
     def get_results(self, show_details: bool = True) -> discord.Embed:
         self.open = False
-        winners, details = self.tabulate()
+        winners, details = self.tabulate(self.submitted_ballots.values())
         embed = discord.Embed(title=f"Results for {self.title}", color=0x00FF00)
         if len(winners) == 0:
             embed.add_field(name="Winners", value="No winner determined", inline=False)
@@ -143,7 +143,7 @@ class Election(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         """Returns tabulated results.
 
         The first result should be a list of winners (usually one, but multiple in case of a tie)

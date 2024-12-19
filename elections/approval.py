@@ -1,5 +1,7 @@
 from election import Election
 from ballots.simple import SimpleBallot
+from ballot import Ballot
+from typing import Iterable
 
 
 class ApprovalElection(Election):
@@ -9,9 +11,9 @@ class ApprovalElection(Election):
     def blank_ballot(self) -> SimpleBallot:
         return SimpleBallot(self, multiple_votes=True)
 
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         counts = {c: 0 for c in self.candidates}
-        for ballot in self.submitted_ballots.values():
+        for ballot in ballots:
             for cand in ballot.votes:
                 if cand in counts:
                     counts[cand] += 1
