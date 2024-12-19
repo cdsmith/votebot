@@ -91,13 +91,16 @@ async def start_election(
 
 
 @tree.command(
-    name="end_election", description="Ends an election in this channel and shows results."
+    name="end_election",
+    description="Ends an election in this channel and shows results.",
 )
 @discord.app_commands.describe(
     title="The title of the election to end",
-    details="Whether to show detailed results (if false, just the winner)"
+    details="Whether to show detailed results (if false, just the winner)",
 )
-async def end_election(interaction: discord.Interaction, title: str, details: bool = True):
+async def end_election(
+    interaction: discord.Interaction, title: str, details: bool = True
+):
     title = title.strip()
     election = ongoing_elections.pop((interaction.channel_id, title), None)
     if not election:
@@ -106,7 +109,9 @@ async def end_election(interaction: discord.Interaction, title: str, details: bo
             ephemeral=True,
         )
         return
-    results_embed = election.get_results(show_details=details).set_footer(text=f"Computed using {election.name()}")
+    results_embed = election.get_results(show_details=details).set_footer(
+        text=f"Computed using {election.name()}"
+    )
     await interaction.response.send_message(embed=results_embed)
 
 

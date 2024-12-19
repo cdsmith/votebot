@@ -1,5 +1,5 @@
 from ballot import Ballot
-from typing import Any, Optional
+from typing import Optional
 import discord
 from election import Election
 

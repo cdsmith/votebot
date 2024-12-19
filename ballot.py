@@ -5,6 +5,7 @@ from election import Election
 import math
 import discord
 
+
 class Ballot(abc.ABC):
     def __init__(self, election: Election, instructions: str):
         self.election: Election = election
@@ -52,6 +53,7 @@ class Ballot(abc.ABC):
                         self.page += 1
                     else:
                         self.page = 0
+
                 await self.modify(modification, interaction, session_id)
 
         class PrevPageButton(discord.ui.Button):
@@ -66,6 +68,7 @@ class Ballot(abc.ABC):
                         self.page -= 1
                     else:
                         self.page = self.total_pages() - 1
+
                 await self.modify(modification, interaction, session_id)
 
         class SubmitButton(discord.ui.Button):
@@ -80,13 +83,16 @@ class Ballot(abc.ABC):
 
         class ResetButton(discord.ui.Button):
             def __init__(_):
-                super().__init__(style=discord.ButtonStyle.danger, label="Start Over", row=4)
+                super().__init__(
+                    style=discord.ButtonStyle.danger, label="Start Over", row=4
+                )
 
             async def callback(_, interaction: discord.Interaction):
                 def modification():
                     self.clear()
                     self.visited_pages.clear()
                     self.page = 0
+
                 await self.modify(modification, interaction, session_id)
 
         self.visited_pages.add(self.page)
@@ -101,9 +107,9 @@ class Ballot(abc.ABC):
             view.add_item(NextPageButton())
         view.add_item(ResetButton())
 
-        embed = discord.Embed(title=self.election.title,
-                              description=self.instructions).add_field(
-                name="Current vote", value=self.to_markdown(), inline=False)
+        embed = discord.Embed(
+            title=self.election.title, description=self.instructions
+        ).add_field(name="Current vote", value=self.to_markdown(), inline=False)
         if self.total_pages() > 1:
             embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
 
@@ -116,20 +122,11 @@ class Ballot(abc.ABC):
         self,
         modification: Callable[[], None],
         interaction: discord.Interaction,
-        session_id: int
+        session_id: int,
     ) -> None:
         if await self.election.check_session(interaction, session_id):
             modification()
-            await interaction.response.edit_message(
-                **self.render_interim(session_id)
-            )
-
-    async def modify(self, modification, interaction: discord.Interaction, session_id: int):
-        if await self.election.check_session(interaction, session_id):
-            modification()
-            await interaction.response.edit_message(
-                **self.render_interim(session_id)
-            )
+            await interaction.response.edit_message(**self.render_interim(session_id))
 
     def render_submitted(self) -> dict[str, Any]:
         embed = discord.Embed(title="Vote Submitted").add_field(
@@ -150,7 +147,9 @@ class Ballot(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_items(self, candidates: list[str], session_id: int) -> list[discord.ui.Item]:
+    def get_items(
+        self, candidates: list[str], session_id: int
+    ) -> list[discord.ui.Item]:
         """Return a list of discord.Item objects for a page of candidates."""
         pass
 

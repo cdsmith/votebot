@@ -69,7 +69,7 @@ class STARElection(Election):
             winners = [finalist_b]
         else:
             lines.append("")
-            lines.append(f"It's a tie.")
+            lines.append("It's a tie.")
             winners = [finalist_a, finalist_b]
 
         return winners, "\n".join(lines)

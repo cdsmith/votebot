@@ -4,8 +4,10 @@ from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import time
 
+
 if TYPE_CHECKING:
     from ballot import Ballot
+
 
 class Election(abc.ABC):
     def __init__(self, title: str, description: str, candidates: list[str]):
@@ -28,14 +30,19 @@ class Election(abc.ABC):
             async def callback(self, interaction: discord.Interaction):
                 await self.election.send_ballot(interaction)
 
-        embed = discord.Embed(
-            title=self.title,
-            description=self.description,
-        ).add_field(
-            name="Candidates", value="\n".join(f"- {c}" for c in self.candidates), inline=False
-        ).add_field(
-            name="Method", value=self.name(), inline=False
-        ).set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
+        embed = (
+            discord.Embed(
+                title=self.title,
+                description=self.description,
+            )
+            .add_field(
+                name="Candidates",
+                value="\n".join(f"- {c}" for c in self.candidates),
+                inline=False,
+            )
+            .add_field(name="Method", value=self.name(), inline=False)
+            .set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
+        )
 
         return {
             "embed": embed,
@@ -126,7 +133,9 @@ class Election(abc.ABC):
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
             embed.add_field(
-                name="Winners (Tie)", value=f":trophy: {winners_str} :trophy:", inline=False
+                name="Winners (Tie)",
+                value=f":trophy: {winners_str} :trophy:",
+                inline=False,
             )
         if show_details:
             embed.add_field(name="Details", value=details, inline=False)

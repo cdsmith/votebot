@@ -1,8 +1,6 @@
 from ballot import Ballot
-from typing import Any
 import discord
 from election import Election
-import math
 
 STAR = "⭐"
 

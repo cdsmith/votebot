@@ -81,10 +81,10 @@ class CopelandElection(Election):
         lines.append("")
         lines.append("**Scores (number of head-to-head wins):**")
         for c, sc in sorted_scores:
-            w = candidate_stats[c]["wins"]
-            l = candidate_stats[c]["losses"]
-            t = candidate_stats[c]["ties"]
-            lines.append(f"- {c}: {w} wins, {l} losses, {t} ties = {sc}")
+            wins = candidate_stats[c]["wins"]
+            losses = candidate_stats[c]["losses"]
+            ties = candidate_stats[c]["ties"]
+            lines.append(f"- {c}: {wins} wins, {losses} losses, {ties} ties = {sc}")
 
         winners = [c for c, sc in sorted_scores if sc == sorted_scores[0][1]]
         return winners, "\n".join(lines)
