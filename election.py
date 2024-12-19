@@ -70,9 +70,16 @@ class Election(abc.ABC):
         self, interaction: discord.Interaction, session_id: int
     ) -> bool:
         """Check if the interaction is part of the current session."""
+        if not self.open:
+            await interaction.response.edit_message(
+                content="This election is closed.",
+                embed=None,
+                view=None,
+                delete_after=5,
+            )
+            return False
         if (
-            not self.open
-            or interaction.user.id not in self.sessions
+            interaction.user.id not in self.sessions
             or self.sessions[interaction.user.id] != session_id
         ):
             await interaction.response.edit_message(
