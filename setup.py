@@ -214,7 +214,8 @@ class ElectionSetup:
         view.add_item(MethodSelect())
         if self.method_class and self.method_class.method_param_names():
             view.add_item(ConfigureMethodButton())
-        view.add_item(AddCandidateButton())
+        if len(self.candidates) < 20:
+            view.add_item(AddCandidateButton())
         if self.candidates:
             view.add_item(RemoveCandidateSelect())
         view.add_item(StartElectionButton())
