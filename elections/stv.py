@@ -11,7 +11,14 @@ NUMBER_OF_WINNERS = "Number of Winners"
 class STVElection(Election):
     @classmethod
     def method_name(cls) -> str:
-        return "Single Transferable Vote"
+        return "Single Transferable Vote / Instant Runoff"
+
+    @classmethod
+    def method_description(cls, method_params: dict[str, str]) -> str:
+        if method_params[NUMBER_OF_WINNERS] == "1":
+            return "Instant Runoff"
+        else:
+            return f"Single Transferable Vote for {method_params[NUMBER_OF_WINNERS]} seats"
 
     @classmethod
     def method_param_names(cls) -> list[str]:
@@ -56,20 +63,8 @@ class STVElection(Election):
         exhausted = Fraction(0)
 
         while True:
-            if len(elected_candidates) >= desired_winners:
-                break
-
             lines.append(f"**Round {round_num}:**")
             lines.append(f"Active candidates: {', '.join(sorted(active_candidates))}")
-
-            seats_left = desired_winners - len(elected_candidates)
-            if len(active_candidates) <= seats_left:
-                lines.append(
-                    f"The remaining {seats_left} seats are filled by remaining candidates."
-                )
-                elected_candidates.extend(active_candidates)
-                active_candidates.clear()
-                break
 
             counts = {c: 0 for c in active_candidates}
             total_active = Fraction(0)
@@ -77,19 +72,18 @@ class STVElection(Election):
                 counts[ranking[0]] = counts.get(ranking[0], 0) + weight
                 total_active += weight
 
-            quota = total_active / Fraction(seats_left + 1)
+            quota = total_active / Fraction(desired_winners - len(elected_candidates) + 1)
 
             lines.append(
-                f"Active ballots: {float(total_active):.2f}, exhausted: {float(exhausted):.2f}"
+                f"Active ballots: {float(total_active):.2g}, exhausted: {float(exhausted):.2g}"
             )
-            lines.append(f"Quota for this round: {float(quota):.2f}")
 
             sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
             if total_active > 0:
                 lines.append("Current first-preference counts:")
                 for c, v in sorted_candidates:
                     lines.append(
-                        f" - {c}: {float(v):.2f} ({float(v / total_active):.2%})"
+                        f" - {c}: {float(v):.2g} ({float(v / total_active):.2%})"
                     )
 
             max_count = sorted_candidates[0][1]
@@ -100,12 +94,9 @@ class STVElection(Election):
                 winner = random.choice(winners)
                 if len(winners) > 1:
                     lines.append(
-                        f"Multiple winners with equal votes. Randomly selected **{winner}** to redistribute first."
+                        f"Multiple winners with equal votes. Randomly selected **{winner}**."
                     )
-                lines.append(f"Candidate **{winner}** is elected.")
-                lines.append(
-                    f"Redistributing surplus of {float(max_count - quota):.2f} from {winner}."
-                )
+                lines.append(f"Candidate **{winner}** exceeded {float(100 * quota / total_active):.2g}% ({float(quota):.2g} votes) and is elected.")
                 elected_candidates.append(winner)
 
                 elim = winner
@@ -122,6 +113,21 @@ class STVElection(Election):
                 quota_fraction = 0
 
             active_candidates.remove(elim)
+
+            if len(active_candidates) <= desired_winners - len(elected_candidates):
+                for candidate in active_candidates:
+                    lines.append(f"Candidate **{candidate}** is elected.")
+                elected_candidates.extend(active_candidates)
+                active_candidates.clear()
+                break
+
+            if len(elected_candidates) >= desired_winners:
+                break
+
+            if quota_fraction > 0:
+                lines.append(
+                    f"Redistributing surplus of {float(max_count - quota):.2g} votes from {elim}."
+                )
 
             new_aggregated: dict[tuple[str, ...], float] = {}
             for ranking, weight in aggregated_ballots.items():

@@ -49,7 +49,11 @@ class Election(abc.ABC):
                 or "*No candidates yet!*",
                 inline=False,
             )
-            .add_field(name="Method", value=self.method_name(), inline=False)
+            .add_field(
+                name="Method",
+                value=self.method_description(self.method_params),
+                inline=False,
+            )
             .set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
         )
 
@@ -142,7 +146,7 @@ class Election(abc.ABC):
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
             embed.add_field(
-                name="Winners (Tie)",
+                name="Winners",
                 value=f":trophy: {winners_str} :trophy:",
                 inline=False,
             )
@@ -187,7 +191,7 @@ class Election(abc.ABC):
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         """Returns tabulated results.
 
-        The first result should be a list of winners (usually one, but multiple in case of a tie)
+        The first result should be a list of winners.
         The second result should be an explanation of how the winner was chosen.
         """
         pass

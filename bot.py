@@ -62,7 +62,7 @@ async def end_election(
         )
         return
     results_embed = election.get_results(show_details=details).set_footer(
-        text=f"Computed using {election.method_name()}"
+        text=f"Computed using {election.method_description(election.method_params)}"
     )
     await interaction.response.send_message(embed=results_embed)
 
