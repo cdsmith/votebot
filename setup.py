@@ -56,7 +56,10 @@ class ElectionSetup:
             async def callback(inner_self, interaction: discord.Interaction):
                 method = inner_self.values[0]
                 if method in methods.NAMED_METHODS:
-                    if not self.method_class or self.method_class.method_name() != method:
+                    if (
+                        not self.method_class
+                        or self.method_class.method_name() != method
+                    ):
                         self.method_class = methods.NAMED_METHODS[method]
                         self.method_params = self.method_class.default_method_params()
                 else:

@@ -53,38 +53,44 @@ class STVElection(Election):
             ) + Fraction(1)
 
         round_num = 1
+        exhausted = Fraction(0)
 
         while True:
             if len(elected_candidates) >= desired_winners:
                 break
 
-            counts = {}
-            exhausted = Fraction(0)
-            total_active = Fraction(0)
-            for ranking, weight in aggregated_ballots.items():
-                if ranking:
-                    counts[ranking[0]] = counts.get(ranking[0], 0) + weight
-                    total_active += weight
-                else:
-                    exhausted += weight
-
-            if total_active == 0:
-                break
-
-            seats_left = desired_winners - len(elected_candidates)
-            quota = total_active / Fraction(seats_left + 1)
-
             lines.append(f"**Round {round_num}:**")
             lines.append(f"Active candidates: {', '.join(sorted(active_candidates))}")
+
+            seats_left = desired_winners - len(elected_candidates)
+            if len(active_candidates) <= seats_left:
+                lines.append(
+                    f"The remaining {seats_left} seats are filled by remaining candidates."
+                )
+                elected_candidates.extend(active_candidates)
+                active_candidates.clear()
+                break
+
+            counts = {c: 0 for c in active_candidates}
+            total_active = Fraction(0)
+            for ranking, weight in aggregated_ballots.items():
+                counts[ranking[0]] = counts.get(ranking[0], 0) + weight
+                total_active += weight
+
+            quota = total_active / Fraction(seats_left + 1)
+
             lines.append(
                 f"Active ballots: {float(total_active):.2f}, exhausted: {float(exhausted):.2f}"
             )
             lines.append(f"Quota for this round: {float(quota):.2f}")
-            lines.append("Current first-preference counts:")
 
             sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
-            for c, v in sorted_candidates:
-                lines.append(f" - {c}: {float(v):.2f} ({float(v / total_active):.2%})")
+            if total_active > 0:
+                lines.append("Current first-preference counts:")
+                for c, v in sorted_candidates:
+                    lines.append(
+                        f" - {c}: {float(v):.2f} ({float(v / total_active):.2%})"
+                    )
 
             max_count = sorted_candidates[0][1]
             min_count = sorted_candidates[-1][1]
@@ -119,13 +125,16 @@ class STVElection(Election):
 
             new_aggregated: dict[tuple[str, ...], float] = {}
             for ranking, weight in aggregated_ballots.items():
+                if ranking[0] == elim:
+                    weight *= 1 - quota_fraction
                 new_ranking = tuple(c for c in ranking if c != elim)
                 if new_ranking:
-                    if ranking[0] == elim:
-                        weight *= 1 - quota_fraction
                     new_aggregated[new_ranking] = (
                         new_aggregated.get(new_ranking, 0) + weight
                     )
+                else:
+                    exhausted += weight
+
             aggregated_ballots = new_aggregated
 
             round_num += 1
