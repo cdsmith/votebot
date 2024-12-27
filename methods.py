@@ -10,7 +10,7 @@ from elections.tideman_alt import TidemanAlternativeElection
 from elections.borda import BordaElection
 from elections.kemeny_young import KemenyYoungElection
 
-METHOD_CLASSES = [
+METHOD_CLASSES: list[type] = [
     PluralityElection,
     ApprovalElection,
     CopelandElection,
@@ -24,4 +24,4 @@ METHOD_CLASSES = [
     KemenyYoungElection,
 ]
 
-NAMED_METHODS = {cls.method_name(): cls for cls in METHOD_CLASSES}
+NAMED_METHODS: dict[str, type] = {cls.method_name(): cls for cls in METHOD_CLASSES}

@@ -10,14 +10,22 @@ if TYPE_CHECKING:
 
 
 class Election(abc.ABC):
-    def __init__(self, title: str, description: str, candidates: list[str]):
+    def __init__(
+        self,
+        title: str,
+        description: str,
+        candidates: list[str],
+        method_params: dict[str, str],
+    ):
         self.title: str = title
         self.description: str = description
         self.candidates: list[str] = candidates
+        self.method_params: dict[str, str] = method_params
         self.sessions: dict[int, int] = {}
         self.interim_ballots: dict[int, Ballot] = {}
         self.submitted_ballots: dict[int, Ballot] = {}
         self.open = True
+        self.original_message: discord.Message | None = None
 
     def get_public_view(self) -> dict[str, Any]:
         """Return a dictionary representation of the public view of the election as Discord message fields."""
@@ -37,7 +45,8 @@ class Election(abc.ABC):
             )
             .add_field(
                 name="Candidates",
-                value="\n".join(f"- {c}" for c in self.candidates),
+                value="\n".join(f"- {c}" for c in self.candidates)
+                or "*No candidates yet!*",
                 inline=False,
             )
             .add_field(name="Method", value=self.method_name(), inline=False)
@@ -53,7 +62,7 @@ class Election(abc.ABC):
         """Send a ballot to a user that they can use to vote."""
         if not self.open:
             await interaction.response.send_message(
-                content="This election is closed.", ephemeral=True
+                content="This election is not open.", ephemeral=True
             )
             return
 
@@ -79,7 +88,7 @@ class Election(abc.ABC):
         """Check if the interaction is part of the current session."""
         if not self.open:
             await interaction.response.edit_message(
-                content="This election is closed.",
+                content="This election is not open.",
                 embed=None,
                 view=None,
                 delete_after=5,
@@ -146,6 +155,28 @@ class Election(abc.ABC):
     def method_name(self) -> str:
         """Return the name of the election method."""
         pass
+
+    @classmethod
+    def method_description(self, params: dict[str, str]) -> str:
+        """Return the description of the election method."""
+        return self.method_name()
+
+    @classmethod
+    def method_param_names(self) -> list[str]:
+        """Return a list of parameters that can be used to configure the election method."""
+        return []
+
+    @classmethod
+    def default_method_params(self) -> dict[str, str]:
+        """Return a dictionary of default parameter values."""
+        return {}
+
+    @classmethod
+    def validate_method_params(
+        self, params: dict[str, str], candidates: list[str]
+    ) -> str | None:
+        """If the given parameter values are invalid, return a string explaining the reason."""
+        return None
 
     @abc.abstractmethod
     def blank_ballot(self) -> Ballot:
