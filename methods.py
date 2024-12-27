@@ -9,19 +9,21 @@ from elections.rivestshen import RivestShenGTElection
 from elections.tideman_alt import TidemanAlternativeElection
 from elections.borda import BordaElection
 from elections.kemeny_young import KemenyYoungElection
+from elections.stv import STVElection
 
 METHOD_CLASSES: list[type] = [
-    PluralityElection,
     ApprovalElection,
+    BordaElection,
     CopelandElection,
-    ScoreElection,
-    STARElection,
     IRVElection,
+    KemenyYoungElection,
+    PluralityElection,
     RankedPairsElection,
     RivestShenGTElection,
+    ScoreElection,
+    STARElection,
+    STVElection,
     TidemanAlternativeElection,
-    BordaElection,
-    KemenyYoungElection,
 ]
 
 NAMED_METHODS: dict[str, type] = {cls.method_name(): cls for cls in METHOD_CLASSES}
