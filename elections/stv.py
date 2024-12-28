@@ -18,7 +18,9 @@ class STVElection(Election):
         if method_params[NUMBER_OF_WINNERS] == "1":
             return "Instant Runoff"
         else:
-            return f"Single Transferable Vote for {method_params[NUMBER_OF_WINNERS]} seats"
+            return (
+                f"Single Transferable Vote for {method_params[NUMBER_OF_WINNERS]} seats"
+            )
 
     @classmethod
     def method_param_names(cls) -> list[str]:
@@ -72,7 +74,9 @@ class STVElection(Election):
                 counts[ranking[0]] = counts.get(ranking[0], 0) + weight
                 total_active += weight
 
-            quota = total_active / Fraction(desired_winners - len(elected_candidates) + 1)
+            quota = total_active / Fraction(
+                desired_winners - len(elected_candidates) + 1
+            )
 
             lines.append(
                 f"Active ballots: {float(total_active):.2g}, exhausted: {float(exhausted):.2g}"
@@ -96,7 +100,9 @@ class STVElection(Election):
                     lines.append(
                         f"Multiple winners with equal votes. Randomly selected **{winner}**."
                     )
-                lines.append(f"Candidate **{winner}** exceeded {float(100 * quota / total_active):.2g}% ({float(quota):.2g} votes) and is elected.")
+                lines.append(
+                    f"Candidate **{winner}** exceeded {float(100 * quota / total_active):.2g}% ({float(quota):.2g} votes) and is elected."
+                )
                 elected_candidates.append(winner)
 
                 elim = winner
