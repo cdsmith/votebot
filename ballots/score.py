@@ -3,7 +3,7 @@ import discord
 from election import Election
 
 STAR = "⭐"
-NONSTAR = "⚪"
+NONSTAR = "⚫"
 
 
 def stars(n: int) -> str:
