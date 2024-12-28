@@ -3,6 +3,11 @@ import discord
 from election import Election
 
 STAR = "⭐"
+NONSTAR = "⚪"
+
+
+def stars(n: int) -> str:
+    return " ".join([STAR] * n + [NONSTAR] * (5 - n))
 
 
 class ScoreBallot(Ballot):
@@ -23,11 +28,11 @@ class ScoreBallot(Ballot):
         class CandidateSelect(discord.ui.Select):
             def __init__(inner_self, candidate: str):
                 super().__init__(
-                    placeholder=f"{candidate}: {' '.join([STAR] * self.ratings.get(candidate, 0))}",
+                    placeholder=f"{candidate}: {stars(self.ratings.get(candidate, 0))}",
                     options=[
                         discord.SelectOption(
                             value=str(i),
-                            label=f"{candidate}: {' '.join([STAR] * i)}",
+                            label=f"{candidate}: {stars(i)}",
                         )
                         for i in range(6)
                     ],
@@ -48,7 +53,5 @@ class ScoreBallot(Ballot):
     def to_markdown(self) -> str:
         lines = []
         for c in self.candidates:
-            r = self.ratings.get(c, 0)
-            stars = " ".join([STAR] * r) if r else "(zero stars)"
-            lines.append(f"**{c}**:\n{stars}")
+            lines.append(f"**{c}**:\n{stars(self.ratings.get(c, 0))}")
         return "\n\n".join(lines) if lines else "No ratings recorded"
