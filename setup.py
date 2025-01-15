@@ -31,7 +31,7 @@ class ElectionSetup:
             async def on_submit(inner_self, interaction: discord.Interaction):
                 self.title = inner_self.title_field.value
                 self.description = inner_self.description.value
-                await interaction.response.send_message(**self.get_setup_message())
+                await interaction.response.send_message(**self.get_setup_message(), ephemeral=True)
 
         await interaction.response.send_modal(NewModal())
         self.future = asyncio.Future()
