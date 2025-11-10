@@ -2,6 +2,7 @@ from election import Election
 from ballots.simple import SimpleBallot
 from ballot import Ballot
 from typing import Iterable
+import random
 
 
 class ApprovalElection(Election):
@@ -10,7 +11,9 @@ class ApprovalElection(Election):
         return "Approval"
 
     def blank_ballot(self) -> SimpleBallot:
-        return SimpleBallot(self, multiple_votes=True)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return SimpleBallot(self.election_id, candidates, multiple_votes=True)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         counts = {c: 0 for c in self.candidates}

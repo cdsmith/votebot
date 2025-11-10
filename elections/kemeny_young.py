@@ -3,6 +3,7 @@ from ballots.ranked import RankedBallot
 from typing import Iterable
 from ballot import Ballot
 import itertools
+import random
 
 
 class KemenyYoungElection(Election):
@@ -11,7 +12,9 @@ class KemenyYoungElection(Election):
         return "Kemeny-Young"
 
     def blank_ballot(self) -> RankedBallot:
-        return RankedBallot(self)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return RankedBallot(self.election_id, candidates)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if len(self.candidates) == 0:

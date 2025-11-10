@@ -2,6 +2,7 @@ from election import Election
 from ballots.score import ScoreBallot
 from ballot import Ballot
 from typing import Iterable
+import random
 
 
 class ScoreElection(Election):
@@ -10,7 +11,9 @@ class ScoreElection(Election):
         return "Score"
 
     def blank_ballot(self) -> ScoreBallot:
-        return ScoreBallot(self)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return ScoreBallot(self.election_id, candidates)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         ballots = list(ballots)

@@ -1,6 +1,6 @@
 from ballot import Ballot
 import discord
-from election import Election
+import random
 
 STAR = "⭐"
 NONSTAR = "⚫"
@@ -11,8 +11,18 @@ def stars(n: int) -> str:
 
 
 class ScoreBallot(Ballot):
-    def __init__(self, election: Election):
-        super().__init__(election, "Rate each candidate from 0 to 5 stars.")
+    def __init__(
+        self,
+        election_id: int,
+        candidates: list[str],
+        ballot_id: int | None = None,
+    ):
+        super().__init__(
+            election_id,
+            candidates,
+            "Rate each candidate from 0 to 5 stars.",
+            ballot_id,
+        )
         self.ratings: dict[str, int] = {}
 
     def candidates_per_page(self) -> int:
@@ -55,3 +65,28 @@ class ScoreBallot(Ballot):
         for c in self.candidates:
             lines.append(f"**{c}**:\n{stars(self.ratings.get(c, 0))}")
         return "\n\n".join(lines) if lines else "No ratings recorded"
+
+    def to_dict(self) -> dict:
+        return {
+            "ratings": self.ratings,
+            "page": self.page,
+            "visited_pages": list(self.visited_pages),
+            "candidates": self.candidates,
+            "session_id": self.session_id,
+        }
+
+    @classmethod
+    def from_dict(cls, ballot_dict: dict, election_id: int) -> "ScoreBallot":
+        data = ballot_dict["ballot_data"]
+
+        ballot = cls(
+            election_id=election_id,
+            candidates=data["candidates"],
+            ballot_id=ballot_dict["ballot_id"],
+        )
+        ballot.ratings = data["ratings"]
+        ballot.page = data["page"]
+        ballot.visited_pages = set(data["visited_pages"])
+        ballot.session_id = ballot_dict["session_id"]
+
+        return ballot

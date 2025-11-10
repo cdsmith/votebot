@@ -1,33 +1,40 @@
 import abc
 from typing import Any, Callable, Optional
 import copy
-from election import Election
 import math
 import discord
 import random
+import db
 
 
 class Ballot(abc.ABC):
-    def __init__(self, election: Election, instructions: str):
-        self.election: Election = election
+    def __init__(
+        self,
+        election_id: int,
+        candidates: list[str],
+        instructions: str,
+        ballot_id: int | None = None,
+    ):
+        self.ballot_id: int | None = ballot_id
+        self.election_id: int = election_id
         self.instructions: str = instructions
         self.page: int = 0
         self.visited_pages: set[int] = set()
-        self.candidates = list(election.candidates)
-        random.shuffle(self.candidates)
+        self.candidates = candidates  # Already shuffled when created
+        self.session_id: int = 0  # Will be set when ballot is sent
+
+        # Store ballot type for serialization
+        self.ballot_type = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
     def copy(self) -> "Ballot":
         """Return a duplicate Ballot with the same data as this one."""
         cls = self.__class__
         new = cls.__new__(cls)
         memo = {id(self): new}
-        SHALLOW_FIELDS = {"election"}
         for key, value in self.__dict__.items():
-            if key in SHALLOW_FIELDS:
-                setattr(new, key, value)
-            else:
-                setattr(new, key, copy.deepcopy(value, memo))
+            setattr(new, key, copy.deepcopy(value, memo))
         new.page = 0
+        new.ballot_id = None  # New copy gets a new ID
         return new
 
     def total_pages(self) -> int:
@@ -79,10 +86,14 @@ class Ballot(abc.ABC):
                 super().__init__(
                     style=discord.ButtonStyle.green, label="Submit Vote", row=4
                 )
+                _.election_id = self.election_id
+                _.session_id_val = session_id
 
             async def callback(_, interaction: discord.Interaction):
-                if await self.election.check_session(interaction, session_id):
-                    await self.election.submit_ballot(interaction)
+                from election import load_election_from_db
+                election = load_election_from_db(_.election_id)
+                if await election.check_session(interaction, _.session_id_val):
+                    await election.submit_ballot(interaction)
 
         class ResetButton(discord.ui.Button):
             def __init__(_):
@@ -110,8 +121,12 @@ class Ballot(abc.ABC):
             view.add_item(NextPageButton())
         view.add_item(ResetButton())
 
+        # Load election for title
+        from election import load_election_from_db
+        election = load_election_from_db(self.election_id)
+
         embed = discord.Embed(
-            title=self.election.title, description=self.instructions
+            title=election.title, description=self.instructions
         ).add_field(name="Current vote", value=self.to_markdown(), inline=False)
         if self.total_pages() > 1:
             embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
@@ -127,8 +142,13 @@ class Ballot(abc.ABC):
         interaction: discord.Interaction,
         session_id: int,
     ) -> None:
-        if await self.election.check_session(interaction, session_id):
+        from election import load_election_from_db
+        election = load_election_from_db(self.election_id)
+
+        if election and await election.check_session(interaction, session_id):
             modification()
+            # Save modified ballot to database
+            db.save_ballot(self, self.election_id, interaction.user.id, is_submitted=False)
             await interaction.response.edit_message(**self.render_interim(session_id))
 
     def render_submitted(self) -> dict[str, Any]:
@@ -164,4 +184,21 @@ class Ballot(abc.ABC):
     @abc.abstractmethod
     def to_markdown(self) -> str:
         """Return a ballot choice in markdown."""
+        pass
+
+    @abc.abstractmethod
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize ballot to dictionary for database storage.
+
+        Returns dict with:
+        - Ballot-specific voting data (votes/ranking/ratings)
+        - page, visited_pages, candidates (UI state)
+        - session_id
+        """
+        pass
+
+    @classmethod
+    @abc.abstractmethod
+    def from_dict(cls, ballot_dict: dict[str, Any], election_id: int) -> "Ballot":
+        """Reconstruct ballot from database dictionary."""
         pass

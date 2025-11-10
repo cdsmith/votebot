@@ -12,7 +12,9 @@ class TidemanAlternativeElection(Election):
         return "Tideman's Alternative Method"
 
     def blank_ballot(self) -> RankedBallot:
-        return RankedBallot(self)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return RankedBallot(self.election_id, candidates)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         lines = []

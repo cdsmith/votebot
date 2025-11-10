@@ -1,6 +1,6 @@
 from ballot import Ballot
 import discord
-from election import Election
+import random
 
 
 class SimpleBallot(Ballot):
@@ -9,14 +9,22 @@ class SimpleBallot(Ballot):
     Can allow multiple votes if `multiple_votes` is set to True.
     """
 
-    def __init__(self, election: Election, multiple_votes: bool = False):
+    def __init__(
+        self,
+        election_id: int,
+        candidates: list[str],
+        multiple_votes: bool = False,
+        ballot_id: int | None = None,
+    ):
         super().__init__(
-            election,
+            election_id,
+            candidates,
             (
                 "Please select all candidates you approve of."
                 if multiple_votes
                 else "Please select a candidate."
             ),
+            ballot_id,
         )
         self.multiple_votes: bool = multiple_votes
         self.votes: set[str] = set()
@@ -61,4 +69,31 @@ class SimpleBallot(Ballot):
         return bool(self.votes)
 
     def to_markdown(self) -> str:
-        return ",".join(self.votes) if self.votes else "No vote recorded"
+        return ", ".join(self.votes) if self.votes else "No vote recorded"
+
+    def to_dict(self) -> dict:
+        return {
+            "votes": list(self.votes),
+            "multiple_votes": self.multiple_votes,
+            "page": self.page,
+            "visited_pages": list(self.visited_pages),
+            "candidates": self.candidates,
+            "session_id": self.session_id,
+        }
+
+    @classmethod
+    def from_dict(cls, ballot_dict: dict, election_id: int) -> "SimpleBallot":
+        data = ballot_dict["ballot_data"]
+
+        ballot = cls(
+            election_id=election_id,
+            candidates=data["candidates"],
+            multiple_votes=data["multiple_votes"],
+            ballot_id=ballot_dict["ballot_id"],
+        )
+        ballot.votes = set(data["votes"])
+        ballot.page = data["page"]
+        ballot.visited_pages = set(data["visited_pages"])
+        ballot.session_id = ballot_dict["session_id"]
+
+        return ballot

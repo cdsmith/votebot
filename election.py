@@ -2,11 +2,19 @@ from __future__ import annotations
 import abc
 from typing import Any, Iterable, TYPE_CHECKING
 import discord
-import time
+import db
 
 
 if TYPE_CHECKING:
     from ballot import Ballot
+
+# Global reference to Discord client (set by bot.py on startup)
+_client = None
+
+def set_client(client):
+    """Called by bot.py to set the Discord client reference."""
+    global _client
+    _client = client
 
 
 class Election(abc.ABC):
@@ -16,27 +24,39 @@ class Election(abc.ABC):
         description: str,
         candidates: list[str],
         method_params: dict[str, str],
+        election_id: int | None = None,
+        channel_id: int | None = None,
     ):
+        self.election_id: int | None = election_id
+        self.channel_id: int | None = channel_id
         self.title: str = title
         self.description: str = description
         self.candidates: list[str] = candidates
         self.method_params: dict[str, str] = method_params
-        self.sessions: dict[int, int] = {}
-        self.interim_ballots: dict[int, Ballot] = {}
-        self.submitted_ballots: dict[int, Ballot] = {}
         self.open = True
-        self.original_message: discord.Message | None = None
+        self.message_id: int | None = None
+
+        # Store method class name for serialization
+        self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
     def get_public_view(self) -> dict[str, Any]:
         """Return a dictionary representation of the public view of the election as Discord message fields."""
 
         class VoteButton(discord.ui.Button):
-            def __init__(self, election: "Election"):
+            def __init__(_, election_id: int):
                 super().__init__(style=discord.ButtonStyle.primary, label="Vote")
-                self.election = election
+                _.election_id = election_id
 
-            async def callback(self, interaction: discord.Interaction):
-                await self.election.send_ballot(interaction)
+            async def callback(_, interaction: discord.Interaction):
+                election = load_election_from_db(_.election_id)
+                if election:
+                    await election.send_ballot(interaction)
+                else:
+                    await interaction.response.send_message(
+                        "This election no longer exists.", ephemeral=True
+                    )
+
+        vote_count = db.get_vote_count(self.election_id)
 
         embed = (
             discord.Embed(
@@ -54,12 +74,12 @@ class Election(abc.ABC):
                 value=self.method_description(self.method_params),
                 inline=False,
             )
-            .set_footer(text=f"{str(len(self.submitted_ballots))} votes cast")
+            .set_footer(text=f"{vote_count} votes cast")
         )
 
         return {
             "embed": embed,
-            "view": discord.ui.View(timeout=None).add_item(VoteButton(self)),
+            "view": discord.ui.View(timeout=None).add_item(VoteButton(self.election_id)),
         }
 
     async def send_ballot(self, interaction: discord.Interaction):
@@ -70,19 +90,29 @@ class Election(abc.ABC):
             )
             return
 
-        session_id = time.monotonic_ns()
-        self.sessions[interaction.user.id] = session_id
+        session_id = db.new_session()
 
-        if interaction.user.id not in self.interim_ballots:
-            if interaction.user.id in self.submitted_ballots:
-                self.interim_ballots[interaction.user.id] = self.submitted_ballots[
-                    interaction.user.id
-                ].copy()
+        # Try to load existing interim ballot
+        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+
+        if ballot_data is None:
+            # Check if they have a submitted ballot (for editing)
+            submitted_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=True)
+            if submitted_data:
+                ballot = ballot_from_dict(submitted_data, self.election_id)
+                ballot = ballot.copy()
+                ballot.ballot_id = None  # New interim ballot
             else:
-                self.interim_ballots[interaction.user.id] = self.blank_ballot()
+                ballot = self.blank_ballot()
+        else:
+            ballot = ballot_from_dict(ballot_data, self.election_id)
+
+        # Update session_id and save
+        ballot.session_id = session_id
+        db.save_ballot(ballot, self.election_id, interaction.user.id, is_submitted=False)
 
         await interaction.response.send_message(
-            **self.interim_ballots[interaction.user.id].render_interim(session_id),
+            **ballot.render_interim(session_id),
             ephemeral=True,
         )
 
@@ -91,40 +121,53 @@ class Election(abc.ABC):
     ) -> bool:
         """Check if the interaction is part of the current session."""
         if not self.open:
-            await interaction.response.edit_message(
-                content="This election is not open.",
-                embed=None,
-                view=None,
-                delete_after=5,
-            )
+            try:
+                await interaction.response.edit_message(
+                    content="This election is not open.",
+                    embed=None,
+                    view=None,
+                    delete_after=5,
+                )
+            except discord.errors.NotFound:
+                # Interaction token expired (bot restarted)
+                pass
             return False
-        if (
-            interaction.user.id not in self.sessions
-            or self.sessions[interaction.user.id] != session_id
-        ):
-            await interaction.response.edit_message(
-                content="This ballot has been superceded by a new ballot.",
-                embed=None,
-                view=None,
-                delete_after=5,
-            )
+
+        # Load the user's interim ballot to check session
+        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+        if ballot_data is None or ballot_data["session_id"] != session_id:
+            try:
+                await interaction.response.edit_message(
+                    content="This ballot has been superseded by a new ballot. Click the Vote button again to continue.",
+                    embed=None,
+                    view=None,
+                    delete_after=10,
+                )
+            except discord.errors.NotFound:
+                # Interaction token expired (bot restarted)
+                pass
             return False
         return True
 
     async def submit_ballot(self, interaction: discord.Interaction):
         """Submit the user's current interim ballot as their submitted vote."""
 
-        if interaction.user.id in self.interim_ballots:
-            self.submitted_ballots[interaction.user.id] = self.interim_ballots[
-                interaction.user.id
-            ]
-            del self.interim_ballots[interaction.user.id]
+        # Load interim ballot
+        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+
+        if ballot_data:
+            ballot = ballot_from_dict(ballot_data, self.election_id)
+
+            # Atomically move from interim to submitted
+            db.submit_ballot(self.election_id, interaction.user.id, ballot)
+
             await interaction.response.edit_message(
-                **self.submitted_ballots[interaction.user.id].render_submitted(),
+                **ballot.render_submitted(),
                 view=None,
             )
-            if self.original_message is not None:
-                await self.original_message.edit(**self.get_public_view())
+
+            # Update vote count on public message
+            await self.update_vote_count()
         else:
             await interaction.response.edit_message(
                 content="Your vote **was not recorded** because you did not have a ballot open.  To cast or update your ballot, click the Vote button again.",
@@ -133,9 +176,24 @@ class Election(abc.ABC):
                 delete_after=5,
             )
 
+    async def update_vote_count(self):
+        """Update the public Discord message with current vote count."""
+        try:
+            channel = _client.get_channel(self.channel_id)
+            message = await channel.fetch_message(self.message_id)
+            await message.edit(**self.get_public_view())
+        except discord.NotFound:
+            pass
+
     def get_results(self, show_details: bool = True) -> discord.Embed:
         self.open = False
-        winners, details = self.tabulate(self.submitted_ballots.values())
+        db.mark_election_closed(self.election_id)
+
+        # Load all submitted ballots from database
+        ballot_dicts = db.load_all_ballots(self.election_id, is_submitted=True)
+        ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
+
+        winners, details = self.tabulate(ballots)
         embed = discord.Embed(title=f"Results for {self.title}", color=0x00FF00)
         if len(winners) == 0:
             embed.add_field(name="Winners", value="No winner determined", inline=False)
@@ -195,3 +253,42 @@ class Election(abc.ABC):
         The second result should be an explanation of how the winner was chosen.
         """
         pass
+
+
+def load_election_from_db(election_id: int) -> Election | None:
+    """Load an election from the database by ID."""
+    data = db.load_election(election_id)
+    if data is None:
+        return None
+
+    # Import dynamically to get the correct class
+    import importlib
+    module_name, class_name = data["method_class"].rsplit(".", 1)
+    module = importlib.import_module(module_name)
+    election_class = getattr(module, class_name)
+
+    # Instantiate the election
+    election = election_class(
+        title=data["title"],
+        description=data["description"],
+        candidates=data["candidates"],
+        method_params=data["method_params"],
+        election_id=data["election_id"],
+        channel_id=data["channel_id"],
+    )
+    election.open = data["open"]
+    election.message_id = data["message_id"]
+
+    return election
+
+
+def ballot_from_dict(ballot_dict: dict[str, Any], election_id: int) -> "Ballot":
+    """Reconstruct a ballot from database dict."""
+    # Import dynamically to get the correct ballot class
+    import importlib
+    module_name, class_name = ballot_dict["ballot_type"].rsplit(".", 1)
+    module = importlib.import_module(module_name)
+    ballot_class = getattr(module, class_name)
+
+    # Call the from_dict class method
+    return ballot_class.from_dict(ballot_dict, election_id)

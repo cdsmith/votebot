@@ -46,7 +46,9 @@ class STVElection(Election):
         return None
 
     def blank_ballot(self) -> RankedBallot:
-        return RankedBallot(self)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return RankedBallot(self.election_id, candidates)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         desired_winners = int(self.method_params[NUMBER_OF_WINNERS])

@@ -1,17 +1,24 @@
 from ballot import Ballot
 from typing import Optional
 import discord
-from election import Election
+import random
 
 
 class RankedBallot(Ballot):
-    def __init__(self, election: Election):
+    def __init__(
+        self,
+        election_id: int,
+        candidates: list[str],
+        ballot_id: int | None = None,
+    ):
         super().__init__(
-            election,
+            election_id,
+            candidates,
             (
                 "Select candidates in the order of your preference. "
                 "You can submit at any time.  You need not rank all candidates."
             ),
+            ballot_id,
         )
         self.ranking: list[str] = []
 
@@ -64,3 +71,28 @@ class RankedBallot(Ballot):
             return "\n".join(desc_lines)
         else:
             return "No candidates ranked."
+
+    def to_dict(self) -> dict:
+        return {
+            "ranking": self.ranking,
+            "page": self.page,
+            "visited_pages": list(self.visited_pages),
+            "candidates": self.candidates,
+            "session_id": self.session_id,
+        }
+
+    @classmethod
+    def from_dict(cls, ballot_dict: dict, election_id: int) -> "RankedBallot":
+        data = ballot_dict["ballot_data"]
+
+        ballot = cls(
+            election_id=election_id,
+            candidates=data["candidates"],
+            ballot_id=ballot_dict["ballot_id"],
+        )
+        ballot.ranking = data["ranking"]
+        ballot.page = data["page"]
+        ballot.visited_pages = set(data["visited_pages"])
+        ballot.session_id = ballot_dict["session_id"]
+
+        return ballot

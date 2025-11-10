@@ -2,6 +2,7 @@ from election import Election
 from ballots.ranked import RankedBallot
 from ballot import Ballot
 from typing import Iterable
+import random
 
 
 class RankedPairsElection(Election):
@@ -10,7 +11,9 @@ class RankedPairsElection(Election):
         return "Ranked Pairs"
 
     def blank_ballot(self) -> RankedBallot:
-        return RankedBallot(self)
+        candidates = list(self.candidates)
+        random.shuffle(candidates)
+        return RankedBallot(self.election_id, candidates)
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         pairwise = {
