@@ -1,6 +1,6 @@
-# Discord Voting Bot
+# Electable
 
-This is a Discord bot that facilitates running elections using various voting methods. It implements interactive secret ballots to ensure an easy and private voting experience. Users can cast ballots for a variety of election types and ballot formats with a simple and intuitive user interface.
+Electable is a Discord bot that facilitates running elections using various voting methods. It implements interactive secret ballots to ensure an easy and private voting experience. Users can cast ballots for a variety of election types and ballot formats with a simple and intuitive user interface.
 
 ## Features
 
