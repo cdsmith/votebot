@@ -10,7 +10,7 @@ This is a Discord bot that facilitates running elections using various voting me
   - **Approval**: Voters approve any number of candidates. The candidate with the most approvals wins.
   - **Borda Count**: Voters rank candidates, and candidates are awarded points based on their position in the ranking. The candidate with the highest Borda count wins.
   - **Copeland**: Voters rank candidates, and the candidate who wins the most head-to-head comparisons is chosen.  This is a Condorcet-consistent method.
-  - **Instant Runoff**: Voters rank candidates, and the candidate with the fewest first-place votes is eliminated in each round until a candidate has a majority of first-place votes.  Also known as RCV ("Ranked Choice Voting").
+  - **Instant Runoff / Single Transferable Vote**: Voters rank candidates, and the candidate with the fewest first-place votes is eliminated in each round until a winner emerges. Also known as RCV ("Ranked Choice Voting"). Supports both single-winner and multi-winner elections.
   - **Kemeny-Young**: Voters rank candidates, and the ranking that agrees with the most voter pairwise preferences is chosen. This is a Condorcet-consistent method.
   - **Plurality**: Voters choose a single candidate.  The candidate with the most votes wins. Also known as FPTP ("First Past the Post").
   - **Ranked Pairs**: Voters rank candidates, and a consistent candidate ordering is chosen from the strongest pairwise preferences. This is a Condorcet-consistent method.
@@ -27,8 +27,7 @@ This is a Discord bot that facilitates running elections using various voting me
 
 ### What it doesn't do (yet)
 
-- Most notably, there is **no persistence**.  This is currently only suitable for short-term votes on the order of a few minutes.  If the bot software is restarted for any reason, all data is lost and you'll need to restart your votes.  I do intend to fix this, but not yet.
-- It doesn't implement multi-winner elections, or anything like open party-list methods that requires voters to make more than a single decision between candidates.
+- While basic multi-winner elections are supported via STV, more advanced multi-winner methods and open party-list methods that require voters to make more than a single decision between candidates are not yet implemented.
 - It doesn't look pretty.  If that's your talent, I'd be grateful for your help.
 - A bunch of little usability things are missing: scheduling the end of the election, sending reminders, warning if a voter fills out and doesn't submit a ballot.
 
@@ -106,7 +105,7 @@ A message will be sent announcing the winner, as well as (if requested) explaini
 
 ## Extending the Bot
 
-This bot is a one-day project, so it's lacking a number of features.  If you'd like to extend it, you can do so as follows:
+If you'd like to extend the bot with additional features, you can do so as follows:
 
 ### Implementing a new election method
 
