@@ -91,6 +91,7 @@ class Ballot(abc.ABC):
 
             async def callback(_, interaction: discord.Interaction):
                 from election import load_election_from_db
+
                 election = load_election_from_db(_.election_id)
                 if await election.check_session(interaction, _.session_id_val):
                     await election.submit_ballot(interaction)
@@ -123,6 +124,7 @@ class Ballot(abc.ABC):
 
         # Load election for title
         from election import load_election_from_db
+
         election = load_election_from_db(self.election_id)
 
         embed = discord.Embed(
@@ -143,12 +145,15 @@ class Ballot(abc.ABC):
         session_id: int,
     ) -> None:
         from election import load_election_from_db
+
         election = load_election_from_db(self.election_id)
 
         if election and await election.check_session(interaction, session_id):
             modification()
             # Save modified ballot to database
-            db.save_ballot(self, self.election_id, interaction.user.id, is_submitted=False)
+            db.save_ballot(
+                self, self.election_id, interaction.user.id, is_submitted=False
+            )
             await interaction.response.edit_message(**self.render_interim(session_id))
 
     def render_submitted(self) -> dict[str, Any]:

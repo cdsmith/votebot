@@ -22,14 +22,20 @@ Electable is a Discord bot that facilitates running elections using various voti
 - **Private and Interactive Ballots**:  
   Users click a "Vote" button on the public election message to open a private, ephemeral ballot. They can select or rearrange their choices using Discord’s message components (buttons, selects), and submit when ready.
 
-- **Detailed Results**:  
+- **Detailed Results**:
   When the election is ended, the winner is displayed.  Optionally, detailed tabulation info is also provided to explain how the result is obtained.
+
+- **Scheduled Elections**:
+  Elections can be scheduled to end automatically at a specific date/time or after a duration. End times are displayed in each user's local timezone.
+
+- **Election Management**:
+  A unified `/electable` command provides easy access to all your elections in a channel, allowing you to create, reschedule, end, or delete elections from one interface.
 
 ### What it doesn't do (yet)
 
 - While basic multi-winner elections are supported via STV, more advanced multi-winner methods and open party-list methods that require voters to make more than a single decision between candidates are not yet implemented.
 - It doesn't look pretty.  If that's your talent, I'd be grateful for your help.
-- A bunch of little usability things are missing: scheduling the end of the election, sending reminders, warning if a voter fills out and doesn't submit a ballot.
+- A few little usability things are missing: sending reminders, warning if a voter fills out and doesn't submit a ballot.
 
 ## Setup
 
@@ -78,30 +84,50 @@ Note that you ONLY need to run your own instance if you plan to make changes to 
 
 ## Usage
 
-### Starting an election
+### Managing elections with `/electable`
 
-Use the `/election` command to start an election.
-
-```
-/election method:<method> title:<title> description:<description> candidates:<candidates>
-```
-
-* `method` is the name of a voting method.  Choose from the list offered in the UI.
-* `title` is a title for the election.
-* `description` is an optional description giving more information about the election.
-* `candidates` is a comma-separated list of candidates.  There must be at least two candidates to hold an election.
-
-The bot will post a public message in the channel announcing the election.  Anyone can click the Vote button on this message to cast a ballot.  Ballots are private interactions and are not visible to other users.  Votes are not finalized until the user submits their vote, and only the last submitted ballot from each user will count.
-
-### Ending an election
-
-Currently, elections run until they are manually ended.  When you're ready to tally the results, issue this command:
+The `/electable` command is your one-stop interface for all election management:
 
 ```
-/end_election details:<true/false>
+/electable
 ```
 
-A message will be sent announcing the winner, as well as (if requested) explaining the tabulation process that led to the selection of that winner.
+This opens an ephemeral (private) interface showing:
+- A list of your active elections in the current channel
+- Options to create new elections
+- Management controls for existing elections (reschedule, end, delete)
+
+### Creating an election
+
+From the `/electable` interface, click "Create New Election" and fill out:
+
+* **Title**: A title for the election
+* **Description** (optional): Additional information about the election
+* **Method**: Choose from various voting methods (Plurality, IRV, Approval, etc.)
+* **End Time** (optional): Schedule when the election ends automatically
+  - Use relative durations: `2d` (2 days), `3h30m` (3 hours 30 minutes), `1w` (1 week)
+  - Or absolute dates: `2025-12-25 14:30`
+* **Candidates**: Add at least two candidates
+
+The bot will post a public message in the channel announcing the election. Anyone can click the Vote button to cast a ballot. Ballots are private and votes can be changed until submission.
+
+### Scheduling elections
+
+Elections can be scheduled to end automatically by specifying an end time during setup or by using the Reschedule option. The end time is displayed in each user's local timezone as both an absolute time and a countdown. When the scheduled time is reached, the election automatically ends and results are posted.
+
+Examples of end time formats:
+- `2d` - 2 days from now
+- `12h` - 12 hours from now
+- `3h30m` - 3 hours and 30 minutes from now
+- `2025-12-25 14:30` - Specific date and time (UTC)
+- Leave the field blank to run the election until it is manually ended.
+
+### Managing your elections
+
+Use `/electable` to:
+- **Reschedule**: Change the end time of an election
+- **End Now**: Immediately end an election and show results
+- **Delete**: Remove an election without showing results
 
 ## Extending the Bot
 

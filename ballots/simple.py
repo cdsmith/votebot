@@ -45,9 +45,11 @@ class SimpleBallot(Ballot):
                 candidate: str,
             ):
                 super().__init__(
-                    style=discord.ButtonStyle.primary
-                    if candidate in self.votes
-                    else discord.ButtonStyle.gray,
+                    style=(
+                        discord.ButtonStyle.primary
+                        if candidate in self.votes
+                        else discord.ButtonStyle.gray
+                    ),
                     label=candidate,
                 )
                 inner_self.candidate: str = candidate

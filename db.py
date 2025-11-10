@@ -38,7 +38,8 @@ def init_db():
     """Initialize the database schema."""
     conn = get_connection()
 
-    conn.execute("""
+    conn.execute(
+        """
         CREATE TABLE IF NOT EXISTS elections (
             election_id INTEGER PRIMARY KEY AUTOINCREMENT,
             channel_id INTEGER NOT NULL,
@@ -49,11 +50,35 @@ def init_db():
             candidates TEXT NOT NULL,
             open INTEGER NOT NULL,
             message_id INTEGER,
+            creator_id INTEGER NOT NULL DEFAULT 0,
+            end_timestamp INTEGER,
             UNIQUE(channel_id, title)
         )
-    """)
+    """
+    )
 
-    conn.execute("""
+    # Migrate existing databases: add new columns if they don't exist
+    try:
+        # Check if creator_id column exists
+        cursor = conn.execute("PRAGMA table_info(elections)")
+        columns = [row[1] for row in cursor.fetchall()]
+
+        if "creator_id" not in columns:
+            print("Migrating database: adding creator_id column...")
+            conn.execute(
+                "ALTER TABLE elections ADD COLUMN creator_id INTEGER NOT NULL DEFAULT 0"
+            )
+            print("✓ Added creator_id column")
+
+        if "end_timestamp" not in columns:
+            print("Migrating database: adding end_timestamp column...")
+            conn.execute("ALTER TABLE elections ADD COLUMN end_timestamp INTEGER")
+            print("✓ Added end_timestamp column")
+    except Exception as e:
+        print(f"Migration check failed (this is OK for new databases): {e}")
+
+    conn.execute(
+        """
         CREATE TABLE IF NOT EXISTS ballots (
             ballot_id INTEGER PRIMARY KEY AUTOINCREMENT,
             election_id INTEGER NOT NULL,
@@ -64,18 +89,30 @@ def init_db():
             UNIQUE(election_id, user_id, is_submitted),
             FOREIGN KEY (election_id) REFERENCES elections(election_id) ON DELETE CASCADE
         )
-    """)
+    """
+    )
 
     # Create indices for better query performance
-    conn.execute("""
+    conn.execute(
+        """
         CREATE INDEX IF NOT EXISTS idx_elections_channel_title
         ON elections(channel_id, title)
-    """)
+    """
+    )
 
-    conn.execute("""
+    conn.execute(
+        """
         CREATE INDEX IF NOT EXISTS idx_ballots_election_user
         ON ballots(election_id, user_id, is_submitted)
-    """)
+    """
+    )
+
+    conn.execute(
+        """
+        CREATE INDEX IF NOT EXISTS idx_elections_end_timestamp
+        ON elections(end_timestamp) WHERE open=1 AND end_timestamp IS NOT NULL
+    """
+    )
 
     conn.commit()
     conn.close()
@@ -95,6 +132,8 @@ def save_election(election: Any) -> int:
             json.dumps(election.candidates),
             1 if election.open else 0,
             election.message_id,
+            election.creator_id,
+            election.end_timestamp,
         )
 
         if election.election_id is None:
@@ -102,8 +141,9 @@ def save_election(election: Any) -> int:
             cursor = conn.execute(
                 """
                 INSERT INTO elections (channel_id, title, description, method_class,
-                                     method_params, candidates, open, message_id)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                                     method_params, candidates, open, message_id,
+                                     creator_id, end_timestamp)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 data,
             )
@@ -116,7 +156,8 @@ def save_election(election: Any) -> int:
                 """
                 UPDATE elections
                 SET channel_id=?, title=?, description=?, method_class=?,
-                    method_params=?, candidates=?, open=?, message_id=?
+                    method_params=?, candidates=?, open=?, message_id=?,
+                    creator_id=?, end_timestamp=?
                 WHERE election_id=?
                 """,
                 data + (election.election_id,),
@@ -149,6 +190,8 @@ def load_election(election_id: int) -> dict[str, Any] | None:
             "candidates": json.loads(row["candidates"]),
             "open": bool(row["open"]),
             "message_id": row["message_id"],
+            "creator_id": row["creator_id"],
+            "end_timestamp": row["end_timestamp"],
         }
     finally:
         conn.close()
@@ -159,7 +202,8 @@ def load_election_by_natural_key(channel_id: int, title: str) -> dict[str, Any] 
     conn = get_connection()
     try:
         cursor = conn.execute(
-            "SELECT * FROM elections WHERE channel_id=? AND title=?", (channel_id, title)
+            "SELECT * FROM elections WHERE channel_id=? AND title=?",
+            (channel_id, title),
         )
         row = cursor.fetchone()
 
@@ -176,6 +220,8 @@ def load_election_by_natural_key(channel_id: int, title: str) -> dict[str, Any] 
             "candidates": json.loads(row["candidates"]),
             "open": bool(row["open"]),
             "message_id": row["message_id"],
+            "creator_id": row["creator_id"],
+            "end_timestamp": row["end_timestamp"],
         }
     finally:
         conn.close()
@@ -189,17 +235,21 @@ def load_all_elections() -> list[dict[str, Any]]:
 
         elections = []
         for row in cursor.fetchall():
-            elections.append({
-                "election_id": row["election_id"],
-                "channel_id": row["channel_id"],
-                "title": row["title"],
-                "description": row["description"],
-                "method_class": row["method_class"],
-                "method_params": json.loads(row["method_params"]),
-                "candidates": json.loads(row["candidates"]),
-                "open": bool(row["open"]),
-                "message_id": row["message_id"],
-            })
+            elections.append(
+                {
+                    "election_id": row["election_id"],
+                    "channel_id": row["channel_id"],
+                    "title": row["title"],
+                    "description": row["description"],
+                    "method_class": row["method_class"],
+                    "method_params": json.loads(row["method_params"]),
+                    "candidates": json.loads(row["candidates"]),
+                    "open": bool(row["open"]),
+                    "message_id": row["message_id"],
+                    "creator_id": row["creator_id"],
+                    "end_timestamp": row["end_timestamp"],
+                }
+            )
 
         return elections
     finally:
@@ -226,9 +276,7 @@ def delete_election(election_id: int):
         conn.close()
 
 
-def save_ballot(
-    ballot: Any, election_id: int, user_id: int, is_submitted: bool
-) -> int:
+def save_ballot(ballot: Any, election_id: int, user_id: int, is_submitted: bool) -> int:
     """Save a ballot to the database. Returns ballot_id."""
     conn = get_connection()
 
@@ -344,15 +392,17 @@ def load_all_ballots(election_id: int, is_submitted: bool) -> list[dict[str, Any
         ballots = []
         for row in cursor.fetchall():
             ballot_data = json.loads(row["ballot_data"])
-            ballots.append({
-                "ballot_id": row["ballot_id"],
-                "election_id": row["election_id"],
-                "user_id": row["user_id"],
-                "ballot_type": row["ballot_type"],
-                "ballot_data": ballot_data,
-                "is_submitted": bool(row["is_submitted"]),
-                "session_id": ballot_data["session_id"],
-            })
+            ballots.append(
+                {
+                    "ballot_id": row["ballot_id"],
+                    "election_id": row["election_id"],
+                    "user_id": row["user_id"],
+                    "ballot_type": row["ballot_type"],
+                    "ballot_data": ballot_data,
+                    "is_submitted": bool(row["is_submitted"]),
+                    "session_id": ballot_data["session_id"],
+                }
+            )
 
         return ballots
     finally:
@@ -397,6 +447,81 @@ def get_vote_count(election_id: int) -> int:
             (election_id,),
         )
         return cursor.fetchone()[0]
+    finally:
+        conn.close()
+
+
+def load_elections_by_creator(channel_id: int, creator_id: int) -> list[dict[str, Any]]:
+    """Load all open elections in a channel created by a specific user."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            "SELECT * FROM elections WHERE channel_id=? AND creator_id=? AND open=1",
+            (channel_id, creator_id),
+        )
+
+        elections = []
+        for row in cursor.fetchall():
+            elections.append(
+                {
+                    "election_id": row["election_id"],
+                    "channel_id": row["channel_id"],
+                    "title": row["title"],
+                    "description": row["description"],
+                    "method_class": row["method_class"],
+                    "method_params": json.loads(row["method_params"]),
+                    "candidates": json.loads(row["candidates"]),
+                    "open": bool(row["open"]),
+                    "message_id": row["message_id"],
+                    "creator_id": row["creator_id"],
+                    "end_timestamp": row["end_timestamp"],
+                }
+            )
+
+        return elections
+    finally:
+        conn.close()
+
+
+def load_elections_ending_soon(within_seconds: int = 60) -> list[dict[str, Any]]:
+    """Load all open elections with end_timestamp within the next N seconds (or already expired).
+
+    This is more efficient than load_all_elections() for checking expiration.
+
+    Args:
+        within_seconds: Only return elections ending within this many seconds (default 60)
+
+    Returns:
+        List of election data dicts with end_timestamp <= current_time + within_seconds
+    """
+    conn = get_connection()
+    try:
+        current_time = int(time.time())
+        max_time = current_time + within_seconds
+        cursor = conn.execute(
+            "SELECT * FROM elections WHERE open=1 AND end_timestamp IS NOT NULL AND end_timestamp <= ?",
+            (max_time,),
+        )
+
+        elections = []
+        for row in cursor.fetchall():
+            elections.append(
+                {
+                    "election_id": row["election_id"],
+                    "channel_id": row["channel_id"],
+                    "title": row["title"],
+                    "description": row["description"],
+                    "method_class": row["method_class"],
+                    "method_params": json.loads(row["method_params"]),
+                    "candidates": json.loads(row["candidates"]),
+                    "open": bool(row["open"]),
+                    "message_id": row["message_id"],
+                    "creator_id": row["creator_id"],
+                    "end_timestamp": row["end_timestamp"],
+                }
+            )
+
+        return elections
     finally:
         conn.close()
 

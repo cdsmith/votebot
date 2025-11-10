@@ -56,7 +56,7 @@ class RivestShenGTElection(Election):
         b = np.ones(m)
 
         def objective(p):
-            return np.sum(p ** 2)
+            return np.sum(p**2)
 
         def grad_objective(p):
             return 2 * p

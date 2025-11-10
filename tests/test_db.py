@@ -13,6 +13,7 @@ from election import load_election_from_db
 from elections.plurality import PluralityElection
 from ballots.simple import SimpleBallot
 
+
 def test_election_persistence():
     """Test that elections can be saved and loaded from the database."""
     print("Testing election persistence...")
@@ -25,6 +26,8 @@ def test_election_persistence():
         method_params={},
         election_id=None,
         channel_id=12345,
+        creator_id=123456789,
+        end_timestamp=None,
     )
 
     # Save to database
@@ -33,6 +36,7 @@ def test_election_persistence():
 
     # Load from database
     from election import load_election_from_db
+
     loaded_election = load_election_from_db(election_id)
 
     assert loaded_election is not None, "Failed to load election"
@@ -42,6 +46,7 @@ def test_election_persistence():
     print("✓ Election loaded successfully")
 
     return election_id
+
 
 def test_ballot_persistence(election_id):
     """Test that ballots can be saved and loaded."""
@@ -76,6 +81,7 @@ def test_ballot_persistence(election_id):
     assert submitted is not None, "Submitted ballot should exist"
     print("✓ Ballot correctly moved to submitted")
 
+
 def test_vote_count(election_id):
     """Test vote counting."""
     print("\nTesting vote count...")
@@ -94,11 +100,13 @@ def test_vote_count(election_id):
     print(f"✓ Vote count: {vote_count} votes")
     assert vote_count == 4, f"Expected 4 votes, got {vote_count}"  # 999 + 3 new users
 
+
 def test_election_results(election_id):
     """Test computing election results."""
     print("\nTesting election results...")
 
     from election import load_election_from_db
+
     election = load_election_from_db(election_id)
 
     # Load all ballots
@@ -107,6 +115,7 @@ def test_election_results(election_id):
 
     # Reconstruct ballots
     from election import ballot_from_dict
+
     ballots = [ballot_from_dict(bd, election_id) for bd in ballot_dicts]
 
     # Tabulate
@@ -114,16 +123,19 @@ def test_election_results(election_id):
     print(f"✓ Winners: {winners}")
     print(f"✓ Details:\n{details}")
 
+
 def test_election_closing(election_id):
     """Test closing an election."""
     print("\nTesting election closing...")
 
     db.mark_election_closed(election_id)
     from election import load_election_from_db
+
     election = load_election_from_db(election_id)
 
     assert election.open == False, "Election should be closed"
     print("✓ Election closed successfully")
+
 
 def test_natural_key_lookup():
     """Test loading election by channel_id and title."""
@@ -133,6 +145,7 @@ def test_natural_key_lookup():
     assert election_data is not None, "Failed to load by natural key"
     assert election_data["title"] == "Test Election"
     print("✓ Natural key lookup successful")
+
 
 def main():
     print("=" * 60)
@@ -167,10 +180,12 @@ def main():
     except Exception as e:
         print(f"\n✗ Unexpected error: {e}")
         import traceback
+
         traceback.print_exc()
         return 1
 
     return 0
+
 
 if __name__ == "__main__":
     exit(main())

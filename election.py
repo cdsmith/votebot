@@ -11,6 +11,7 @@ if TYPE_CHECKING:
 # Global reference to Discord client (set by bot.py on startup)
 _client = None
 
+
 def set_client(client):
     """Called by bot.py to set the Discord client reference."""
     global _client
@@ -26,6 +27,8 @@ class Election(abc.ABC):
         method_params: dict[str, str],
         election_id: int | None = None,
         channel_id: int | None = None,
+        creator_id: int = 0,
+        end_timestamp: int | None = None,
     ):
         self.election_id: int | None = election_id
         self.channel_id: int | None = channel_id
@@ -35,12 +38,15 @@ class Election(abc.ABC):
         self.method_params: dict[str, str] = method_params
         self.open = True
         self.message_id: int | None = None
+        self.creator_id: int = creator_id
+        self.end_timestamp: int | None = end_timestamp
 
         # Store method class name for serialization
         self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
     def get_public_view(self) -> dict[str, Any]:
         """Return a dictionary representation of the public view of the election as Discord message fields."""
+        import time_utils
 
         class VoteButton(discord.ui.Button):
             def __init__(_, election_id: int):
@@ -74,12 +80,23 @@ class Election(abc.ABC):
                 value=self.method_description(self.method_params),
                 inline=False,
             )
-            .set_footer(text=f"{vote_count} votes cast")
         )
+
+        # Add end time field if scheduled
+        if self.end_timestamp:
+            embed.add_field(
+                name="Ends",
+                value=time_utils.format_timestamp_discord(self.end_timestamp),
+                inline=False,
+            )
+
+        embed.set_footer(text=f"{vote_count} votes cast")
 
         return {
             "embed": embed,
-            "view": discord.ui.View(timeout=None).add_item(VoteButton(self.election_id)),
+            "view": discord.ui.View(timeout=None).add_item(
+                VoteButton(self.election_id)
+            ),
         }
 
     async def send_ballot(self, interaction: discord.Interaction):
@@ -93,11 +110,15 @@ class Election(abc.ABC):
         session_id = db.new_session()
 
         # Try to load existing interim ballot
-        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+        ballot_data = db.load_user_ballot(
+            self.election_id, interaction.user.id, is_submitted=False
+        )
 
         if ballot_data is None:
             # Check if they have a submitted ballot (for editing)
-            submitted_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=True)
+            submitted_data = db.load_user_ballot(
+                self.election_id, interaction.user.id, is_submitted=True
+            )
             if submitted_data:
                 ballot = ballot_from_dict(submitted_data, self.election_id)
                 ballot = ballot.copy()
@@ -109,7 +130,9 @@ class Election(abc.ABC):
 
         # Update session_id and save
         ballot.session_id = session_id
-        db.save_ballot(ballot, self.election_id, interaction.user.id, is_submitted=False)
+        db.save_ballot(
+            ballot, self.election_id, interaction.user.id, is_submitted=False
+        )
 
         await interaction.response.send_message(
             **ballot.render_interim(session_id),
@@ -134,7 +157,9 @@ class Election(abc.ABC):
             return False
 
         # Load the user's interim ballot to check session
-        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+        ballot_data = db.load_user_ballot(
+            self.election_id, interaction.user.id, is_submitted=False
+        )
         if ballot_data is None or ballot_data["session_id"] != session_id:
             try:
                 await interaction.response.edit_message(
@@ -153,7 +178,9 @@ class Election(abc.ABC):
         """Submit the user's current interim ballot as their submitted vote."""
 
         # Load interim ballot
-        ballot_data = db.load_user_ballot(self.election_id, interaction.user.id, is_submitted=False)
+        ballot_data = db.load_user_ballot(
+            self.election_id, interaction.user.id, is_submitted=False
+        )
 
         if ballot_data:
             ballot = ballot_from_dict(ballot_data, self.election_id)
@@ -263,6 +290,7 @@ def load_election_from_db(election_id: int) -> Election | None:
 
     # Import dynamically to get the correct class
     import importlib
+
     module_name, class_name = data["method_class"].rsplit(".", 1)
     module = importlib.import_module(module_name)
     election_class = getattr(module, class_name)
@@ -275,6 +303,8 @@ def load_election_from_db(election_id: int) -> Election | None:
         method_params=data["method_params"],
         election_id=data["election_id"],
         channel_id=data["channel_id"],
+        creator_id=data["creator_id"],
+        end_timestamp=data["end_timestamp"],
     )
     election.open = data["open"]
     election.message_id = data["message_id"]
@@ -286,9 +316,69 @@ def ballot_from_dict(ballot_dict: dict[str, Any], election_id: int) -> "Ballot":
     """Reconstruct a ballot from database dict."""
     # Import dynamically to get the correct ballot class
     import importlib
+
     module_name, class_name = ballot_dict["ballot_type"].rsplit(".", 1)
     module = importlib.import_module(module_name)
     ballot_class = getattr(module, class_name)
 
     # Call the from_dict class method
     return ballot_class.from_dict(ballot_dict, election_id)
+
+
+async def end_election_and_update_message(
+    election: "Election",
+    channel: discord.TextChannel,
+    include_announcement: bool = False,
+) -> None:
+    """End an election, post results, and update the original message.
+
+    Args:
+        election: The election to end
+        channel: The Discord channel where the election is posted
+        include_announcement: If True, includes "Election **{title}** has ended!" text
+    """
+    import time_utils
+
+    # Generate results embed
+    results_embed = election.get_results(show_details=True).set_footer(
+        text=f"Computed using {election.method_description(election.method_params)}"
+    )
+
+    # Post results to channel
+    if include_announcement:
+        await channel.send(
+            content=f"Election **{election.title}** has ended!",
+            embed=results_embed,
+        )
+    else:
+        await channel.send(embed=results_embed)
+
+    # Update the original election message
+    if election.message_id:
+        try:
+            message = await channel.fetch_message(election.message_id)
+            embed = message.embeds[0] if message.embeds else None
+            if embed:
+                # Update footer
+                embed.set_footer(text=f"{embed.footer.text} • Election ended")
+
+                # Update "Ends" field to "Ended" and remove relative time
+                if election.end_timestamp:
+                    for i, field in enumerate(embed.fields):
+                        if field.name == "Ends":
+                            embed.set_field_at(
+                                i,
+                                name="Ended",
+                                value=time_utils.format_timestamp_discord(
+                                    election.end_timestamp,
+                                    include_relative=False,
+                                ),
+                                inline=False,
+                            )
+                            break
+            await message.edit(embed=embed, view=None)
+        except discord.NotFound:
+            pass  # Message was deleted
+
+    # Delete the election from database
+    db.delete_election(election.election_id)

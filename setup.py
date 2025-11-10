@@ -13,10 +13,14 @@ class ElectionSetup:
         self.method_params: dict[str, str] = {}
         self.description: str = ""
         self.candidates: list[str] = []
+        self.end_time_str: str = ""
+        self.end_timestamp: int | None = None
 
     async def start(
-        self, interaction: discord.Interaction
+        self, interaction: discord.Interaction, parent_view=None
     ) -> tuple[int, str, Election] | None:
+        self.parent_view = parent_view
+
         class NewModal(discord.ui.Modal, title="Create Election"):
             title_field = discord.ui.TextInput(
                 label="Election Title", default=self.title
@@ -27,11 +31,36 @@ class ElectionSetup:
                 default=self.description,
                 required=False,
             )
+            end_time = discord.ui.TextInput(
+                label="End Time (optional)",
+                placeholder="Examples: 2d, 3h30m, 2025-12-25 14:30",
+                default=self.end_time_str,
+                required=False,
+            )
 
             async def on_submit(inner_self, interaction: discord.Interaction):
+                import time_utils
+
                 self.title = inner_self.title_field.value
                 self.description = inner_self.description.value
-                await interaction.response.send_message(**self.get_setup_message(), ephemeral=True)
+                self.end_time_str = inner_self.end_time.value
+
+                # Parse and validate end time
+                self.end_timestamp, error = time_utils.validate_time_input(
+                    self.end_time_str
+                )
+                if error:
+                    await interaction.response.send_message(
+                        f"Error: {error}",
+                        ephemeral=True,
+                        delete_after=10,
+                    )
+                    return
+
+                # Edit the original ephemeral message (from the button click) to show setup UI
+                # We need to use interaction.edit_original_response() because the message is ephemeral
+                await interaction.response.defer()
+                await interaction.edit_original_response(**self.get_setup_message())
 
         await interaction.response.send_modal(NewModal())
         self.future = asyncio.Future()
@@ -43,9 +72,11 @@ class ElectionSetup:
         class MethodSelect(discord.ui.Select):
             def __init__(_):
                 super().__init__(
-                    placeholder=self.method_class.method_name()
-                    if self.method_class
-                    else "Select Method",
+                    placeholder=(
+                        self.method_class.method_name()
+                        if self.method_class
+                        else "Select Method"
+                    ),
                     options=[
                         discord.SelectOption(label=name, value=name)
                         for name in methods.NAMED_METHODS
@@ -160,20 +191,31 @@ class ElectionSetup:
                 if not self.future or self.future.done():
                     return
 
+                # Check if scheduled end time has already passed
+                import time
+
+                if self.end_timestamp and self.end_timestamp <= int(time.time()):
+                    await interaction.response.send_message(
+                        "Error: The scheduled end time has already passed. Please reschedule or remove the end time.",
+                        ephemeral=True,
+                        delete_after=10,
+                    )
+                    return
+
                 election = self.method_class(
                     title=self.title,
                     description=self.description,
                     candidates=self.candidates,
                     method_params=self.method_params,
+                    creator_id=interaction.user.id,
+                    end_timestamp=self.end_timestamp,
                 )
 
-                await interaction.response.edit_message(
-                    content=f"Election **{self.title}** has started! A public poll has been posted in this channel.",
-                    view=None,
-                    delete_after=5,
+                # Return the election to the caller - don't edit the message here
+                # The caller will handle updating the view
+                self.future.set_result(
+                    (interaction.channel_id, self.title, election, interaction)
                 )
-
-                self.future.set_result((interaction.channel_id, self.title, election))
 
         class EditButton(discord.ui.Button):
             def __init__(self):
@@ -190,10 +232,32 @@ class ElectionSetup:
                         default=self.description,
                         required=False,
                     )
+                    end_time = discord.ui.TextInput(
+                        label="End Time (optional)",
+                        placeholder="Examples: 2d, 3h30m, 2025-12-25 14:30",
+                        default=self.end_time_str,
+                        required=False,
+                    )
 
                     async def on_submit(inner_self, interaction: discord.Interaction):
+                        import time_utils
+
                         self.description = inner_self.description.value
                         self.title = inner_self.title_field.value
+                        self.end_time_str = inner_self.end_time.value
+
+                        # Parse and validate end time
+                        self.end_timestamp, error = time_utils.validate_time_input(
+                            self.end_time_str
+                        )
+                        if error:
+                            await interaction.response.send_message(
+                                f"Error: {error}",
+                                ephemeral=True,
+                                delete_after=10,
+                            )
+                            return
+
                         await interaction.response.edit_message(
                             **self.get_setup_message()
                         )
@@ -209,9 +273,15 @@ class ElectionSetup:
             async def callback(_, interaction: discord.Interaction):
                 if self.future and not self.future.done():
                     self.future.set_result(None)
-                    await interaction.response.edit_message(
-                        content="Setup canceled.", view=None
-                    )
+                    # Edit back to the parent view
+                    if self.parent_view:
+                        await interaction.response.edit_message(
+                            **self.parent_view.get_content()
+                        )
+                    else:
+                        await interaction.response.edit_message(
+                            content="Setup canceled.", view=None
+                        )
 
         view = discord.ui.View(timeout=None)
         view.add_item(MethodSelect())
@@ -225,6 +295,8 @@ class ElectionSetup:
         view.add_item(CancelSetupButton())
         view.add_item(EditButton())
 
+        import time_utils
+
         title = self.title or "*No title set.*"
         method = (
             self.method_class.method_description(self.method_params)
@@ -233,12 +305,14 @@ class ElectionSetup:
         )
         desc = self.description or "*No description set.*"
         cands = "\n".join(f"- {c}" for c in self.candidates) or "*No candidates yet.*"
+        end_time = time_utils.format_timestamp_discord(self.end_timestamp)
 
         fields = [
             f"**Setting up Election**:\n{title}",
             f"**Description**:\n{desc}",
             f"**Method**:\n{method}",
             f"**Candidates**:\n{cands}",
+            f"**Ends**:\n{end_time}",
         ]
         invalid = self.invalid_reason()
         if invalid:

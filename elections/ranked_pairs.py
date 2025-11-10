@@ -31,7 +31,7 @@ class RankedPairsElection(Election):
         lines.append("**Pairwise Matchups:**")
 
         margins = {}
-        for (a, b) in pairwise.keys():
+        for a, b in pairwise.keys():
             a_wins = pairwise[(a, b)]
             b_wins = pairwise[(b, a)]
             if a_wins > b_wins:
