@@ -2,58 +2,81 @@
 Test suite for database functionality.
 Tests creating elections, casting votes, and retrieving results.
 
-Run from project root with: python3 -m tests.test_db
+Run with pytest from the project root (PYTHONPATH=. pytest), or directly
+with: python3 -m tests.test_db
 """
 
 import os
 import random
 
+import pytest
+
 import db
-from election import load_election_from_db
+from election import ballot_from_dict, load_election_from_db
 from elections.plurality import PluralityElection
 from ballots.simple import SimpleBallot
 
 
-def test_election_persistence():
-    """Test that elections can be saved and loaded from the database."""
-    print("Testing election persistence...")
+CANDIDATES = ["Alice", "Bob", "Charlie"]
+CHANNEL_ID = 12345
+TITLE = "Test Election"
 
-    # Create an election
+
+def _create_election():
+    """Create and save a test election, returning its ID."""
     election = PluralityElection(
-        title="Test Election",
+        title=TITLE,
         description="This is a test election",
-        candidates=["Alice", "Bob", "Charlie"],
+        candidates=list(CANDIDATES),
         method_params={},
         election_id=None,
-        channel_id=12345,
+        channel_id=CHANNEL_ID,
         creator_id=123456789,
         end_timestamp=None,
     )
+    return db.save_election(election)
 
-    # Save to database
-    election_id = db.save_election(election)
-    print(f"✓ Created election with ID: {election_id}")
 
-    # Load from database
-    from election import load_election_from_db
+def _cast_vote(election_id, user_id, choice):
+    candidates = list(CANDIDATES)
+    random.shuffle(candidates)
+    ballot = SimpleBallot(election_id, candidates, multiple_votes=False)
+    ballot.votes = {choice}
+    ballot.session_id = user_id
+    db.save_ballot(ballot, election_id, user_id, is_submitted=False)
+    db.submit_ballot(election_id, user_id, ballot)
 
+
+@pytest.fixture(scope="module", autouse=True)
+def fresh_db(tmp_path_factory):
+    """Point db at a fresh temporary database for this module's tests."""
+    original = db.DB_PATH
+    db.DB_PATH = str(tmp_path_factory.mktemp("db") / "votebot_test.db")
+    db.init_db()
+    yield
+    db.DB_PATH = original
+
+
+@pytest.fixture(scope="module")
+def election_id():
+    """A saved election shared by the tests in this module (which build on
+    one another in file order)."""
+    return _create_election()
+
+
+def test_election_persistence(election_id):
+    """Test that elections can be saved and loaded from the database."""
     loaded_election = load_election_from_db(election_id)
 
     assert loaded_election is not None, "Failed to load election"
-    assert loaded_election.title == "Test Election"
-    assert loaded_election.channel_id == 12345
+    assert loaded_election.title == TITLE
+    assert loaded_election.channel_id == CHANNEL_ID
     assert len(loaded_election.candidates) == 3
-    print("✓ Election loaded successfully")
-
-    return election_id
 
 
 def test_ballot_persistence(election_id):
     """Test that ballots can be saved and loaded."""
-    print("\nTesting ballot persistence...")
-
-    # Create a ballot
-    candidates = ["Alice", "Bob", "Charlie"]
+    candidates = list(CANDIDATES)
     random.shuffle(candidates)
     ballot = SimpleBallot(election_id, candidates, multiple_votes=False)
     ballot.votes = {"Alice"}
@@ -61,17 +84,14 @@ def test_ballot_persistence(election_id):
 
     # Save ballot
     db.save_ballot(ballot, election_id, user_id=999, is_submitted=False)
-    print(f"✓ Created interim ballot with ID: {ballot.ballot_id}")
 
     # Load ballot
     ballot_data = db.load_user_ballot(election_id, 999, is_submitted=False)
     assert ballot_data is not None, "Failed to load ballot"
     assert ballot_data["session_id"] == 12345678
-    print("✓ Ballot loaded successfully")
 
     # Submit ballot
     db.submit_ballot(election_id, 999, ballot)
-    print("✓ Ballot submitted")
 
     # Verify it moved to submitted
     interim = db.load_user_ballot(election_id, 999, is_submitted=False)
@@ -79,112 +99,50 @@ def test_ballot_persistence(election_id):
 
     assert interim is None, "Interim ballot should be deleted"
     assert submitted is not None, "Submitted ballot should exist"
-    print("✓ Ballot correctly moved to submitted")
 
 
 def test_vote_count(election_id):
     """Test vote counting."""
-    print("\nTesting vote count...")
-
-    # Add more votes
     for user_id in [1000, 1001, 1002]:
-        candidates = ["Alice", "Bob", "Charlie"]
-        random.shuffle(candidates)
-        ballot = SimpleBallot(election_id, candidates, multiple_votes=False)
-        ballot.votes = {random.choice(["Alice", "Bob", "Charlie"])}
-        ballot.session_id = user_id
-        db.save_ballot(ballot, election_id, user_id, is_submitted=False)
-        db.submit_ballot(election_id, user_id, ballot)
+        _cast_vote(election_id, user_id, random.choice(CANDIDATES))
 
     vote_count = db.get_vote_count(election_id)
-    print(f"✓ Vote count: {vote_count} votes")
     assert vote_count == 4, f"Expected 4 votes, got {vote_count}"  # 999 + 3 new users
 
 
 def test_election_results(election_id):
     """Test computing election results."""
-    print("\nTesting election results...")
-
-    from election import load_election_from_db
-
     election = load_election_from_db(election_id)
 
-    # Load all ballots
     ballot_dicts = db.load_all_ballots(election_id, is_submitted=True)
-    print(f"✓ Loaded {len(ballot_dicts)} ballots")
-
-    # Reconstruct ballots
-    from election import ballot_from_dict
+    assert len(ballot_dicts) == 4
 
     ballots = [ballot_from_dict(bd, election_id) for bd in ballot_dicts]
 
-    # Tabulate
     winners, details = election.tabulate(ballots)
-    print(f"✓ Winners: {winners}")
-    print(f"✓ Details:\n{details}")
+    assert winners
+    assert details
 
 
 def test_election_closing(election_id):
     """Test closing an election."""
-    print("\nTesting election closing...")
-
     db.mark_election_closed(election_id)
-    from election import load_election_from_db
-
     election = load_election_from_db(election_id)
 
-    assert election.open == False, "Election should be closed"
-    print("✓ Election closed successfully")
+    assert election.open is False, "Election should be closed"
 
 
-def test_natural_key_lookup():
+def test_natural_key_lookup(election_id):
     """Test loading election by channel_id and title."""
-    print("\nTesting natural key lookup...")
-
-    election_data = db.load_election_by_natural_key(12345, "Test Election")
+    election_data = db.load_election_by_natural_key(CHANNEL_ID, TITLE)
     assert election_data is not None, "Failed to load by natural key"
-    assert election_data["title"] == "Test Election"
-    print("✓ Natural key lookup successful")
+    assert election_data["title"] == TITLE
+    assert election_data["election_id"] == election_id
 
 
 def main():
-    print("=" * 60)
-    print("Database Test Suite")
-    print("=" * 60)
-
-    # Clean up any existing test data first
-    if os.path.exists(db.DB_PATH):
-        os.remove(db.DB_PATH)
-        print("✓ Cleaned up old test database")
-
-    # Initialize database
-    db.init_db()
-    print("✓ Database initialized\n")
-
-    try:
-        # Run tests
-        election_id = test_election_persistence()
-        test_ballot_persistence(election_id)
-        test_vote_count(election_id)
-        test_election_results(election_id)
-        test_election_closing(election_id)
-        test_natural_key_lookup()
-
-        print("\n" + "=" * 60)
-        print("✓ All tests passed!")
-        print("=" * 60)
-
-    except AssertionError as e:
-        print(f"\n✗ Test failed: {e}")
-        return 1
-    except Exception as e:
-        print(f"\n✗ Unexpected error: {e}")
-        import traceback
-
-        traceback.print_exc()
-        return 1
-
-    return 0
+    """Run this module's tests via pytest against a temporary database."""
+    return pytest.main([os.path.abspath(__file__), "-v"])
 
 
 if __name__ == "__main__":

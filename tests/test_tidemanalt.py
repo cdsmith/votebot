@@ -1,5 +1,5 @@
 from elections.tideman_alt import TidemanAlternativeElection
-from testutil import PrefillBallot
+from tests.testutil import PrefillBallot
 
 
 def test_tideman_alternative_simple_majority():
