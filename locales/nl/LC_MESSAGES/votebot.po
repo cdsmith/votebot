@@ -1,0 +1,635 @@
+# Dutch translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: nl\n"
+"Language-Team: nl <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Volgende pagina"
+
+msgid "Prev Page"
+msgstr "Vorige pagina"
+
+msgid "Submit Vote"
+msgstr "Stem uitbrengen"
+
+msgid "Start Over"
+msgstr "Opnieuw beginnen"
+
+msgid "Current vote"
+msgstr "Huidige stem"
+
+msgid "Page {page}/{total}"
+msgstr "Pagina {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Stem uitgebracht"
+
+msgid "Your ballot:"
+msgstr "Je stembiljet:"
+
+msgid "Your vote has been submitted."
+msgstr "Je stem is uitgebracht."
+
+msgid "Manage your elections."
+msgstr "Beheer je verkiezingen."
+
+msgid "Error: Election not found."
+msgstr "Fout: verkiezing niet gevonden."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Beheer: {title}**\n"
+"\n"
+"**Methode**: {method}\n"
+"**Kandidaten**: {candidates}\n"
+"**Stemmen**: {votes}\n"
+"**Eindigt**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Kies een verkiezing om te beheren, of maak een nieuwe aan."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Je hebt geen actieve verkiezingen in dit kanaal.\n"
+"\n"
+"Klik op de knop hieronder om er een aan te maken!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} stem"
+msgstr[1] "{n} stemmen"
+
+msgid "Select an election to manage"
+msgstr "Kies een verkiezing om te beheren"
+
+msgid "← Back"
+msgstr "← Terug"
+
+msgid "Create New Election"
+msgstr "Nieuwe verkiezing"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Er loopt al een verkiezing met de titel `{title}` in dit kanaal."
+
+msgid "Reschedule"
+msgstr "Verzetten"
+
+msgid "Reschedule Election"
+msgstr "Verkiezing verzetten"
+
+msgid "New End Time"
+msgstr "Nieuwe eindtijd"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Voorbeelden: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Fout: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Verkiezing verzet!"
+
+msgid "End Now"
+msgstr "Nu beëindigen"
+
+msgid "Confirm End Election"
+msgstr "Beëindigen bevestigen"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Typ \"CONFIRM\" om de verkiezing te beëindigen"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Verkiezing niet beëindigd. De bevestigingstekst kwam niet overeen."
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Confirm Delete Election"
+msgstr "Verwijderen bevestigen"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Typ \"DELETE\" om de verkiezing te verwijderen"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Verkiezing niet verwijderd. De bevestigingstekst kwam niet overeen."
+
+msgid "Vote"
+msgstr "Stemmen"
+
+msgid "This election no longer exists."
+msgstr "Deze verkiezing bestaat niet meer."
+
+msgid "Candidates"
+msgstr "Kandidaten"
+
+msgid "*No candidates yet!*"
+msgstr "*Nog geen kandidaten!*"
+
+msgid "Method"
+msgstr "Methode"
+
+msgid "Ends"
+msgstr "Eindigt"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} uitgebrachte stem"
+msgstr[1] "{n} uitgebrachte stemmen"
+
+msgid "This election is not open."
+msgstr "Deze verkiezing is niet open."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Dit stembiljet is vervangen door een nieuw stembiljet. Klik nogmaals op "
+"de knop Stemmen om verder te gaan."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Je stem **is niet geregistreerd** omdat je geen stembiljet open had.  "
+"Klik nogmaals op de knop Stemmen om te stemmen of je stembiljet bij te "
+"werken."
+
+msgid "Results for {title}"
+msgstr "Uitslag van {title}"
+
+msgid "Winners"
+msgstr "Winnaars"
+
+msgid "No winner determined"
+msgstr "Geen winnaar bepaald"
+
+msgid "Winner"
+msgstr "Winnaar"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Computed using {method}"
+msgstr "Berekend met {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "De verkiezing **{title}** is afgelopen!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Verkiezing afgelopen"
+
+msgid "Ended"
+msgstr "Afgelopen"
+
+msgid "Create Election"
+msgstr "Verkiezing aanmaken"
+
+msgid "Election Title"
+msgstr "Titel van de verkiezing"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "End Time (optional)"
+msgstr "Eindtijd (optioneel)"
+
+msgid "Select Method"
+msgstr "Kies methode"
+
+msgid "Configure Method"
+msgstr "Methode instellen"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Add Candidate"
+msgstr "Kandidaat toevoegen"
+
+msgid "Add a Candidate"
+msgstr "Kandidaat toevoegen"
+
+msgid "Candidate Name"
+msgstr "Naam van de kandidaat"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** is al kandidaat."
+
+msgid "Remove Candidate"
+msgstr "Kandidaat verwijderen"
+
+msgid "Remove {candidate}"
+msgstr "{candidate} verwijderen"
+
+msgid "Start Election"
+msgstr "Verkiezing starten"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Fout: de geplande eindtijd is al verstreken. Verzet of verwijder de "
+"eindtijd."
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Edit Attributes"
+msgstr "Eigenschappen bewerken"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Setup canceled."
+msgstr "Instellen geannuleerd."
+
+msgid "*No title set.*"
+msgstr "*Geen titel ingesteld.*"
+
+msgid "*No method set.*"
+msgstr "*Geen methode ingesteld.*"
+
+msgid "*No description set.*"
+msgstr "*Geen beschrijving ingesteld.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Nog geen kandidaten.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Verkiezing instellen**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Beschrijving**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Methode**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandidaten**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Eindigt**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Taal**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Kies de taal voor de openbare berichten van deze verkiezing. Elke kiezer "
+"krijgt het stembiljet in de eigen taal."
+
+msgid "No title was set."
+msgstr "Er is geen titel ingesteld."
+
+msgid "No method was set."
+msgstr "Er is geen methode ingesteld."
+
+msgid "At least two candidates are required."
+msgstr "Er zijn minstens twee kandidaten nodig."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Kan de tijd niet lezen. Probeer formaten zoals: 2d, 3h30m, 1w of "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "De eindtijd moet in de toekomst liggen"
+
+msgid "When manually ended"
+msgstr "Bij handmatig beëindigen"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Kies de kandidaten in volgorde van je voorkeur. Je kunt op elk moment "
+"insturen.  Je hoeft niet alle kandidaten te rangschikken."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "{candidate} op plaats #{place} zetten"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Kies een kandidaat voor plaats #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Kies een kandidaat voor plaats #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Geen kandidaten gerangschikt."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Geef elke kandidaat 0 tot 5 sterren."
+
+msgid "No ratings recorded"
+msgstr "Geen beoordelingen geregistreerd"
+
+msgid "Please select all candidates you approve of."
+msgstr "Kies alle kandidaten die je goedkeurt."
+
+msgid "Please select a candidate."
+msgstr "Kies een kandidaat."
+
+msgid "No vote recorded"
+msgstr "Geen stem geregistreerd"
+
+msgid "Approval"
+msgstr "Instemmingsverkiezing"
+
+msgid "No candidates were found."
+msgstr "Er zijn geen kandidaten gevonden."
+
+msgid "Borda Count"
+msgstr "Bordatelling"
+
+msgid "No ballots cast."
+msgstr "Geen stembiljetten uitgebracht."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Paarsgewijze vergelijkingen:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} verslaat {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} en {b} staan gelijk"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} tegen {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} tegen {b}: 0 - 0 (gelijk op alle stembiljetten). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Scores (aantal gewonnen onderlinge duels):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} overwinning"
+msgstr[1] "{n} overwinningen"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} nederlaag"
+msgstr[1] "{n} nederlagen"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} gelijkspel"
+msgstr[1] "{n} gelijkspelen"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young ondersteunt maximaal {n} kandidaat."
+msgstr[1] "Kemeny-Young ondersteunt maximaal {n} kandidaten."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Te veel kandidaten voor Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Paarsgewijze voorkeuren:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Beste Kemeny-score**: {score}"
+
+msgid "Tie between:"
+msgstr "Gelijkspel tussen:"
+
+msgid "Plurality"
+msgstr "Meerderheidsstelsel"
+
+msgid "Ranked Pairs"
+msgstr "Gerangschikte paren"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} verslaat {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} en {b} staan gelijk: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Vastgelegde rangschikkingen:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- {a} > {b} wordt genegeerd omdat het in strijd is met sterkere voorkeuren"
+
+msgid "**Final ordering:**"
+msgstr "**Definitieve volgorde:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Geen optimale oplossing gevonden voor het Rivest-Shen GT-evenwicht."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Margematrix M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Winkansen in het GTO-evenwicht:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Winnaar:** {winner}"
+
+msgid "Score"
+msgstr "Scorestemming"
+
+msgid "No ballots were submitted."
+msgstr "Er zijn geen stembiljetten ingediend."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Gemiddelde scores:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Slechts één kandidaat: **{candidate}** wint automatisch."
+
+msgid "**Top Two Finalists:**"
+msgstr "**De twee finalisten:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} met gemiddelde score {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Tweede ronde:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: voorkeur op {n} stembiljet"
+msgstr[1] "- {candidate}: voorkeur op {n} stembiljetten"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} wint de tweede ronde.**"
+
+msgid "It's a tie."
+msgstr "Het is gelijkspel."
+
+msgid "Number of Winners"
+msgstr "Aantal winnaars"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Enkelvoudige overdraagbare stem / Alternative vote"
+
+msgid "Instant Runoff"
+msgstr "Alternative vote"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Enkelvoudige overdraagbare stem voor {seats} zetel"
+msgstr[1] "Enkelvoudige overdraagbare stem voor {seats} zetels"
+
+msgid "Must choose at least one winner."
+msgstr "Er moet minstens één winnaar gekozen worden."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Het aantal winnaars mag niet groter zijn dan het aantal kandidaten."
+
+msgid "Number of winners must be an integer."
+msgstr "Het aantal winnaars moet een geheel getal zijn."
+
+msgid "**Round {round}:**"
+msgstr "**Ronde {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Actieve kandidaten: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Actieve stembiljetten: {active}, uitgeput: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Huidige aantallen eerste voorkeuren:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Meerdere winnaars met evenveel stemmen. Willekeurig gekozen: "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandidaat **{candidate}** heeft {percent:.2%} ({votes} stemmen) "
+"overschreden en is gekozen."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Meerdere kandidaten staan gelijk op de laatste plaats. Willekeurig "
+"gekozen om af te vallen: **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandidaat **{candidate}** valt af."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandidaat **{candidate}** is gekozen."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Overschot van {votes} stemmen van {candidate} wordt overgedragen."
+
+msgid "Tideman's Alternative Method"
+msgstr "Alternatieve methode van Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandidaten: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} actief stembiljet"
+msgstr[1] "{n} actieve stembiljetten"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} uitgeput stembiljet"
+msgstr[1] "{n} uitgeputte stembiljetten"
+
+msgid "All ballots are exhausted."
+msgstr "Alle stembiljetten zijn uitgeput."
+
+msgid "First place votes:"
+msgstr "Eerste voorkeursstemmen:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Winnaar: **{candidate}** met een meerderheid van de actieve stemmen."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Alle kandidaten buiten de Smith-verzameling vallen af:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "{candidate} met de minste eerste voorkeuren valt af."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Gelijkspel bij de minste eerste voorkeuren: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Afgevallen: {candidate}, door loting."
+

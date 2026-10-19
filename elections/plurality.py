@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _
 from ballots.simple import SimpleBallot
 from ballot import Ballot
 from typing import Iterable
@@ -8,7 +9,7 @@ import random
 class PluralityElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Plurality"
+        return N_("Plurality")
 
     def blank_ballot(self) -> SimpleBallot:
         candidates = list(self.candidates)
@@ -28,4 +29,4 @@ class PluralityElection(Election):
                 [f"**{c}:** {count}" for c, count in sorted_candidates]
             )
         else:
-            return [], "No candidates were found."
+            return [], _("No candidates were found.")

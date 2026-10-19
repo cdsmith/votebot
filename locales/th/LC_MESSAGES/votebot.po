@@ -1,0 +1,618 @@
+# Thai translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: th\n"
+"Language-Team: th <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "หน้าถัดไป"
+
+msgid "Prev Page"
+msgstr "หน้าก่อนหน้า"
+
+msgid "Submit Vote"
+msgstr "ส่งคะแนนโหวต"
+
+msgid "Start Over"
+msgstr "เริ่มใหม่"
+
+msgid "Current vote"
+msgstr "คะแนนโหวตปัจจุบัน"
+
+msgid "Page {page}/{total}"
+msgstr "หน้า {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "ส่งคะแนนโหวตแล้ว"
+
+msgid "Your ballot:"
+msgstr "บัตรลงคะแนนของคุณ:"
+
+msgid "Your vote has been submitted."
+msgstr "ส่งคะแนนโหวตของคุณเรียบร้อยแล้ว"
+
+msgid "Manage your elections."
+msgstr "จัดการการเลือกตั้งของคุณ"
+
+msgid "Error: Election not found."
+msgstr "ข้อผิดพลาด: ไม่พบการเลือกตั้ง"
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**กำลังจัดการ: {title}**\n"
+"\n"
+"**วิธีการ**: {method}\n"
+"**ผู้สมัคร**: {candidates}\n"
+"**คะแนนโหวต**: {votes}\n"
+"**สิ้นสุด**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "เลือกการเลือกตั้งที่ต้องการจัดการ หรือสร้างการเลือกตั้งใหม่"
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"คุณไม่มีการเลือกตั้งที่กำลังดำเนินอยู่ในช่องนี้\n"
+"\n"
+"คลิกปุ่มด้านล่างเพื่อสร้างการเลือกตั้ง!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} คะแนนโหวต"
+
+msgid "Select an election to manage"
+msgstr "เลือกการเลือกตั้งที่ต้องการจัดการ"
+
+msgid "← Back"
+msgstr "← ย้อนกลับ"
+
+msgid "Create New Election"
+msgstr "สร้างการเลือกตั้งใหม่"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "มีการเลือกตั้งชื่อ `{title}` กำลังดำเนินอยู่ในช่องนี้แล้ว"
+
+msgid "Reschedule"
+msgstr "เปลี่ยนเวลา"
+
+msgid "Reschedule Election"
+msgstr "เปลี่ยนเวลาการเลือกตั้ง"
+
+msgid "New End Time"
+msgstr "เวลาสิ้นสุดใหม่"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "ตัวอย่าง: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "ข้อผิดพลาด: {error}"
+
+msgid "Election rescheduled!"
+msgstr "เปลี่ยนเวลาการเลือกตั้งแล้ว!"
+
+msgid "End Now"
+msgstr "สิ้นสุดเดี๋ยวนี้"
+
+msgid "Confirm End Election"
+msgstr "ยืนยันการสิ้นสุดการเลือกตั้ง"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "พิมพ์ \"CONFIRM\" เพื่อสิ้นสุดการเลือกตั้งนี้"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "การเลือกตั้งยังไม่สิ้นสุด ข้อความยืนยันไม่ตรงกัน"
+
+msgid "Delete"
+msgstr "ลบ"
+
+msgid "Confirm Delete Election"
+msgstr "ยืนยันการลบการเลือกตั้ง"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "พิมพ์ \"DELETE\" เพื่อลบการเลือกตั้งนี้"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "ไม่ได้ลบการเลือกตั้ง ข้อความยืนยันไม่ตรงกัน"
+
+msgid "Vote"
+msgstr "โหวต"
+
+msgid "This election no longer exists."
+msgstr "การเลือกตั้งนี้ไม่มีอยู่แล้ว"
+
+msgid "Candidates"
+msgstr "ผู้สมัคร"
+
+msgid "*No candidates yet!*"
+msgstr "*ยังไม่มีผู้สมัคร!*"
+
+msgid "Method"
+msgstr "วิธีการ"
+
+msgid "Ends"
+msgstr "สิ้นสุด"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "ลงคะแนนแล้ว {n} เสียง"
+
+msgid "This election is not open."
+msgstr "การเลือกตั้งนี้ไม่ได้เปิดอยู่"
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"บัตรลงคะแนนนี้ถูกแทนที่ด้วยบัตรใบใหม่แล้ว "
+"คลิกปุ่มโหวตอีกครั้งเพื่อดำเนินการต่อ"
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"คะแนนโหวตของคุณ**ไม่ถูกบันทึก** เพราะคุณไม่ได้เปิดบัตรลงคะแนนไว้ "
+"หากต้องการลงคะแนนหรือแก้ไขบัตรลงคะแนน ให้คลิกปุ่มโหวตอีกครั้ง"
+
+msgid "Results for {title}"
+msgstr "ผลการเลือกตั้ง {title}"
+
+msgid "Winners"
+msgstr "ผู้ชนะ"
+
+msgid "No winner determined"
+msgstr "ไม่สามารถตัดสินผู้ชนะได้"
+
+msgid "Winner"
+msgstr "ผู้ชนะ"
+
+msgid "Details"
+msgstr "รายละเอียด"
+
+msgid "Computed using {method}"
+msgstr "คำนวณด้วย {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "การเลือกตั้ง **{title}** สิ้นสุดแล้ว!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • การเลือกตั้งสิ้นสุดแล้ว"
+
+msgid "Ended"
+msgstr "สิ้นสุดแล้ว"
+
+msgid "Create Election"
+msgstr "สร้างการเลือกตั้ง"
+
+msgid "Election Title"
+msgstr "ชื่อการเลือกตั้ง"
+
+msgid "Description"
+msgstr "คำอธิบาย"
+
+msgid "End Time (optional)"
+msgstr "เวลาสิ้นสุด (ไม่บังคับ)"
+
+msgid "Select Method"
+msgstr "เลือกวิธีการ"
+
+msgid "Configure Method"
+msgstr "ตั้งค่าวิธีการ"
+
+msgid "Language"
+msgstr "ภาษา"
+
+msgid "Add Candidate"
+msgstr "เพิ่มผู้สมัคร"
+
+msgid "Add a Candidate"
+msgstr "เพิ่มผู้สมัคร"
+
+msgid "Candidate Name"
+msgstr "ชื่อผู้สมัคร"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** เป็นผู้สมัครอยู่แล้ว"
+
+msgid "Remove Candidate"
+msgstr "ลบผู้สมัคร"
+
+msgid "Remove {candidate}"
+msgstr "ลบ {candidate}"
+
+msgid "Start Election"
+msgstr "เริ่มการเลือกตั้ง"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"ข้อผิดพลาด: เลยเวลาสิ้นสุดที่กำหนดไว้แล้ว "
+"โปรดเปลี่ยนเวลาหรือนำเวลาสิ้นสุดออก"
+
+msgid "Edit"
+msgstr "แก้ไข"
+
+msgid "Edit Attributes"
+msgstr "แก้ไขรายละเอียด"
+
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+msgid "Setup canceled."
+msgstr "ยกเลิกการตั้งค่าแล้ว"
+
+msgid "*No title set.*"
+msgstr "*ยังไม่ได้ตั้งชื่อ*"
+
+msgid "*No method set.*"
+msgstr "*ยังไม่ได้ตั้งวิธีการ*"
+
+msgid "*No description set.*"
+msgstr "*ยังไม่ได้ใส่คำอธิบาย*"
+
+msgid "*No candidates yet.*"
+msgstr "*ยังไม่มีผู้สมัคร*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**กำลังตั้งค่าการเลือกตั้ง**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**คำอธิบาย**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**วิธีการ**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**ผู้สมัคร**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**สิ้นสุด**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**ภาษา**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"เลือกภาษาสำหรับข้อความสาธารณะของการเลือกตั้งนี้ "
+"บัตรลงคะแนนของผู้มีสิทธิ์เลือกตั้งแต่ละคนจะแสดงเป็นภาษาของผู้นั้นเอง"
+
+msgid "No title was set."
+msgstr "ยังไม่ได้ตั้งชื่อ"
+
+msgid "No method was set."
+msgstr "ยังไม่ได้ตั้งวิธีการ"
+
+msgid "At least two candidates are required."
+msgstr "ต้องมีผู้สมัครอย่างน้อยสองคน"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr "ไม่สามารถอ่านเวลาได้ ลองใช้รูปแบบเช่น: 2d, 3h30m, 1w หรือ 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "เวลาสิ้นสุดต้องอยู่ในอนาคต"
+
+msgid "When manually ended"
+msgstr "เมื่อสิ้นสุดด้วยตนเอง"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"เลือกผู้สมัครตามลำดับความชอบของคุณ คุณสามารถส่งได้ทุกเมื่อ "
+"ไม่จำเป็นต้องจัดอันดับผู้สมัครทุกคน"
+
+msgid "Rank {candidate} as #{place}"
+msgstr "จัดให้ {candidate} เป็นอันดับ #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "เลือกผู้สมัครสำหรับอันดับ #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "เลือกผู้สมัครสำหรับอันดับ #{place}..."
+
+msgid "No candidates ranked."
+msgstr "ไม่ได้จัดอันดับผู้สมัคร"
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "ให้คะแนนผู้สมัครแต่ละคนตั้งแต่ 0 ถึง 5 ดาว"
+
+msgid "No ratings recorded"
+msgstr "ไม่มีการให้คะแนน"
+
+msgid "Please select all candidates you approve of."
+msgstr "โปรดเลือกผู้สมัครทุกคนที่คุณเห็นชอบ"
+
+msgid "Please select a candidate."
+msgstr "โปรดเลือกผู้สมัครหนึ่งคน"
+
+msgid "No vote recorded"
+msgstr "ไม่มีการลงคะแนน"
+
+msgid "Approval"
+msgstr "ระบบการลงคะแนนแบบคะแนนอนุมัติ"
+
+msgid "No candidates were found."
+msgstr "ไม่พบผู้สมัคร"
+
+msgid "Borda Count"
+msgstr "การนับคะแนนแบบ Borda"
+
+msgid "No ballots cast."
+msgstr "ไม่มีการลงคะแนน"
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**การแข่งขันแบบตัวต่อตัว:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} ชนะ {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} และ {b} เสมอกัน"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} กับ {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}) "
+"{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} กับ {b}: 0 - 0 (เสมอกันในทุกบัตร) {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**คะแนน (จำนวนครั้งที่ชนะแบบตัวต่อตัว):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "ชนะ {n} ครั้ง"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "แพ้ {n} ครั้ง"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "เสมอ {n} ครั้ง"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young รองรับผู้สมัครได้ไม่เกิน {n} คน"
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "มีผู้สมัครมากเกินไปสำหรับ Kemeny-Young"
+
+msgid "Pairwise Preferences:"
+msgstr "ความชอบแบบตัวต่อตัว:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**คะแนน Kemeny สูงสุด**: {score}"
+
+msgid "Tie between:"
+msgstr "เสมอกันระหว่าง:"
+
+msgid "Plurality"
+msgstr "การลงคะแนนแบบคะแนนเสียงที่เหนือกว่า"
+
+msgid "Ranked Pairs"
+msgstr "คู่จัดอันดับ"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} ชนะ {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} และ {b} เสมอกัน: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**อันดับที่ล็อกแล้ว:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- ข้าม {a} > {b} เพราะขัดแย้งกับความชอบที่แข็งแกร่งกว่า"
+
+msgid "**Final ordering:**"
+msgstr "**ลำดับสุดท้าย:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "ไม่พบผลเฉลยที่เหมาะสมที่สุดสำหรับดุลยภาพ Rivest-Shen GT"
+
+msgid "**Margin Matrix M:**"
+msgstr "**เมทริกซ์ส่วนต่าง M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**ความน่าจะเป็นที่จะชนะในดุลยภาพ GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**ผู้ชนะ:** {winner}"
+
+msgid "Score"
+msgstr "ระบบการลงคะแนนแบบคะแนนรวม"
+
+msgid "No ballots were submitted."
+msgstr "ไม่มีการส่งบัตรลงคะแนน"
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**คะแนนเฉลี่ย:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "มีผู้สมัครเพียงคนเดียว: **{candidate}** ชนะโดยปริยาย"
+
+msgid "**Top Two Finalists:**"
+msgstr "**ผู้เข้ารอบสุดท้ายสองอันดับแรก:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} คะแนนเฉลี่ย {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**รอบชิงชนะ:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: ได้รับความชอบมากกว่าใน {n} บัตร"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} ชนะในรอบชิงชนะ**"
+
+msgid "It's a tie."
+msgstr "ผลเสมอกัน"
+
+msgid "Number of Winners"
+msgstr "จำนวนผู้ชนะ"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "การเลือกตั้งแบบถ่ายโอนคะแนนเสียง / การลงคะแนนแบบหลายรอบในทันที"
+
+msgid "Instant Runoff"
+msgstr "การลงคะแนนแบบหลายรอบในทันที"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "การเลือกตั้งแบบถ่ายโอนคะแนนเสียงสำหรับ {seats} ที่นั่ง"
+
+msgid "Must choose at least one winner."
+msgstr "ต้องเลือกผู้ชนะอย่างน้อยหนึ่งคน"
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "จำนวนผู้ชนะต้องไม่มากกว่าจำนวนผู้สมัคร"
+
+msgid "Number of winners must be an integer."
+msgstr "จำนวนผู้ชนะต้องเป็นจำนวนเต็ม"
+
+msgid "**Round {round}:**"
+msgstr "**รอบที่ {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "ผู้สมัครที่ยังอยู่ในการแข่งขัน: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "บัตรที่ยังใช้ได้: {active}, บัตรที่หมดสิทธิ์: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "จำนวนคะแนนความชอบอันดับแรกในปัจจุบัน:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "มีผู้ชนะหลายคนที่ได้คะแนนเท่ากัน สุ่มเลือก **{candidate}**"
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"ผู้สมัคร **{candidate}** ได้คะแนนเกิน {percent:.2%} ({votes} คะแนน) "
+"และได้รับเลือก"
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr "มีผู้สมัครหลายคนเสมอกันในอันดับสุดท้าย สุ่มเลือก **{candidate}** ให้ตกรอบ"
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "ผู้สมัคร **{candidate}** ตกรอบ"
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "ผู้สมัคร **{candidate}** ได้รับเลือก"
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "กำลังโอนคะแนนส่วนเกิน {votes} คะแนนจาก {candidate}"
+
+msgid "Tideman's Alternative Method"
+msgstr "วิธีทางเลือกของ Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "ผู้สมัคร: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}"
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "บัตรที่ยังใช้ได้ {n} ใบ"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "บัตรที่หมดสิทธิ์ {n} ใบ"
+
+msgid "All ballots are exhausted."
+msgstr "บัตรลงคะแนนทั้งหมดหมดสิทธิ์แล้ว"
+
+msgid "First place votes:"
+msgstr "คะแนนอันดับแรก:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "ผู้ชนะ: **{candidate}** ด้วยเสียงข้างมากของคะแนนที่ยังใช้ได้"
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "ตัดผู้สมัครทุกคนที่ไม่อยู่ในเซตสมิท:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "{candidate} ตกรอบเนื่องจากได้คะแนนอันดับแรกน้อยที่สุด"
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "เสมอกันในการได้คะแนนอันดับแรกน้อยที่สุด: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "ตกรอบ: {candidate} โดยการสุ่มเลือก"
+

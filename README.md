@@ -169,6 +169,11 @@ If there is no ballot format defined for the election method you want to impleme
 
 ```python
     @abc.abstractmethod
+    def instructions(self) -> str:
+        """Return instructions for filling out the ballot."""
+        pass
+
+    @abc.abstractmethod
     def candidates_per_page(self) -> Optional[int]:
         """How many candidates can fit on a page.  If None, there is one page for all candidates."""
         pass

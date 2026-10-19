@@ -1,0 +1,633 @@
+# Danish translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: da\n"
+"Language-Team: da <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Næste side"
+
+msgid "Prev Page"
+msgstr "Forrige side"
+
+msgid "Submit Vote"
+msgstr "Afgiv stemme"
+
+msgid "Start Over"
+msgstr "Start forfra"
+
+msgid "Current vote"
+msgstr "Nuværende stemme"
+
+msgid "Page {page}/{total}"
+msgstr "Side {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Stemme afgivet"
+
+msgid "Your ballot:"
+msgstr "Din stemmeseddel:"
+
+msgid "Your vote has been submitted."
+msgstr "Din stemme er afgivet."
+
+msgid "Manage your elections."
+msgstr "Administrer dine valg."
+
+msgid "Error: Election not found."
+msgstr "Fejl: Valget blev ikke fundet."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Administrerer: {title}**\n"
+"\n"
+"**Metode**: {method}\n"
+"**Kandidater**: {candidates}\n"
+"**Stemmer**: {votes}\n"
+"**Slutter**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Vælg et valg at administrere, eller opret et nyt."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Du har ingen aktive valg i denne kanal.\n"
+"\n"
+"Klik på knappen nedenfor for at oprette et!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} stemme"
+msgstr[1] "{n} stemmer"
+
+msgid "Select an election to manage"
+msgstr "Vælg et valg at administrere"
+
+msgid "← Back"
+msgstr "← Tilbage"
+
+msgid "Create New Election"
+msgstr "Opret nyt valg"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Der er allerede et igangværende valg med titlen `{title}` i denne kanal."
+
+msgid "Reschedule"
+msgstr "Flyt"
+
+msgid "Reschedule Election"
+msgstr "Flyt valg"
+
+msgid "New End Time"
+msgstr "Nyt sluttidspunkt"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Eksempler: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Fejl: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Valget er flyttet!"
+
+msgid "End Now"
+msgstr "Afslut nu"
+
+msgid "Confirm End Election"
+msgstr "Bekræft afslutning af valg"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Skriv \"CONFIRM\" for at afslutte valget"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Valget blev ikke afsluttet. Bekræftelsesteksten passede ikke."
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Confirm Delete Election"
+msgstr "Bekræft sletning af valg"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Skriv \"DELETE\" for at slette valget"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Valget blev ikke slettet. Bekræftelsesteksten passede ikke."
+
+msgid "Vote"
+msgstr "Stem"
+
+msgid "This election no longer exists."
+msgstr "Dette valg findes ikke længere."
+
+msgid "Candidates"
+msgstr "Kandidater"
+
+msgid "*No candidates yet!*"
+msgstr "*Ingen kandidater endnu!*"
+
+msgid "Method"
+msgstr "Metode"
+
+msgid "Ends"
+msgstr "Slutter"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} afgivet stemme"
+msgstr[1] "{n} afgivne stemmer"
+
+msgid "This election is not open."
+msgstr "Dette valg er ikke åbent."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Denne stemmeseddel er erstattet af en ny. Klik på knappen Stem igen for "
+"at fortsætte."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Din stemme **blev ikke registreret**, fordi du ikke havde en stemmeseddel"
+" åben.  Klik på knappen Stem igen for at stemme eller opdatere din "
+"stemmeseddel."
+
+msgid "Results for {title}"
+msgstr "Resultater for {title}"
+
+msgid "Winners"
+msgstr "Vindere"
+
+msgid "No winner determined"
+msgstr "Ingen vinder fundet"
+
+msgid "Winner"
+msgstr "Vinder"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Computed using {method}"
+msgstr "Beregnet med {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Valget **{title}** er afsluttet!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Valget er afsluttet"
+
+msgid "Ended"
+msgstr "Afsluttet"
+
+msgid "Create Election"
+msgstr "Opret valg"
+
+msgid "Election Title"
+msgstr "Valgets titel"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "End Time (optional)"
+msgstr "Sluttidspunkt (valgfrit)"
+
+msgid "Select Method"
+msgstr "Vælg metode"
+
+msgid "Configure Method"
+msgstr "Konfigurer metode"
+
+msgid "Language"
+msgstr "Sprog"
+
+msgid "Add Candidate"
+msgstr "Tilføj kandidat"
+
+msgid "Add a Candidate"
+msgstr "Tilføj en kandidat"
+
+msgid "Candidate Name"
+msgstr "Kandidatens navn"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** er allerede kandidat."
+
+msgid "Remove Candidate"
+msgstr "Fjern kandidat"
+
+msgid "Remove {candidate}"
+msgstr "Fjern {candidate}"
+
+msgid "Start Election"
+msgstr "Start valg"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Fejl: Det planlagte sluttidspunkt er allerede passeret. Flyt eller fjern "
+"sluttidspunktet."
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Edit Attributes"
+msgstr "Rediger egenskaber"
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Setup canceled."
+msgstr "Opsætning annulleret."
+
+msgid "*No title set.*"
+msgstr "*Ingen titel angivet.*"
+
+msgid "*No method set.*"
+msgstr "*Ingen metode angivet.*"
+
+msgid "*No description set.*"
+msgstr "*Ingen beskrivelse angivet.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Ingen kandidater endnu.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Opsætning af valg**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Beskrivelse**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metode**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandidater**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Slutter**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Sprog**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Vælg sproget for valgets offentlige beskeder. Hver vælger får sin "
+"stemmeseddel på sit eget sprog."
+
+msgid "No title was set."
+msgstr "Der er ikke angivet en titel."
+
+msgid "No method was set."
+msgstr "Der er ikke angivet en metode."
+
+msgid "At least two candidates are required."
+msgstr "Der kræves mindst to kandidater."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Kunne ikke forstå tidspunktet. Prøv formater som: 2d, 3h30m, 1w eller "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Sluttidspunktet skal ligge i fremtiden"
+
+msgid "When manually ended"
+msgstr "Når det afsluttes manuelt"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Vælg kandidaterne i den rækkefølge, du foretrækker dem. Du kan afgive din"
+" stemme når som helst.  Du behøver ikke at rangere alle kandidater."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Sæt {candidate} som nr. #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Vælg en kandidat til plads #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Vælg en kandidat til plads #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Ingen kandidater rangeret."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Giv hver kandidat fra 0 til 5 stjerner."
+
+msgid "No ratings recorded"
+msgstr "Ingen bedømmelser registreret"
+
+msgid "Please select all candidates you approve of."
+msgstr "Vælg alle de kandidater, du godkender."
+
+msgid "Please select a candidate."
+msgstr "Vælg en kandidat."
+
+msgid "No vote recorded"
+msgstr "Ingen stemme registreret"
+
+msgid "Approval"
+msgstr "Godkendelsesafstemning"
+
+msgid "No candidates were found."
+msgstr "Der blev ikke fundet nogen kandidater."
+
+msgid "Borda Count"
+msgstr "Borda-metoden"
+
+msgid "No ballots cast."
+msgstr "Ingen stemmesedler afgivet."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Parvise sammenligninger:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} slår {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} og {b} står lige"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} mod {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%})."
+" {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} mod {b}: 0 - 0 (lige på alle stemmesedler). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Point (antal vundne parvise dueller):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} sejr"
+msgstr[1] "{n} sejre"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} nederlag"
+msgstr[1] "{n} nederlag"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} uafgjort"
+msgstr[1] "{n} uafgjorte"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young understøtter højst {n} kandidat."
+msgstr[1] "Kemeny-Young understøtter højst {n} kandidater."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "For mange kandidater til Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Parvise præferencer:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Bedste Kemeny-score**: {score}"
+
+msgid "Tie between:"
+msgstr "Uafgjort mellem:"
+
+msgid "Plurality"
+msgstr "Flertalsvalg"
+
+msgid "Ranked Pairs"
+msgstr "Rangordnede par"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} slår {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} og {b} står lige: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Fastlåste rangeringer:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- {a} > {b} ignoreres, fordi det strider mod stærkere præferencer"
+
+msgid "**Final ordering:**"
+msgstr "**Endelig rækkefølge:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Der blev ikke fundet nogen optimal løsning for Rivest-Shen GT-ligevægten."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Marginmatrix M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Vindersandsynligheder i GTO-ligevægten:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Vinder:** {winner}"
+
+msgid "Score"
+msgstr "Pointafstemning"
+
+msgid "No ballots were submitted."
+msgstr "Der blev ikke afgivet nogen stemmesedler."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Gennemsnitlige point:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Kun én kandidat: **{candidate}** vinder automatisk."
+
+msgid "**Top Two Finalists:**"
+msgstr "**De to finalister:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} med gennemsnit {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Omvalg:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: foretrukket på {n} stemmeseddel"
+msgstr[1] "- {candidate}: foretrukket på {n} stemmesedler"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} vinder omvalget.**"
+
+msgid "It's a tie."
+msgstr "Det er uafgjort."
+
+msgid "Number of Winners"
+msgstr "Antal vindere"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Enkelt overførbar stemme / Øjeblikkeligt omvalg"
+
+msgid "Instant Runoff"
+msgstr "Øjeblikkeligt omvalg"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Enkelt overførbar stemme for {seats} mandat"
+msgstr[1] "Enkelt overførbar stemme for {seats} mandater"
+
+msgid "Must choose at least one winner."
+msgstr "Der skal vælges mindst én vinder."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Antallet af vindere kan ikke være større end antallet af kandidater."
+
+msgid "Number of winners must be an integer."
+msgstr "Antallet af vindere skal være et heltal."
+
+msgid "**Round {round}:**"
+msgstr "**Runde {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Aktive kandidater: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktive stemmesedler: {active}, udtømte: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Aktuelle antal førsteprioritetsstemmer:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "Flere vindere med lige mange stemmer. Tilfældigt valgt: **{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandidat **{candidate}** har overskredet {percent:.2%} ({votes} stemmer) "
+"og er valgt."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Flere kandidater står lige på sidstepladsen. Tilfældigt valgt til "
+"udelukkelse: **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandidat **{candidate}** er udelukket."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandidat **{candidate}** er valgt."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Overskud på {votes} stemmer fra {candidate} overføres."
+
+msgid "Tideman's Alternative Method"
+msgstr "Tidemans alternative metode"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandidater: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktiv stemmeseddel"
+msgstr[1] "{n} aktive stemmesedler"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} udtømt stemmeseddel"
+msgstr[1] "{n} udtømte stemmesedler"
+
+msgid "All ballots are exhausted."
+msgstr "Alle stemmesedler er udtømte."
+
+msgid "First place votes:"
+msgstr "Førsteprioritetsstemmer:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Vinder: **{candidate}** med flertal af de aktive stemmer."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Alle kandidater uden for Smith-mængden udelukkes:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "{candidate} med færrest førsteprioritetsstemmer er udelukket."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Uafgjort om færrest førsteprioritetsstemmer: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Udelukket: {candidate}, ved lodtrækning."
+

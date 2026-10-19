@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _
 from ballots.ranked import RankedBallot
 from typing import Iterable
 from ballot import Ballot
@@ -8,7 +9,7 @@ import random
 class BordaElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Borda Count"
+        return N_("Borda Count")
 
     def blank_ballot(self) -> RankedBallot:
         candidates = list(self.candidates)
@@ -28,7 +29,7 @@ class BordaElection(Election):
         sorted_candidates = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
         if len(sorted_candidates) == 0:
-            lines.append("No ballots cast.")
+            lines.append(_("No ballots cast."))
             return [], "\n".join(lines)
 
         for c, s in sorted_candidates:

@@ -4,6 +4,7 @@ import time
 from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import db
+from i18n import LocalizedView, _, ngettext, use_locale
 from text_utils import (
     EMBED_DESCRIPTION_LIMIT,
     EMBED_TITLE_LIMIT,
@@ -47,6 +48,7 @@ class Election(abc.ABC):
         channel_id: int | None = None,
         creator_id: int = 0,
         end_timestamp: int | None = None,
+        locale: str | None = None,
     ):
         self.election_id: int | None = election_id
         self.channel_id: int | None = channel_id
@@ -58,59 +60,65 @@ class Election(abc.ABC):
         self.message_id: int | None = None
         self.creator_id: int = creator_id
         self.end_timestamp: int | None = end_timestamp
+        # Language of public messages, as a Discord locale code; None is English
+        self.locale: str | None = locale
 
         # Store method class name for serialization
         self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
     def get_public_view(self) -> dict[str, Any]:
         """Return a dictionary representation of the public view of the election as Discord message fields."""
-        import time_utils
+        # Public text is in the election's language, whoever caused the update.
+        with use_locale(self.locale):
+            import time_utils
 
-        class VoteButton(discord.ui.Button):
-            def __init__(_, election_id: int):
-                super().__init__(style=discord.ButtonStyle.primary, label="Vote")
-                _.election_id = election_id
+            class VoteButton(discord.ui.Button):
+                def __init__(inner_self, election_id: int):
+                    super().__init__(style=discord.ButtonStyle.primary, label=_("Vote"))
+                    inner_self.election_id = election_id
 
-            async def callback(_, interaction: discord.Interaction):
-                election = load_election_from_db(_.election_id)
-                if election:
-                    await election.send_ballot(interaction)
-                else:
-                    await interaction.response.send_message(
-                        "This election no longer exists.", ephemeral=True
-                    )
+                async def callback(inner_self, interaction: discord.Interaction):
+                    election = load_election_from_db(inner_self.election_id)
+                    if election:
+                        await election.send_ballot(interaction)
+                    else:
+                        await interaction.response.send_message(
+                            _("This election no longer exists."), ephemeral=True
+                        )
 
-        vote_count = db.get_vote_count(self.election_id)
+            vote_count = db.get_vote_count(self.election_id)
 
-        embed = add_long_field(
-            discord.Embed(
-                title=truncate(self.title, EMBED_TITLE_LIMIT),
-                description=truncate(self.description, EMBED_DESCRIPTION_LIMIT),
-            ),
-            "Candidates",
-            "\n".join(f"- {c}" for c in self.candidates) or "*No candidates yet!*",
-        ).add_field(
-            name="Method",
-            value=self.method_description(self.method_params),
-            inline=False,
-        )
-
-        # Add end time field if scheduled
-        if self.end_timestamp:
-            embed.add_field(
-                name="Ends",
-                value=time_utils.format_timestamp_discord(self.end_timestamp),
+            embed = add_long_field(
+                discord.Embed(
+                    title=truncate(self.title, EMBED_TITLE_LIMIT),
+                    description=truncate(self.description, EMBED_DESCRIPTION_LIMIT),
+                ),
+                _("Candidates"),
+                "\n".join(f"- {c}" for c in self.candidates) or _("*No candidates yet!*"),
+            ).add_field(
+                name=_("Method"),
+                value=self.method_description(self.method_params),
                 inline=False,
             )
 
-        embed.set_footer(text=f"{vote_count} votes cast")
+            # Add end time field if scheduled
+            if self.end_timestamp:
+                embed.add_field(
+                    name=_("Ends"),
+                    value=time_utils.format_timestamp_discord(self.end_timestamp),
+                    inline=False,
+                )
 
-        return {
-            "embed": embed,
-            "view": discord.ui.View(timeout=None).add_item(
-                VoteButton(self.election_id)
-            ),
-        }
+            embed.set_footer(
+                text=ngettext("{n} vote cast", "{n} votes cast", vote_count).format(n=vote_count)
+            )
+
+            return {
+                "embed": embed,
+                "view": LocalizedView(timeout=None).add_item(
+                    VoteButton(self.election_id)
+                ),
+            }
 
     def accepting_votes(self) -> bool:
         """Whether voting is open.  Voting closes at the scheduled end time,
@@ -123,7 +131,7 @@ class Election(abc.ABC):
         """Send a ballot to a user that they can use to vote."""
         if not self.accepting_votes():
             await interaction.response.send_message(
-                content="This election is not open.", ephemeral=True
+                content=_("This election is not open."), ephemeral=True
             )
             return
 
@@ -166,7 +174,7 @@ class Election(abc.ABC):
         if not self.accepting_votes():
             try:
                 await interaction.response.edit_message(
-                    content="This election is not open.",
+                    content=_("This election is not open."),
                     embed=None,
                     view=None,
                     delete_after=5,
@@ -183,7 +191,10 @@ class Election(abc.ABC):
         if ballot_data is None or ballot_data["session_id"] != session_id:
             try:
                 await interaction.response.edit_message(
-                    content="This ballot has been superseded by a new ballot. Click the Vote button again to continue.",
+                    content=_(
+                        "This ballot has been superseded by a new ballot. "
+                        "Click the Vote button again to continue."
+                    ),
                     embed=None,
                     view=None,
                     delete_after=10,
@@ -217,7 +228,10 @@ class Election(abc.ABC):
             await self.update_vote_count()
         else:
             await interaction.response.edit_message(
-                content="Your vote **was not recorded** because you did not have a ballot open.  To cast or update your ballot, click the Vote button again.",
+                content=_(
+                    "Your vote **was not recorded** because you did not have a ballot "
+                    "open.  To cast or update your ballot, click the Vote button again."
+                ),
                 embed=None,
                 view=None,
                 delete_after=5,
@@ -242,25 +256,31 @@ class Election(abc.ABC):
 
         winners, details = self.tabulate(ballots)
         embed = discord.Embed(
-            title=truncate(f"Results for {self.title}", EMBED_TITLE_LIMIT),
+            title=truncate(
+                _("Results for {title}").format(title=self.title), EMBED_TITLE_LIMIT
+            ),
             color=0x00FF00,
         )
         if len(winners) == 0:
-            embed.add_field(name="Winners", value="No winner determined", inline=False)
+            embed.add_field(
+                name=_("Winners"), value=_("No winner determined"), inline=False
+            )
         elif len(winners) == 1:
             embed.add_field(
-                name="Winner", value=f":trophy: **{winners[0]}** :trophy:", inline=False
+                name=_("Winner"),
+                value=f":trophy: **{winners[0]}** :trophy:",
+                inline=False,
             )
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
-            add_long_field(embed, "Winners", f":trophy: {winners_str} :trophy:")
+            add_long_field(embed, _("Winners"), f":trophy: {winners_str} :trophy:")
 
         embeds = [embed]
         if show_details and details:
             for i, chunk in enumerate(split_text(details, EMBED_DESCRIPTION_LIMIT)):
                 embeds.append(
                     discord.Embed(
-                        title="Details" if i == 0 else None,
+                        title=_("Details") if i == 0 else None,
                         description=chunk,
                         color=0x00FF00,
                     )
@@ -270,17 +290,21 @@ class Election(abc.ABC):
     @classmethod
     @abc.abstractmethod
     def method_name(self) -> str:
-        """Return the name of the election method."""
+        """Return the name of the election method.  This identifies the method,
+        so it is in English, marked with N_() for translation where it is
+        displayed."""
         pass
 
     @classmethod
     def method_description(self, params: dict[str, str]) -> str:
         """Return the description of the election method."""
-        return self.method_name()
+        return _(self.method_name())
 
     @classmethod
     def method_param_names(self) -> list[str]:
-        """Return a list of parameters that can be used to configure the election method."""
+        """Return a list of parameters that can be used to configure the election method.
+
+        Like method names, these are identifiers marked with N_()."""
         return []
 
     @classmethod
@@ -333,6 +357,7 @@ def load_election_from_db(election_id: int) -> Election | None:
         channel_id=data["channel_id"],
         creator_id=data["creator_id"],
         end_timestamp=data["end_timestamp"],
+        locale=data["locale"],
     )
     election.open = data["open"]
     election.message_id = data["message_id"]
@@ -369,7 +394,10 @@ async def end_election_and_update_message(
         return  # Already being ended elsewhere (e.g. scheduled end vs. End Now)
     _ending_elections.add(election.election_id)
     try:
-        await _end_election(election, channel, include_announcement)
+        # Results are public, so they're in the election's language even when
+        # ended by its creator from a screen in another language.
+        with use_locale(election.locale):
+            await _end_election(election, channel, include_announcement)
     finally:
         _ending_elections.discard(election.election_id)
 
@@ -385,10 +413,15 @@ async def _end_election(
     if unposted is None:
         results_embeds = election.get_results(show_details=True)
         results_embeds[-1].set_footer(
-            text=f"Computed using {election.method_description(election.method_params)}"
+            text=_("Computed using {method}").format(
+                method=election.method_description(election.method_params)
+            )
         )
         announcement = (
-            truncate(f"Election **{election.title}** has ended!", MESSAGE_CONTENT_LIMIT)
+            truncate(
+                _("Election **{title}** has ended!").format(title=election.title),
+                MESSAGE_CONTENT_LIMIT,
+            )
             if include_announcement
             else None
         )
@@ -418,15 +451,17 @@ async def _end_election(
             embed = message.embeds[0] if message.embeds else None
             if embed:
                 # Update footer
-                embed.set_footer(text=f"{embed.footer.text} • Election ended")
+                embed.set_footer(
+                    text=_("{footer} • Election ended").format(footer=embed.footer.text)
+                )
 
                 # Update "Ends" field to "Ended" and remove relative time
                 if election.end_timestamp:
                     for i, field in enumerate(embed.fields):
-                        if field.name == "Ends":
+                        if field.name == _("Ends"):
                             embed.set_field_at(
                                 i,
-                                name="Ended",
+                                name=_("Ended"),
                                 value=time_utils.format_timestamp_discord(
                                     election.end_timestamp,
                                     include_relative=False,

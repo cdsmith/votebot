@@ -1,0 +1,638 @@
+# Indonesian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: id\n"
+"Language-Team: id <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Halaman Berikutnya"
+
+msgid "Prev Page"
+msgstr "Halaman Sebelumnya"
+
+msgid "Submit Vote"
+msgstr "Kirim Suara"
+
+msgid "Start Over"
+msgstr "Mulai Ulang"
+
+msgid "Current vote"
+msgstr "Suara saat ini"
+
+msgid "Page {page}/{total}"
+msgstr "Halaman {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Suara Terkirim"
+
+msgid "Your ballot:"
+msgstr "Surat suara Anda:"
+
+msgid "Your vote has been submitted."
+msgstr "Suara Anda telah dikirim."
+
+msgid "Manage your elections."
+msgstr "Kelola pemilihan Anda."
+
+msgid "Error: Election not found."
+msgstr "Kesalahan: Pemilihan tidak ditemukan."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Mengelola: {title}**\n"
+"\n"
+"**Metode**: {method}\n"
+"**Kandidat**: {candidates}\n"
+"**Suara**: {votes}\n"
+"**Berakhir**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Pilih pemilihan yang ingin dikelola, atau buat pemilihan baru."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Anda tidak memiliki pemilihan aktif di saluran ini.\n"
+"\n"
+"Klik tombol di bawah untuk membuatnya!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} suara"
+msgstr[1] "{n} suara"
+
+msgid "Select an election to manage"
+msgstr "Pilih pemilihan yang ingin dikelola"
+
+msgid "← Back"
+msgstr "← Kembali"
+
+msgid "Create New Election"
+msgstr "Buat Pemilihan Baru"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Pemilihan dengan judul `{title}` sedang berlangsung di saluran ini."
+
+msgid "Reschedule"
+msgstr "Jadwalkan Ulang"
+
+msgid "Reschedule Election"
+msgstr "Jadwalkan Ulang Pemilihan"
+
+msgid "New End Time"
+msgstr "Waktu Berakhir Baru"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Contoh: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Kesalahan: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Pemilihan telah dijadwalkan ulang!"
+
+msgid "End Now"
+msgstr "Akhiri Sekarang"
+
+msgid "Confirm End Election"
+msgstr "Konfirmasi Akhiri Pemilihan"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Ketik \"CONFIRM\" untuk mengakhiri pemilihan"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Pemilihan tidak diakhiri. Teks konfirmasi tidak cocok."
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Confirm Delete Election"
+msgstr "Konfirmasi Hapus Pemilihan"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Ketik \"DELETE\" untuk menghapus pemilihan ini"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Pemilihan tidak dihapus. Teks konfirmasi tidak cocok."
+
+msgid "Vote"
+msgstr "Pilih"
+
+msgid "This election no longer exists."
+msgstr "Pemilihan ini sudah tidak ada."
+
+msgid "Candidates"
+msgstr "Kandidat"
+
+msgid "*No candidates yet!*"
+msgstr "*Belum ada kandidat!*"
+
+msgid "Method"
+msgstr "Metode"
+
+msgid "Ends"
+msgstr "Berakhir"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} suara masuk"
+msgstr[1] "{n} suara masuk"
+
+msgid "This election is not open."
+msgstr "Pemilihan ini tidak sedang dibuka."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Surat suara ini telah digantikan oleh surat suara baru. Klik tombol Pilih"
+" lagi untuk melanjutkan."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Suara Anda **tidak tercatat** karena Anda tidak sedang membuka surat "
+"suara. Untuk memberikan atau memperbarui suara, klik tombol Pilih lagi."
+
+msgid "Results for {title}"
+msgstr "Hasil {title}"
+
+msgid "Winners"
+msgstr "Pemenang"
+
+msgid "No winner determined"
+msgstr "Tidak ada pemenang yang ditentukan"
+
+msgid "Winner"
+msgstr "Pemenang"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "Computed using {method}"
+msgstr "Dihitung menggunakan {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Pemilihan **{title}** telah berakhir!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Pemilihan berakhir"
+
+msgid "Ended"
+msgstr "Berakhir pada"
+
+msgid "Create Election"
+msgstr "Buat Pemilihan"
+
+msgid "Election Title"
+msgstr "Judul Pemilihan"
+
+msgid "Description"
+msgstr "Deskripsi"
+
+msgid "End Time (optional)"
+msgstr "Waktu Berakhir (opsional)"
+
+msgid "Select Method"
+msgstr "Pilih Metode"
+
+msgid "Configure Method"
+msgstr "Atur Metode"
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "Add Candidate"
+msgstr "Tambah Kandidat"
+
+msgid "Add a Candidate"
+msgstr "Tambah Kandidat"
+
+msgid "Candidate Name"
+msgstr "Nama Kandidat"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** sudah menjadi kandidat."
+
+msgid "Remove Candidate"
+msgstr "Hapus Kandidat"
+
+msgid "Remove {candidate}"
+msgstr "Hapus {candidate}"
+
+msgid "Start Election"
+msgstr "Mulai Pemilihan"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Kesalahan: Waktu berakhir yang dijadwalkan sudah lewat. Jadwalkan ulang "
+"atau hapus waktu berakhirnya."
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Edit Attributes"
+msgstr "Edit Atribut"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Setup canceled."
+msgstr "Penyiapan dibatalkan."
+
+msgid "*No title set.*"
+msgstr "*Judul belum diatur.*"
+
+msgid "*No method set.*"
+msgstr "*Metode belum diatur.*"
+
+msgid "*No description set.*"
+msgstr "*Deskripsi belum diatur.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Belum ada kandidat.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Menyiapkan Pemilihan**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Deskripsi**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metode**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandidat**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Berakhir**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Bahasa**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Pilih bahasa untuk pesan publik pemilihan ini. Surat suara setiap pemilih"
+" ditampilkan dalam bahasanya sendiri."
+
+msgid "No title was set."
+msgstr "Judul belum diatur."
+
+msgid "No method was set."
+msgstr "Metode belum diatur."
+
+msgid "At least two candidates are required."
+msgstr "Diperlukan setidaknya dua kandidat."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Waktu tidak dapat dibaca. Coba format seperti: 2d, 3h30m, 1w, atau "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Waktu berakhir harus di masa mendatang"
+
+msgid "When manually ended"
+msgstr "Saat diakhiri secara manual"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Pilih kandidat sesuai urutan preferensi Anda. Anda dapat mengirim kapan "
+"saja. Anda tidak perlu memeringkat semua kandidat."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Peringkatkan {candidate} sebagai #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Pilih kandidat untuk peringkat #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Pilih kandidat untuk peringkat #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Tidak ada kandidat yang diperingkat."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Beri nilai setiap kandidat dari 0 hingga 5 bintang."
+
+msgid "No ratings recorded"
+msgstr "Tidak ada penilaian yang tercatat"
+
+msgid "Please select all candidates you approve of."
+msgstr "Pilih semua kandidat yang Anda setujui."
+
+msgid "Please select a candidate."
+msgstr "Pilih satu kandidat."
+
+msgid "No vote recorded"
+msgstr "Tidak ada suara yang tercatat"
+
+msgid "Approval"
+msgstr "Pemungutan suara persetujuan"
+
+msgid "No candidates were found."
+msgstr "Tidak ada kandidat yang ditemukan."
+
+msgid "Borda Count"
+msgstr "Hitungan Borda"
+
+msgid "No ballots cast."
+msgstr "Tidak ada surat suara yang masuk."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Pertandingan Berpasangan:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} mengalahkan {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} dan {b} seri"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}: 0 - 0 (seri di semua surat suara). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Skor (jumlah kemenangan head-to-head):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} menang"
+msgstr[1] "{n} menang"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} kalah"
+msgstr[1] "{n} kalah"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} seri"
+msgstr[1] "{n} seri"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young mendukung paling banyak {n} kandidat."
+msgstr[1] "Kemeny-Young mendukung paling banyak {n} kandidat."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Terlalu banyak kandidat untuk Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Preferensi Berpasangan:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Skor Kemeny Terbaik**: {score}"
+
+msgid "Tie between:"
+msgstr "Seri antara:"
+
+msgid "Plurality"
+msgstr "Pemungutan suara kemajemukan"
+
+msgid "Ranked Pairs"
+msgstr "Pasangan Berperingkat"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} mengalahkan {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} dan {b} seri: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Peringkat yang dikunci:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr ""
+"- Mengabaikan {a} > {b} karena bertentangan dengan preferensi yang lebih "
+"kuat"
+
+msgid "**Final ordering:**"
+msgstr "**Urutan akhir:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Tidak ditemukan solusi optimal untuk ekuilibrium Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Matriks Selisih M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Probabilitas menang pada ekuilibrium GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Pemenang:** {winner}"
+
+msgid "Score"
+msgstr "Pemungutan suara skor"
+
+msgid "No ballots were submitted."
+msgstr "Tidak ada surat suara yang dikirim."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Skor Rata-rata:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Hanya ada satu kandidat: **{candidate}** menang secara otomatis."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Dua Finalis Teratas:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} dengan skor rata-rata {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Putaran Final:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: lebih disukai di {n} surat suara"
+msgstr[1] "- {candidate}: lebih disukai di {n} surat suara"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} memenangkan putaran final.**"
+
+msgid "It's a tie."
+msgstr "Hasilnya seri."
+
+msgid "Number of Winners"
+msgstr "Jumlah Pemenang"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Suara Tunggal yang Dapat Dialihkan / Pemungutan suara putaran kedua instan"
+
+msgid "Instant Runoff"
+msgstr "Pemungutan suara putaran kedua instan"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Suara Tunggal yang Dapat Dialihkan untuk {seats} kursi"
+msgstr[1] "Suara Tunggal yang Dapat Dialihkan untuk {seats} kursi"
+
+msgid "Must choose at least one winner."
+msgstr "Harus memilih setidaknya satu pemenang."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Jumlah pemenang tidak boleh melebihi jumlah kandidat."
+
+msgid "Number of winners must be an integer."
+msgstr "Jumlah pemenang harus berupa bilangan bulat."
+
+msgid "**Round {round}:**"
+msgstr "**Putaran {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Kandidat aktif: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Surat suara aktif: {active}, habis: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Perolehan preferensi pertama saat ini:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Beberapa pemenang memperoleh suara yang sama. **{candidate}** dipilih "
+"secara acak."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandidat **{candidate}** melampaui {percent:.2%} ({votes} suara) dan "
+"terpilih."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Beberapa kandidat seri di posisi terakhir. **{candidate}** dipilih secara"
+" acak untuk dieliminasi."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandidat **{candidate}** dieliminasi."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandidat **{candidate}** terpilih."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Mendistribusikan ulang surplus {votes} suara dari {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Metode Alternatif Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandidat: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} surat suara aktif"
+msgstr[1] "{n} surat suara aktif"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} surat suara habis"
+msgstr[1] "{n} surat suara habis"
+
+msgid "All ballots are exhausted."
+msgstr "Semua surat suara sudah habis."
+
+msgid "First place votes:"
+msgstr "Suara preferensi pertama:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Pemenang: **{candidate}** dengan mayoritas suara aktif."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Mengeliminasi semua kandidat yang tidak termasuk dalam himpunan Smith:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr ""
+"{candidate} dieliminasi karena memperoleh suara preferensi pertama paling"
+" sedikit."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Seri untuk suara preferensi pertama paling sedikit: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Dieliminasi: {candidate}, melalui pemilihan acak."
+

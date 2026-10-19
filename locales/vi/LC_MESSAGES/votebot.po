@@ -1,0 +1,622 @@
+# Vietnamese translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: vi\n"
+"Language-Team: vi <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Trang sau"
+
+msgid "Prev Page"
+msgstr "Trang trước"
+
+msgid "Submit Vote"
+msgstr "Gửi phiếu bầu"
+
+msgid "Start Over"
+msgstr "Làm lại"
+
+msgid "Current vote"
+msgstr "Phiếu bầu hiện tại"
+
+msgid "Page {page}/{total}"
+msgstr "Trang {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Đã gửi phiếu bầu"
+
+msgid "Your ballot:"
+msgstr "Lá phiếu của bạn:"
+
+msgid "Your vote has been submitted."
+msgstr "Phiếu bầu của bạn đã được gửi."
+
+msgid "Manage your elections."
+msgstr "Quản lý các cuộc bầu cử của bạn."
+
+msgid "Error: Election not found."
+msgstr "Lỗi: Không tìm thấy cuộc bầu cử."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Đang quản lý: {title}**\n"
+"\n"
+"**Phương pháp**: {method}\n"
+"**Ứng cử viên**: {candidates}\n"
+"**Số phiếu**: {votes}\n"
+"**Kết thúc**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Chọn một cuộc bầu cử để quản lý, hoặc tạo cuộc bầu cử mới."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Bạn không có cuộc bầu cử nào đang diễn ra trong kênh này.\n"
+"\n"
+"Nhấn nút bên dưới để tạo một cuộc bầu cử!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} phiếu"
+
+msgid "Select an election to manage"
+msgstr "Chọn một cuộc bầu cử để quản lý"
+
+msgid "← Back"
+msgstr "← Quay lại"
+
+msgid "Create New Election"
+msgstr "Tạo cuộc bầu cử mới"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Một cuộc bầu cử có tiêu đề `{title}` đang diễn ra trong kênh này."
+
+msgid "Reschedule"
+msgstr "Đổi lịch"
+
+msgid "Reschedule Election"
+msgstr "Đổi lịch bầu cử"
+
+msgid "New End Time"
+msgstr "Thời gian kết thúc mới"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Ví dụ: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Lỗi: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Đã đổi lịch bầu cử!"
+
+msgid "End Now"
+msgstr "Kết thúc ngay"
+
+msgid "Confirm End Election"
+msgstr "Xác nhận kết thúc bầu cử"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Nhập \"CONFIRM\" để kết thúc cuộc bầu cử này"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Cuộc bầu cử chưa kết thúc. Văn bản xác nhận không khớp."
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Confirm Delete Election"
+msgstr "Xác nhận xóa cuộc bầu cử"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Nhập \"DELETE\" để xóa cuộc bầu cử này"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Cuộc bầu cử chưa bị xóa. Văn bản xác nhận không khớp."
+
+msgid "Vote"
+msgstr "Bỏ phiếu"
+
+msgid "This election no longer exists."
+msgstr "Cuộc bầu cử này không còn tồn tại."
+
+msgid "Candidates"
+msgstr "Ứng cử viên"
+
+msgid "*No candidates yet!*"
+msgstr "*Chưa có ứng cử viên nào!*"
+
+msgid "Method"
+msgstr "Phương pháp"
+
+msgid "Ends"
+msgstr "Kết thúc"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Đã bỏ {n} phiếu"
+
+msgid "This election is not open."
+msgstr "Cuộc bầu cử này không mở."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Lá phiếu này đã được thay thế bằng một lá phiếu mới. Nhấn lại nút Bỏ "
+"phiếu để tiếp tục."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Phiếu bầu của bạn **chưa được ghi nhận** vì bạn không có lá phiếu nào "
+"đang mở. Để bỏ phiếu hoặc cập nhật lá phiếu, hãy nhấn lại nút Bỏ phiếu."
+
+msgid "Results for {title}"
+msgstr "Kết quả của {title}"
+
+msgid "Winners"
+msgstr "Những người thắng cử"
+
+msgid "No winner determined"
+msgstr "Không xác định được người thắng cử"
+
+msgid "Winner"
+msgstr "Người thắng cử"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "Computed using {method}"
+msgstr "Tính theo {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Cuộc bầu cử **{title}** đã kết thúc!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Cuộc bầu cử đã kết thúc"
+
+msgid "Ended"
+msgstr "Đã kết thúc"
+
+msgid "Create Election"
+msgstr "Tạo cuộc bầu cử"
+
+msgid "Election Title"
+msgstr "Tiêu đề cuộc bầu cử"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "End Time (optional)"
+msgstr "Thời gian kết thúc (không bắt buộc)"
+
+msgid "Select Method"
+msgstr "Chọn phương pháp"
+
+msgid "Configure Method"
+msgstr "Cấu hình phương pháp"
+
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+msgid "Add Candidate"
+msgstr "Thêm ứng cử viên"
+
+msgid "Add a Candidate"
+msgstr "Thêm một ứng cử viên"
+
+msgid "Candidate Name"
+msgstr "Tên ứng cử viên"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** đã là ứng cử viên."
+
+msgid "Remove Candidate"
+msgstr "Xóa ứng cử viên"
+
+msgid "Remove {candidate}"
+msgstr "Xóa {candidate}"
+
+msgid "Start Election"
+msgstr "Bắt đầu bầu cử"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Lỗi: Thời gian kết thúc đã lên lịch đã trôi qua. Vui lòng đổi lịch hoặc "
+"bỏ thời gian kết thúc."
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Edit Attributes"
+msgstr "Chỉnh sửa thông tin"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Setup canceled."
+msgstr "Đã hủy thiết lập."
+
+msgid "*No title set.*"
+msgstr "*Chưa đặt tiêu đề.*"
+
+msgid "*No method set.*"
+msgstr "*Chưa chọn phương pháp.*"
+
+msgid "*No description set.*"
+msgstr "*Chưa có mô tả.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Chưa có ứng cử viên nào.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Đang thiết lập cuộc bầu cử**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Mô tả**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Phương pháp**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Ứng cử viên**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Kết thúc**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Ngôn ngữ**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Chọn ngôn ngữ cho các tin nhắn công khai của cuộc bầu cử này. Lá phiếu "
+"của mỗi cử tri sẽ hiển thị bằng ngôn ngữ của chính họ."
+
+msgid "No title was set."
+msgstr "Chưa đặt tiêu đề."
+
+msgid "No method was set."
+msgstr "Chưa chọn phương pháp."
+
+msgid "At least two candidates are required."
+msgstr "Cần ít nhất hai ứng cử viên."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Không thể đọc thời gian. Hãy thử các định dạng như: 2d, 3h30m, 1w, hoặc "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Thời gian kết thúc phải ở trong tương lai"
+
+msgid "When manually ended"
+msgstr "Khi kết thúc thủ công"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Chọn các ứng cử viên theo thứ tự ưu tiên của bạn. Bạn có thể gửi bất cứ "
+"lúc nào. Bạn không cần xếp hạng tất cả ứng cử viên."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Xếp {candidate} ở hạng #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Chọn ứng cử viên cho hạng #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Chọn ứng cử viên cho hạng #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Chưa xếp hạng ứng cử viên nào."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Chấm điểm mỗi ứng cử viên từ 0 đến 5 sao."
+
+msgid "No ratings recorded"
+msgstr "Chưa có điểm nào được ghi nhận"
+
+msgid "Please select all candidates you approve of."
+msgstr "Vui lòng chọn tất cả ứng cử viên mà bạn tán thành."
+
+msgid "Please select a candidate."
+msgstr "Vui lòng chọn một ứng cử viên."
+
+msgid "No vote recorded"
+msgstr "Chưa có phiếu nào được ghi nhận"
+
+msgid "Approval"
+msgstr "Bỏ phiếu tán thành"
+
+msgid "No candidates were found."
+msgstr "Không tìm thấy ứng cử viên nào."
+
+msgid "Borda Count"
+msgstr "Đếm Borda"
+
+msgid "No ballots cast."
+msgstr "Không có lá phiếu nào."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Đối đầu từng cặp:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} thắng {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} và {b} hòa"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} đấu {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%})."
+" {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} đấu {b}: 0 - 0 (hòa trên mọi lá phiếu). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Điểm (số trận thắng đối đầu):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} thắng"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} thua"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} hòa"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young hỗ trợ tối đa {n} ứng cử viên."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Quá nhiều ứng cử viên cho Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Ưu tiên theo từng cặp:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Điểm Kemeny tốt nhất**: {score}"
+
+msgid "Tie between:"
+msgstr "Hòa giữa:"
+
+msgid "Plurality"
+msgstr "Đa số tương đối"
+
+msgid "Ranked Pairs"
+msgstr "Cặp xếp hạng"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} thắng {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} và {b} hòa: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Các thứ hạng đã khóa:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Bỏ qua {a} > {b} vì mâu thuẫn với các ưu tiên mạnh hơn"
+
+msgid "**Final ordering:**"
+msgstr "**Thứ tự cuối cùng:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Không tìm được nghiệm tối ưu cho cân bằng Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Ma trận chênh lệch M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Xác suất thắng tại cân bằng GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Người thắng cử:** {winner}"
+
+msgid "Score"
+msgstr "Bỏ phiếu chấm điểm"
+
+msgid "No ballots were submitted."
+msgstr "Không có lá phiếu nào được gửi."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Điểm trung bình:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Chỉ có một ứng cử viên: **{candidate}** mặc nhiên thắng cử."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Hai ứng cử viên vào chung kết:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} với điểm trung bình {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Vòng quyết định:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: được ưu tiên trên {n} lá phiếu"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} thắng vòng quyết định.**"
+
+msgid "It's a tie."
+msgstr "Kết quả hòa."
+
+msgid "Number of Winners"
+msgstr "Số người thắng cử"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Phiếu bầu chuyển nhượng duy nhất / Bầu cử thay thế"
+
+msgid "Instant Runoff"
+msgstr "Bầu cử thay thế"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Phiếu bầu chuyển nhượng duy nhất cho {seats} ghế"
+
+msgid "Must choose at least one winner."
+msgstr "Phải chọn ít nhất một người thắng cử."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Số người thắng cử không được nhiều hơn số ứng cử viên."
+
+msgid "Number of winners must be an integer."
+msgstr "Số người thắng cử phải là số nguyên."
+
+msgid "**Round {round}:**"
+msgstr "**Vòng {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Ứng cử viên còn lại: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Lá phiếu còn hiệu lực: {active}, đã cạn: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Số phiếu ưu tiên thứ nhất hiện tại:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "Nhiều người thắng có số phiếu bằng nhau. Chọn ngẫu nhiên **{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Ứng cử viên **{candidate}** đã vượt {percent:.2%} ({votes} phiếu) và "
+"trúng cử."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Nhiều ứng cử viên cùng hòa ở vị trí cuối. Chọn ngẫu nhiên **{candidate}**"
+" để loại."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Ứng cử viên **{candidate}** bị loại."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Ứng cử viên **{candidate}** trúng cử."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Đang phân phối lại {votes} phiếu dư của {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Phương pháp thay thế của Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Ứng cử viên: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} lá phiếu còn hiệu lực"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} lá phiếu đã cạn"
+
+msgid "All ballots are exhausted."
+msgstr "Tất cả lá phiếu đã cạn."
+
+msgid "First place votes:"
+msgstr "Phiếu ưu tiên thứ nhất:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Người thắng cử: **{candidate}** với đa số phiếu còn hiệu lực."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Loại tất cả ứng cử viên không thuộc tập Smith:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Đã loại {candidate} vì có ít phiếu ưu tiên thứ nhất nhất."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Hòa về số phiếu ưu tiên thứ nhất ít nhất: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Đã loại: {candidate}, bằng cách chọn ngẫu nhiên."
+

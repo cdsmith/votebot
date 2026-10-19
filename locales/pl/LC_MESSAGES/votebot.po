@@ -1,0 +1,646 @@
+# Polish translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pl\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Następna strona"
+
+msgid "Prev Page"
+msgstr "Poprzednia strona"
+
+msgid "Submit Vote"
+msgstr "Oddaj głos"
+
+msgid "Start Over"
+msgstr "Zacznij od nowa"
+
+msgid "Current vote"
+msgstr "Bieżący głos"
+
+msgid "Page {page}/{total}"
+msgstr "Strona {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Głos oddany"
+
+msgid "Your ballot:"
+msgstr "Twoja karta do głosowania:"
+
+msgid "Your vote has been submitted."
+msgstr "Twój głos został oddany."
+
+msgid "Manage your elections."
+msgstr "Zarządzaj swoimi głosowaniami."
+
+msgid "Error: Election not found."
+msgstr "Błąd: nie znaleziono głosowania."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Zarządzanie: {title}**\n"
+"\n"
+"**Metoda**: {method}\n"
+"**Kandydaci**: {candidates}\n"
+"**Głosy**: {votes}\n"
+"**Koniec**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Wybierz głosowanie do zarządzania lub utwórz nowe."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Nie masz aktywnych głosowań na tym kanale.\n"
+"\n"
+"Kliknij przycisk poniżej, aby je utworzyć!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} głos"
+msgstr[1] "{n} głosy"
+msgstr[2] "{n} głosów"
+
+msgid "Select an election to manage"
+msgstr "Wybierz głosowanie do zarządzania"
+
+msgid "← Back"
+msgstr "← Wstecz"
+
+msgid "Create New Election"
+msgstr "Utwórz nowe głosowanie"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Głosowanie o tytule `{title}` już trwa na tym kanale."
+
+msgid "Reschedule"
+msgstr "Zmień termin"
+
+msgid "Reschedule Election"
+msgstr "Zmień termin głosowania"
+
+msgid "New End Time"
+msgstr "Nowy czas zakończenia"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Przykłady: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Błąd: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Termin głosowania został zmieniony!"
+
+msgid "End Now"
+msgstr "Zakończ teraz"
+
+msgid "Confirm End Election"
+msgstr "Potwierdź zakończenie głosowania"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Wpisz \"CONFIRM\", aby zakończyć głosowanie"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Głosowanie nie zostało zakończone. Tekst potwierdzenia się nie zgadza."
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Confirm Delete Election"
+msgstr "Potwierdź usunięcie głosowania"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Wpisz \"DELETE\", aby usunąć głosowanie"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Głosowanie nie zostało usunięte. Tekst potwierdzenia się nie zgadza."
+
+msgid "Vote"
+msgstr "Głosuj"
+
+msgid "This election no longer exists."
+msgstr "To głosowanie już nie istnieje."
+
+msgid "Candidates"
+msgstr "Kandydaci"
+
+msgid "*No candidates yet!*"
+msgstr "*Nie ma jeszcze kandydatów!*"
+
+msgid "Method"
+msgstr "Metoda"
+
+msgid "Ends"
+msgstr "Koniec"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Oddano {n} głos"
+msgstr[1] "Oddano {n} głosy"
+msgstr[2] "Oddano {n} głosów"
+
+msgid "This election is not open."
+msgstr "To głosowanie nie jest otwarte."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Ta karta do głosowania została zastąpiona nową. Kliknij ponownie przycisk"
+" Głosuj, aby kontynuować."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Twój głos **nie został zapisany**, ponieważ żadna karta do głosowania nie"
+" była otwarta. Aby oddać lub zmienić głos, kliknij ponownie przycisk "
+"Głosuj."
+
+msgid "Results for {title}"
+msgstr "Wyniki: {title}"
+
+msgid "Winners"
+msgstr "Zwycięzcy"
+
+msgid "No winner determined"
+msgstr "Nie wyłoniono zwycięzcy"
+
+msgid "Winner"
+msgstr "Zwycięzca"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "Computed using {method}"
+msgstr "Obliczono metodą: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Głosowanie **{title}** zakończyło się!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Głosowanie zakończone"
+
+msgid "Ended"
+msgstr "Zakończono"
+
+msgid "Create Election"
+msgstr "Utwórz głosowanie"
+
+msgid "Election Title"
+msgstr "Tytuł głosowania"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "End Time (optional)"
+msgstr "Czas zakończenia (opcjonalnie)"
+
+msgid "Select Method"
+msgstr "Wybierz metodę"
+
+msgid "Configure Method"
+msgstr "Konfiguruj metodę"
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Add Candidate"
+msgstr "Dodaj kandydata"
+
+msgid "Add a Candidate"
+msgstr "Dodaj kandydata"
+
+msgid "Candidate Name"
+msgstr "Nazwa kandydata"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** jest już kandydatem."
+
+msgid "Remove Candidate"
+msgstr "Usuń kandydata"
+
+msgid "Remove {candidate}"
+msgstr "Usuń: {candidate}"
+
+msgid "Start Election"
+msgstr "Rozpocznij głosowanie"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Błąd: zaplanowany czas zakończenia już minął. Zmień termin lub usuń czas "
+"zakończenia."
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Edit Attributes"
+msgstr "Edytuj ustawienia"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Setup canceled."
+msgstr "Anulowano konfigurację."
+
+msgid "*No title set.*"
+msgstr "*Nie ustawiono tytułu.*"
+
+msgid "*No method set.*"
+msgstr "*Nie ustawiono metody.*"
+
+msgid "*No description set.*"
+msgstr "*Nie ustawiono opisu.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Nie ma jeszcze kandydatów.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Konfiguracja głosowania**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Opis**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metoda**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandydaci**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Koniec**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Język**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Wybierz język publicznych wiadomości tego głosowania. Każdy głosujący "
+"widzi swoją kartę do głosowania we własnym języku."
+
+msgid "No title was set."
+msgstr "Nie ustawiono tytułu."
+
+msgid "No method was set."
+msgstr "Nie ustawiono metody."
+
+msgid "At least two candidates are required."
+msgstr "Wymaganych jest co najmniej dwóch kandydatów."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Nie można odczytać czasu. Spróbuj formatów takich jak: 2d, 3h30m, 1w lub "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Czas zakończenia musi przypadać w przyszłości"
+
+msgid "When manually ended"
+msgstr "Po ręcznym zakończeniu"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Wybieraj kandydatów w kolejności swoich preferencji. Głos możesz oddać w "
+"dowolnym momencie. Nie musisz uszeregować wszystkich kandydatów."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Umieść {candidate} na miejscu #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Wybierz kandydata na miejsce #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Wybierz kandydata na miejsce #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Nie uszeregowano żadnych kandydatów."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Oceń każdego kandydata w skali od 0 do 5 gwiazdek."
+
+msgid "No ratings recorded"
+msgstr "Brak ocen"
+
+msgid "Please select all candidates you approve of."
+msgstr "Zaznacz wszystkich kandydatów, których akceptujesz."
+
+msgid "Please select a candidate."
+msgstr "Wybierz kandydata."
+
+msgid "No vote recorded"
+msgstr "Nie oddano głosu"
+
+msgid "Approval"
+msgstr "Głosowanie aprobujące"
+
+msgid "No candidates were found."
+msgstr "Nie znaleziono kandydatów."
+
+msgid "Borda Count"
+msgstr "Metoda Bordy"
+
+msgid "No ballots cast."
+msgstr "Nie oddano żadnych głosów."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Porównania parami:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} pokonuje {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} i {b} remisują"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}: 0 - 0 (remis na wszystkich kartach). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Wyniki (liczba wygranych pojedynków):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} zwycięstwo"
+msgstr[1] "{n} zwycięstwa"
+msgstr[2] "{n} zwycięstw"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} porażka"
+msgstr[1] "{n} porażki"
+msgstr[2] "{n} porażek"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} remis"
+msgstr[1] "{n} remisy"
+msgstr[2] "{n} remisów"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Metoda Kemeny-Young obsługuje maksymalnie {n} kandydata."
+msgstr[1] "Metoda Kemeny-Young obsługuje maksymalnie {n} kandydatów."
+msgstr[2] "Metoda Kemeny-Young obsługuje maksymalnie {n} kandydatów."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Zbyt wielu kandydatów dla metody Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Preferencje parami:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Najlepszy wynik Kemeny'ego**: {score}"
+
+msgid "Tie between:"
+msgstr "Remis między:"
+
+msgid "Plurality"
+msgstr "Większość względna"
+
+msgid "Ranked Pairs"
+msgstr "Metoda uszeregowanych par"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} pokonuje {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} i {b} remisują: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Zablokowane pary:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Pominięto {a} > {b}, ponieważ przeczy silniejszym preferencjom"
+
+msgid "**Final ordering:**"
+msgstr "**Ostateczna kolejność:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Nie znaleziono optymalnego rozwiązania dla równowagi Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Macierz przewag M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Prawdopodobieństwa zwycięstwa w równowadze GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Zwycięzca:** {winner}"
+
+msgid "Score"
+msgstr "Ordynacja ocenowa"
+
+msgid "No ballots were submitted."
+msgstr "Nie oddano żadnych kart do głosowania."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Średnie oceny:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Tylko jeden kandydat: **{candidate}** wygrywa walkowerem."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Dwóch finalistów:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} ze średnią oceną {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Dogrywka:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: preferowany na {n} karcie"
+msgstr[1] "- {candidate}: preferowany na {n} kartach"
+msgstr[2] "- {candidate}: preferowany na {n} kartach"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} wygrywa dogrywkę.**"
+
+msgid "It's a tie."
+msgstr "Remis."
+
+msgid "Number of Winners"
+msgstr "Liczba zwycięzców"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Pojedynczy głos przechodni / Głosowanie alternatywne"
+
+msgid "Instant Runoff"
+msgstr "Głosowanie alternatywne"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Pojedynczy głos przechodni dla {seats} mandatu"
+msgstr[1] "Pojedynczy głos przechodni dla {seats} mandatów"
+msgstr[2] "Pojedynczy głos przechodni dla {seats} mandatów"
+
+msgid "Must choose at least one winner."
+msgstr "Należy wybrać co najmniej jednego zwycięzcę."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Liczba zwycięzców nie może być większa niż liczba kandydatów."
+
+msgid "Number of winners must be an integer."
+msgstr "Liczba zwycięzców musi być liczbą całkowitą."
+
+msgid "**Round {round}:**"
+msgstr "**Runda {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Aktywni kandydaci: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktywne karty: {active}, wyczerpane: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Bieżąca liczba głosów pierwszej preferencji:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "Kilku zwycięzców z równą liczbą głosów. Losowo wybrano **{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandydat **{candidate}** przekroczył {percent:.2%} (głosy: {votes}) i "
+"zostaje wybrany."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Kilku kandydatów remisuje na ostatnim miejscu. Do eliminacji losowo "
+"wybrano **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandydat **{candidate}** zostaje wyeliminowany."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandydat **{candidate}** zostaje wybrany."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Przenoszenie nadwyżki głosów kandydata {candidate}: {votes}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Alternatywna metoda Tidemana"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandydaci: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktywna karta"
+msgstr[1] "{n} aktywne karty"
+msgstr[2] "{n} aktywnych kart"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} wyczerpana karta"
+msgstr[1] "{n} wyczerpane karty"
+msgstr[2] "{n} wyczerpanych kart"
+
+msgid "All ballots are exhausted."
+msgstr "Wszystkie karty są wyczerpane."
+
+msgid "First place votes:"
+msgstr "Głosy pierwszej preferencji:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Zwycięzca: **{candidate}** z większością aktywnych głosów."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Eliminacja wszystkich kandydatów spoza zbioru Smitha:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr ""
+"Wyeliminowano {candidate} z najmniejszą liczbą głosów pierwszej "
+"preferencji."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Remis w najmniejszej liczbie głosów pierwszej preferencji: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Wyeliminowano: {candidate}, w drodze losowania."
+

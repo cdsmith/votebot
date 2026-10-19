@@ -1,0 +1,645 @@
+# Czech translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: cs\n"
+"Language-Team: cs <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Další stránka"
+
+msgid "Prev Page"
+msgstr "Předchozí stránka"
+
+msgid "Submit Vote"
+msgstr "Odeslat hlas"
+
+msgid "Start Over"
+msgstr "Začít znovu"
+
+msgid "Current vote"
+msgstr "Aktuální hlas"
+
+msgid "Page {page}/{total}"
+msgstr "Stránka {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Hlas odeslán"
+
+msgid "Your ballot:"
+msgstr "Váš hlasovací lístek:"
+
+msgid "Your vote has been submitted."
+msgstr "Váš hlas byl odeslán."
+
+msgid "Manage your elections."
+msgstr "Spravujte svá hlasování."
+
+msgid "Error: Election not found."
+msgstr "Chyba: Hlasování nebylo nalezeno."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Správa: {title}**\n"
+"\n"
+"**Metoda**: {method}\n"
+"**Kandidáti**: {candidates}\n"
+"**Hlasy**: {votes}\n"
+"**Konec**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Vyberte hlasování ke správě, nebo vytvořte nové."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"V tomto kanálu nemáte žádná aktivní hlasování.\n"
+"\n"
+"Nové vytvoříte kliknutím na tlačítko níže!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} hlas"
+msgstr[1] "{n} hlasy"
+msgstr[2] "{n} hlasů"
+
+msgid "Select an election to manage"
+msgstr "Vyberte hlasování ke správě"
+
+msgid "← Back"
+msgstr "← Zpět"
+
+msgid "Create New Election"
+msgstr "Vytvořit nové hlasování"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Hlasování s názvem `{title}` v tomto kanálu již probíhá."
+
+msgid "Reschedule"
+msgstr "Změnit termín"
+
+msgid "Reschedule Election"
+msgstr "Změnit termín hlasování"
+
+msgid "New End Time"
+msgstr "Nový čas ukončení"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Příklady: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Chyba: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Termín hlasování byl změněn!"
+
+msgid "End Now"
+msgstr "Ukončit nyní"
+
+msgid "Confirm End Election"
+msgstr "Potvrdit ukončení hlasování"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Pro ukončení hlasování napište \"CONFIRM\""
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Hlasování nebylo ukončeno. Potvrzovací text se neshodoval."
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Confirm Delete Election"
+msgstr "Potvrdit smazání hlasování"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Pro smazání hlasování napište \"DELETE\""
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Hlasování nebylo smazáno. Potvrzovací text se neshodoval."
+
+msgid "Vote"
+msgstr "Hlasovat"
+
+msgid "This election no longer exists."
+msgstr "Toto hlasování již neexistuje."
+
+msgid "Candidates"
+msgstr "Kandidáti"
+
+msgid "*No candidates yet!*"
+msgstr "*Zatím žádní kandidáti!*"
+
+msgid "Method"
+msgstr "Metoda"
+
+msgid "Ends"
+msgstr "Konec"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} odevzdaný hlas"
+msgstr[1] "{n} odevzdané hlasy"
+msgstr[2] "{n} odevzdaných hlasů"
+
+msgid "This election is not open."
+msgstr "Toto hlasování není otevřené."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Tento hlasovací lístek byl nahrazen novým. Pokračujte opětovným kliknutím"
+" na tlačítko Hlasovat."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Váš hlas **nebyl zaznamenán**, protože jste neměli otevřený hlasovací "
+"lístek. Chcete-li hlasovat nebo svůj hlas změnit, klikněte znovu na "
+"tlačítko Hlasovat."
+
+msgid "Results for {title}"
+msgstr "Výsledky: {title}"
+
+msgid "Winners"
+msgstr "Vítězové"
+
+msgid "No winner determined"
+msgstr "Vítěz nebyl určen"
+
+msgid "Winner"
+msgstr "Vítěz"
+
+msgid "Details"
+msgstr "Podrobnosti"
+
+msgid "Computed using {method}"
+msgstr "Vypočteno metodou: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Hlasování **{title}** skončilo!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Hlasování skončilo"
+
+msgid "Ended"
+msgstr "Skončilo"
+
+msgid "Create Election"
+msgstr "Vytvořit hlasování"
+
+msgid "Election Title"
+msgstr "Název hlasování"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "End Time (optional)"
+msgstr "Čas ukončení (nepovinné)"
+
+msgid "Select Method"
+msgstr "Vybrat metodu"
+
+msgid "Configure Method"
+msgstr "Nastavit metodu"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Add Candidate"
+msgstr "Přidat kandidáta"
+
+msgid "Add a Candidate"
+msgstr "Přidat kandidáta"
+
+msgid "Candidate Name"
+msgstr "Jméno kandidáta"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** již je kandidátem."
+
+msgid "Remove Candidate"
+msgstr "Odebrat kandidáta"
+
+msgid "Remove {candidate}"
+msgstr "Odebrat: {candidate}"
+
+msgid "Start Election"
+msgstr "Zahájit hlasování"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Chyba: Naplánovaný čas ukončení již uplynul. Změňte termín nebo čas "
+"ukončení odstraňte."
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Edit Attributes"
+msgstr "Upravit vlastnosti"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Setup canceled."
+msgstr "Nastavení bylo zrušeno."
+
+msgid "*No title set.*"
+msgstr "*Název není nastaven.*"
+
+msgid "*No method set.*"
+msgstr "*Metoda není nastavena.*"
+
+msgid "*No description set.*"
+msgstr "*Popis není nastaven.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Zatím žádní kandidáti.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Nastavení hlasování**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Popis**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metoda**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandidáti**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Konec**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Jazyk**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Zvolte jazyk veřejných zpráv tohoto hlasování. Každý hlasující vidí svůj "
+"hlasovací lístek ve vlastním jazyce."
+
+msgid "No title was set."
+msgstr "Nebyl nastaven název."
+
+msgid "No method was set."
+msgstr "Nebyla nastavena metoda."
+
+msgid "At least two candidates are required."
+msgstr "Jsou potřeba alespoň dva kandidáti."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Čas nelze rozpoznat. Zkuste formáty jako: 2d, 3h30m, 1w nebo 2025-12-25 "
+"14:30"
+
+msgid "End time must be in the future"
+msgstr "Čas ukončení musí být v budoucnosti"
+
+msgid "When manually ended"
+msgstr "Při ručním ukončení"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Vybírejte kandidáty v pořadí podle svých preferencí. Hlas můžete odeslat "
+"kdykoli. Nemusíte seřadit všechny kandidáty."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Umístit {candidate} na místo #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Vyberte kandidáta na místo #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Vyberte kandidáta na místo #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Žádní kandidáti nebyli seřazeni."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Ohodnoťte každého kandidáta 0 až 5 hvězdičkami."
+
+msgid "No ratings recorded"
+msgstr "Žádná hodnocení"
+
+msgid "Please select all candidates you approve of."
+msgstr "Vyberte všechny kandidáty, které schvalujete."
+
+msgid "Please select a candidate."
+msgstr "Vyberte kandidáta."
+
+msgid "No vote recorded"
+msgstr "Žádný hlas"
+
+msgid "Approval"
+msgstr "Schvalující hlasování"
+
+msgid "No candidates were found."
+msgstr "Nebyli nalezeni žádní kandidáti."
+
+msgid "Borda Count"
+msgstr "Bordovo hlasování"
+
+msgid "No ballots cast."
+msgstr "Nebyly odevzdány žádné hlasy."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Párová srovnání:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} poráží {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} a {b} remizují"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}: 0 - 0 (shoda na všech lístcích). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Skóre (počet vítězství v párových srovnáních):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} výhra"
+msgstr[1] "{n} výhry"
+msgstr[2] "{n} výher"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} prohra"
+msgstr[1] "{n} prohry"
+msgstr[2] "{n} proher"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} remíza"
+msgstr[1] "{n} remízy"
+msgstr[2] "{n} remíz"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Metoda Kemeny-Young podporuje nejvýše {n} kandidáta."
+msgstr[1] "Metoda Kemeny-Young podporuje nejvýše {n} kandidáty."
+msgstr[2] "Metoda Kemeny-Young podporuje nejvýše {n} kandidátů."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Příliš mnoho kandidátů pro metodu Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Párové preference:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Nejlepší Kemenyho skóre**: {score}"
+
+msgid "Tie between:"
+msgstr "Remíza mezi:"
+
+msgid "Plurality"
+msgstr "Systém relativní většiny"
+
+msgid "Ranked Pairs"
+msgstr "Metoda seřazených párů"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} poráží {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} a {b} remizují: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Uzamčené dvojice:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- {a} > {b} se ignoruje, protože odporuje silnějším preferencím"
+
+msgid "**Final ordering:**"
+msgstr "**Konečné pořadí:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Pro rovnováhu Rivest-Shen GT nebylo nalezeno optimální řešení."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Matice rozdílů M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Pravděpodobnosti výhry v rovnováze GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Vítěz:** {winner}"
+
+msgid "Score"
+msgstr "Hodnoticí hlasování"
+
+msgid "No ballots were submitted."
+msgstr "Nebyly odevzdány žádné hlasovací lístky."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Průměrná hodnocení:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Pouze jeden kandidát: **{candidate}** vítězí automaticky."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Dva finalisté:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} s průměrným hodnocením {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Rozhodující kolo:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: preferován na {n} lístku"
+msgstr[1] "- {candidate}: preferován na {n} lístcích"
+msgstr[2] "- {candidate}: preferován na {n} lístcích"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} vítězí v rozhodujícím kole.**"
+
+msgid "It's a tie."
+msgstr "Je to remíza."
+
+msgid "Number of Winners"
+msgstr "Počet vítězů"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Systém jednoho přenosného hlasu / Alternativní hlasování"
+
+msgid "Instant Runoff"
+msgstr "Alternativní hlasování"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Systém jednoho přenosného hlasu pro {seats} mandát"
+msgstr[1] "Systém jednoho přenosného hlasu pro {seats} mandáty"
+msgstr[2] "Systém jednoho přenosného hlasu pro {seats} mandátů"
+
+msgid "Must choose at least one winner."
+msgstr "Je třeba zvolit alespoň jednoho vítěze."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Počet vítězů nesmí být větší než počet kandidátů."
+
+msgid "Number of winners must be an integer."
+msgstr "Počet vítězů musí být celé číslo."
+
+msgid "**Round {round}:**"
+msgstr "**Kolo {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Aktivní kandidáti: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktivní lístky: {active}, vyčerpané: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Aktuální počty prvních preferencí:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Více vítězů se stejným počtem hlasů. Náhodně byl vybrán kandidát "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandidát **{candidate}** překročil {percent:.2%} (hlasy: {votes}) a je "
+"zvolen."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Více kandidátů se dělí o poslední místo. K vyřazení byl náhodně vybrán "
+"kandidát **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandidát **{candidate}** je vyřazen."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandidát **{candidate}** je zvolen."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Přerozdělení přebytku hlasů kandidáta {candidate}: {votes}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Tidemanova alternativní metoda"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandidáti: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktivní lístek"
+msgstr[1] "{n} aktivní lístky"
+msgstr[2] "{n} aktivních lístků"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} vyčerpaný lístek"
+msgstr[1] "{n} vyčerpané lístky"
+msgstr[2] "{n} vyčerpaných lístků"
+
+msgid "All ballots are exhausted."
+msgstr "Všechny lístky jsou vyčerpány."
+
+msgid "First place votes:"
+msgstr "Hlasy na prvním místě:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Vítěz: **{candidate}** s většinou aktivních hlasů."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Vyřazení všech kandidátů mimo Smithovu množinu:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Vyřazen kandidát {candidate} s nejmenším počtem hlasů na prvním místě."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Shoda v nejmenším počtu hlasů na prvním místě: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Vyřazen: {candidate}, náhodným výběrem."
+

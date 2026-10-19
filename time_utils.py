@@ -5,6 +5,7 @@ import time
 from datetime import datetime, timezone
 from dateutil import parser as dateutil_parser
 from dateutil.relativedelta import relativedelta
+from i18n import _
 
 
 # Regex pattern for parsing duration strings like "2d", "3h30m", "1w2d"
@@ -109,12 +110,16 @@ def validate_time_input(time_str: str) -> tuple[int | None, str | None]:
     if timestamp is None:
         return (
             None,
-            "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30",
+            # Translators: keep the examples as they are; only these formats can be parsed.
+            _(
+                "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or "
+                "2025-12-25 14:30"
+            ),
         )
 
     current_time = int(time.time())
     if timestamp <= current_time:
-        return (None, "End time must be in the future")
+        return (None, _("End time must be in the future"))
 
     return (timestamp, None)
 
@@ -136,7 +141,7 @@ def format_timestamp_discord(
         - If None: "Manual (no scheduled end time)"
     """
     if timestamp is None:
-        return "When manually ended"
+        return _("When manually ended")
 
     if include_relative:
         return f"<t:{timestamp}:f> (<t:{timestamp}:R>)"

@@ -1,0 +1,636 @@
+# Hindi translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hi\n"
+"Language-Team: hi <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "अगला पेज"
+
+msgid "Prev Page"
+msgstr "पिछला पेज"
+
+msgid "Submit Vote"
+msgstr "वोट सबमिट करें"
+
+msgid "Start Over"
+msgstr "फिर से शुरू करें"
+
+msgid "Current vote"
+msgstr "मौजूदा वोट"
+
+msgid "Page {page}/{total}"
+msgstr "पेज {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "वोट सबमिट हो गया"
+
+msgid "Your ballot:"
+msgstr "आपका मतपत्र:"
+
+msgid "Your vote has been submitted."
+msgstr "आपका वोट सबमिट हो गया है।"
+
+msgid "Manage your elections."
+msgstr "अपने चुनाव प्रबंधित करें।"
+
+msgid "Error: Election not found."
+msgstr "त्रुटि: चुनाव नहीं मिला।"
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**प्रबंधन: {title}**\n"
+"\n"
+"**विधि**: {method}\n"
+"**उम्मीदवार**: {candidates}\n"
+"**वोट**: {votes}\n"
+"**समाप्ति**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "प्रबंधित करने के लिए कोई चुनाव चुनें, या नया चुनाव बनाएँ।"
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"इस चैनल में आपका कोई सक्रिय चुनाव नहीं है।\n"
+"\n"
+"नया चुनाव बनाने के लिए नीचे दिया गया बटन दबाएँ!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} वोट"
+msgstr[1] "{n} वोट"
+
+msgid "Select an election to manage"
+msgstr "प्रबंधित करने के लिए चुनाव चुनें"
+
+msgid "← Back"
+msgstr "← वापस"
+
+msgid "Create New Election"
+msgstr "नया चुनाव बनाएँ"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "`{title}` शीर्षक वाला चुनाव इस चैनल में पहले से चल रहा है।"
+
+msgid "Reschedule"
+msgstr "समय बदलें"
+
+msgid "Reschedule Election"
+msgstr "चुनाव का समय बदलें"
+
+msgid "New End Time"
+msgstr "नया समाप्ति समय"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "उदाहरण: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "त्रुटि: {error}"
+
+msgid "Election rescheduled!"
+msgstr "चुनाव का समय बदल दिया गया!"
+
+msgid "End Now"
+msgstr "अभी समाप्त करें"
+
+msgid "Confirm End Election"
+msgstr "चुनाव समाप्त करने की पुष्टि करें"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "चुनाव समाप्त करने के लिए \"CONFIRM\" लिखें"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "चुनाव समाप्त नहीं हुआ। पुष्टि का टेक्स्ट मेल नहीं खाया।"
+
+msgid "Delete"
+msgstr "हटाएँ"
+
+msgid "Confirm Delete Election"
+msgstr "चुनाव हटाने की पुष्टि करें"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "चुनाव हटाने के लिए \"DELETE\" लिखें"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "चुनाव नहीं हटाया गया। पुष्टि का टेक्स्ट मेल नहीं खाया।"
+
+msgid "Vote"
+msgstr "वोट करें"
+
+msgid "This election no longer exists."
+msgstr "यह चुनाव अब मौजूद नहीं है।"
+
+msgid "Candidates"
+msgstr "उम्मीदवार"
+
+msgid "*No candidates yet!*"
+msgstr "*अभी कोई उम्मीदवार नहीं है!*"
+
+msgid "Method"
+msgstr "विधि"
+
+msgid "Ends"
+msgstr "समाप्ति"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} वोट डाला गया"
+msgstr[1] "{n} वोट डाले गए"
+
+msgid "This election is not open."
+msgstr "यह चुनाव खुला नहीं है।"
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"इस मतपत्र की जगह एक नया मतपत्र खुल चुका है। जारी रखने के लिए फिर से \"वोट"
+" करें\" बटन दबाएँ।"
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"आपका वोट **दर्ज नहीं हुआ** क्योंकि आपका कोई मतपत्र खुला नहीं था। वोट "
+"डालने या बदलने के लिए फिर से \"वोट करें\" बटन दबाएँ।"
+
+msgid "Results for {title}"
+msgstr "{title} के परिणाम"
+
+msgid "Winners"
+msgstr "विजेता"
+
+msgid "No winner determined"
+msgstr "कोई विजेता तय नहीं हुआ"
+
+msgid "Winner"
+msgstr "विजेता"
+
+msgid "Details"
+msgstr "विवरण"
+
+msgid "Computed using {method}"
+msgstr "{method} से गणना की गई"
+
+msgid "Election **{title}** has ended!"
+msgstr "चुनाव **{title}** समाप्त हो गया है!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • चुनाव समाप्त"
+
+msgid "Ended"
+msgstr "समाप्त हुआ"
+
+msgid "Create Election"
+msgstr "चुनाव बनाएँ"
+
+msgid "Election Title"
+msgstr "चुनाव का शीर्षक"
+
+msgid "Description"
+msgstr "विवरण"
+
+msgid "End Time (optional)"
+msgstr "समाप्ति समय (वैकल्पिक)"
+
+msgid "Select Method"
+msgstr "विधि चुनें"
+
+msgid "Configure Method"
+msgstr "विधि कॉन्फ़िगर करें"
+
+msgid "Language"
+msgstr "भाषा"
+
+msgid "Add Candidate"
+msgstr "उम्मीदवार जोड़ें"
+
+msgid "Add a Candidate"
+msgstr "उम्मीदवार जोड़ें"
+
+msgid "Candidate Name"
+msgstr "उम्मीदवार का नाम"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** पहले से उम्मीदवार है।"
+
+msgid "Remove Candidate"
+msgstr "उम्मीदवार हटाएँ"
+
+msgid "Remove {candidate}"
+msgstr "{candidate} को हटाएँ"
+
+msgid "Start Election"
+msgstr "चुनाव शुरू करें"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"त्रुटि: तय समाप्ति समय पहले ही बीत चुका है। कृपया समय बदलें या समाप्ति "
+"समय हटा दें।"
+
+msgid "Edit"
+msgstr "संपादित करें"
+
+msgid "Edit Attributes"
+msgstr "विवरण संपादित करें"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Setup canceled."
+msgstr "सेटअप रद्द कर दिया गया।"
+
+msgid "*No title set.*"
+msgstr "*कोई शीर्षक तय नहीं है।*"
+
+msgid "*No method set.*"
+msgstr "*कोई विधि तय नहीं है।*"
+
+msgid "*No description set.*"
+msgstr "*कोई विवरण तय नहीं है।*"
+
+msgid "*No candidates yet.*"
+msgstr "*अभी कोई उम्मीदवार नहीं है।*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**चुनाव सेटअप हो रहा है**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**विवरण**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**विधि**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**उम्मीदवार**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**समाप्ति**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**भाषा**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"इस चुनाव के सार्वजनिक संदेशों की भाषा चुनें। हर मतदाता का मतपत्र उसकी "
+"अपनी भाषा में होता है।"
+
+msgid "No title was set."
+msgstr "कोई शीर्षक तय नहीं किया गया।"
+
+msgid "No method was set."
+msgstr "कोई विधि तय नहीं की गई।"
+
+msgid "At least two candidates are required."
+msgstr "कम से कम दो उम्मीदवार ज़रूरी हैं।"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"समय समझ में नहीं आया। इस तरह के फ़ॉर्मैट आज़माएँ: 2d, 3h30m, 1w, या "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "समाप्ति समय भविष्य में होना चाहिए"
+
+msgid "When manually ended"
+msgstr "मैन्युअल रूप से समाप्त करने पर"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"उम्मीदवारों को अपनी पसंद के क्रम में चुनें। आप कभी भी सबमिट कर सकते हैं। "
+"सभी उम्मीदवारों को क्रम देना ज़रूरी नहीं है।"
+
+msgid "Rank {candidate} as #{place}"
+msgstr "{candidate} को #{place} स्थान दें"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "#{place} स्थान के लिए उम्मीदवार चुनें... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "#{place} स्थान के लिए उम्मीदवार चुनें..."
+
+msgid "No candidates ranked."
+msgstr "किसी उम्मीदवार को क्रम नहीं दिया गया।"
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "हर उम्मीदवार को 0 से 5 स्टार दें।"
+
+msgid "No ratings recorded"
+msgstr "कोई रेटिंग दर्ज नहीं हुई"
+
+msgid "Please select all candidates you approve of."
+msgstr "कृपया उन सभी उम्मीदवारों को चुनें जिन्हें आप स्वीकार करते हैं।"
+
+msgid "Please select a candidate."
+msgstr "कृपया एक उम्मीदवार चुनें।"
+
+msgid "No vote recorded"
+msgstr "कोई वोट दर्ज नहीं हुआ"
+
+msgid "Approval"
+msgstr "अनुमोदन मतदान"
+
+msgid "No candidates were found."
+msgstr "कोई उम्मीदवार नहीं मिला।"
+
+msgid "Borda Count"
+msgstr "Borda गणना"
+
+msgid "No ballots cast."
+msgstr "कोई मतपत्र नहीं डाला गया।"
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**आमने-सामने के मुकाबले:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} ने {loser} को हराया"
+
+msgid "{a} and {b} tie"
+msgstr "{a} और {b} बराबर"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} बनाम {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%})। {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} बनाम {b}: 0 - 0 (सभी मतपत्रों पर बराबर)। {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**अंक (आमने-सामने की जीतों की संख्या):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} जीत"
+msgstr[1] "{n} जीत"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} हार"
+msgstr[1] "{n} हार"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} बराबरी"
+msgstr[1] "{n} बराबरी"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young अधिकतम {n} उम्मीदवार का समर्थन करता है।"
+msgstr[1] "Kemeny-Young अधिकतम {n} उम्मीदवारों का समर्थन करता है।"
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Kemeny-Young के लिए बहुत अधिक उम्मीदवार हैं।"
+
+msgid "Pairwise Preferences:"
+msgstr "आमने-सामने की वरीयताएँ:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**सर्वश्रेष्ठ Kemeny स्कोर**: {score}"
+
+msgid "Tie between:"
+msgstr "इनके बीच बराबरी:"
+
+msgid "Plurality"
+msgstr "सरल बहुमत प्रणाली"
+
+msgid "Ranked Pairs"
+msgstr "क्रमित युग्म"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} ने {loser} को हराया: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} और {b} बराबर: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**लॉक की गई वरीयताएँ:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr ""
+"- {a} > {b} को छोड़ा जा रहा है क्योंकि यह अधिक मज़बूत वरीयताओं के विरुद्ध"
+" है"
+
+msgid "**Final ordering:**"
+msgstr "**अंतिम क्रम:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Rivest-Shen GT संतुलन के लिए कोई इष्टतम हल नहीं मिला।"
+
+msgid "**Margin Matrix M:**"
+msgstr "**अंतर मैट्रिक्स M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**GTO संतुलन में जीत की प्रायिकताएँ:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**विजेता:** {winner}"
+
+msgid "Score"
+msgstr "स्कोर मतदान"
+
+msgid "No ballots were submitted."
+msgstr "कोई मतपत्र जमा नहीं किया गया।"
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**औसत अंक:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "केवल एक उम्मीदवार: **{candidate}** स्वतः जीतता है।"
+
+msgid "**Top Two Finalists:**"
+msgstr "**शीर्ष दो फ़ाइनलिस्ट:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate}, औसत अंक {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**अपवाह (रनऑफ़):**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: {n} मतपत्र में पसंद किया गया"
+msgstr[1] "- {candidate}: {n} मतपत्रों में पसंद किया गया"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} अपवाह में जीतता है।**"
+
+msgid "It's a tie."
+msgstr "बराबरी है।"
+
+msgid "Number of Winners"
+msgstr "विजेताओं की संख्या"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "सिंगल ट्रांसफरेबल वोट / तात्कालिक अपवाह मतदान"
+
+msgid "Instant Runoff"
+msgstr "तात्कालिक अपवाह मतदान"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "{seats} सीट के लिए सिंगल ट्रांसफरेबल वोट"
+msgstr[1] "{seats} सीटों के लिए सिंगल ट्रांसफरेबल वोट"
+
+msgid "Must choose at least one winner."
+msgstr "कम से कम एक विजेता चुनना ज़रूरी है।"
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "विजेताओं की संख्या उम्मीदवारों की संख्या से अधिक नहीं हो सकती।"
+
+msgid "Number of winners must be an integer."
+msgstr "विजेताओं की संख्या एक पूर्णांक होनी चाहिए।"
+
+msgid "**Round {round}:**"
+msgstr "**चरण {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "सक्रिय उम्मीदवार: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "सक्रिय मतपत्र: {active}, समाप्त: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "मौजूदा प्रथम वरीयता गणना:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"कई विजेताओं के बराबर वोट हैं। यादृच्छिक रूप से **{candidate}** को चुना "
+"गया।"
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"उम्मीदवार **{candidate}** ने {percent:.2%} ({votes} वोट) का कोटा पार किया"
+" और निर्वाचित हुआ।"
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"अंतिम स्थान पर कई उम्मीदवार बराबर हैं। बाहर करने के लिए यादृच्छिक रूप से "
+"**{candidate}** को चुना गया।"
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "उम्मीदवार **{candidate}** बाहर हो गया।"
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "उम्मीदवार **{candidate}** निर्वाचित हुआ।"
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "{candidate} के {votes} अधिशेष वोट दोबारा बाँटे जा रहे हैं।"
+
+msgid "Tideman's Alternative Method"
+msgstr "Tideman की वैकल्पिक विधि"
+
+msgid "Candidates: {candidates}"
+msgstr "उम्मीदवार: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}।"
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} सक्रिय मतपत्र"
+msgstr[1] "{n} सक्रिय मतपत्र"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} समाप्त मतपत्र"
+msgstr[1] "{n} समाप्त मतपत्र"
+
+msgid "All ballots are exhausted."
+msgstr "सभी मतपत्र समाप्त हो चुके हैं।"
+
+msgid "First place votes:"
+msgstr "प्रथम वरीयता के वोट:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "विजेता: **{candidate}**, सक्रिय वोटों के बहुमत के साथ।"
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "स्मिथ समुच्चय से बाहर के सभी उम्मीदवारों को हटाया जा रहा है:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "{candidate} को सबसे कम प्रथम वरीयता वोटों के कारण बाहर किया गया।"
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "सबसे कम प्रथम वरीयता वोटों पर बराबरी: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "बाहर किया गया: {candidate}, यादृच्छिक चयन से।"
+

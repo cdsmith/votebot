@@ -5,6 +5,7 @@ import discord
 import pytest
 
 import db
+import election as election_module
 import election_checker
 from election import end_election_and_update_message, load_election_from_db
 from elections.copeland import CopelandElection
@@ -41,7 +42,9 @@ class _FakeResponse:
 
 
 @pytest.fixture(autouse=True)
-def fresh_db(tmp_path):
+def fresh_db(tmp_path, monkeypatch):
+    # Each test's fresh database reuses election IDs, so clear cached results.
+    monkeypatch.setattr(election_module, "_unposted_results", {})
     original = db.DB_PATH
     db.DB_PATH = str(tmp_path / "votebot_test.db")
     db.init_db()

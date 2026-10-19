@@ -1,6 +1,7 @@
 from ballot import Ballot
 import discord
 import random
+from i18n import _
 
 STAR = "⭐"
 NONSTAR = "⚫"
@@ -17,13 +18,11 @@ class ScoreBallot(Ballot):
         candidates: list[str],
         ballot_id: int | None = None,
     ):
-        super().__init__(
-            election_id,
-            candidates,
-            "Rate each candidate from 0 to 5 stars.",
-            ballot_id,
-        )
+        super().__init__(election_id, candidates, ballot_id)
         self.ratings: dict[str, int] = {}
+
+    def instructions(self) -> str:
+        return _("Rate each candidate from 0 to 5 stars.")
 
     def candidates_per_page(self) -> int:
         # Four rows; one select per row
@@ -64,7 +63,7 @@ class ScoreBallot(Ballot):
         lines = []
         for c in self.candidates:
             lines.append(f"**{c}**:\n{stars(self.ratings.get(c, 0))}")
-        return "\n\n".join(lines) if lines else "No ratings recorded"
+        return "\n\n".join(lines) if lines else _("No ratings recorded")
 
     def to_dict(self) -> dict:
         return {

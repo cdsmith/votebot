@@ -1,0 +1,634 @@
+# Greek translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: el\n"
+"Language-Team: el <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Επόμενη σελίδα"
+
+msgid "Prev Page"
+msgstr "Προηγούμενη σελίδα"
+
+msgid "Submit Vote"
+msgstr "Υποβολή ψήφου"
+
+msgid "Start Over"
+msgstr "Από την αρχή"
+
+msgid "Current vote"
+msgstr "Τρέχουσα ψήφος"
+
+msgid "Page {page}/{total}"
+msgstr "Σελίδα {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Η ψήφος υποβλήθηκε"
+
+msgid "Your ballot:"
+msgstr "Το ψηφοδέλτιό σας:"
+
+msgid "Your vote has been submitted."
+msgstr "Η ψήφος σας υποβλήθηκε."
+
+msgid "Manage your elections."
+msgstr "Διαχειριστείτε τις ψηφοφορίες σας."
+
+msgid "Error: Election not found."
+msgstr "Σφάλμα: Η ψηφοφορία δεν βρέθηκε."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Διαχείριση: {title}**\n"
+"\n"
+"**Μέθοδος**: {method}\n"
+"**Υποψήφιοι**: {candidates}\n"
+"**Ψήφοι**: {votes}\n"
+"**Λήξη**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Επιλέξτε μια ψηφοφορία για διαχείριση ή δημιουργήστε μια νέα."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Δεν έχετε ενεργές ψηφοφορίες σε αυτό το κανάλι.\n"
+"\n"
+"Κάντε κλικ στο παρακάτω κουμπί για να δημιουργήσετε μία!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} ψήφος"
+msgstr[1] "{n} ψήφοι"
+
+msgid "Select an election to manage"
+msgstr "Επιλέξτε ψηφοφορία για διαχείριση"
+
+msgid "← Back"
+msgstr "← Πίσω"
+
+msgid "Create New Election"
+msgstr "Νέα ψηφοφορία"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Μια ψηφοφορία με τίτλο `{title}` είναι ήδη σε εξέλιξη σε αυτό το κανάλι."
+
+msgid "Reschedule"
+msgstr "Αλλαγή λήξης"
+
+msgid "Reschedule Election"
+msgstr "Αλλαγή λήξης ψηφοφορίας"
+
+msgid "New End Time"
+msgstr "Νέα ώρα λήξης"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Παραδείγματα: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Σφάλμα: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Η λήξη της ψηφοφορίας άλλαξε!"
+
+msgid "End Now"
+msgstr "Λήξη τώρα"
+
+msgid "Confirm End Election"
+msgstr "Επιβεβαίωση λήξης ψηφοφορίας"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Πληκτρολογήστε \"CONFIRM\" για λήξη"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Η ψηφοφορία δεν έληξε. Το κείμενο επιβεβαίωσης δεν ταίριαζε."
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Confirm Delete Election"
+msgstr "Επιβεβαίωση διαγραφής ψηφοφορίας"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Πληκτρολογήστε \"DELETE\" για διαγραφή"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Η ψηφοφορία δεν διαγράφηκε. Το κείμενο επιβεβαίωσης δεν ταίριαζε."
+
+msgid "Vote"
+msgstr "Ψηφίστε"
+
+msgid "This election no longer exists."
+msgstr "Αυτή η ψηφοφορία δεν υπάρχει πλέον."
+
+msgid "Candidates"
+msgstr "Υποψήφιοι"
+
+msgid "*No candidates yet!*"
+msgstr "*Δεν υπάρχουν ακόμη υποψήφιοι!*"
+
+msgid "Method"
+msgstr "Μέθοδος"
+
+msgid "Ends"
+msgstr "Λήξη"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Δόθηκε {n} ψήφος"
+msgstr[1] "Δόθηκαν {n} ψήφοι"
+
+msgid "This election is not open."
+msgstr "Αυτή η ψηφοφορία δεν είναι ανοιχτή."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Αυτό το ψηφοδέλτιο αντικαταστάθηκε από νέο. Κάντε ξανά κλικ στο κουμπί "
+"Ψηφίστε για να συνεχίσετε."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Η ψήφος σας **δεν καταγράφηκε** επειδή δεν είχατε ανοιχτό ψηφοδέλτιο.  "
+"Για να ψηφίσετε ή να ενημερώσετε την ψήφο σας, κάντε ξανά κλικ στο κουμπί"
+" Ψηφίστε."
+
+msgid "Results for {title}"
+msgstr "Αποτελέσματα: {title}"
+
+msgid "Winners"
+msgstr "Νικητές"
+
+msgid "No winner determined"
+msgstr "Δεν αναδείχθηκε νικητής"
+
+msgid "Winner"
+msgstr "Νικητής"
+
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgid "Computed using {method}"
+msgstr "Μέθοδος υπολογισμού: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Η ψηφοφορία **{title}** έληξε!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Η ψηφοφορία έληξε"
+
+msgid "Ended"
+msgstr "Έληξε"
+
+msgid "Create Election"
+msgstr "Δημιουργία ψηφοφορίας"
+
+msgid "Election Title"
+msgstr "Τίτλος ψηφοφορίας"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "End Time (optional)"
+msgstr "Ώρα λήξης (προαιρετικό)"
+
+msgid "Select Method"
+msgstr "Επιλογή μεθόδου"
+
+msgid "Configure Method"
+msgstr "Ρύθμιση μεθόδου"
+
+msgid "Language"
+msgstr "Γλώσσα"
+
+msgid "Add Candidate"
+msgstr "Προσθήκη υποψηφίου"
+
+msgid "Add a Candidate"
+msgstr "Προσθήκη υποψηφίου"
+
+msgid "Candidate Name"
+msgstr "Όνομα υποψηφίου"
+
+msgid "**{name}** is already a candidate."
+msgstr "Υπάρχει ήδη υποψήφιος με όνομα **{name}**."
+
+msgid "Remove Candidate"
+msgstr "Αφαίρεση υποψηφίου"
+
+msgid "Remove {candidate}"
+msgstr "Αφαίρεση: {candidate}"
+
+msgid "Start Election"
+msgstr "Έναρξη ψηφοφορίας"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Σφάλμα: Η προγραμματισμένη ώρα λήξης έχει ήδη περάσει. Αλλάξτε ή "
+"αφαιρέστε την ώρα λήξης."
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Edit Attributes"
+msgstr "Επεξεργασία στοιχείων"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Setup canceled."
+msgstr "Η ρύθμιση ακυρώθηκε."
+
+msgid "*No title set.*"
+msgstr "*Δεν ορίστηκε τίτλος.*"
+
+msgid "*No method set.*"
+msgstr "*Δεν ορίστηκε μέθοδος.*"
+
+msgid "*No description set.*"
+msgstr "*Δεν ορίστηκε περιγραφή.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Δεν υπάρχουν ακόμη υποψήφιοι.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Ρύθμιση ψηφοφορίας**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Περιγραφή**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Μέθοδος**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Υποψήφιοι**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Λήξη**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Γλώσσα**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Επιλέξτε τη γλώσσα των δημόσιων μηνυμάτων της ψηφοφορίας. Κάθε ψηφοφόρος "
+"βλέπει το ψηφοδέλτιό του στη δική του γλώσσα."
+
+msgid "No title was set."
+msgstr "Δεν ορίστηκε τίτλος."
+
+msgid "No method was set."
+msgstr "Δεν ορίστηκε μέθοδος."
+
+msgid "At least two candidates are required."
+msgstr "Απαιτούνται τουλάχιστον δύο υποψήφιοι."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Δεν ήταν δυνατή η ανάγνωση της ώρας. Δοκιμάστε μορφές όπως: 2d, 3h30m, 1w"
+" ή 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Η ώρα λήξης πρέπει να είναι στο μέλλον"
+
+msgid "When manually ended"
+msgstr "Όταν λήξει χειροκίνητα"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Επιλέξτε τους υποψηφίους με τη σειρά προτίμησής σας. Μπορείτε να "
+"υποβάλετε οποιαδήποτε στιγμή.  Δεν χρειάζεται να κατατάξετε όλους τους "
+"υποψηφίους."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "{candidate} στη θέση #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Επιλέξτε υποψήφιο για τη θέση #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Επιλέξτε υποψήφιο για τη θέση #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Δεν κατατάχθηκε κανένας υποψήφιος."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Βαθμολογήστε κάθε υποψήφιο από 0 έως 5 αστέρια."
+
+msgid "No ratings recorded"
+msgstr "Δεν καταγράφηκαν βαθμολογίες"
+
+msgid "Please select all candidates you approve of."
+msgstr "Επιλέξτε όλους τους υποψηφίους που εγκρίνετε."
+
+msgid "Please select a candidate."
+msgstr "Επιλέξτε έναν υποψήφιο."
+
+msgid "No vote recorded"
+msgstr "Δεν καταγράφηκε ψήφος"
+
+msgid "Approval"
+msgstr "Ψηφοφορία έγκρισης"
+
+msgid "No candidates were found."
+msgstr "Δεν βρέθηκαν υποψήφιοι."
+
+msgid "Borda Count"
+msgstr "Μέθοδος Borda"
+
+msgid "No ballots cast."
+msgstr "Δεν δόθηκαν ψήφοι."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Αναμετρήσεις κατά ζεύγη:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} κερδίζει έναντι {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} και {b}: ισοπαλία"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} έναντι {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} έναντι {b}: 0 - 0 (ισοπαλία σε όλα τα ψηφοδέλτια). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Βαθμολογίες (αριθμός νικών σε αναμετρήσεις ένας προς έναν):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} νίκη"
+msgstr[1] "{n} νίκες"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} ήττα"
+msgstr[1] "{n} ήττες"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} ισοπαλία"
+msgstr[1] "{n} ισοπαλίες"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Η μέθοδος Kemeny-Young υποστηρίζει έως {n} υποψήφιο."
+msgstr[1] "Η μέθοδος Kemeny-Young υποστηρίζει έως {n} υποψηφίους."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Πάρα πολλοί υποψήφιοι για τη μέθοδο Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Προτιμήσεις κατά ζεύγη:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Καλύτερη βαθμολογία Kemeny**: {score}"
+
+msgid "Tie between:"
+msgstr "Ισοπαλία μεταξύ:"
+
+msgid "Plurality"
+msgstr "Απλό πλειοψηφικό εκλογικό σύστημα"
+
+msgid "Ranked Pairs"
+msgstr "Κατατεταγμένα ζεύγη"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} κερδίζει έναντι {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} και {b}: ισοπαλία {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Κλειδωμένα ζεύγη:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Παράβλεψη {a} > {b} επειδή αντιβαίνει σε ισχυρότερες προτιμήσεις"
+
+msgid "**Final ordering:**"
+msgstr "**Τελική κατάταξη:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Δεν βρέθηκε βέλτιστη λύση για την ισορροπία Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Πίνακας διαφορών M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Πιθανότητες νίκης στην ισορροπία GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Νικητής:** {winner}"
+
+msgid "Score"
+msgstr "Ψηφοφορία βαθμολογίας"
+
+msgid "No ballots were submitted."
+msgstr "Δεν υποβλήθηκαν ψηφοδέλτια."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Μέσες βαθμολογίες:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Μόνο ένας υποψήφιος: κερδίζει αυτόματα **{candidate}**."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Οι δύο φιναλίστ:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} με μέση βαθμολογία {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Δεύτερος γύρος:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: προτιμήθηκε σε {n} ψηφοδέλτιο"
+msgstr[1] "- {candidate}: προτιμήθηκε σε {n} ψηφοδέλτια"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**Νικητής του δεύτερου γύρου: {candidate}.**"
+
+msgid "It's a tie."
+msgstr "Ισοπαλία."
+
+msgid "Number of Winners"
+msgstr "Αριθμός νικητών"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Μεταφερόμενη μονοσταυρία / Άμεσος δεύτερος γύρος"
+
+msgid "Instant Runoff"
+msgstr "Άμεσος δεύτερος γύρος"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Μεταφερόμενη μονοσταυρία για {seats} έδρα"
+msgstr[1] "Μεταφερόμενη μονοσταυρία για {seats} έδρες"
+
+msgid "Must choose at least one winner."
+msgstr "Πρέπει να οριστεί τουλάχιστον ένας νικητής."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Ο αριθμός νικητών δεν μπορεί να υπερβαίνει τον αριθμό υποψηφίων."
+
+msgid "Number of winners must be an integer."
+msgstr "Ο αριθμός νικητών πρέπει να είναι ακέραιος."
+
+msgid "**Round {round}:**"
+msgstr "**Γύρος {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Ενεργοί υποψήφιοι: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Ενεργά ψηφοδέλτια: {active}, εξαντλημένα: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Τρέχουσες ψήφοι πρώτης προτίμησης:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "Πολλοί νικητές με ίσες ψήφους. Επιλέχθηκε τυχαία: **{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Ο υποψήφιος **{candidate}** ξεπέρασε το {percent:.2%} ({votes} ψήφοι) και"
+" εκλέγεται."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Πολλοί υποψήφιοι ισοβαθμούν στην τελευταία θέση. Επιλέχθηκε τυχαία για "
+"αποκλεισμό: **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Ο υποψήφιος **{candidate}** αποκλείεται."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Ο υποψήφιος **{candidate}** εκλέγεται."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Αναδιανομή πλεονάσματος {votes} ψήφων του υποψηφίου {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Εναλλακτική μέθοδος Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Υποψήφιοι: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} ενεργό ψηφοδέλτιο"
+msgstr[1] "{n} ενεργά ψηφοδέλτια"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} εξαντλημένο ψηφοδέλτιο"
+msgstr[1] "{n} εξαντλημένα ψηφοδέλτια"
+
+msgid "All ballots are exhausted."
+msgstr "Όλα τα ψηφοδέλτια έχουν εξαντληθεί."
+
+msgid "First place votes:"
+msgstr "Ψήφοι πρώτης προτίμησης:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Νικητής: **{candidate}** με την πλειοψηφία των ενεργών ψήφων."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Αποκλεισμός όλων των υποψηφίων εκτός του συνόλου Smith:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Αποκλείστηκε: {candidate}, με τις λιγότερες ψήφους πρώτης προτίμησης."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Ισοπαλία στις λιγότερες ψήφους πρώτης προτίμησης: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Αποκλείστηκε: {candidate}, με τυχαία επιλογή."
+

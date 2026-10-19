@@ -1,0 +1,636 @@
+# Finnish translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fi\n"
+"Language-Team: fi <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Seuraava sivu"
+
+msgid "Prev Page"
+msgstr "Edellinen sivu"
+
+msgid "Submit Vote"
+msgstr "Lähetä ääni"
+
+msgid "Start Over"
+msgstr "Aloita alusta"
+
+msgid "Current vote"
+msgstr "Nykyinen ääni"
+
+msgid "Page {page}/{total}"
+msgstr "Sivu {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Ääni lähetetty"
+
+msgid "Your ballot:"
+msgstr "Äänestyslippusi:"
+
+msgid "Your vote has been submitted."
+msgstr "Äänesi on lähetetty."
+
+msgid "Manage your elections."
+msgstr "Hallinnoi äänestyksiäsi."
+
+msgid "Error: Election not found."
+msgstr "Virhe: Äänestystä ei löytynyt."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Hallinnoidaan: {title}**\n"
+"\n"
+"**Menetelmä**: {method}\n"
+"**Ehdokkaat**: {candidates}\n"
+"**Ääniä**: {votes}\n"
+"**Päättyy**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Valitse hallinnoitava äänestys tai luo uusi."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Sinulla ei ole aktiivisia äänestyksiä tällä kanavalla.\n"
+"\n"
+"Luo uusi napsauttamalla alla olevaa painiketta!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} ääni"
+msgstr[1] "{n} ääntä"
+
+msgid "Select an election to manage"
+msgstr "Valitse hallinnoitava äänestys"
+
+msgid "← Back"
+msgstr "← Takaisin"
+
+msgid "Create New Election"
+msgstr "Luo uusi äänestys"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Tällä kanavalla on jo käynnissä äänestys, jonka otsikko on `{title}`."
+
+msgid "Reschedule"
+msgstr "Muuta päättymisaikaa"
+
+msgid "Reschedule Election"
+msgstr "Muuta äänestyksen päättymisaikaa"
+
+msgid "New End Time"
+msgstr "Uusi päättymisaika"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Esimerkkejä: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Virhe: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Äänestyksen päättymisaika muutettu!"
+
+msgid "End Now"
+msgstr "Päätä nyt"
+
+msgid "Confirm End Election"
+msgstr "Vahvista äänestyksen päättäminen"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Kirjoita \"CONFIRM\" päättääksesi äänestyksen"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Äänestystä ei päätetty. Vahvistusteksti ei täsmännyt."
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Confirm Delete Election"
+msgstr "Vahvista äänestyksen poistaminen"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Kirjoita \"DELETE\" poistaaksesi äänestyksen"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Äänestystä ei poistettu. Vahvistusteksti ei täsmännyt."
+
+msgid "Vote"
+msgstr "Äänestä"
+
+msgid "This election no longer exists."
+msgstr "Tätä äänestystä ei ole enää olemassa."
+
+msgid "Candidates"
+msgstr "Ehdokkaat"
+
+msgid "*No candidates yet!*"
+msgstr "*Ei vielä ehdokkaita!*"
+
+msgid "Method"
+msgstr "Menetelmä"
+
+msgid "Ends"
+msgstr "Päättyy"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} ääni annettu"
+msgstr[1] "{n} ääntä annettu"
+
+msgid "This election is not open."
+msgstr "Tämä äänestys ei ole auki."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Tämä äänestyslippu on korvattu uudella. Jatka napsauttamalla "
+"Äänestä-painiketta uudelleen."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Ääntäsi **ei tallennettu**, koska sinulla ei ollut äänestyslippua auki.  "
+"Anna tai päivitä äänesi napsauttamalla Äänestä-painiketta uudelleen."
+
+msgid "Results for {title}"
+msgstr "Tulokset: {title}"
+
+msgid "Winners"
+msgstr "Voittajat"
+
+msgid "No winner determined"
+msgstr "Voittajaa ei ratkennut"
+
+msgid "Winner"
+msgstr "Voittaja"
+
+msgid "Details"
+msgstr "Tiedot"
+
+msgid "Computed using {method}"
+msgstr "Laskentamenetelmä: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Äänestys **{title}** on päättynyt!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Äänestys päättynyt"
+
+msgid "Ended"
+msgstr "Päättynyt"
+
+msgid "Create Election"
+msgstr "Luo äänestys"
+
+msgid "Election Title"
+msgstr "Äänestyksen otsikko"
+
+msgid "Description"
+msgstr "Kuvaus"
+
+msgid "End Time (optional)"
+msgstr "Päättymisaika (valinnainen)"
+
+msgid "Select Method"
+msgstr "Valitse menetelmä"
+
+msgid "Configure Method"
+msgstr "Määritä menetelmä"
+
+msgid "Language"
+msgstr "Kieli"
+
+msgid "Add Candidate"
+msgstr "Lisää ehdokas"
+
+msgid "Add a Candidate"
+msgstr "Lisää ehdokas"
+
+msgid "Candidate Name"
+msgstr "Ehdokkaan nimi"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** on jo ehdokkaana."
+
+msgid "Remove Candidate"
+msgstr "Poista ehdokas"
+
+msgid "Remove {candidate}"
+msgstr "Poista {candidate}"
+
+msgid "Start Election"
+msgstr "Aloita äänestys"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Virhe: Suunniteltu päättymisaika on jo mennyt. Muuta päättymisaikaa tai "
+"poista se."
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Edit Attributes"
+msgstr "Muokkaa tietoja"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Setup canceled."
+msgstr "Määritys peruutettu."
+
+msgid "*No title set.*"
+msgstr "*Otsikkoa ei ole asetettu.*"
+
+msgid "*No method set.*"
+msgstr "*Menetelmää ei ole valittu.*"
+
+msgid "*No description set.*"
+msgstr "*Kuvausta ei ole asetettu.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Ei vielä ehdokkaita.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Äänestyksen määritys**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Kuvaus**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Menetelmä**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Ehdokkaat**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Päättyy**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Kieli**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Valitse äänestyksen julkisten viestien kieli. Jokainen äänestäjä näkee "
+"äänestyslippunsa omalla kielellään."
+
+msgid "No title was set."
+msgstr "Otsikkoa ei asetettu."
+
+msgid "No method was set."
+msgstr "Menetelmää ei valittu."
+
+msgid "At least two candidates are required."
+msgstr "Vähintään kaksi ehdokasta tarvitaan."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Aikaa ei voitu tulkita. Kokeile esimerkiksi muotoja: 2d, 3h30m, 1w tai "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Päättymisajan on oltava tulevaisuudessa"
+
+msgid "When manually ended"
+msgstr "Kun päätetään manuaalisesti"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Valitse ehdokkaat mieluisuusjärjestyksessä. Voit lähettää äänesi milloin "
+"tahansa.  Kaikkia ehdokkaita ei tarvitse asettaa järjestykseen."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Aseta {candidate} sijalle #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Valitse ehdokas sijalle #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Valitse ehdokas sijalle #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Ei järjestettyjä ehdokkaita."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Arvioi jokainen ehdokas 0–5 tähdellä."
+
+msgid "No ratings recorded"
+msgstr "Ei tallennettuja arvioita"
+
+msgid "Please select all candidates you approve of."
+msgstr "Valitse kaikki ehdokkaat, jotka hyväksyt."
+
+msgid "Please select a candidate."
+msgstr "Valitse ehdokas."
+
+msgid "No vote recorded"
+msgstr "Ääntä ei tallennettu"
+
+msgid "Approval"
+msgstr "Hyväksymisvaalitapa"
+
+msgid "No candidates were found."
+msgstr "Ehdokkaita ei löytynyt."
+
+msgid "Borda Count"
+msgstr "Bordan menetelmä"
+
+msgid "No ballots cast."
+msgstr "Ääniä ei annettu."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Parittaiset vertailut:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} voittaa ({loser} häviää)"
+
+msgid "{a} and {b} tie"
+msgstr "{a} ja {b} ovat tasan"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}: 0 - 0 (tasan kaikilla äänestyslipuilla). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Pisteet (kahdenkeskisten voittojen määrä):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} voitto"
+msgstr[1] "{n} voittoa"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} tappio"
+msgstr[1] "{n} tappiota"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} tasapeli"
+msgstr[1] "{n} tasapeliä"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young: enintään {n} ehdokas."
+msgstr[1] "Kemeny-Young: enintään {n} ehdokasta."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Liikaa ehdokkaita Kemeny-Young-menetelmälle."
+
+msgid "Pairwise Preferences:"
+msgstr "Parittaiset preferenssit:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Paras Kemeny-pistemäärä**: {score}"
+
+msgid "Tie between:"
+msgstr "Tasapeli seuraavien välillä:"
+
+msgid "Plurality"
+msgstr "Suhteellinen enemmistövaali"
+
+msgid "Ranked Pairs"
+msgstr "Järjestetyt parit"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} voittaa ({loser} häviää): {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} ja {b} ovat tasan: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Lukitut parit:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr ""
+"- Ohitetaan {a} > {b}, koska se on ristiriidassa vahvempien preferenssien"
+" kanssa"
+
+msgid "**Final ordering:**"
+msgstr "**Lopullinen järjestys:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Rivest-Shen GT -tasapainolle ei löytynyt optimaalista ratkaisua."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Erotusmatriisi M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Voittotodennäköisyydet GTO-tasapainossa:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Voittaja:** {winner}"
+
+msgid "Score"
+msgstr "Pisteäänestys"
+
+msgid "No ballots were submitted."
+msgstr "Äänestyslippuja ei jätetty."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Pisteiden keskiarvot:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Vain yksi ehdokas: **{candidate}** voittaa automaattisesti."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Kaksi finalistia:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate}, keskiarvo {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Toinen kierros:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: etusijalla {n} äänestyslipussa"
+msgstr[1] "- {candidate}: etusijalla {n} äänestyslipussa"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} voittaa toisen kierroksen.**"
+
+msgid "It's a tie."
+msgstr "Tulos on tasan."
+
+msgid "Number of Winners"
+msgstr "Voittajien määrä"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Siirtoäänivaalitapa / Vaihtoehtoäänestys"
+
+msgid "Instant Runoff"
+msgstr "Vaihtoehtoäänestys"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Siirtoäänivaalitapa, {seats} paikka"
+msgstr[1] "Siirtoäänivaalitapa, {seats} paikkaa"
+
+msgid "Must choose at least one winner."
+msgstr "Voittajia on oltava vähintään yksi."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Voittajien määrä ei voi olla suurempi kuin ehdokkaiden määrä."
+
+msgid "Number of winners must be an integer."
+msgstr "Voittajien määrän on oltava kokonaisluku."
+
+msgid "**Round {round}:**"
+msgstr "**Kierros {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Mukana olevat ehdokkaat: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktiiviset äänestysliput: {active}, loppuun käytetyt: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Ensisijaisten äänten nykyiset määrät:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Useita voittajia yhtä monella äänellä. Satunnaisesti valittiin "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Ehdokas **{candidate}** ylitti {percent:.2%} ({votes} ääntä) ja tulee "
+"valituksi."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Useampi ehdokas on tasan viimeisenä. Pudotettavaksi valittiin "
+"satunnaisesti **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Ehdokas **{candidate}** putoaa pois."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Ehdokas **{candidate}** tulee valituksi."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Ehdokkaan {candidate} {votes} äänen ylijäämä siirretään eteenpäin."
+
+msgid "Tideman's Alternative Method"
+msgstr "Tidemanin vaihtoehtoinen menetelmä"
+
+msgid "Candidates: {candidates}"
+msgstr "Ehdokkaat: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktiivinen äänestyslippu"
+msgstr[1] "{n} aktiivista äänestyslippua"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} loppuun käytetty äänestyslippu"
+msgstr[1] "{n} loppuun käytettyä äänestyslippua"
+
+msgid "All ballots are exhausted."
+msgstr "Kaikki äänestysliput on käytetty loppuun."
+
+msgid "First place votes:"
+msgstr "Ensisijaiset äänet:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Voittaja: **{candidate}**, jolla on enemmistö aktiivisista äänistä."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Pudotetaan kaikki Smithin joukon ulkopuoliset ehdokkaat:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Pudotettiin {candidate}, jolla oli vähiten ensisijaisia ääniä."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Tasan vähiten ensisijaisia ääniä: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Pudotettu: {candidate}, satunnaisesti valittuna."
+

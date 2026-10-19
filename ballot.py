@@ -5,6 +5,7 @@ import math
 import discord
 import random
 import db
+from i18n import _, LocalizedView
 from text_utils import EMBED_TITLE_LIMIT, add_long_field, truncate
 
 
@@ -13,12 +14,10 @@ class Ballot(abc.ABC):
         self,
         election_id: int,
         candidates: list[str],
-        instructions: str,
         ballot_id: int | None = None,
     ):
         self.ballot_id: int | None = ballot_id
         self.election_id: int = election_id
-        self.instructions: str = instructions
         self.page: int = 0
         self.visited_pages: set[int] = set()
         self.candidates = candidates  # Already shuffled when created
@@ -55,12 +54,12 @@ class Ballot(abc.ABC):
 
     def render_interim(self, session_id: int) -> dict[str, Any]:
         class NextPageButton(discord.ui.Button):
-            def __init__(_):
+            def __init__(inner_self):
                 super().__init__(
-                    style=discord.ButtonStyle.primary, label="Next Page", row=4
+                    style=discord.ButtonStyle.primary, label=_("Next Page"), row=4
                 )
 
-            async def callback(_, interaction: discord.Interaction):
+            async def callback(inner_self, interaction: discord.Interaction):
                 def modification():
                     if self.page < self.total_pages() - 1:
                         self.page += 1
@@ -70,12 +69,12 @@ class Ballot(abc.ABC):
                 await self.modify(modification, interaction, session_id)
 
         class PrevPageButton(discord.ui.Button):
-            def __init__(_):
+            def __init__(inner_self):
                 super().__init__(
-                    style=discord.ButtonStyle.primary, label="Prev Page", row=4
+                    style=discord.ButtonStyle.primary, label=_("Prev Page"), row=4
                 )
 
-            async def callback(_, interaction: discord.Interaction):
+            async def callback(inner_self, interaction: discord.Interaction):
                 def modification():
                     if self.page > 0:
                         self.page -= 1
@@ -85,28 +84,28 @@ class Ballot(abc.ABC):
                 await self.modify(modification, interaction, session_id)
 
         class SubmitButton(discord.ui.Button):
-            def __init__(_):
+            def __init__(inner_self):
                 super().__init__(
-                    style=discord.ButtonStyle.green, label="Submit Vote", row=4
+                    style=discord.ButtonStyle.green, label=_("Submit Vote"), row=4
                 )
-                _.election_id = self.election_id
-                _.session_id_val = session_id
+                inner_self.election_id = self.election_id
+                inner_self.session_id_val = session_id
 
-            async def callback(_, interaction: discord.Interaction):
+            async def callback(inner_self, interaction: discord.Interaction):
                 from election import load_election_from_db
 
-                election = load_election_from_db(_.election_id)
-                if await election.check_session(interaction, _.session_id_val):
+                election = load_election_from_db(inner_self.election_id)
+                if await election.check_session(interaction, inner_self.session_id_val):
                     await election.submit_ballot(interaction)
-                _.view.stop()
+                inner_self.view.stop()
 
         class ResetButton(discord.ui.Button):
-            def __init__(_):
+            def __init__(inner_self):
                 super().__init__(
-                    style=discord.ButtonStyle.danger, label="Start Over", row=4
+                    style=discord.ButtonStyle.danger, label=_("Start Over"), row=4
                 )
 
-            async def callback(_, interaction: discord.Interaction):
+            async def callback(inner_self, interaction: discord.Interaction):
                 def modification():
                     self.clear()
                     self.visited_pages.clear()
@@ -118,7 +117,7 @@ class Ballot(abc.ABC):
         # Ballots stay usable for an hour of inactivity.  Views replaced by an
         # interaction are stopped right away; this timeout cleans up the views
         # of abandoned ballots.
-        view = discord.ui.View(timeout=3600)
+        view = LocalizedView(timeout=3600)
         self.current_view = view
         for item in self.get_items(self.candidates_on_page(), session_id):
             view.add_item(item)
@@ -138,13 +137,17 @@ class Ballot(abc.ABC):
         embed = add_long_field(
             discord.Embed(
                 title=truncate(election.title, EMBED_TITLE_LIMIT),
-                description=self.instructions,
+                description=self.instructions(),
             ),
-            "Current vote",
+            _("Current vote"),
             self.to_markdown(),
         )
         if self.total_pages() > 1:
-            embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
+            embed.set_footer(
+                text=_("Page {page}/{total}").format(
+                    page=self.page + 1, total=self.total_pages()
+                )
+            )
 
         return {
             "embed": embed,
@@ -177,9 +180,16 @@ class Ballot(abc.ABC):
 
     def render_submitted(self) -> dict[str, Any]:
         embed = add_long_field(
-            discord.Embed(title="Vote Submitted"), "Your ballot:", self.to_markdown()
+            discord.Embed(title=_("Vote Submitted")),
+            _("Your ballot:"),
+            self.to_markdown(),
         )
-        return {"content": "Your vote has been submitted.", "embed": embed}
+        return {"content": _("Your vote has been submitted."), "embed": embed}
+
+    @abc.abstractmethod
+    def instructions(self) -> str:
+        """Return instructions for filling out the ballot."""
+        pass
 
     @abc.abstractmethod
     def candidates_per_page(self) -> Optional[int]:

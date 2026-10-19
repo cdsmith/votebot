@@ -9,6 +9,8 @@ EMBED_FIELD_LIMIT = 1024
 EMBED_TOTAL_LIMIT = 6000
 EMBEDS_PER_MESSAGE = 10
 MESSAGE_CONTENT_LIMIT = 2000
+SELECT_OPTION_LIMIT = 100  # Label and description of a select option
+SELECT_PLACEHOLDER_LIMIT = 150
 
 
 def truncate(text: str, limit: int) -> str:

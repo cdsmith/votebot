@@ -34,6 +34,7 @@ def _election_from_row(row: sqlite3.Row) -> dict[str, Any]:
         "message_id": row["message_id"],
         "creator_id": row["creator_id"],
         "end_timestamp": row["end_timestamp"],
+        "locale": row["locale"],
     }
 
 
@@ -83,6 +84,7 @@ def init_db():
             message_id INTEGER,
             creator_id INTEGER NOT NULL DEFAULT 0,
             end_timestamp INTEGER,
+            locale TEXT,
             UNIQUE(channel_id, title)
         )
     """
@@ -105,6 +107,11 @@ def init_db():
             print("Migrating database: adding end_timestamp column...")
             conn.execute("ALTER TABLE elections ADD COLUMN end_timestamp INTEGER")
             print("✓ Added end_timestamp column")
+
+        if "locale" not in columns:
+            print("Migrating database: adding locale column...")
+            conn.execute("ALTER TABLE elections ADD COLUMN locale TEXT")
+            print("✓ Added locale column")
     except Exception as e:
         print(f"Migration check failed (this is OK for new databases): {e}")
 
@@ -172,6 +179,7 @@ def save_election(election: Any) -> int:
             election.message_id,
             election.creator_id,
             election.end_timestamp,
+            election.locale,
         )
 
         if election.election_id is None:
@@ -180,8 +188,8 @@ def save_election(election: Any) -> int:
                 """
                 INSERT INTO elections (channel_id, title, description, method_class,
                                      method_params, candidates, open, message_id,
-                                     creator_id, end_timestamp)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                     creator_id, end_timestamp, locale)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 data,
             )
@@ -195,7 +203,7 @@ def save_election(election: Any) -> int:
                 UPDATE elections
                 SET channel_id=?, title=?, description=?, method_class=?,
                     method_params=?, candidates=?, open=?, message_id=?,
-                    creator_id=?, end_timestamp=?
+                    creator_id=?, end_timestamp=?, locale=?
                 WHERE election_id=?
                 """,
                 data + (election.election_id,),

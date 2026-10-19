@@ -2,10 +2,11 @@ import random
 from fractions import Fraction
 from typing import Iterable
 from election import Election
+from i18n import N_, _, ngettext
 from ballots.ranked import RankedBallot
 from ballot import Ballot
 
-NUMBER_OF_WINNERS = "Number of Winners"
+NUMBER_OF_WINNERS = N_("Number of Winners")
 
 
 def _votes(x: Fraction) -> str:
@@ -16,16 +17,20 @@ def _votes(x: Fraction) -> str:
 class STVElection(Election):
     @classmethod
     def method_name(cls) -> str:
-        return "Single Transferable Vote / Instant Runoff"
+        return N_("Single Transferable Vote / Instant Runoff")
 
     @classmethod
     def method_description(cls, method_params: dict[str, str]) -> str:
         if method_params[NUMBER_OF_WINNERS] == "1":
-            return "Instant Runoff"
+            return _("Instant Runoff")
         else:
-            return (
-                f"Single Transferable Vote for {method_params[NUMBER_OF_WINNERS]} seats"
-            )
+            seats = method_params[NUMBER_OF_WINNERS]
+            # The count may not be a valid number yet during setup.
+            return ngettext(
+                "Single Transferable Vote for {seats} seat",
+                "Single Transferable Vote for {seats} seats",
+                int(seats) if seats.isdigit() else 2,
+            ).format(seats=seats)
 
     @classmethod
     def method_param_names(cls) -> list[str]:
@@ -43,11 +48,11 @@ class STVElection(Election):
         try:
             n = int(winners_str)
             if n < 1:
-                return "Must choose at least one winner."
+                return _("Must choose at least one winner.")
             if n > len(candidates):
-                return "Number of winners cannot be more than the number of candidates."
+                return _("Number of winners cannot be more than the number of candidates.")
         except ValueError:
-            return "Number of winners must be an integer."
+            return _("Number of winners must be an integer.")
         return None
 
     def blank_ballot(self) -> RankedBallot:
@@ -72,8 +77,12 @@ class STVElection(Election):
         exhausted = Fraction(0)
 
         while True:
-            lines.append(f"**Round {round_num}:**")
-            lines.append(f"Active candidates: {', '.join(sorted(active_candidates))}")
+            lines.append(_("**Round {round}:**").format(round=round_num))
+            lines.append(
+                _("Active candidates: {candidates}").format(
+                    candidates=", ".join(sorted(active_candidates))
+                )
+            )
 
             counts = {c: 0 for c in active_candidates}
             total_active = Fraction(0)
@@ -86,12 +95,14 @@ class STVElection(Election):
             )
 
             lines.append(
-                f"Active ballots: {_votes(total_active)}, exhausted: {_votes(exhausted)}"
+                _("Active ballots: {active}, exhausted: {exhausted}").format(
+                    active=_votes(total_active), exhausted=_votes(exhausted)
+                )
             )
 
             sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
             if total_active > 0:
-                lines.append("Current first-preference counts:")
+                lines.append(_("Current first-preference counts:"))
                 for c, v in sorted_candidates:
                     lines.append(
                         f" - {c}: {_votes(v)} ({float(v / total_active):.2%})"
@@ -105,10 +116,20 @@ class STVElection(Election):
                 winner = random.choice(winners)
                 if len(winners) > 1:
                     lines.append(
-                        f"Multiple winners with equal votes. Randomly selected **{winner}**."
+                        _(
+                            "Multiple winners with equal votes. Randomly selected "
+                            "**{candidate}**."
+                        ).format(candidate=winner)
                     )
                 lines.append(
-                    f"Candidate **{winner}** exceeded {float(quota / total_active):.2%} ({_votes(quota)} votes) and is elected."
+                    _(
+                        "Candidate **{candidate}** exceeded {percent:.2%} "
+                        "({votes} votes) and is elected."
+                    ).format(
+                        candidate=winner,
+                        percent=float(quota / total_active),
+                        votes=_votes(quota),
+                    )
                 )
                 elected_candidates.append(winner)
 
@@ -119,9 +140,14 @@ class STVElection(Election):
                 loser = random.choice(losers)
                 if len(losers) > 1:
                     lines.append(
-                        f"Multiple candidates tied for last place. Randomly selected **{loser}** to eliminate."
+                        _(
+                            "Multiple candidates tied for last place. Randomly "
+                            "selected **{candidate}** to eliminate."
+                        ).format(candidate=loser)
                     )
-                lines.append(f"Candidate **{loser}** is eliminated.")
+                lines.append(
+                    _("Candidate **{candidate}** is eliminated.").format(candidate=loser)
+                )
                 elim = loser
                 quota_fraction = 0
 
@@ -129,7 +155,11 @@ class STVElection(Election):
 
             if len(active_candidates) <= desired_winners - len(elected_candidates):
                 for candidate in active_candidates:
-                    lines.append(f"Candidate **{candidate}** is elected.")
+                    lines.append(
+                        _("Candidate **{candidate}** is elected.").format(
+                            candidate=candidate
+                        )
+                    )
                 elected_candidates.extend(active_candidates)
                 active_candidates.clear()
                 break
@@ -139,7 +169,9 @@ class STVElection(Election):
 
             if quota_fraction > 0:
                 lines.append(
-                    f"Redistributing surplus of {_votes(max_count - quota)} votes from {elim}."
+                    _(
+                        "Redistributing surplus of {votes} votes from {candidate}."
+                    ).format(votes=_votes(max_count - quota), candidate=elim)
                 )
 
             new_aggregated: dict[tuple[str, ...], float] = {}

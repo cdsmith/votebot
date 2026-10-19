@@ -1,0 +1,645 @@
+# Croatian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hr\n"
+"Language-Team: hr <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Sljedeća stranica"
+
+msgid "Prev Page"
+msgstr "Prethodna stranica"
+
+msgid "Submit Vote"
+msgstr "Predaj glas"
+
+msgid "Start Over"
+msgstr "Kreni ispočetka"
+
+msgid "Current vote"
+msgstr "Trenutni glas"
+
+msgid "Page {page}/{total}"
+msgstr "Stranica {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Glas predan"
+
+msgid "Your ballot:"
+msgstr "Vaš glasački listić:"
+
+msgid "Your vote has been submitted."
+msgstr "Vaš je glas predan."
+
+msgid "Manage your elections."
+msgstr "Upravljajte svojim izborima."
+
+msgid "Error: Election not found."
+msgstr "Pogreška: izbori nisu pronađeni."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Upravljanje: {title}**\n"
+"\n"
+"**Metoda**: {method}\n"
+"**Kandidati**: {candidates}\n"
+"**Glasovi**: {votes}\n"
+"**Završava**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Odaberite izbore kojima želite upravljati ili stvorite nove."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Nemate aktivnih izbora na ovom kanalu.\n"
+"\n"
+"Kliknite gumb ispod da biste ih stvorili!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} glas"
+msgstr[1] "{n} glasa"
+msgstr[2] "{n} glasova"
+
+msgid "Select an election to manage"
+msgstr "Odaberite izbore za upravljanje"
+
+msgid "← Back"
+msgstr "← Natrag"
+
+msgid "Create New Election"
+msgstr "Stvori nove izbore"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Izbori s naslovom `{title}` već su u tijeku na ovom kanalu."
+
+msgid "Reschedule"
+msgstr "Promijeni termin"
+
+msgid "Reschedule Election"
+msgstr "Promjena termina izbora"
+
+msgid "New End Time"
+msgstr "Novo vrijeme završetka"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Primjeri: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Pogreška: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Termin izbora promijenjen!"
+
+msgid "End Now"
+msgstr "Završi sada"
+
+msgid "Confirm End Election"
+msgstr "Potvrda završetka izbora"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Upišite „CONFIRM” za završetak izbora"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Izbori nisu završeni. Tekst potvrde nije se podudarao."
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Confirm Delete Election"
+msgstr "Potvrda brisanja izbora"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Upišite „DELETE” za brisanje izbora"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Izbori nisu izbrisani. Tekst potvrde nije se podudarao."
+
+msgid "Vote"
+msgstr "Glasaj"
+
+msgid "This election no longer exists."
+msgstr "Ovi izbori više ne postoje."
+
+msgid "Candidates"
+msgstr "Kandidati"
+
+msgid "*No candidates yet!*"
+msgstr "*Još nema kandidata!*"
+
+msgid "Method"
+msgstr "Metoda"
+
+msgid "Ends"
+msgstr "Završava"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} predan glas"
+msgstr[1] "{n} predana glasa"
+msgstr[2] "{n} predanih glasova"
+
+msgid "This election is not open."
+msgstr "Ovi izbori nisu otvoreni."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Ovaj je listić zamijenjen novim listićem. Ponovno kliknite gumb „Glasaj” "
+"za nastavak."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Vaš glas **nije zabilježen** jer niste imali otvoren listić.  Da biste "
+"glasali ili ažurirali listić, ponovno kliknite gumb „Glasaj”."
+
+msgid "Results for {title}"
+msgstr "Rezultati: {title}"
+
+msgid "Winners"
+msgstr "Pobjednici"
+
+msgid "No winner determined"
+msgstr "Pobjednik nije određen"
+
+msgid "Winner"
+msgstr "Pobjednik"
+
+msgid "Details"
+msgstr "Pojedinosti"
+
+msgid "Computed using {method}"
+msgstr "Izračunato metodom: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Izbori **{title}** su završeni!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Izbori završeni"
+
+msgid "Ended"
+msgstr "Završeno"
+
+msgid "Create Election"
+msgstr "Stvaranje izbora"
+
+msgid "Election Title"
+msgstr "Naslov izbora"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "End Time (optional)"
+msgstr "Vrijeme završetka (neobavezno)"
+
+msgid "Select Method"
+msgstr "Odaberite metodu"
+
+msgid "Configure Method"
+msgstr "Konfiguriraj metodu"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "Add Candidate"
+msgstr "Dodaj kandidata"
+
+msgid "Add a Candidate"
+msgstr "Dodavanje kandidata"
+
+msgid "Candidate Name"
+msgstr "Ime kandidata"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** već je kandidat."
+
+msgid "Remove Candidate"
+msgstr "Ukloni kandidata"
+
+msgid "Remove {candidate}"
+msgstr "Ukloni: {candidate}"
+
+msgid "Start Election"
+msgstr "Pokreni izbore"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Pogreška: zakazano vrijeme završetka već je prošlo. Promijenite termin "
+"ili uklonite vrijeme završetka."
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "Edit Attributes"
+msgstr "Uređivanje svojstava"
+
+msgid "Cancel"
+msgstr "Odustani"
+
+msgid "Setup canceled."
+msgstr "Postavljanje otkazano."
+
+msgid "*No title set.*"
+msgstr "*Naslov nije postavljen.*"
+
+msgid "*No method set.*"
+msgstr "*Metoda nije postavljena.*"
+
+msgid "*No description set.*"
+msgstr "*Opis nije postavljen.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Još nema kandidata.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Postavljanje izbora**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Opis**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metoda**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Kandidati**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Završava**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Jezik**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Odaberite jezik javnih poruka ovih izbora. Listić svakog glasača "
+"prikazuje se na njegovu jeziku."
+
+msgid "No title was set."
+msgstr "Naslov nije postavljen."
+
+msgid "No method was set."
+msgstr "Metoda nije postavljena."
+
+msgid "At least two candidates are required."
+msgstr "Potrebna su najmanje dva kandidata."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Nije moguće protumačiti vrijeme. Pokušajte s formatima kao što su: 2d, "
+"3h30m, 1w ili 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Vrijeme završetka mora biti u budućnosti"
+
+msgid "When manually ended"
+msgstr "Kad se ručno završe"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Odaberite kandidate redoslijedom svoje preferencije. Glas možete predati "
+"u bilo kojem trenutku.  Ne morate rangirati sve kandidate."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Rangiraj {candidate} kao #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Odaberite kandidata za #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Odaberite kandidata za #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Nijedan kandidat nije rangiran."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Ocijenite svakog kandidata s 0 do 5 zvjezdica."
+
+msgid "No ratings recorded"
+msgstr "Nema zabilježenih ocjena"
+
+msgid "Please select all candidates you approve of."
+msgstr "Odaberite sve kandidate koje odobravate."
+
+msgid "Please select a candidate."
+msgstr "Odaberite kandidata."
+
+msgid "No vote recorded"
+msgstr "Nema zabilježenog glasa"
+
+msgid "Approval"
+msgstr "Glasovanje odobravanjem"
+
+msgid "No candidates were found."
+msgstr "Nisu pronađeni kandidati."
+
+msgid "Borda Count"
+msgstr "Bordina metoda"
+
+msgid "No ballots cast."
+msgstr "Nema predanih listića."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Usporedbe u parovima:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} pobjeđuje {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} i {b} su izjednačeni"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} protiv {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} protiv {b}: 0 - 0 (izjednačeno na svim listićima). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Rezultati (broj pobjeda u izravnim dvobojima):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} pobjeda"
+msgstr[1] "{n} pobjede"
+msgstr[2] "{n} pobjeda"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} poraz"
+msgstr[1] "{n} poraza"
+msgstr[2] "{n} poraza"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} izjednačenje"
+msgstr[1] "{n} izjednačenja"
+msgstr[2] "{n} izjednačenja"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young podržava najviše {n} kandidata."
+msgstr[1] "Kemeny-Young podržava najviše {n} kandidata."
+msgstr[2] "Kemeny-Young podržava najviše {n} kandidata."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Previše kandidata za Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Preferencije u parovima:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Najbolji Kemenyjev rezultat**: {score}"
+
+msgid "Tie between:"
+msgstr "Izjednačeni su:"
+
+msgid "Plurality"
+msgstr "Relativna većina"
+
+msgid "Ranked Pairs"
+msgstr "Rangirani parovi"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} pobjeđuje {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} i {b} su izjednačeni: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Zaključani parovi:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Zanemaruje se {a} > {b} jer proturječi jačim preferencijama"
+
+msgid "**Final ordering:**"
+msgstr "**Konačni poredak:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Nije pronađeno optimalno rješenje za Rivest-Shen GT ravnotežu."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Matrica razlika M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Vjerojatnosti pobjede u GTO ravnoteži:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Pobjednik:** {winner}"
+
+msgid "Score"
+msgstr "Bodovno glasovanje"
+
+msgid "No ballots were submitted."
+msgstr "Nije predan nijedan listić."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Prosječne ocjene:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Samo jedan kandidat: **{candidate}** pobjeđuje bez protukandidata."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Dva finalista:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} s prosječnom ocjenom {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Drugi krug:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: preferira ga {n} listić"
+msgstr[1] "- {candidate}: preferiraju ga {n} listića"
+msgstr[2] "- {candidate}: preferira ga {n} listića"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} pobjeđuje u drugom krugu.**"
+
+msgid "It's a tie."
+msgstr "Neriješeno je."
+
+msgid "Number of Winners"
+msgstr "Broj pobjednika"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Jedinstveni prenosivi glas / Glasovanje s trenutačnim razrješenjem"
+
+msgid "Instant Runoff"
+msgstr "Glasovanje s trenutačnim razrješenjem"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Jedinstveni prenosivi glas za {seats} mjesto"
+msgstr[1] "Jedinstveni prenosivi glas za {seats} mjesta"
+msgstr[2] "Jedinstveni prenosivi glas za {seats} mjesta"
+
+msgid "Must choose at least one winner."
+msgstr "Mora se odabrati barem jedan pobjednik."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Broj pobjednika ne može biti veći od broja kandidata."
+
+msgid "Number of winners must be an integer."
+msgstr "Broj pobjednika mora biti cijeli broj."
+
+msgid "**Round {round}:**"
+msgstr "**Krug {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Aktivni kandidati: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktivni listići: {active}, iscrpljeni: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Trenutni broj prvih preferencija:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Više pobjednika s jednakim brojem glasova. Nasumično je odabran "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Kandidat **{candidate}** premašio je {percent:.2%} ({votes} glasova) i "
+"izabran je."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Više kandidata izjednačeno je na posljednjem mjestu. Za eliminaciju je "
+"nasumično odabran **{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Kandidat **{candidate}** je eliminiran."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Kandidat **{candidate}** je izabran."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Preraspodjela viška od {votes} glasova kandidata {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Tidemanova alternativna metoda"
+
+msgid "Candidates: {candidates}"
+msgstr "Kandidati: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktivni listić"
+msgstr[1] "{n} aktivna listića"
+msgstr[2] "{n} aktivnih listića"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} iscrpljeni listić"
+msgstr[1] "{n} iscrpljena listića"
+msgstr[2] "{n} iscrpljenih listića"
+
+msgid "All ballots are exhausted."
+msgstr "Svi su listići iscrpljeni."
+
+msgid "First place votes:"
+msgstr "Glasovi za prvo mjesto:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Pobjednik: **{candidate}** s većinom aktivnih glasova."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Eliminiraju se svi kandidati izvan Smithova skupa:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Eliminiran je {candidate} s najmanje glasova za prvo mjesto."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Izjednačeni s najmanje glasova za prvo mjesto: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Eliminiran: {candidate}, nasumičnim odabirom."
+

@@ -1,0 +1,646 @@
+# Romanian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ro\n"
+"Language-Team: ro <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100"
+" < 20)) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Pagina următoare"
+
+msgid "Prev Page"
+msgstr "Pagina anterioară"
+
+msgid "Submit Vote"
+msgstr "Trimite votul"
+
+msgid "Start Over"
+msgstr "Ia de la capăt"
+
+msgid "Current vote"
+msgstr "Votul curent"
+
+msgid "Page {page}/{total}"
+msgstr "Pagina {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Vot trimis"
+
+msgid "Your ballot:"
+msgstr "Buletinul dvs. de vot:"
+
+msgid "Your vote has been submitted."
+msgstr "Votul dvs. a fost trimis."
+
+msgid "Manage your elections."
+msgstr "Gestionați-vă alegerile."
+
+msgid "Error: Election not found."
+msgstr "Eroare: alegerile nu au fost găsite."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Gestionare: {title}**\n"
+"\n"
+"**Metodă**: {method}\n"
+"**Candidați**: {candidates}\n"
+"**Voturi**: {votes}\n"
+"**Se încheie**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Selectați alegerile pe care doriți să le gestionați sau creați altele noi."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Nu aveți alegeri active în acest canal.\n"
+"\n"
+"Faceți clic pe butonul de mai jos pentru a crea!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} vot"
+msgstr[1] "{n} voturi"
+msgstr[2] "{n} de voturi"
+
+msgid "Select an election to manage"
+msgstr "Selectați alegerile de gestionat"
+
+msgid "← Back"
+msgstr "← Înapoi"
+
+msgid "Create New Election"
+msgstr "Creează alegeri noi"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Alegerile cu titlul `{title}` sunt deja în desfășurare în acest canal."
+
+msgid "Reschedule"
+msgstr "Reprogramează"
+
+msgid "Reschedule Election"
+msgstr "Reprogramare alegeri"
+
+msgid "New End Time"
+msgstr "Noua oră de încheiere"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Exemple: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Eroare: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Alegerile au fost reprogramate!"
+
+msgid "End Now"
+msgstr "Încheie acum"
+
+msgid "Confirm End Election"
+msgstr "Confirmare încheiere alegeri"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Tastați „CONFIRM” pentru a încheia alegerile"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Alegerile nu au fost încheiate. Textul de confirmare nu corespunde."
+
+msgid "Delete"
+msgstr "Șterge"
+
+msgid "Confirm Delete Election"
+msgstr "Confirmare ștergere alegeri"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Tastați „DELETE” pentru a șterge alegerile"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Alegerile nu au fost șterse. Textul de confirmare nu corespunde."
+
+msgid "Vote"
+msgstr "Votează"
+
+msgid "This election no longer exists."
+msgstr "Aceste alegeri nu mai există."
+
+msgid "Candidates"
+msgstr "Candidați"
+
+msgid "*No candidates yet!*"
+msgstr "*Încă nu există candidați!*"
+
+msgid "Method"
+msgstr "Metodă"
+
+msgid "Ends"
+msgstr "Se încheie"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} vot exprimat"
+msgstr[1] "{n} voturi exprimate"
+msgstr[2] "{n} de voturi exprimate"
+
+msgid "This election is not open."
+msgstr "Aceste alegeri nu sunt deschise."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Acest buletin a fost înlocuit de un buletin nou. Faceți din nou clic pe "
+"butonul „Votează” pentru a continua."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Votul dvs. **nu a fost înregistrat** deoarece nu aveați un buletin "
+"deschis.  Pentru a vota sau a vă actualiza buletinul, faceți din nou clic"
+" pe butonul „Votează”."
+
+msgid "Results for {title}"
+msgstr "Rezultate pentru {title}"
+
+msgid "Winners"
+msgstr "Câștigători"
+
+msgid "No winner determined"
+msgstr "Niciun câștigător stabilit"
+
+msgid "Winner"
+msgstr "Câștigător"
+
+msgid "Details"
+msgstr "Detalii"
+
+msgid "Computed using {method}"
+msgstr "Calculat folosind {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Alegerile **{title}** s-au încheiat!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Alegeri încheiate"
+
+msgid "Ended"
+msgstr "Încheiate"
+
+msgid "Create Election"
+msgstr "Creare alegeri"
+
+msgid "Election Title"
+msgstr "Titlul alegerilor"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "End Time (optional)"
+msgstr "Ora de încheiere (opțional)"
+
+msgid "Select Method"
+msgstr "Selectați metoda"
+
+msgid "Configure Method"
+msgstr "Configurează metoda"
+
+msgid "Language"
+msgstr "Limbă"
+
+msgid "Add Candidate"
+msgstr "Adaugă candidat"
+
+msgid "Add a Candidate"
+msgstr "Adăugare candidat"
+
+msgid "Candidate Name"
+msgstr "Numele candidatului"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** este deja candidat."
+
+msgid "Remove Candidate"
+msgstr "Elimină candidatul"
+
+msgid "Remove {candidate}"
+msgstr "Elimină {candidate}"
+
+msgid "Start Election"
+msgstr "Începe alegerile"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Eroare: ora de încheiere programată a trecut deja. Reprogramați sau "
+"eliminați ora de încheiere."
+
+msgid "Edit"
+msgstr "Editează"
+
+msgid "Edit Attributes"
+msgstr "Editare atribute"
+
+msgid "Cancel"
+msgstr "Anulează"
+
+msgid "Setup canceled."
+msgstr "Configurare anulată."
+
+msgid "*No title set.*"
+msgstr "*Niciun titlu setat.*"
+
+msgid "*No method set.*"
+msgstr "*Nicio metodă setată.*"
+
+msgid "*No description set.*"
+msgstr "*Nicio descriere setată.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Încă nu există candidați.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Configurare alegeri**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Descriere**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metodă**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Candidați**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Se încheie**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Limbă**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Alegeți limba pentru mesajele publice ale acestor alegeri. Buletinul "
+"fiecărui alegător este în limba proprie."
+
+msgid "No title was set."
+msgstr "Nu a fost setat niciun titlu."
+
+msgid "No method was set."
+msgstr "Nu a fost setată nicio metodă."
+
+msgid "At least two candidates are required."
+msgstr "Sunt necesari cel puțin doi candidați."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Ora nu a putut fi interpretată. Încercați formate precum: 2d, 3h30m, 1w "
+"sau 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Ora de încheiere trebuie să fie în viitor"
+
+msgid "When manually ended"
+msgstr "La încheierea manuală"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Selectați candidații în ordinea preferinței dvs. Puteți trimite oricând."
+"  Nu este necesar să clasați toți candidații."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Clasează {candidate} pe locul #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Selectați un candidat pentru locul #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Selectați un candidat pentru locul #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Niciun candidat clasat."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Evaluați fiecare candidat cu 0 până la 5 stele."
+
+msgid "No ratings recorded"
+msgstr "Nicio evaluare înregistrată"
+
+msgid "Please select all candidates you approve of."
+msgstr "Selectați toți candidații pe care îi aprobați."
+
+msgid "Please select a candidate."
+msgstr "Selectați un candidat."
+
+msgid "No vote recorded"
+msgstr "Niciun vot înregistrat"
+
+msgid "Approval"
+msgstr "Vot prin aprobare"
+
+msgid "No candidates were found."
+msgstr "Nu au fost găsiți candidați."
+
+msgid "Borda Count"
+msgstr "Metoda Borda"
+
+msgid "No ballots cast."
+msgstr "Niciun buletin de vot depus."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Confruntări în perechi:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} câștigă contra {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} și {b} la egalitate"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} contra {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} contra {b}: 0 - 0 (egalitate pe toate buletinele). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Scoruri (numărul de victorii directe):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} victorie"
+msgstr[1] "{n} victorii"
+msgstr[2] "{n} de victorii"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} înfrângere"
+msgstr[1] "{n} înfrângeri"
+msgstr[2] "{n} de înfrângeri"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} egalitate"
+msgstr[1] "{n} egalități"
+msgstr[2] "{n} de egalități"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young acceptă cel mult {n} candidat."
+msgstr[1] "Kemeny-Young acceptă cel mult {n} candidați."
+msgstr[2] "Kemeny-Young acceptă cel mult {n} de candidați."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Prea mulți candidați pentru Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Preferințe în perechi:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Cel mai bun scor Kemeny**: {score}"
+
+msgid "Tie between:"
+msgstr "Egalitate între:"
+
+msgid "Plurality"
+msgstr "Majoritate relativă"
+
+msgid "Ranked Pairs"
+msgstr "Perechi clasate"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} câștigă contra {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} și {b} la egalitate: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Perechi fixate:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Se ignoră {a} > {b} deoarece contrazice preferințe mai puternice"
+
+msgid "**Final ordering:**"
+msgstr "**Ordinea finală:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Nu s-a găsit nicio soluție optimă pentru echilibrul Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Matricea marjelor M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Probabilitățile de câștig la echilibrul GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Câștigător:** {winner}"
+
+msgid "Score"
+msgstr "Vot prin punctaj"
+
+msgid "No ballots were submitted."
+msgstr "Nu a fost depus niciun buletin de vot."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Scoruri medii:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Un singur candidat: **{candidate}** câștigă din oficiu."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Primii doi finaliști:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} cu scorul mediu {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Turul doi:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: preferat pe {n} buletin"
+msgstr[1] "- {candidate}: preferat pe {n} buletine"
+msgstr[2] "- {candidate}: preferat pe {n} de buletine"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} câștigă turul doi.**"
+
+msgid "It's a tie."
+msgstr "Este egalitate."
+
+msgid "Number of Winners"
+msgstr "Numărul de câștigători"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Vot unic transferabil / Vot alternativ"
+
+msgid "Instant Runoff"
+msgstr "Vot alternativ"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Vot unic transferabil pentru {seats} loc"
+msgstr[1] "Vot unic transferabil pentru {seats} locuri"
+msgstr[2] "Vot unic transferabil pentru {seats} de locuri"
+
+msgid "Must choose at least one winner."
+msgstr "Trebuie ales cel puțin un câștigător."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Numărul de câștigători nu poate depăși numărul de candidați."
+
+msgid "Number of winners must be an integer."
+msgstr "Numărul de câștigători trebuie să fie un număr întreg."
+
+msgid "**Round {round}:**"
+msgstr "**Runda {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Candidați activi: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Buletine active: {active}, epuizate: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Numărul curent de prime preferințe:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Mai mulți câștigători cu voturi egale. A fost selectat aleatoriu "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Candidatul **{candidate}** a depășit {percent:.2%} ({votes} voturi) și "
+"este ales."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Mai mulți candidați la egalitate pe ultimul loc. A fost selectat "
+"aleatoriu **{candidate}** pentru eliminare."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Candidatul **{candidate}** este eliminat."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Candidatul **{candidate}** este ales."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Se redistribuie surplusul de {votes} voturi de la {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Metoda alternativă a lui Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Candidați: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} buletin activ"
+msgstr[1] "{n} buletine active"
+msgstr[2] "{n} de buletine active"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} buletin epuizat"
+msgstr[1] "{n} buletine epuizate"
+msgstr[2] "{n} de buletine epuizate"
+
+msgid "All ballots are exhausted."
+msgstr "Toate buletinele sunt epuizate."
+
+msgid "First place votes:"
+msgstr "Voturi pentru primul loc:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Câștigător: **{candidate}** cu majoritatea voturilor active."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Se elimină toți candidații din afara mulțimii Smith:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "A fost eliminat {candidate}, cu cele mai puține voturi pentru primul loc."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Egalitate la cele mai puține voturi pentru primul loc: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Eliminat: {candidate}, prin selecție aleatorie."
+

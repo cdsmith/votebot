@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _
 from ballots.ranked import RankedBallot
 import numpy as np
 from scipy.optimize import minimize, LinearConstraint
@@ -10,7 +11,7 @@ from typing import Iterable
 class RivestShenGTElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Rivest-Shen GT"
+        return N_("Rivest-Shen GT")
 
     def blank_ballot(self) -> RankedBallot:
         candidates = list(self.candidates)
@@ -19,10 +20,10 @@ class RivestShenGTElection(Election):
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if not self.candidates:
-            return [], "No candidates were found."
+            return [], _("No candidates were found.")
 
         m = len(self.candidates)
-        M = [[0] * m for _ in range(m)]
+        M = [[0] * m for i in range(m)]
 
         for i in range(m):
             for j in range(m):
@@ -79,7 +80,7 @@ class RivestShenGTElection(Election):
         )
 
         if not qp_res.success:
-            return [], "No optimal solution found for the Rivest-Shen GT equilibrium."
+            return [], _("No optimal solution found for the Rivest-Shen GT equilibrium.")
 
         # Clamp tiny negative values left by solver tolerances.
         p = np.maximum(qp_res.x, 0)
@@ -87,13 +88,13 @@ class RivestShenGTElection(Election):
 
         total = sum(p_star)
         if total <= 0:
-            return [], "No optimal solution found for the Rivest-Shen GT equilibrium."
+            return [], _("No optimal solution found for the Rivest-Shen GT equilibrium.")
         p_dist = [x / total for x in p_star]
 
         winner = random.choices(self.candidates, weights=p_dist, k=1)[0]
 
         lines = []
-        lines.append("**Margin Matrix M:**")
+        lines.append(_("**Margin Matrix M:**"))
         lines.append("```")
         for i, c1 in enumerate(self.candidates):
             row_str = []
@@ -103,11 +104,11 @@ class RivestShenGTElection(Election):
         lines.append("```")
 
         lines.append("")
-        lines.append("**GTO equilibrium win probabilities:**")
+        lines.append(_("**GTO equilibrium win probabilities:**"))
         for c, val in zip(self.candidates, p_dist):
             lines.append(f"{c}: {val:.2%}")
 
         lines.append("")
-        lines.append(f"**Winner:** {winner}")
+        lines.append(_("**Winner:** {winner}").format(winner=winner))
 
         return [winner], "\n".join(lines)

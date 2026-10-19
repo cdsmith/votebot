@@ -1,0 +1,635 @@
+# Bulgarian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: bg\n"
+"Language-Team: bg <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Следваща страница"
+
+msgid "Prev Page"
+msgstr "Предишна страница"
+
+msgid "Submit Vote"
+msgstr "Подай глас"
+
+msgid "Start Over"
+msgstr "Отначало"
+
+msgid "Current vote"
+msgstr "Текущ глас"
+
+msgid "Page {page}/{total}"
+msgstr "Страница {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Гласът е подаден"
+
+msgid "Your ballot:"
+msgstr "Вашата бюлетина:"
+
+msgid "Your vote has been submitted."
+msgstr "Гласът ви беше подаден."
+
+msgid "Manage your elections."
+msgstr "Управлявайте изборите си."
+
+msgid "Error: Election not found."
+msgstr "Грешка: изборите не са намерени."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Управление: {title}**\n"
+"\n"
+"**Метод**: {method}\n"
+"**Кандидати**: {candidates}\n"
+"**Гласове**: {votes}\n"
+"**Край**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Изберете избори за управление или създайте нови."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Нямате активни избори в този канал.\n"
+"\n"
+"Натиснете бутона по-долу, за да създадете!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} глас"
+msgstr[1] "{n} гласа"
+
+msgid "Select an election to manage"
+msgstr "Изберете избори за управление"
+
+msgid "← Back"
+msgstr "← Назад"
+
+msgid "Create New Election"
+msgstr "Създай нови избори"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Избори със заглавие `{title}` вече се провеждат в този канал."
+
+msgid "Reschedule"
+msgstr "Пренасрочи"
+
+msgid "Reschedule Election"
+msgstr "Пренасрочване на изборите"
+
+msgid "New End Time"
+msgstr "Нов час на приключване"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Примери: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Грешка: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Изборите са пренасрочени!"
+
+msgid "End Now"
+msgstr "Приключи сега"
+
+msgid "Confirm End Election"
+msgstr "Потвърждаване на приключването"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Въведете „CONFIRM“ за край на изборите"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Изборите не са приключени. Текстът за потвърждение не съвпада."
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid "Confirm Delete Election"
+msgstr "Потвърждаване на изтриването"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Въведете „DELETE“ за изтриване на изборите"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Изборите не са изтрити. Текстът за потвърждение не съвпада."
+
+msgid "Vote"
+msgstr "Гласувай"
+
+msgid "This election no longer exists."
+msgstr "Тези избори вече не съществуват."
+
+msgid "Candidates"
+msgstr "Кандидати"
+
+msgid "*No candidates yet!*"
+msgstr "*Все още няма кандидати!*"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "Ends"
+msgstr "Край"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} подаден глас"
+msgstr[1] "{n} подадени гласа"
+
+msgid "This election is not open."
+msgstr "Тези избори не са отворени."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Тази бюлетина е заменена с нова. Натиснете отново бутона „Гласувай“, за "
+"да продължите."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Гласът ви **не беше записан**, защото нямахте отворена бюлетина.  За да "
+"гласувате или да актуализирате бюлетината си, натиснете отново бутона "
+"„Гласувай“."
+
+msgid "Results for {title}"
+msgstr "Резултати за {title}"
+
+msgid "Winners"
+msgstr "Победители"
+
+msgid "No winner determined"
+msgstr "Няма определен победител"
+
+msgid "Winner"
+msgstr "Победител"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Computed using {method}"
+msgstr "Изчислено чрез {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Изборите **{title}** приключиха!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Изборите приключиха"
+
+msgid "Ended"
+msgstr "Приключили"
+
+msgid "Create Election"
+msgstr "Създаване на избори"
+
+msgid "Election Title"
+msgstr "Заглавие на изборите"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "End Time (optional)"
+msgstr "Час на приключване (по избор)"
+
+msgid "Select Method"
+msgstr "Изберете метод"
+
+msgid "Configure Method"
+msgstr "Настройки на метода"
+
+msgid "Language"
+msgstr "Език"
+
+msgid "Add Candidate"
+msgstr "Добави кандидат"
+
+msgid "Add a Candidate"
+msgstr "Добавяне на кандидат"
+
+msgid "Candidate Name"
+msgstr "Име на кандидата"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** вече е кандидат."
+
+msgid "Remove Candidate"
+msgstr "Премахни кандидат"
+
+msgid "Remove {candidate}"
+msgstr "Премахни {candidate}"
+
+msgid "Start Election"
+msgstr "Започни изборите"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Грешка: насроченият час на приключване вече е минал. Пренасрочете или "
+"премахнете часа на приключване."
+
+msgid "Edit"
+msgstr "Редактирай"
+
+msgid "Edit Attributes"
+msgstr "Редактиране на атрибутите"
+
+msgid "Cancel"
+msgstr "Отказ"
+
+msgid "Setup canceled."
+msgstr "Настройката е отменена."
+
+msgid "*No title set.*"
+msgstr "*Няма зададено заглавие.*"
+
+msgid "*No method set.*"
+msgstr "*Няма зададен метод.*"
+
+msgid "*No description set.*"
+msgstr "*Няма зададено описание.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Все още няма кандидати.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Настройване на избори**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Описание**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Метод**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Кандидати**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Край**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Език**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Изберете езика за публичните съобщения на тези избори. Бюлетината на "
+"всеки гласоподавател е на неговия собствен език."
+
+msgid "No title was set."
+msgstr "Не е зададено заглавие."
+
+msgid "No method was set."
+msgstr "Не е зададен метод."
+
+msgid "At least two candidates are required."
+msgstr "Необходими са поне двама кандидати."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Часът не може да бъде разпознат. Опитайте формати като: 2d, 3h30m, 1w или"
+" 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Часът на приключване трябва да е в бъдещето"
+
+msgid "When manually ended"
+msgstr "При ръчно приключване"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Изберете кандидатите по реда на предпочитанията си. Можете да подадете "
+"гласа си по всяко време.  Не е нужно да класирате всички кандидати."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Класирай {candidate} като #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Изберете кандидат за #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Изберете кандидат за #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Няма класирани кандидати."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Оценете всеки кандидат с 0 до 5 звезди."
+
+msgid "No ratings recorded"
+msgstr "Няма записани оценки"
+
+msgid "Please select all candidates you approve of."
+msgstr "Изберете всички кандидати, които одобрявате."
+
+msgid "Please select a candidate."
+msgstr "Изберете кандидат."
+
+msgid "No vote recorded"
+msgstr "Няма записан глас"
+
+msgid "Approval"
+msgstr "Одобрително гласуване"
+
+msgid "No candidates were found."
+msgstr "Не са намерени кандидати."
+
+msgid "Borda Count"
+msgstr "Метод на Borda"
+
+msgid "No ballots cast."
+msgstr "Няма подадени бюлетини."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Сравнения по двойки:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} побеждава {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} и {b} са наравно"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} срещу {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} срещу {b}: 0 - 0 (равенство във всички бюлетини). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Точки (брой победи при преки сблъсъци):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} победа"
+msgstr[1] "{n} победи"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} загуба"
+msgstr[1] "{n} загуби"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} равенство"
+msgstr[1] "{n} равенства"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young поддържа най-много {n} кандидат."
+msgstr[1] "Kemeny-Young поддържа най-много {n} кандидати."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Твърде много кандидати за Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Предпочитания по двойки:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Най-добър резултат по Kemeny**: {score}"
+
+msgid "Tie between:"
+msgstr "Равенство между:"
+
+msgid "Plurality"
+msgstr "Относително мнозинство"
+
+msgid "Ranked Pairs"
+msgstr "Класирани двойки"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} побеждава {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} и {b} са наравно: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Фиксирани двойки:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Пропуска се {a} > {b}, защото противоречи на по-силни предпочитания"
+
+msgid "**Final ordering:**"
+msgstr "**Крайно подреждане:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Не е намерено оптимално решение за равновесието Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Матрица на разликите M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Вероятности за победа в GTO равновесието:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Победител:** {winner}"
+
+msgid "Score"
+msgstr "Гласуване с оценки"
+
+msgid "No ballots were submitted."
+msgstr "Не са подадени бюлетини."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Средни оценки:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Само един кандидат: **{candidate}** печели служебно."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Двамата финалисти:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} със средна оценка {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Балотаж:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: предпочетен в {n} бюлетина"
+msgstr[1] "- {candidate}: предпочетен в {n} бюлетини"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} печели балотажа.**"
+
+msgid "It's a tie."
+msgstr "Равенство."
+
+msgid "Number of Winners"
+msgstr "Брой победители"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Единичен прехвърлим глас / Незабавен балотаж"
+
+msgid "Instant Runoff"
+msgstr "Незабавен балотаж"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Единичен прехвърлим глас за {seats} място"
+msgstr[1] "Единичен прехвърлим глас за {seats} места"
+
+msgid "Must choose at least one winner."
+msgstr "Трябва да изберете поне един победител."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Броят на победителите не може да надвишава броя на кандидатите."
+
+msgid "Number of winners must be an integer."
+msgstr "Броят на победителите трябва да е цяло число."
+
+msgid "**Round {round}:**"
+msgstr "**Кръг {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Активни кандидати: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Активни бюлетини: {active}, изчерпани: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Текущ брой първи предпочитания:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Няколко победители с равен брой гласове. Случайно е избран "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Кандидатът **{candidate}** надхвърли {percent:.2%} ({votes} гласа) и е "
+"избран."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Няколко кандидати са наравно на последно място. Случайно е избран "
+"**{candidate}** за отпадане."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Кандидатът **{candidate}** отпада."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Кандидатът **{candidate}** е избран."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Преразпределяне на излишъка от {votes} гласа на {candidate}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Алтернативен метод на Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Кандидати: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} активна бюлетина"
+msgstr[1] "{n} активни бюлетини"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} изчерпана бюлетина"
+msgstr[1] "{n} изчерпани бюлетини"
+
+msgid "All ballots are exhausted."
+msgstr "Всички бюлетини са изчерпани."
+
+msgid "First place votes:"
+msgstr "Гласове за първо място:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Победител: **{candidate}** с мнозинство от активните гласове."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Отстраняване на всички кандидати извън множеството на Смит:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Отпада {candidate} с най-малко гласове за първо място."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Равенство за най-малко гласове за първо място: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Отпада: {candidate}, чрез случаен избор."
+

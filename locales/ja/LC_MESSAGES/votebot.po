@@ -1,0 +1,608 @@
+# Japanese translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "次のページ"
+
+msgid "Prev Page"
+msgstr "前のページ"
+
+msgid "Submit Vote"
+msgstr "投票を送信"
+
+msgid "Start Over"
+msgstr "最初からやり直す"
+
+msgid "Current vote"
+msgstr "現在の投票"
+
+msgid "Page {page}/{total}"
+msgstr "ページ {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "投票を送信しました"
+
+msgid "Your ballot:"
+msgstr "あなたの投票:"
+
+msgid "Your vote has been submitted."
+msgstr "投票が送信されました。"
+
+msgid "Manage your elections."
+msgstr "選挙を管理します。"
+
+msgid "Error: Election not found."
+msgstr "エラー: 選挙が見つかりません。"
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**管理中: {title}**\n"
+"\n"
+"**投票方式**: {method}\n"
+"**候補者**: {candidates}\n"
+"**投票数**: {votes}\n"
+"**終了日時**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "管理する選挙を選択するか、新しく作成してください。"
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"このチャンネルには進行中の選挙がありません。\n"
+"\n"
+"下のボタンをクリックして作成しましょう！"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} 票"
+
+msgid "Select an election to manage"
+msgstr "管理する選挙を選択"
+
+msgid "← Back"
+msgstr "← 戻る"
+
+msgid "Create New Election"
+msgstr "新しい選挙を作成"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "このチャンネルではタイトルが `{title}` の選挙がすでに進行中です。"
+
+msgid "Reschedule"
+msgstr "日程変更"
+
+msgid "Reschedule Election"
+msgstr "選挙の日程変更"
+
+msgid "New End Time"
+msgstr "新しい終了日時"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "例: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "エラー: {error}"
+
+msgid "Election rescheduled!"
+msgstr "選挙の日程を変更しました！"
+
+msgid "End Now"
+msgstr "今すぐ終了"
+
+msgid "Confirm End Election"
+msgstr "選挙終了の確認"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "この選挙を終了するには「CONFIRM」と入力"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "選挙は終了されませんでした。確認テキストが一致しません。"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Confirm Delete Election"
+msgstr "選挙削除の確認"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "この選挙を削除するには「DELETE」と入力"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "選挙は削除されませんでした。確認テキストが一致しません。"
+
+msgid "Vote"
+msgstr "投票"
+
+msgid "This election no longer exists."
+msgstr "この選挙はもう存在しません。"
+
+msgid "Candidates"
+msgstr "候補者"
+
+msgid "*No candidates yet!*"
+msgstr "*まだ候補者がいません！*"
+
+msgid "Method"
+msgstr "投票方式"
+
+msgid "Ends"
+msgstr "終了日時"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "投票数 {n}"
+
+msgid "This election is not open."
+msgstr "この選挙は受付中ではありません。"
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr "この投票用紙は新しい投票用紙に置き換えられました。続けるには、もう一度「投票」ボタンをクリックしてください。"
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"投票用紙が開かれていなかったため、投票は "
+"**記録されませんでした**。投票または投票内容の変更を行うには、もう一度「投票」ボタンをクリックしてください。"
+
+msgid "Results for {title}"
+msgstr "{title} の結果"
+
+msgid "Winners"
+msgstr "当選者"
+
+msgid "No winner determined"
+msgstr "当選者は決まりませんでした"
+
+msgid "Winner"
+msgstr "当選者"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Computed using {method}"
+msgstr "{method} で集計"
+
+msgid "Election **{title}** has ended!"
+msgstr "選挙 **{title}** が終了しました！"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • 選挙終了"
+
+msgid "Ended"
+msgstr "終了"
+
+msgid "Create Election"
+msgstr "選挙を作成"
+
+msgid "Election Title"
+msgstr "選挙のタイトル"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "End Time (optional)"
+msgstr "終了日時（任意）"
+
+msgid "Select Method"
+msgstr "投票方式を選択"
+
+msgid "Configure Method"
+msgstr "投票方式を設定"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Add Candidate"
+msgstr "候補者を追加"
+
+msgid "Add a Candidate"
+msgstr "候補者を追加"
+
+msgid "Candidate Name"
+msgstr "候補者名"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** はすでに候補者です。"
+
+msgid "Remove Candidate"
+msgstr "候補者を削除"
+
+msgid "Remove {candidate}"
+msgstr "{candidate} を削除"
+
+msgid "Start Election"
+msgstr "選挙を開始"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr "エラー: 予定された終了日時はすでに過ぎています。日程を変更するか、終了日時を削除してください。"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Edit Attributes"
+msgstr "属性を編集"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Setup canceled."
+msgstr "設定をキャンセルしました。"
+
+msgid "*No title set.*"
+msgstr "*タイトルが設定されていません。*"
+
+msgid "*No method set.*"
+msgstr "*投票方式が設定されていません。*"
+
+msgid "*No description set.*"
+msgstr "*説明が設定されていません。*"
+
+msgid "*No candidates yet.*"
+msgstr "*まだ候補者がいません。*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**選挙を設定中**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**説明**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**投票方式**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**候補者**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**終了日時**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**言語**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr "この選挙の公開メッセージの言語を選択してください。各投票者の投票用紙は、それぞれの言語で表示されます。"
+
+msgid "No title was set."
+msgstr "タイトルが設定されていません。"
+
+msgid "No method was set."
+msgstr "投票方式が設定されていません。"
+
+msgid "At least two candidates are required."
+msgstr "候補者が2人以上必要です。"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr "日時を解析できません。次のような形式を試してください: 2d, 3h30m, 1w, 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "終了日時は未来の日時にしてください"
+
+msgid "When manually ended"
+msgstr "手動で終了したとき"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr "希望する順に候補者を選択してください。いつでも送信できます。すべての候補者に順位を付ける必要はありません。"
+
+msgid "Rank {candidate} as #{place}"
+msgstr "{candidate} を #{place} にする"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "#{place} にする候補者を選択... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "#{place} にする候補者を選択..."
+
+msgid "No candidates ranked."
+msgstr "順位が付けられた候補者はいません。"
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "各候補者を0〜5つ星で評価してください。"
+
+msgid "No ratings recorded"
+msgstr "評価は記録されていません"
+
+msgid "Please select all candidates you approve of."
+msgstr "承認するすべての候補者を選択してください。"
+
+msgid "Please select a candidate."
+msgstr "候補者を1人選択してください。"
+
+msgid "No vote recorded"
+msgstr "投票は記録されていません"
+
+msgid "Approval"
+msgstr "認定投票"
+
+msgid "No candidates were found."
+msgstr "候補者が見つかりませんでした。"
+
+msgid "Borda Count"
+msgstr "Borda 得点"
+
+msgid "No ballots cast."
+msgstr "投票はありません。"
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**一対一の対戦:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} が {loser} に勝利"
+
+msgid "{a} and {b} tie"
+msgstr "{a} と {b} は引き分け"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%})。{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}: 0 - 0（すべての投票用紙で同順位）。{result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**スコア（一対一の勝利数）:**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} 勝"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} 敗"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} 引き分け"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young が対応できる候補者は最大 {n} 人です。"
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Kemeny-Young には候補者が多すぎます。"
+
+msgid "Pairwise Preferences:"
+msgstr "一対一の選好:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**最良の Kemeny スコア**: {score}"
+
+msgid "Tie between:"
+msgstr "同点:"
+
+msgid "Plurality"
+msgstr "相対多数投票"
+
+msgid "Ranked Pairs"
+msgstr "ランクドペア"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} が {loser} に勝利: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} と {b} は引き分け: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**確定した順位:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- より強い選好と矛盾するため、{a} > {b} を無視"
+
+msgid "**Final ordering:**"
+msgstr "**最終順位:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Rivest-Shen GT 均衡の最適解が見つかりませんでした。"
+
+msgid "**Margin Matrix M:**"
+msgstr "**得票差行列 M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**GTO 均衡における勝利確率:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**当選者:** {winner}"
+
+msgid "Score"
+msgstr "採点投票"
+
+msgid "No ballots were submitted."
+msgstr "投票用紙が提出されませんでした。"
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**平均スコア:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "候補者が1人のみのため、**{candidate}** が自動的に当選します。"
+
+msgid "**Top Two Finalists:**"
+msgstr "**決選に進む上位2名:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate}（平均スコア {score:.2f}）"
+
+msgid "**Runoff:**"
+msgstr "**決選投票:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: {n} 票の投票用紙で優先"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} が決選投票で勝利しました。**"
+
+msgid "It's a tie."
+msgstr "引き分けです。"
+
+msgid "Number of Winners"
+msgstr "当選者数"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "単記移譲式投票 / 優先順位付投票制"
+
+msgid "Instant Runoff"
+msgstr "優先順位付投票制"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "単記移譲式投票（{seats} 議席）"
+
+msgid "Must choose at least one winner."
+msgstr "当選者数は1以上にしてください。"
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "当選者数は候補者数を超えることはできません。"
+
+msgid "Number of winners must be an integer."
+msgstr "当選者数は整数で指定してください。"
+
+msgid "**Round {round}:**"
+msgstr "**第 {round} ラウンド:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "残っている候補者: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "有効票: {active}、失効票: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "現在の第1選好の票数:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "同票の当選者が複数います。ランダムに **{candidate}** を選びました。"
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr "候補者 **{candidate}** が {percent:.2%}（{votes} 票）を超え、当選しました。"
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr "複数の候補者が最下位で並びました。ランダムに **{candidate}** を落選者として選びました。"
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "候補者 **{candidate}** が落選しました。"
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "候補者 **{candidate}** が当選しました。"
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "{candidate} の余剰票 {votes} 票を再配分します。"
+
+msgid "Tideman's Alternative Method"
+msgstr "Tideman 代替方式"
+
+msgid "Candidates: {candidates}"
+msgstr "候補者: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}、{exhausted}。"
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "有効票 {n} 票"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "失効票 {n} 票"
+
+msgid "All ballots are exhausted."
+msgstr "すべての票が失効しました。"
+
+msgid "First place votes:"
+msgstr "第1位の票数:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "当選者: **{candidate}**（有効票の過半数を獲得）。"
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "スミス集合に含まれないすべての候補者を除外します:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "第1位の票が最も少ない {candidate} を除外しました。"
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "第1位の票が最も少ない候補者が同数: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "除外: {candidate}（ランダムに選択）。"
+

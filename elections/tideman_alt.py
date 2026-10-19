@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _, ngettext
 from ballots.ranked import RankedBallot
 import random
 from collections import defaultdict
@@ -9,7 +10,7 @@ from typing import Iterable
 class TidemanAlternativeElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Tideman's Alternative Method"
+        return N_("Tideman's Alternative Method")
 
     def blank_ballot(self) -> RankedBallot:
         candidates = list(self.candidates)
@@ -37,25 +38,40 @@ class TidemanAlternativeElection(Election):
 
             sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
 
-            lines.append(f"**Round {round_num}:**")
-            lines.append(f"Candidates: {', '.join(sorted(active_candidates))}")
+            lines.append(_("**Round {round}:**").format(round=round_num))
             lines.append(
-                f"{total_ballots} active ballots; {total_exhausted} exhausted ballots."
+                _("Candidates: {candidates}").format(
+                    candidates=", ".join(sorted(active_candidates))
+                )
+            )
+            lines.append(
+                _("{active}; {exhausted}.").format(
+                    active=ngettext(
+                        "{n} active ballot", "{n} active ballots", total_ballots
+                    ).format(n=total_ballots),
+                    exhausted=ngettext(
+                        "{n} exhausted ballot", "{n} exhausted ballots", total_exhausted
+                    ).format(n=total_exhausted),
+                )
             )
 
             if total_ballots == 0:
                 # All ballots exhausted, all active candidates tie
-                lines.append("All ballots are exhausted.")
+                lines.append(_("All ballots are exhausted."))
                 return list(active_candidates), "\n".join(lines)
 
-            lines.append("First place votes:")
+            lines.append(_("First place votes:"))
             for c, v in sorted_candidates:
                 lines.append(f"- {c}: {v} ({v / total_ballots:.2%})")
 
             majority = total_ballots / 2
             leader, leader_count = sorted_candidates[0]
             if leader_count > majority:
-                lines.append(f"Winner: **{leader}** with a majority of active votes.")
+                lines.append(
+                    _("Winner: **{candidate}** with a majority of active votes.").format(
+                        candidate=leader
+                    )
+                )
                 return [leader], "\n".join(lines)
 
             # Compute the Smith set
@@ -94,7 +110,7 @@ class TidemanAlternativeElection(Election):
                         smith_set = closure
 
             if len(smith_set) < len(active_candidates):
-                lines.append("Eliminating all candidates not in the Smith set:")
+                lines.append(_("Eliminating all candidates not in the Smith set:"))
                 lines.append(", ".join(sorted(active_candidates - smith_set)))
 
                 active_candidates = smith_set
@@ -104,13 +120,23 @@ class TidemanAlternativeElection(Election):
 
                 if len(to_eliminate) == 1:
                     loser = to_eliminate[0]
-                    lines.append(f"Eliminated {loser} with fewest first-place votes.")
+                    lines.append(
+                        _("Eliminated {candidate} with fewest first-place votes.").format(
+                            candidate=loser
+                        )
+                    )
                 else:
                     lines.append(
-                        f"Tie for fewest first-place votes: {', '.join(sorted(to_eliminate))}"
+                        _("Tie for fewest first-place votes: {candidates}").format(
+                            candidates=", ".join(sorted(to_eliminate))
+                        )
                     )
                     loser = random.choice(to_eliminate)
-                    lines.append(f"Eliminated: {loser}, by random selection.")
+                    lines.append(
+                        _("Eliminated: {candidate}, by random selection.").format(
+                            candidate=loser
+                        )
+                    )
 
                 active_candidates.remove(loser)
 

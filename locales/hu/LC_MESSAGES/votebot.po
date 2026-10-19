@@ -1,0 +1,626 @@
+# Hungarian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: hu\n"
+"Language-Team: hu <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Következő oldal"
+
+msgid "Prev Page"
+msgstr "Előző oldal"
+
+msgid "Submit Vote"
+msgstr "Szavazat leadása"
+
+msgid "Start Over"
+msgstr "Újrakezdés"
+
+msgid "Current vote"
+msgstr "Jelenlegi szavazat"
+
+msgid "Page {page}/{total}"
+msgstr "Oldal: {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Szavazat leadva"
+
+msgid "Your ballot:"
+msgstr "A szavazólapod:"
+
+msgid "Your vote has been submitted."
+msgstr "A szavazatodat rögzítettük."
+
+msgid "Manage your elections."
+msgstr "Szavazásaid kezelése."
+
+msgid "Error: Election not found."
+msgstr "Hiba: A szavazás nem található."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Kezelés: {title}**\n"
+"\n"
+"**Módszer**: {method}\n"
+"**Jelöltek**: {candidates}\n"
+"**Szavazatok**: {votes}\n"
+"**Vége**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Válassz egy kezelendő szavazást, vagy hozz létre újat."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"Nincs aktív szavazásod ezen a csatornán.\n"
+"\n"
+"Kattints az alábbi gombra, hogy létrehozz egyet!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} szavazat"
+
+msgid "Select an election to manage"
+msgstr "Válassz kezelendő szavazást"
+
+msgid "← Back"
+msgstr "← Vissza"
+
+msgid "Create New Election"
+msgstr "Új szavazás létrehozása"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Ezen a csatornán már folyik egy szavazás a következő címmel: `{title}`."
+
+msgid "Reschedule"
+msgstr "Átütemezés"
+
+msgid "Reschedule Election"
+msgstr "Szavazás átütemezése"
+
+msgid "New End Time"
+msgstr "Új befejezési idő"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Példák: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Hiba: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Szavazás átütemezve!"
+
+msgid "End Now"
+msgstr "Befejezés most"
+
+msgid "Confirm End Election"
+msgstr "Szavazás befejezésének megerősítése"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "A befejezéshez írd be: \"CONFIRM\""
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "A szavazás nem fejeződött be. A megerősítő szöveg nem egyezett."
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Confirm Delete Election"
+msgstr "Szavazás törlésének megerősítése"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "A törléshez írd be: \"DELETE\""
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "A szavazás nem lett törölve. A megerősítő szöveg nem egyezett."
+
+msgid "Vote"
+msgstr "Szavazás"
+
+msgid "This election no longer exists."
+msgstr "Ez a szavazás már nem létezik."
+
+msgid "Candidates"
+msgstr "Jelöltek"
+
+msgid "*No candidates yet!*"
+msgstr "*Még nincsenek jelöltek!*"
+
+msgid "Method"
+msgstr "Módszer"
+
+msgid "Ends"
+msgstr "Vége"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} leadott szavazat"
+
+msgid "This election is not open."
+msgstr "Ez a szavazás nincs nyitva."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Ezt a szavazólapot egy új váltotta fel. A folytatáshoz kattints újra a "
+"Szavazás gombra."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"A szavazatod **nem lett rögzítve**, mert nem volt nyitott szavazólapod.  "
+"A szavazat leadásához vagy módosításához kattints újra a Szavazás gombra."
+
+msgid "Results for {title}"
+msgstr "Eredmények: {title}"
+
+msgid "Winners"
+msgstr "Győztesek"
+
+msgid "No winner determined"
+msgstr "Nincs győztes"
+
+msgid "Winner"
+msgstr "Győztes"
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "Computed using {method}"
+msgstr "Számítási módszer: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Véget ért a szavazás: **{title}**!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • A szavazás véget ért"
+
+msgid "Ended"
+msgstr "Véget ért"
+
+msgid "Create Election"
+msgstr "Szavazás létrehozása"
+
+msgid "Election Title"
+msgstr "Szavazás címe"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "End Time (optional)"
+msgstr "Befejezési idő (nem kötelező)"
+
+msgid "Select Method"
+msgstr "Módszer kiválasztása"
+
+msgid "Configure Method"
+msgstr "Módszer beállítása"
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Add Candidate"
+msgstr "Jelölt hozzáadása"
+
+msgid "Add a Candidate"
+msgstr "Jelölt hozzáadása"
+
+msgid "Candidate Name"
+msgstr "Jelölt neve"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** már jelölt."
+
+msgid "Remove Candidate"
+msgstr "Jelölt eltávolítása"
+
+msgid "Remove {candidate}"
+msgstr "{candidate} eltávolítása"
+
+msgid "Start Election"
+msgstr "Szavazás indítása"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Hiba: Az ütemezett befejezési idő már elmúlt. Ütemezd át, vagy távolítsd "
+"el a befejezési időt."
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Edit Attributes"
+msgstr "Adatok szerkesztése"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Setup canceled."
+msgstr "Beállítás megszakítva."
+
+msgid "*No title set.*"
+msgstr "*Nincs cím megadva.*"
+
+msgid "*No method set.*"
+msgstr "*Nincs módszer kiválasztva.*"
+
+msgid "*No description set.*"
+msgstr "*Nincs leírás megadva.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Még nincsenek jelöltek.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Szavazás beállítása**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Leírás**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Módszer**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Jelöltek**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Vége**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Nyelv**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Válaszd ki a szavazás nyilvános üzeneteinek nyelvét. Minden szavazó a "
+"saját nyelvén látja a szavazólapját."
+
+msgid "No title was set."
+msgstr "Nem adtál meg címet."
+
+msgid "No method was set."
+msgstr "Nem választottál módszert."
+
+msgid "At least two candidates are required."
+msgstr "Legalább két jelölt szükséges."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Nem sikerült értelmezni az időt. Próbálj ilyen formátumokat: 2d, 3h30m, "
+"1w vagy 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "A befejezési időnek a jövőben kell lennie"
+
+msgid "When manually ended"
+msgstr "Kézi befejezéskor"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Válaszd ki a jelölteket a preferenciád sorrendjében. Bármikor "
+"beküldheted.  Nem kell az összes jelöltet rangsorolnod."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Helyezés: #{place} – {candidate}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Válassz jelöltet erre a helyre: #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Válassz jelöltet erre a helyre: #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Nincs rangsorolt jelölt."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Értékeld az összes jelöltet 0–5 csillaggal."
+
+msgid "No ratings recorded"
+msgstr "Nincs rögzített értékelés"
+
+msgid "Please select all candidates you approve of."
+msgstr "Válaszd ki az összes jelöltet, akit elfogadhatónak tartasz."
+
+msgid "Please select a candidate."
+msgstr "Válassz egy jelöltet."
+
+msgid "No vote recorded"
+msgstr "Nincs rögzített szavazat"
+
+msgid "Approval"
+msgstr "Több X-es szavazás"
+
+msgid "No candidates were found."
+msgstr "Nem található jelölt."
+
+msgid "Borda Count"
+msgstr "Borda-féle szavazás"
+
+msgid "No ballots cast."
+msgstr "Nem adtak le szavazatot."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Páros összevetések:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} nyer, {loser} veszít"
+
+msgid "{a} and {b} tie"
+msgstr "{a} és {b} döntetlen"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs. {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%})."
+" {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs. {b}: 0 - 0 (minden szavazólapon egyenlő). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Pontszámok (páros győzelmek száma):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} győzelem"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} vereség"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} döntetlen"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "A Kemeny-Young-módszer legfeljebb {n} jelöltet támogat."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Túl sok jelölt a Kemeny-Young-módszerhez."
+
+msgid "Pairwise Preferences:"
+msgstr "Páros preferenciák:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Legjobb Kemeny-pontszám**: {score}"
+
+msgid "Tie between:"
+msgstr "Holtverseny a következők között:"
+
+msgid "Plurality"
+msgstr "Relatív többségi szabály"
+
+msgid "Ranked Pairs"
+msgstr "Rangsorolt párok módszere"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} nyer, {loser} veszít: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} és {b} döntetlen: {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Rögzített párok:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr ""
+"- {a} > {b} figyelmen kívül hagyva, mert ellentmond az erősebb "
+"preferenciáknak"
+
+msgid "**Final ordering:**"
+msgstr "**Végső sorrend:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Nem található optimális megoldás a Rivest-Shen GT-egyensúlyhoz."
+
+msgid "**Margin Matrix M:**"
+msgstr "**M különbségmátrix:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Győzelmi valószínűségek a GTO-egyensúlyban:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Győztes:** {winner}"
+
+msgid "Score"
+msgstr "Pontozásos szavazás"
+
+msgid "No ballots were submitted."
+msgstr "Nem érkezett szavazólap."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Átlagpontszámok:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Csak egy jelölt van: **{candidate}** automatikusan nyer."
+
+msgid "**Top Two Finalists:**"
+msgstr "**A két döntős:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate}, átlagpontszám: {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Második forduló:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: {n} szavazólapon előnyben"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} nyeri a második fordulót.**"
+
+msgid "It's a tie."
+msgstr "Döntetlen."
+
+msgid "Number of Winners"
+msgstr "Győztesek száma"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Egyetlen átruházható szavazat / Azonnali többfordulós szavazás"
+
+msgid "Instant Runoff"
+msgstr "Azonnali többfordulós szavazás"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Egyetlen átruházható szavazat, {seats} mandátum"
+
+msgid "Must choose at least one winner."
+msgstr "Legalább egy győztest meg kell adni."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "A győztesek száma nem lehet több a jelöltek számánál."
+
+msgid "Number of winners must be an integer."
+msgstr "A győztesek számának egész számnak kell lennie."
+
+msgid "**Round {round}:**"
+msgstr "**{round}. forduló:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Versenyben lévő jelöltek: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Aktív szavazólapok: {active}, kimerült: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Jelenlegi első preferenciás szavazatok:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Több győztes azonos szavazatszámmal. Véletlenszerűen kiválasztva: "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"**{candidate}** jelölt túllépte a küszöböt ({percent:.2%}, {votes} "
+"szavazat), így megválasztották."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Több jelölt holtversenyben áll az utolsó helyen. Véletlenszerűen kiesik: "
+"**{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "**{candidate}** jelölt kiesik."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "**{candidate}** jelöltet megválasztották."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "{candidate} jelölt {votes} szavazatnyi többletének újraelosztása."
+
+msgid "Tideman's Alternative Method"
+msgstr "Tideman alternatív módszere"
+
+msgid "Candidates: {candidates}"
+msgstr "Jelöltek: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} aktív szavazólap"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} kimerült szavazólap"
+
+msgid "All ballots are exhausted."
+msgstr "Minden szavazólap kimerült."
+
+msgid "First place votes:"
+msgstr "Első helyes szavazatok:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Győztes: **{candidate}**, az aktív szavazatok többségével."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "A Smith-halmazon kívüli összes jelölt kiesik:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Kiesett: {candidate}, a legkevesebb első helyes szavazattal."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Holtverseny a legkevesebb első helyes szavazatnál: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Kiesett: {candidate}, véletlenszerű kiválasztással."
+

@@ -2,6 +2,8 @@ from ballot import Ballot
 from typing import Optional
 import discord
 import random
+from i18n import _
+from text_utils import SELECT_OPTION_LIMIT, SELECT_PLACEHOLDER_LIMIT, truncate
 
 
 class RankedBallot(Ballot):
@@ -11,16 +13,14 @@ class RankedBallot(Ballot):
         candidates: list[str],
         ballot_id: int | None = None,
     ):
-        super().__init__(
-            election_id,
-            candidates,
-            (
-                "Select candidates in the order of your preference. "
-                "You can submit at any time.  You need not rank all candidates."
-            ),
-            ballot_id,
-        )
+        super().__init__(election_id, candidates, ballot_id)
         self.ranking: list[str] = []
+
+    def instructions(self) -> str:
+        return _(
+            "Select candidates in the order of your preference. "
+            "You can submit at any time.  You need not rank all candidates."
+        )
 
     def candidates_per_page(self) -> Optional[int]:
         # One page is enough
@@ -37,13 +37,28 @@ class RankedBallot(Ballot):
         class CandidateSelect(discord.ui.Select):
             def __init__(inner_self, candidates: list[str], partial: bool):
                 place = len(self.ranking) + 1
-                range = f" ({candidates[0]} - {candidates[-1]})" if partial else ""
                 options = [
-                    discord.SelectOption(label=c, description=f"Rank {c} as #{place}")
+                    discord.SelectOption(
+                        label=c,
+                        description=truncate(
+                            _("Rank {candidate} as #{place}").format(
+                                candidate=c, place=place
+                            ),
+                            SELECT_OPTION_LIMIT,
+                        ),
+                    )
                     for c in candidates
                 ]
+                if partial:
+                    placeholder = _(
+                        "Select a candidate to rank #{place}... ({first} - {last})"
+                    ).format(place=place, first=candidates[0], last=candidates[-1])
+                else:
+                    placeholder = _("Select a candidate to rank #{place}...").format(
+                        place=place
+                    )
                 super().__init__(
-                    placeholder=f"Select a candidate to rank #{place}...{range}",
+                    placeholder=truncate(placeholder, SELECT_PLACEHOLDER_LIMIT),
                     options=options,
                 )
 
@@ -70,7 +85,7 @@ class RankedBallot(Ballot):
             desc_lines = [f"{i}. {c}" for i, c in enumerate(self.ranking, start=1)]
             return "\n".join(desc_lines)
         else:
-            return "No candidates ranked."
+            return _("No candidates ranked.")
 
     def to_dict(self) -> dict:
         return {

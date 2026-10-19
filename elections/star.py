@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _, ngettext
 from ballots.score import ScoreBallot
 from ballot import Ballot
 from typing import Iterable
@@ -8,7 +9,7 @@ import random
 class STARElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "STAR"
+        return N_("STAR")
 
     def blank_ballot(self) -> ScoreBallot:
         candidates = list(self.candidates)
@@ -18,7 +19,7 @@ class STARElection(Election):
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         ballots = list(ballots)
         if not ballots:
-            return [], "No ballots were submitted."
+            return [], _("No ballots were submitted.")
         scores = {c: 0 for c in self.candidates}
         for ballot in ballots:
             for cand, rating in ballot.ratings.items():
@@ -27,26 +28,36 @@ class STARElection(Election):
         scores = {c: s / len(ballots) for c, s in scores.items()}
         sorted_candidates = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
-        lines = ["**Average Scores:**"]
+        lines = [_("**Average Scores:**")]
         for c, s in sorted_candidates:
             lines.append(f"- {c}: {s:.2f}")
 
         lines.append("")
 
         if len(sorted_candidates) == 0:
-            return [], "No candidates were found."
+            return [], _("No candidates were found.")
         elif len(sorted_candidates) == 1:
             return [
                 sorted_candidates[0][0]
-            ], f"Only one candidate: **{sorted_candidates[0][0]}** wins by default."
+            ], _("Only one candidate: **{candidate}** wins by default.").format(
+                candidate=sorted_candidates[0][0]
+            )
 
         top_two = sorted_candidates[:2]
-        finalist_a, _ = top_two[0]
-        finalist_b, _ = top_two[1]
+        finalist_a = top_two[0][0]
+        finalist_b = top_two[1][0]
 
-        lines.append("**Top Two Finalists:**")
-        lines.append(f"- {finalist_a} with average score {scores[finalist_a]:.2f}")
-        lines.append(f"- {finalist_b} with average score {scores[finalist_b]:.2f}")
+        lines.append(_("**Top Two Finalists:**"))
+        lines.append(
+            _("- {candidate} with average score {score:.2f}").format(
+                candidate=finalist_a, score=scores[finalist_a]
+            )
+        )
+        lines.append(
+            _("- {candidate} with average score {score:.2f}").format(
+                candidate=finalist_b, score=scores[finalist_b]
+            )
+        )
         lines.append("")
 
         a_preferred = 0
@@ -59,21 +70,37 @@ class STARElection(Election):
             elif b_score > a_score:
                 b_preferred += 1
 
-        lines.append("**Runoff:**")
-        lines.append(f"- {finalist_a}: preferred by {a_preferred} ballots")
-        lines.append(f"- {finalist_b}: preferred by {b_preferred} ballots")
+        lines.append(_("**Runoff:**"))
+        lines.append(
+            ngettext(
+                "- {candidate}: preferred by {n} ballot",
+                "- {candidate}: preferred by {n} ballots",
+                a_preferred,
+            ).format(candidate=finalist_a, n=a_preferred)
+        )
+        lines.append(
+            ngettext(
+                "- {candidate}: preferred by {n} ballot",
+                "- {candidate}: preferred by {n} ballots",
+                b_preferred,
+            ).format(candidate=finalist_b, n=b_preferred)
+        )
 
         if a_preferred > b_preferred:
             lines.append("")
-            lines.append(f"**{finalist_a} wins the runoff.**")
+            lines.append(
+                _("**{candidate} wins the runoff.**").format(candidate=finalist_a)
+            )
             winners = [finalist_a]
         elif b_preferred > a_preferred:
             lines.append("")
-            lines.append(f"**{finalist_b} wins the runoff.**")
+            lines.append(
+                _("**{candidate} wins the runoff.**").format(candidate=finalist_b)
+            )
             winners = [finalist_b]
         else:
             lines.append("")
-            lines.append("It's a tie.")
+            lines.append(_("It's a tie."))
             winners = [finalist_a, finalist_b]
 
         return winners, "\n".join(lines)

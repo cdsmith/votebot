@@ -8,10 +8,11 @@ from election import load_election_from_db, end_election_and_update_message
 from setup import ElectionSetup
 import time_utils
 import election_checker
+from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale
 from text_utils import MESSAGE_CONTENT_LIMIT, truncate
 
 
-class ElectableView(discord.ui.View):
+class ElectableView(LocalizedView):
     """Main view for the /electable command."""
 
     def __init__(self, interaction: discord.Interaction):
@@ -53,28 +54,34 @@ class ElectableView(discord.ui.View):
             election = load_election_from_db(self.selected_election_id)
             if not election:
                 return {
-                    "content": "Error: Election not found.",
+                    "content": _("Error: Election not found."),
                     "view": None,
                 }
 
             vote_count = db.get_vote_count(election.election_id)
             end_time = time_utils.format_timestamp_discord(election.end_timestamp)
 
-            content = (
-                f"**Managing: {election.title}**\n\n"
-                f"**Method**: {election.method_description(election.method_params)}\n"
-                f"**Candidates**: {', '.join(election.candidates)}\n"
-                f"**Votes**: {vote_count}\n"
-                f"**Ends**: {end_time}\n"
+            content = _(
+                "**Managing: {title}**\n\n"
+                "**Method**: {method}\n"
+                "**Candidates**: {candidates}\n"
+                "**Votes**: {votes}\n"
+                "**Ends**: {end_time}\n"
+            ).format(
+                title=election.title,
+                method=election.method_description(election.method_params),
+                candidates=", ".join(election.candidates),
+                votes=vote_count,
+                end_time=end_time,
             )
 
             return {"content": truncate(content, MESSAGE_CONTENT_LIMIT), "view": self}
         else:
             # Show election list view
             if self.elections:
-                content = "Select an election to manage, or create a new one."
+                content = _("Select an election to manage, or create a new one.")
             else:
-                content = (
+                content = _(
                     "You have no active elections in this channel.\n\n"
                     "Click the button below to create one!"
                 )
@@ -96,12 +103,14 @@ class ElectionSelect(discord.ui.Select):
                 discord.SelectOption(
                     label=election.title[:100],  # Discord limit
                     value=str(election.election_id),
-                    description=f"{vote_count} votes",
+                    description=ngettext("{n} vote", "{n} votes", vote_count).format(
+                        n=vote_count
+                    ),
                 )
             )
 
         super().__init__(
-            placeholder="Select an election to manage",
+            placeholder=_("Select an election to manage"),
             options=options,
             row=0,
         )
@@ -116,7 +125,7 @@ class BackButton(discord.ui.Button):
     """Button to go back to the election list."""
 
     def __init__(self):
-        super().__init__(label="← Back", style=discord.ButtonStyle.secondary, row=1)
+        super().__init__(label=_("← Back"), style=discord.ButtonStyle.secondary, row=1)
 
     async def callback(self, interaction: discord.Interaction):
         view = self.view
@@ -135,7 +144,7 @@ class CreateNewButton(discord.ui.Button):
 
     def __init__(self, row: int = 0):
         super().__init__(
-            label="Create New Election",
+            label=_("Create New Election"),
             style=discord.ButtonStyle.success,
             row=row,
         )
@@ -151,7 +160,10 @@ class CreateNewButton(discord.ui.Button):
             existing = db.load_election_by_natural_key(channel_id, title)
             if existing:
                 await interaction.followup.send(
-                    f"An election with the title `{title}` is already ongoing in this channel.",
+                    _(
+                        "An election with the title `{title}` is already ongoing in "
+                        "this channel."
+                    ).format(title=title),
                     ephemeral=True,
                 )
                 return
@@ -189,7 +201,7 @@ class RescheduleButton(discord.ui.Button):
 
     def __init__(self, election_id: int):
         super().__init__(
-            label="Reschedule",
+            label=_("Reschedule"),
             style=discord.ButtonStyle.primary,
             row=2,
         )
@@ -211,10 +223,11 @@ class RescheduleButton(discord.ui.Button):
 
         parent_view = self.view
 
-        class RescheduleModal(discord.ui.Modal, title="Reschedule Election"):
+        class RescheduleModal(LocalizedModal, title=_("Reschedule Election")):
             end_time = discord.ui.TextInput(
-                label="New End Time",
-                placeholder="Examples: 2d, 3h30m, 2025-12-25 14:30",
+                label=_("New End Time"),
+                # Translators: keep the examples as they are; only these formats can be parsed.
+                placeholder=_("Examples: 2d, 3h30m, 2025-12-25 14:30"),
                 default="",
                 required=False,
             )
@@ -226,7 +239,9 @@ class RescheduleButton(discord.ui.Button):
                 )
                 if error:
                     await interaction.response.send_message(
-                        f"Error: {error}", ephemeral=True, delete_after=10
+                        _("Error: {error}").format(error=error),
+                        ephemeral=True,
+                        delete_after=10,
                     )
                     return
 
@@ -246,7 +261,7 @@ class RescheduleButton(discord.ui.Button):
                 else:
                     # Fallback if view context is lost
                     await interaction.response.send_message(
-                        "Election rescheduled!",
+                        _("Election rescheduled!"),
                         ephemeral=True,
                         delete_after=5,
                     )
@@ -259,7 +274,7 @@ class EndNowButton(discord.ui.Button):
 
     def __init__(self, election_id: int):
         super().__init__(
-            label="End Now",
+            label=_("End Now"),
             style=discord.ButtonStyle.danger,
             row=2,
         )
@@ -279,9 +294,10 @@ class EndNowButton(discord.ui.Button):
                 await interaction.response.edit_message(**view.get_content())
             return
 
-        class ConfirmModal(discord.ui.Modal, title="Confirm End Election"):
+        class ConfirmModal(LocalizedModal, title=_("Confirm End Election")):
             confirm = discord.ui.TextInput(
-                label='Type "CONFIRM" to end this election',
+                # Translators: keep "CONFIRM" in English; users must type it exactly.
+                label=_('Type "CONFIRM" to end this election'),
                 placeholder="CONFIRM",
                 max_length=7,
             )
@@ -289,7 +305,7 @@ class EndNowButton(discord.ui.Button):
             async def on_submit(inner_self, interaction: discord.Interaction):
                 if inner_self.confirm.value.strip().upper() != "CONFIRM":
                     await interaction.response.send_message(
-                        "Election not ended. Confirmation text did not match.",
+                        _("Election not ended. Confirmation text did not match."),
                         ephemeral=True,
                     )
                     return
@@ -317,7 +333,7 @@ class DeleteButton(discord.ui.Button):
 
     def __init__(self, election_id: int):
         super().__init__(
-            label="Delete",
+            label=_("Delete"),
             style=discord.ButtonStyle.danger,
             row=2,
         )
@@ -337,9 +353,10 @@ class DeleteButton(discord.ui.Button):
                 await interaction.response.edit_message(**view.get_content())
             return
 
-        class ConfirmModal(discord.ui.Modal, title="Confirm Delete Election"):
+        class ConfirmModal(LocalizedModal, title=_("Confirm Delete Election")):
             confirm = discord.ui.TextInput(
-                label='Type "DELETE" to delete this election',
+                # Translators: keep "DELETE" in English; users must type it exactly.
+                label=_('Type "DELETE" to delete this election'),
                 placeholder="DELETE",
                 max_length=6,
             )
@@ -347,7 +364,7 @@ class DeleteButton(discord.ui.Button):
             async def on_submit(inner_self, interaction: discord.Interaction):
                 if inner_self.confirm.value.strip().upper() != "DELETE":
                     await interaction.response.send_message(
-                        "Election not deleted. Confirmation text did not match.",
+                        _("Election not deleted. Confirmation text did not match."),
                         ephemeral=True,
                     )
                     return
@@ -379,5 +396,6 @@ class DeleteButton(discord.ui.Button):
 
 async def show_electable(interaction: discord.Interaction):
     """Show the electable command interface."""
-    view = ElectableView(interaction)
-    await interaction.response.send_message(**view.get_content(), ephemeral=True)
+    with use_locale(interaction.locale.value):
+        view = ElectableView(interaction)
+        await interaction.response.send_message(**view.get_content(), ephemeral=True)

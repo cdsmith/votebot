@@ -1,0 +1,645 @@
+# Ukrainian translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "Наступна сторінка"
+
+msgid "Prev Page"
+msgstr "Попередня сторінка"
+
+msgid "Submit Vote"
+msgstr "Надіслати голос"
+
+msgid "Start Over"
+msgstr "Почати знову"
+
+msgid "Current vote"
+msgstr "Поточний голос"
+
+msgid "Page {page}/{total}"
+msgstr "Сторінка {page}/{total}"
+
+msgid "Vote Submitted"
+msgstr "Голос надіслано"
+
+msgid "Your ballot:"
+msgstr "Ваш бюлетень:"
+
+msgid "Your vote has been submitted."
+msgstr "Ваш голос надіслано."
+
+msgid "Manage your elections."
+msgstr "Керуйте своїми голосуваннями."
+
+msgid "Error: Election not found."
+msgstr "Помилка: голосування не знайдено."
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**Керування: {title}**\n"
+"\n"
+"**Метод**: {method}\n"
+"**Кандидати**: {candidates}\n"
+"**Голоси**: {votes}\n"
+"**Завершення**: {end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "Виберіть голосування для керування або створіть нове."
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"У вас немає активних голосувань у цьому каналі.\n"
+"\n"
+"Натисніть кнопку нижче, щоб створити його!"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} голос"
+msgstr[1] "{n} голоси"
+msgstr[2] "{n} голосів"
+
+msgid "Select an election to manage"
+msgstr "Виберіть голосування для керування"
+
+msgid "← Back"
+msgstr "← Назад"
+
+msgid "Create New Election"
+msgstr "Створити нове голосування"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "Голосування з назвою `{title}` уже триває в цьому каналі."
+
+msgid "Reschedule"
+msgstr "Перенести"
+
+msgid "Reschedule Election"
+msgstr "Перенести голосування"
+
+msgid "New End Time"
+msgstr "Новий час завершення"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "Приклади: 2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "Помилка: {error}"
+
+msgid "Election rescheduled!"
+msgstr "Голосування перенесено!"
+
+msgid "End Now"
+msgstr "Завершити зараз"
+
+msgid "Confirm End Election"
+msgstr "Підтвердьте завершення голосування"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "Введіть \"CONFIRM\" для завершення голосування"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "Голосування не завершено. Текст підтвердження не збігся."
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Confirm Delete Election"
+msgstr "Підтвердьте видалення голосування"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "Введіть \"DELETE\" для видалення голосування"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "Голосування не видалено. Текст підтвердження не збігся."
+
+msgid "Vote"
+msgstr "Голосувати"
+
+msgid "This election no longer exists."
+msgstr "Цього голосування більше не існує."
+
+msgid "Candidates"
+msgstr "Кандидати"
+
+msgid "*No candidates yet!*"
+msgstr "*Кандидатів ще немає!*"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "Ends"
+msgstr "Завершення"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Подано {n} голос"
+msgstr[1] "Подано {n} голоси"
+msgstr[2] "Подано {n} голосів"
+
+msgid "This election is not open."
+msgstr "Це голосування не відкрите."
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr ""
+"Цей бюлетень замінено новим. Натисніть кнопку «Голосувати» ще раз, щоб "
+"продовжити."
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr ""
+"Ваш голос **не враховано**, оскільки у вас не було відкритого бюлетеня. "
+"Щоб проголосувати або змінити голос, знову натисніть кнопку «Голосувати»."
+
+msgid "Results for {title}"
+msgstr "Результати: {title}"
+
+msgid "Winners"
+msgstr "Переможці"
+
+msgid "No winner determined"
+msgstr "Переможця не визначено"
+
+msgid "Winner"
+msgstr "Переможець"
+
+msgid "Details"
+msgstr "Подробиці"
+
+msgid "Computed using {method}"
+msgstr "Підраховано методом: {method}"
+
+msgid "Election **{title}** has ended!"
+msgstr "Голосування **{title}** завершено!"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Голосування завершено"
+
+msgid "Ended"
+msgstr "Завершено"
+
+msgid "Create Election"
+msgstr "Створити голосування"
+
+msgid "Election Title"
+msgstr "Назва голосування"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "End Time (optional)"
+msgstr "Час завершення (необов’язково)"
+
+msgid "Select Method"
+msgstr "Вибрати метод"
+
+msgid "Configure Method"
+msgstr "Налаштувати метод"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Add Candidate"
+msgstr "Додати кандидата"
+
+msgid "Add a Candidate"
+msgstr "Додати кандидата"
+
+msgid "Candidate Name"
+msgstr "Ім’я кандидата"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** уже є кандидатом."
+
+msgid "Remove Candidate"
+msgstr "Вилучити кандидата"
+
+msgid "Remove {candidate}"
+msgstr "Вилучити: {candidate}"
+
+msgid "Start Election"
+msgstr "Розпочати голосування"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr ""
+"Помилка: запланований час завершення вже минув. Перенесіть голосування "
+"або видаліть час завершення."
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "Edit Attributes"
+msgstr "Редагувати параметри"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Setup canceled."
+msgstr "Налаштування скасовано."
+
+msgid "*No title set.*"
+msgstr "*Назву не задано.*"
+
+msgid "*No method set.*"
+msgstr "*Метод не задано.*"
+
+msgid "*No description set.*"
+msgstr "*Опис не задано.*"
+
+msgid "*No candidates yet.*"
+msgstr "*Кандидатів ще немає.*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**Налаштування голосування**:\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**Опис**:\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Метод**:\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**Кандидати**:\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**Завершення**:\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**Мова**:\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr ""
+"Виберіть мову публічних повідомлень цього голосування. Кожен виборець "
+"бачить свій бюлетень своєю мовою."
+
+msgid "No title was set."
+msgstr "Назву не задано."
+
+msgid "No method was set."
+msgstr "Метод не задано."
+
+msgid "At least two candidates are required."
+msgstr "Потрібно щонайменше два кандидати."
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr ""
+"Не вдалося розпізнати час. Спробуйте формати: 2d, 3h30m, 1w або "
+"2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "Час завершення має бути в майбутньому"
+
+msgid "When manually ended"
+msgstr "У разі ручного завершення"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr ""
+"Вибирайте кандидатів у порядку переваги. Надіслати бюлетень можна "
+"будь-коли. Ранжувати всіх кандидатів не обов’язково."
+
+msgid "Rank {candidate} as #{place}"
+msgstr "Поставити {candidate} на місце #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "Виберіть кандидата на місце #{place}... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "Виберіть кандидата на місце #{place}..."
+
+msgid "No candidates ranked."
+msgstr "Кандидатів не ранжовано."
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "Оцініть кожного кандидата від 0 до 5 зірок."
+
+msgid "No ratings recorded"
+msgstr "Оцінок немає"
+
+msgid "Please select all candidates you approve of."
+msgstr "Виберіть усіх кандидатів, яких ви схвалюєте."
+
+msgid "Please select a candidate."
+msgstr "Виберіть кандидата."
+
+msgid "No vote recorded"
+msgstr "Голос не віддано"
+
+msgid "Approval"
+msgstr "Схвальне голосування"
+
+msgid "No candidates were found."
+msgstr "Кандидатів не знайдено."
+
+msgid "Borda Count"
+msgstr "Метод Borda"
+
+msgid "No ballots cast."
+msgstr "Не подано жодного бюлетеня."
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**Попарні порівняння:**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} перемагає {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} і {b}: нічия"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} проти {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - "
+"{b_percent:.2%}). {result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} проти {b}: 0 - 0 (нічия в усіх бюлетенях). {result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**Очки (кількість перемог у попарних порівняннях):**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} перемога"
+msgstr[1] "{n} перемоги"
+msgstr[2] "{n} перемог"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} поразка"
+msgstr[1] "{n} поразки"
+msgstr[2] "{n} поразок"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} нічия"
+msgstr[1] "{n} нічиї"
+msgstr[2] "{n} нічиїх"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Метод Kemeny-Young підтримує не більше {n} кандидата."
+msgstr[1] "Метод Kemeny-Young підтримує не більше {n} кандидатів."
+msgstr[2] "Метод Kemeny-Young підтримує не більше {n} кандидатів."
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "Забагато кандидатів для методу Kemeny-Young."
+
+msgid "Pairwise Preferences:"
+msgstr "Попарні переваги:"
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**Найкраща оцінка Кемені**: {score}"
+
+msgid "Tie between:"
+msgstr "Нічия між:"
+
+msgid "Plurality"
+msgstr "Відносна більшість"
+
+msgid "Ranked Pairs"
+msgstr "Метод ранжованих пар"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} перемагає {loser}: {wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} і {b}: нічия {a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**Закріплені пари:**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- Пропускаємо {a} > {b}, оскільки це суперечить сильнішим перевагам"
+
+msgid "**Final ordering:**"
+msgstr "**Остаточний порядок:**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "Не знайдено оптимального розв’язку для рівноваги Rivest-Shen GT."
+
+msgid "**Margin Matrix M:**"
+msgstr "**Матриця різниць M:**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**Імовірності перемоги в рівновазі GTO:**"
+
+msgid "**Winner:** {winner}"
+msgstr "**Переможець:** {winner}"
+
+msgid "Score"
+msgstr "Оцінкове голосування"
+
+msgid "No ballots were submitted."
+msgstr "Бюлетені не подано."
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**Середні оцінки:**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "Лише один кандидат: **{candidate}** перемагає автоматично."
+
+msgid "**Top Two Finalists:**"
+msgstr "**Два фіналісти:**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate} із середньою оцінкою {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**Другий тур:**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}: перевага в {n} бюлетені"
+msgstr[1] "- {candidate}: перевага в {n} бюлетенях"
+msgstr[2] "- {candidate}: перевага в {n} бюлетенях"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} перемагає в другому турі.**"
+
+msgid "It's a tie."
+msgstr "Нічия."
+
+msgid "Number of Winners"
+msgstr "Кількість переможців"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "Система єдиного перехідного голосу / Миттєвий другий тур"
+
+msgid "Instant Runoff"
+msgstr "Миттєвий другий тур"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "Система єдиного перехідного голосу на {seats} місце"
+msgstr[1] "Система єдиного перехідного голосу на {seats} місця"
+msgstr[2] "Система єдиного перехідного голосу на {seats} місць"
+
+msgid "Must choose at least one winner."
+msgstr "Потрібно обрати щонайменше одного переможця."
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "Кількість переможців не може перевищувати кількість кандидатів."
+
+msgid "Number of winners must be an integer."
+msgstr "Кількість переможців має бути цілим числом."
+
+msgid "**Round {round}:**"
+msgstr "**Раунд {round}:**"
+
+msgid "Active candidates: {candidates}"
+msgstr "Активні кандидати: {candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "Активні бюлетені: {active}, вичерпані: {exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "Поточна кількість перших переваг:"
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr ""
+"Кілька переможців з однаковою кількістю голосів. Випадково обрано "
+"**{candidate}**."
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr ""
+"Кандидат **{candidate}** перевищив {percent:.2%} (голосів: {votes}) і "
+"обраний."
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr ""
+"Кілька кандидатів ділять останнє місце. Для вибуття випадково обрано "
+"**{candidate}**."
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "Кандидат **{candidate}** вибуває."
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "Кандидата **{candidate}** обрано."
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "Перерозподіл надлишку голосів кандидата {candidate}: {votes}."
+
+msgid "Tideman's Alternative Method"
+msgstr "Альтернативний метод Tideman"
+
+msgid "Candidates: {candidates}"
+msgstr "Кандидати: {candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}; {exhausted}."
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} активний бюлетень"
+msgstr[1] "{n} активні бюлетені"
+msgstr[2] "{n} активних бюлетенів"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} вичерпаний бюлетень"
+msgstr[1] "{n} вичерпані бюлетені"
+msgstr[2] "{n} вичерпаних бюлетенів"
+
+msgid "All ballots are exhausted."
+msgstr "Усі бюлетені вичерпано."
+
+msgid "First place votes:"
+msgstr "Голоси за перше місце:"
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "Переможець: **{candidate}** з більшістю активних голосів."
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "Вибувають усі кандидати поза множиною Сміта:"
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "Вибуває {candidate} з найменшою кількістю голосів за перше місце."
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "Нічия за найменшою кількістю голосів за перше місце: {candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "Вибуває: {candidate}, за жеребом."
+

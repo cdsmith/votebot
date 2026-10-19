@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _
 from ballots.ranked import RankedBallot
 from ballot import Ballot
 from typing import Iterable
@@ -8,7 +9,7 @@ import random
 class RankedPairsElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Ranked Pairs"
+        return N_("Ranked Pairs")
 
     def blank_ballot(self) -> RankedBallot:
         candidates = list(self.candidates)
@@ -28,7 +29,7 @@ class RankedPairsElection(Election):
                     pairwise[(a, b)] += 1
 
         lines = []
-        lines.append("**Pairwise Matchups:**")
+        lines.append(_("**Pairwise Matchups:**"))
 
         margins = {}
         for a, b in pairwise.keys():
@@ -36,18 +37,30 @@ class RankedPairsElection(Election):
             b_wins = pairwise[(b, a)]
             if a_wins > b_wins:
                 if a < b:
-                    lines.append(f"- {a} defeats {b}: {a_wins}-{b_wins}")
+                    lines.append(
+                        _("- {winner} defeats {loser}: {wins}-{losses}").format(
+                            winner=a, loser=b, wins=a_wins, losses=b_wins
+                        )
+                    )
                 margins[(a, b)] = a_wins - b_wins
             elif b_wins > a_wins:
                 if a < b:
-                    lines.append(f"- {b} defeats {a}: {b_wins}-{a_wins}")
+                    lines.append(
+                        _("- {winner} defeats {loser}: {wins}-{losses}").format(
+                            winner=b, loser=a, wins=b_wins, losses=a_wins
+                        )
+                    )
                 margins[(b, a)] = b_wins - a_wins
             else:
                 if a < b:
-                    lines.append(f"- {a} and {b} tie: {a_wins}-{b_wins}")
+                    lines.append(
+                        _("- {a} and {b} tie: {a_votes}-{b_votes}").format(
+                            a=a, b=b, a_votes=a_wins, b_votes=b_wins
+                        )
+                    )
 
         lines.append("")
-        lines.append("**Locked rankings:**")
+        lines.append(_("**Locked rankings:**"))
 
         locked_pairs = []
 
@@ -67,21 +80,24 @@ class RankedPairsElection(Election):
                     ]
                 )
 
-        for (a, b), _ in sorted(margins.items(), key=lambda x: x[1], reverse=True):
+        for a, b in sorted(margins, key=margins.get, reverse=True):
             if not reachable(b, a):
                 lines.append(f"- {a} > {b}")
                 locked_pairs.append((a, b))
             else:
                 lines.append(
-                    f"- Ignoring {a} > {b} because it contradicts stronger preferences"
+                    _(
+                        "- Ignoring {a} > {b} because it contradicts stronger "
+                        "preferences"
+                    ).format(a=a, b=b)
                 )
 
         beat_counts = {c: 0 for c in self.candidates}
-        for _, b in locked_pairs:
-            beat_counts[b] += 1
+        for winner, loser in locked_pairs:
+            beat_counts[loser] += 1
 
         lines.append("")
-        lines.append("**Final ordering:**")
+        lines.append(_("**Final ordering:**"))
 
         last_score = None
         rank = 0

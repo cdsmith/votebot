@@ -6,6 +6,7 @@ import methods
 import db
 import electable
 import election_checker
+from i18n import N_, CommandTranslator
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -60,11 +61,12 @@ async def on_ready():
     # Start background task for checking expired elections
     election_checker.start()
 
+    await tree.set_translator(CommandTranslator())
     await tree.sync()
     print(f"{client.user} has connected to Discord!")
 
 
-@tree.command(name="electable", description="Manage your elections.")
+@tree.command(name="electable", description=N_("Manage your elections."))
 async def electable_command(interaction: discord.Interaction):
     """Unified command for managing elections."""
     await electable.show_electable(interaction)

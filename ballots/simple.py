@@ -1,6 +1,7 @@
 from ballot import Ballot
 import discord
 import random
+from i18n import _
 
 
 class SimpleBallot(Ballot):
@@ -16,18 +17,14 @@ class SimpleBallot(Ballot):
         multiple_votes: bool = False,
         ballot_id: int | None = None,
     ):
-        super().__init__(
-            election_id,
-            candidates,
-            (
-                "Please select all candidates you approve of."
-                if multiple_votes
-                else "Please select a candidate."
-            ),
-            ballot_id,
-        )
+        super().__init__(election_id, candidates, ballot_id)
         self.multiple_votes: bool = multiple_votes
         self.votes: set[str] = set()
+
+    def instructions(self) -> str:
+        if self.multiple_votes:
+            return _("Please select all candidates you approve of.")
+        return _("Please select a candidate.")
 
     def candidates_per_page(self) -> int:
         # Four rows of five buttons
@@ -71,7 +68,7 @@ class SimpleBallot(Ballot):
         return bool(self.votes)
 
     def to_markdown(self) -> str:
-        return ", ".join(self.votes) if self.votes else "No vote recorded"
+        return ", ".join(self.votes) if self.votes else _("No vote recorded")
 
     def to_dict(self) -> dict:
         return {

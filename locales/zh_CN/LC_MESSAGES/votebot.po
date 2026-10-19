@@ -1,0 +1,606 @@
+# Chinese (Simplified, China) translations for votebot.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the votebot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: votebot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"PO-Revision-Date: 2026-10-19 08:58-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans_CN\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid "Next Page"
+msgstr "下一页"
+
+msgid "Prev Page"
+msgstr "上一页"
+
+msgid "Submit Vote"
+msgstr "提交投票"
+
+msgid "Start Over"
+msgstr "重新开始"
+
+msgid "Current vote"
+msgstr "当前投票"
+
+msgid "Page {page}/{total}"
+msgstr "第 {page}/{total} 页"
+
+msgid "Vote Submitted"
+msgstr "投票已提交"
+
+msgid "Your ballot:"
+msgstr "你的选票："
+
+msgid "Your vote has been submitted."
+msgstr "你的投票已提交。"
+
+msgid "Manage your elections."
+msgstr "管理你的选举。"
+
+msgid "Error: Election not found."
+msgstr "错误：未找到选举。"
+
+msgid ""
+"**Managing: {title}**\n"
+"\n"
+"**Method**: {method}\n"
+"**Candidates**: {candidates}\n"
+"**Votes**: {votes}\n"
+"**Ends**: {end_time}\n"
+msgstr ""
+"**正在管理：{title}**\n"
+"\n"
+"**投票方式**：{method}\n"
+"**候选人**：{candidates}\n"
+"**票数**：{votes}\n"
+"**结束时间**：{end_time}\n"
+
+msgid "Select an election to manage, or create a new one."
+msgstr "选择要管理的选举，或创建新选举。"
+
+msgid ""
+"You have no active elections in this channel.\n"
+"\n"
+"Click the button below to create one!"
+msgstr ""
+"此频道中没有进行中的选举。\n"
+"\n"
+"点击下方按钮创建一个！"
+
+msgid "{n} vote"
+msgid_plural "{n} votes"
+msgstr[0] "{n} 票"
+
+msgid "Select an election to manage"
+msgstr "选择要管理的选举"
+
+msgid "← Back"
+msgstr "← 返回"
+
+msgid "Create New Election"
+msgstr "创建新选举"
+
+msgid "An election with the title `{title}` is already ongoing in this channel."
+msgstr "此频道中已有标题为 `{title}` 的选举正在进行。"
+
+msgid "Reschedule"
+msgstr "重新安排"
+
+msgid "Reschedule Election"
+msgstr "重新安排选举"
+
+msgid "New End Time"
+msgstr "新的结束时间"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Examples: 2d, 3h30m, 2025-12-25 14:30"
+msgstr "例如：2d, 3h30m, 2025-12-25 14:30"
+
+msgid "Error: {error}"
+msgstr "错误：{error}"
+
+msgid "Election rescheduled!"
+msgstr "选举已重新安排！"
+
+msgid "End Now"
+msgstr "立即结束"
+
+msgid "Confirm End Election"
+msgstr "确认结束选举"
+
+#. Translators: keep "CONFIRM" in English; users must type it exactly.
+msgid "Type \"CONFIRM\" to end this election"
+msgstr "输入“CONFIRM”以结束此选举"
+
+msgid "Election not ended. Confirmation text did not match."
+msgstr "选举未结束。确认文本不匹配。"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Confirm Delete Election"
+msgstr "确认删除选举"
+
+#. Translators: keep "DELETE" in English; users must type it exactly.
+msgid "Type \"DELETE\" to delete this election"
+msgstr "输入“DELETE”以删除此选举"
+
+msgid "Election not deleted. Confirmation text did not match."
+msgstr "选举未删除。确认文本不匹配。"
+
+msgid "Vote"
+msgstr "投票"
+
+msgid "This election no longer exists."
+msgstr "此选举已不存在。"
+
+msgid "Candidates"
+msgstr "候选人"
+
+msgid "*No candidates yet!*"
+msgstr "*还没有候选人！*"
+
+msgid "Method"
+msgstr "投票方式"
+
+msgid "Ends"
+msgstr "结束时间"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "已投 {n} 票"
+
+msgid "This election is not open."
+msgstr "此选举未开放。"
+
+msgid ""
+"This ballot has been superseded by a new ballot. Click the Vote button "
+"again to continue."
+msgstr "此选票已被新选票取代。请再次点击“投票”按钮继续。"
+
+msgid ""
+"Your vote **was not recorded** because you did not have a ballot open.  "
+"To cast or update your ballot, click the Vote button again."
+msgstr "由于你没有打开的选票，你的投票 **未被记录**。要投票或更新选票，请再次点击“投票”按钮。"
+
+msgid "Results for {title}"
+msgstr "{title} 的结果"
+
+msgid "Winners"
+msgstr "获胜者"
+
+msgid "No winner determined"
+msgstr "未决出获胜者"
+
+msgid "Winner"
+msgstr "获胜者"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "Computed using {method}"
+msgstr "使用 {method} 计算"
+
+msgid "Election **{title}** has ended!"
+msgstr "选举 **{title}** 已结束！"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • 选举已结束"
+
+msgid "Ended"
+msgstr "已结束"
+
+msgid "Create Election"
+msgstr "创建选举"
+
+msgid "Election Title"
+msgstr "选举标题"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "End Time (optional)"
+msgstr "结束时间（可选）"
+
+msgid "Select Method"
+msgstr "选择投票方式"
+
+msgid "Configure Method"
+msgstr "配置投票方式"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Add Candidate"
+msgstr "添加候选人"
+
+msgid "Add a Candidate"
+msgstr "添加候选人"
+
+msgid "Candidate Name"
+msgstr "候选人名称"
+
+msgid "**{name}** is already a candidate."
+msgstr "**{name}** 已经是候选人。"
+
+msgid "Remove Candidate"
+msgstr "移除候选人"
+
+msgid "Remove {candidate}"
+msgstr "移除 {candidate}"
+
+msgid "Start Election"
+msgstr "开始选举"
+
+msgid ""
+"Error: The scheduled end time has already passed. Please reschedule or "
+"remove the end time."
+msgstr "错误：预定的结束时间已过。请重新安排或移除结束时间。"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Edit Attributes"
+msgstr "编辑属性"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Setup canceled."
+msgstr "设置已取消。"
+
+msgid "*No title set.*"
+msgstr "*未设置标题。*"
+
+msgid "*No method set.*"
+msgstr "*未设置投票方式。*"
+
+msgid "*No description set.*"
+msgstr "*未设置描述。*"
+
+msgid "*No candidates yet.*"
+msgstr "*还没有候选人。*"
+
+msgid ""
+"**Setting up Election**:\n"
+"{title}"
+msgstr ""
+"**正在设置选举**：\n"
+"{title}"
+
+msgid ""
+"**Description**:\n"
+"{description}"
+msgstr ""
+"**描述**：\n"
+"{description}"
+
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**投票方式**：\n"
+"{method}"
+
+msgid ""
+"**Candidates**:\n"
+"{candidates}"
+msgstr ""
+"**候选人**：\n"
+"{candidates}"
+
+msgid ""
+"**Ends**:\n"
+"{end_time}"
+msgstr ""
+"**结束时间**：\n"
+"{end_time}"
+
+msgid ""
+"**Language**:\n"
+"{language}"
+msgstr ""
+"**语言**：\n"
+"{language}"
+
+msgid ""
+"Choose the language for this election's public messages. Each voter's "
+"ballot is in their own language."
+msgstr "选择此选举公开消息所用的语言。每位投票者的选票将以其自己的语言显示。"
+
+msgid "No title was set."
+msgstr "未设置标题。"
+
+msgid "No method was set."
+msgstr "未设置投票方式。"
+
+msgid "At least two candidates are required."
+msgstr "至少需要两名候选人。"
+
+#. Translators: keep the examples as they are; only these formats can be
+#. parsed.
+msgid "Unable to parse time. Try formats like: 2d, 3h30m, 1w, or 2025-12-25 14:30"
+msgstr "无法解析时间。请尝试以下格式：2d, 3h30m, 1w 或 2025-12-25 14:30"
+
+msgid "End time must be in the future"
+msgstr "结束时间必须是将来的时间"
+
+msgid "When manually ended"
+msgstr "手动结束时"
+
+msgid ""
+"Select candidates in the order of your preference. You can submit at any "
+"time.  You need not rank all candidates."
+msgstr "按你的偏好顺序选择候选人。你可以随时提交。无需为所有候选人排名。"
+
+msgid "Rank {candidate} as #{place}"
+msgstr "将 {candidate} 排在 #{place}"
+
+msgid "Select a candidate to rank #{place}... ({first} - {last})"
+msgstr "选择排在 #{place} 的候选人... ({first} - {last})"
+
+msgid "Select a candidate to rank #{place}..."
+msgstr "选择排在 #{place} 的候选人..."
+
+msgid "No candidates ranked."
+msgstr "没有为任何候选人排名。"
+
+msgid "Rate each candidate from 0 to 5 stars."
+msgstr "为每位候选人评 0 到 5 星。"
+
+msgid "No ratings recorded"
+msgstr "未记录评分"
+
+msgid "Please select all candidates you approve of."
+msgstr "请选择你认可的所有候选人。"
+
+msgid "Please select a candidate."
+msgstr "请选择一位候选人。"
+
+msgid "No vote recorded"
+msgstr "未记录投票"
+
+msgid "Approval"
+msgstr "同意投票制"
+
+msgid "No candidates were found."
+msgstr "未找到候选人。"
+
+msgid "Borda Count"
+msgstr "Borda 计数法"
+
+msgid "No ballots cast."
+msgstr "没有选票。"
+
+msgid "Copeland"
+msgstr "Copeland"
+
+msgid "**Pairwise Matchups:**"
+msgstr "**两两对决：**"
+
+msgid "{winner} defeats {loser}"
+msgstr "{winner} 胜 {loser}"
+
+msgid "{a} and {b} tie"
+msgstr "{a} 与 {b} 平局"
+
+msgid ""
+"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_percent:.2%} - {b_percent:.2%}). "
+"{result}"
+msgstr ""
+"- {a} vs {b}：{a_prefs} - {b_prefs}（{a_percent:.2%} - "
+"{b_percent:.2%}）。{result}"
+
+msgid "- {a} vs {b}: 0 - 0 (tied on all ballots). {result}"
+msgstr "- {a} vs {b}：0 - 0（所有选票上均并列）。{result}"
+
+msgid "**Scores (number of head-to-head wins):**"
+msgstr "**得分（两两对决获胜次数）：**"
+
+msgid "{n} win"
+msgid_plural "{n} wins"
+msgstr[0] "{n} 胜"
+
+msgid "{n} loss"
+msgid_plural "{n} losses"
+msgstr[0] "{n} 负"
+
+msgid "{n} tie"
+msgid_plural "{n} ties"
+msgstr[0] "{n} 平"
+
+msgid "Kemeny-Young"
+msgstr "Kemeny-Young"
+
+msgid "Kemeny-Young supports at most {n} candidate."
+msgid_plural "Kemeny-Young supports at most {n} candidates."
+msgstr[0] "Kemeny-Young 最多支持 {n} 位候选人。"
+
+msgid "Too many candidates for Kemeny-Young."
+msgstr "候选人过多，无法使用 Kemeny-Young。"
+
+msgid "Pairwise Preferences:"
+msgstr "两两偏好："
+
+msgid "**Best Kemeny Score**: {score}"
+msgstr "**最佳 Kemeny 得分**：{score}"
+
+msgid "Tie between:"
+msgstr "平局："
+
+msgid "Plurality"
+msgstr "相对多数制"
+
+msgid "Ranked Pairs"
+msgstr "排序对"
+
+msgid "- {winner} defeats {loser}: {wins}-{losses}"
+msgstr "- {winner} 胜 {loser}：{wins}-{losses}"
+
+msgid "- {a} and {b} tie: {a_votes}-{b_votes}"
+msgstr "- {a} 与 {b} 平局：{a_votes}-{b_votes}"
+
+msgid "**Locked rankings:**"
+msgstr "**锁定的排序：**"
+
+msgid "- Ignoring {a} > {b} because it contradicts stronger preferences"
+msgstr "- 忽略 {a} > {b}，因为它与更强的偏好相矛盾"
+
+msgid "**Final ordering:**"
+msgstr "**最终排序：**"
+
+msgid "Rivest-Shen GT"
+msgstr "Rivest-Shen GT"
+
+msgid "No optimal solution found for the Rivest-Shen GT equilibrium."
+msgstr "未找到 Rivest-Shen GT 均衡的最优解。"
+
+msgid "**Margin Matrix M:**"
+msgstr "**差额矩阵 M：**"
+
+msgid "**GTO equilibrium win probabilities:**"
+msgstr "**GTO 均衡获胜概率：**"
+
+msgid "**Winner:** {winner}"
+msgstr "**获胜者：** {winner}"
+
+msgid "Score"
+msgstr "计分投票制"
+
+msgid "No ballots were submitted."
+msgstr "没有提交任何选票。"
+
+msgid "STAR"
+msgstr "STAR"
+
+msgid "**Average Scores:**"
+msgstr "**平均分：**"
+
+msgid "Only one candidate: **{candidate}** wins by default."
+msgstr "只有一位候选人：**{candidate}** 自动获胜。"
+
+msgid "**Top Two Finalists:**"
+msgstr "**进入决选的前两名：**"
+
+msgid "- {candidate} with average score {score:.2f}"
+msgstr "- {candidate}，平均分 {score:.2f}"
+
+msgid "**Runoff:**"
+msgstr "**决选：**"
+
+msgid "- {candidate}: preferred by {n} ballot"
+msgid_plural "- {candidate}: preferred by {n} ballots"
+msgstr[0] "- {candidate}：{n} 张选票更偏好"
+
+msgid "**{candidate} wins the runoff.**"
+msgstr "**{candidate} 赢得决选。**"
+
+msgid "It's a tie."
+msgstr "平局。"
+
+msgid "Number of Winners"
+msgstr "当选人数"
+
+msgid "Single Transferable Vote / Instant Runoff"
+msgstr "可转移单票制 / 排序复选制"
+
+msgid "Instant Runoff"
+msgstr "排序复选制"
+
+msgid "Single Transferable Vote for {seats} seat"
+msgid_plural "Single Transferable Vote for {seats} seats"
+msgstr[0] "可转移单票制（{seats} 席）"
+
+msgid "Must choose at least one winner."
+msgstr "至少需要一名当选者。"
+
+msgid "Number of winners cannot be more than the number of candidates."
+msgstr "当选人数不能超过候选人数。"
+
+msgid "Number of winners must be an integer."
+msgstr "当选人数必须是整数。"
+
+msgid "**Round {round}:**"
+msgstr "**第 {round} 轮：**"
+
+msgid "Active candidates: {candidates}"
+msgstr "剩余候选人：{candidates}"
+
+msgid "Active ballots: {active}, exhausted: {exhausted}"
+msgstr "有效选票：{active}，耗尽选票：{exhausted}"
+
+msgid "Current first-preference counts:"
+msgstr "当前第一偏好票数："
+
+msgid "Multiple winners with equal votes. Randomly selected **{candidate}**."
+msgstr "多名获胜者票数相同。随机选择了 **{candidate}**。"
+
+msgid ""
+"Candidate **{candidate}** exceeded {percent:.2%} ({votes} votes) and is "
+"elected."
+msgstr "候选人 **{candidate}** 超过 {percent:.2%}（{votes} 票），当选。"
+
+msgid ""
+"Multiple candidates tied for last place. Randomly selected "
+"**{candidate}** to eliminate."
+msgstr "多名候选人并列最后一名。随机选择淘汰 **{candidate}**。"
+
+msgid "Candidate **{candidate}** is eliminated."
+msgstr "候选人 **{candidate}** 被淘汰。"
+
+msgid "Candidate **{candidate}** is elected."
+msgstr "候选人 **{candidate}** 当选。"
+
+msgid "Redistributing surplus of {votes} votes from {candidate}."
+msgstr "正在重新分配 {candidate} 的 {votes} 张盈余票。"
+
+msgid "Tideman's Alternative Method"
+msgstr "Tideman 替代法"
+
+msgid "Candidates: {candidates}"
+msgstr "候选人：{candidates}"
+
+msgid "{active}; {exhausted}."
+msgstr "{active}；{exhausted}。"
+
+msgid "{n} active ballot"
+msgid_plural "{n} active ballots"
+msgstr[0] "{n} 张有效选票"
+
+msgid "{n} exhausted ballot"
+msgid_plural "{n} exhausted ballots"
+msgstr[0] "{n} 张耗尽选票"
+
+msgid "All ballots are exhausted."
+msgstr "所有选票均已耗尽。"
+
+msgid "First place votes:"
+msgstr "第一名票数："
+
+msgid "Winner: **{candidate}** with a majority of active votes."
+msgstr "获胜者：**{candidate}**，获得有效票的过半数。"
+
+msgid "Eliminating all candidates not in the Smith set:"
+msgstr "淘汰所有不在史密斯集合中的候选人："
+
+msgid "Eliminated {candidate} with fewest first-place votes."
+msgstr "已淘汰第一名票数最少的 {candidate}。"
+
+msgid "Tie for fewest first-place votes: {candidates}"
+msgstr "第一名票数最少者并列：{candidates}"
+
+msgid "Eliminated: {candidate}, by random selection."
+msgstr "已淘汰：{candidate}（随机选择）。"
+

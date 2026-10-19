@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _
 from ballots.score import ScoreBallot
 from ballot import Ballot
 from typing import Iterable
@@ -8,7 +9,7 @@ import random
 class ScoreElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Score"
+        return N_("Score")
 
     def blank_ballot(self) -> ScoreBallot:
         candidates = list(self.candidates)
@@ -18,7 +19,7 @@ class ScoreElection(Election):
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         ballots = list(ballots)
         if not ballots:
-            return [], "No ballots were submitted."
+            return [], _("No ballots were submitted.")
         scores = {c: 0 for c in self.candidates}
         for ballot in ballots:
             for cand, rating in ballot.ratings.items():
@@ -32,4 +33,4 @@ class ScoreElection(Election):
                 [f"**{c}:** {count}" for c, count in sorted_candidates]
             )
         else:
-            return [], "No candidates were found."
+            return [], _("No candidates were found.")

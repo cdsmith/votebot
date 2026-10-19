@@ -1,4 +1,5 @@
 from election import Election
+from i18n import N_, _, ngettext
 from ballots.ranked import RankedBallot
 from typing import Iterable
 from ballot import Ballot
@@ -11,14 +12,18 @@ MAX_CANDIDATES = 6
 class KemenyYoungElection(Election):
     @classmethod
     def method_name(self) -> str:
-        return "Kemeny-Young"
+        return N_("Kemeny-Young")
 
     @classmethod
     def validate_method_params(
         cls, params: dict[str, str], candidates: list[str]
     ) -> str | None:
         if len(candidates) > MAX_CANDIDATES:
-            return f"Kemeny-Young supports at most {MAX_CANDIDATES} candidates."
+            return ngettext(
+                "Kemeny-Young supports at most {n} candidate.",
+                "Kemeny-Young supports at most {n} candidates.",
+                MAX_CANDIDATES,
+            ).format(n=MAX_CANDIDATES)
         return None
 
     def blank_ballot(self) -> RankedBallot:
@@ -28,9 +33,9 @@ class KemenyYoungElection(Election):
 
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if len(self.candidates) == 0:
-            return [], "No candidates were found."
+            return [], _("No candidates were found.")
         elif len(self.candidates) > MAX_CANDIDATES:
-            return [], "Too many candidates for Kemeny-Young."
+            return [], _("Too many candidates for Kemeny-Young.")
 
         lines = []
 
@@ -45,7 +50,7 @@ class KemenyYoungElection(Election):
                     if c not in ballot.ranking:
                         pairwise_preference[a][c] += 1
 
-        lines.append("Pairwise Preferences:")
+        lines.append(_("Pairwise Preferences:"))
         for a in self.candidates:
             for b in self.candidates:
                 if a < b:
@@ -71,12 +76,12 @@ class KemenyYoungElection(Election):
             elif score == best_score:
                 best_permutation.append(permutation)
 
-        lines.append(f"**Best Kemeny Score**: {best_score}")
+        lines.append(_("**Best Kemeny Score**: {score}").format(score=best_score))
         if len(best_permutation) == 1:
             for c in best_permutation[0]:
                 lines.append(f"- {c}")
         else:
-            lines.append("Tie between:")
+            lines.append(_("Tie between:"))
             for r in best_permutation:
                 lines.append("- " + ", ".join(r))
 
