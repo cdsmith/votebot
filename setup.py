@@ -11,6 +11,9 @@ TITLE_MAX_LENGTH = 100
 DESCRIPTION_MAX_LENGTH = 2000
 CANDIDATE_MAX_LENGTH = 80
 
+# How long an idle setup stays usable
+SETUP_TIMEOUT_SECONDS = 3600
+
 
 class ElectionSetup:
     def __init__(self):
@@ -22,6 +25,12 @@ class ElectionSetup:
         self.candidates: list[str] = []
         self.end_time_str: str = ""
         self.end_timestamp: int | None = None
+        self.current_view: discord.ui.View | None = None  # Most recently rendered view
+
+    def abandon(self):
+        """Give up on this setup, e.g. after it has been idle too long."""
+        if self.future and not self.future.done():
+            self.future.set_result(None)
 
     async def start(
         self, interaction: discord.Interaction, parent_view=None
@@ -65,6 +74,7 @@ class ElectionSetup:
                         ephemeral=True,
                         delete_after=10,
                     )
+                    self.abandon()
                     return
 
                 # Edit the original ephemeral message (from the button click) to show setup UI
@@ -72,9 +82,16 @@ class ElectionSetup:
                 await interaction.response.defer()
                 await interaction.edit_original_response(**self.get_setup_message())
 
-        await interaction.response.send_modal(NewModal())
+            async def on_timeout(inner_self):
+                self.abandon()
+
         self.future = asyncio.Future()
-        return await self.future
+        await interaction.response.send_modal(NewModal(timeout=SETUP_TIMEOUT_SECONDS))
+        try:
+            return await self.future
+        finally:
+            if self.current_view:
+                self.current_view.stop()
 
     def get_setup_message(self) -> dict[str, Any]:
         """Return a string describing the current 'setup' state of the Election."""
@@ -297,7 +314,16 @@ class ElectionSetup:
                             content="Setup canceled.", view=None
                         )
 
-        view = discord.ui.View(timeout=None)
+        class SetupView(discord.ui.View):
+            async def on_timeout(_):
+                self.abandon()
+
+        # Only the latest view is live; stopping the old one also keeps its
+        # timeout from abandoning the setup.
+        if self.current_view:
+            self.current_view.stop()
+        view = SetupView(timeout=SETUP_TIMEOUT_SECONDS)
+        self.current_view = view
         view.add_item(MethodSelect())
         if self.method_class and self.method_class.method_param_names():
             view.add_item(ConfigureMethodButton())

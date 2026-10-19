@@ -6,6 +6,7 @@ Run with pytest from the project root (PYTHONPATH=. pytest), or directly
 with: python3 -m tests.test_db
 """
 
+import json
 import os
 import random
 
@@ -13,7 +14,10 @@ import pytest
 
 import db
 from election import ballot_from_dict, load_election_from_db
+from elections.approval import ApprovalElection
 from elections.plurality import PluralityElection
+from elections.star import STARElection
+from elections.stv import STVElection
 from ballots.simple import SimpleBallot
 
 
@@ -22,7 +26,18 @@ CHANNEL_ID = 12345
 TITLE = "Test Election"
 
 
-def _create_election():
+@pytest.fixture(autouse=True)
+def fresh_db(tmp_path):
+    """Point db at a fresh temporary database for each test."""
+    original = db.DB_PATH
+    db.DB_PATH = str(tmp_path / "votebot_test.db")
+    db.init_db()
+    yield
+    db.DB_PATH = original
+
+
+@pytest.fixture
+def election_id():
     """Create and save a test election, returning its ID."""
     election = PluralityElection(
         title=TITLE,
@@ -45,23 +60,6 @@ def _cast_vote(election_id, user_id, choice):
     ballot.session_id = user_id
     db.save_ballot(ballot, election_id, user_id, is_submitted=False)
     db.submit_ballot(election_id, user_id, ballot)
-
-
-@pytest.fixture(scope="module", autouse=True)
-def fresh_db(tmp_path_factory):
-    """Point db at a fresh temporary database for this module's tests."""
-    original = db.DB_PATH
-    db.DB_PATH = str(tmp_path_factory.mktemp("db") / "votebot_test.db")
-    db.init_db()
-    yield
-    db.DB_PATH = original
-
-
-@pytest.fixture(scope="module")
-def election_id():
-    """A saved election shared by the tests in this module (which build on
-    one another in file order)."""
-    return _create_election()
 
 
 def test_election_persistence(election_id):
@@ -102,25 +100,27 @@ def test_ballot_persistence(election_id):
 
 
 def test_vote_count(election_id):
-    """Test vote counting."""
+    """Test vote counting, including that re-submitting replaces a vote."""
     for user_id in [1000, 1001, 1002]:
         _cast_vote(election_id, user_id, random.choice(CANDIDATES))
+    _cast_vote(election_id, 1000, "Bob")
 
-    vote_count = db.get_vote_count(election_id)
-    assert vote_count == 4, f"Expected 4 votes, got {vote_count}"  # 999 + 3 new users
+    assert db.get_vote_count(election_id) == 3
 
 
 def test_election_results(election_id):
     """Test computing election results."""
-    election = load_election_from_db(election_id)
+    for user_id, choice in [(1000, "Alice"), (1001, "Alice"), (1002, "Bob")]:
+        _cast_vote(election_id, user_id, choice)
 
+    election = load_election_from_db(election_id)
     ballot_dicts = db.load_all_ballots(election_id, is_submitted=True)
-    assert len(ballot_dicts) == 4
+    assert len(ballot_dicts) == 3
 
     ballots = [ballot_from_dict(bd, election_id) for bd in ballot_dicts]
 
     winners, details = election.tabulate(ballots)
-    assert winners
+    assert winners == ["Alice"]
     assert details
 
 
@@ -130,6 +130,81 @@ def test_natural_key_lookup(election_id):
     assert election_data is not None, "Failed to load by natural key"
     assert election_data["title"] == TITLE
     assert election_data["election_id"] == election_id
+
+
+# Ballots exactly as stored by earlier versions, which must keep loading.
+STORED_BALLOTS = [
+    (
+        ApprovalElection,
+        {},
+        "ballots.simple.SimpleBallot",
+        {
+            "votes": ["Alice", "Charlie"],
+            "multiple_votes": True,
+            "page": 0,
+            "visited_pages": [0],
+            "candidates": ["Charlie", "Alice", "Bob"],
+            "session_id": 1,
+        },
+        ["Alice", "Charlie"],
+    ),
+    (
+        STVElection,
+        {"Number of Winners": "1"},
+        "ballots.ranked.RankedBallot",
+        {
+            "ranking": ["Bob", "Alice"],
+            "page": 0,
+            "visited_pages": [0],
+            "candidates": ["Alice", "Charlie", "Bob"],
+            "session_id": 1,
+        },
+        ["Bob"],
+    ),
+    (
+        STARElection,
+        {},
+        "ballots.score.ScoreBallot",
+        {
+            "ratings": {"Alice": 2, "Bob": 5, "Charlie": 0},
+            "page": 0,
+            "visited_pages": [0],
+            "candidates": ["Bob", "Alice", "Charlie"],
+            "session_id": 1,
+        },
+        ["Bob"],
+    ),
+]
+
+
+@pytest.mark.parametrize("method, params, ballot_type, data, expected", STORED_BALLOTS)
+def test_stored_ballots_load(method, params, ballot_type, data, expected):
+    election = method(
+        title=TITLE,
+        description="",
+        candidates=list(CANDIDATES),
+        method_params=params,
+        channel_id=CHANNEL_ID,
+    )
+    election_id = db.save_election(election)
+    with db.transaction() as conn:
+        conn.execute(
+            """
+            INSERT INTO ballots (election_id, user_id, ballot_type, ballot_data,
+                                 is_submitted)
+            VALUES (?, ?, ?, ?, 1)
+            """,
+            (election_id, 1000, ballot_type, json.dumps(data)),
+        )
+
+    election = load_election_from_db(election_id)
+    ballots = [
+        ballot_from_dict(bd, election_id)
+        for bd in db.load_all_ballots(election_id, is_submitted=True)
+    ]
+    winners, _ = election.tabulate(ballots)
+    assert sorted(winners) == expected
+    assert ballots[0].to_markdown()
 
 
 def main():

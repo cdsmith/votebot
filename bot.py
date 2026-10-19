@@ -22,8 +22,18 @@ method_choices = [
 ]
 
 
+# on_ready runs again after reconnects, but registered views survive those,
+# so startup work only needs to happen once.
+_started = False
+
+
 @client.event
 async def on_ready():
+    global _started
+    if _started:
+        return
+    _started = True
+
     # Initialize database
     db.init_db()
 
@@ -44,6 +54,8 @@ async def on_ready():
                     await message.edit(**election.get_public_view())
                 except discord.NotFound:
                     pass
+                except discord.HTTPException as e:
+                    print(f"Error restoring election {election.election_id}: {e}")
 
     # Start background task for checking expired elections
     election_checker.start()

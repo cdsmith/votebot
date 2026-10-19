@@ -23,6 +23,7 @@ class Ballot(abc.ABC):
         self.visited_pages: set[int] = set()
         self.candidates = candidates  # Already shuffled when created
         self.session_id: int = 0  # Will be set when ballot is sent
+        self.current_view: discord.ui.View | None = None  # Most recently rendered view
 
         # Store ballot type for serialization
         self.ballot_type = f"{self.__class__.__module__}.{self.__class__.__name__}"
@@ -34,6 +35,7 @@ class Ballot(abc.ABC):
         memo = {id(self): new}
         for key, value in self.__dict__.items():
             setattr(new, key, copy.deepcopy(value, memo))
+        new.current_view = None
         new.page = 0
         new.ballot_id = None  # New copy gets a new ID
         return new
@@ -96,6 +98,7 @@ class Ballot(abc.ABC):
                 election = load_election_from_db(_.election_id)
                 if await election.check_session(interaction, _.session_id_val):
                     await election.submit_ballot(interaction)
+                _.view.stop()
 
         class ResetButton(discord.ui.Button):
             def __init__(_):
@@ -112,9 +115,11 @@ class Ballot(abc.ABC):
                 await self.modify(modification, interaction, session_id)
 
         self.visited_pages.add(self.page)
-        # Ballots stay usable for an hour of inactivity.  Each interaction
-        # replaces the view, so this also bounds how long old views linger.
+        # Ballots stay usable for an hour of inactivity.  Views replaced by an
+        # interaction are stopped right away; this timeout cleans up the views
+        # of abandoned ballots.
         view = discord.ui.View(timeout=3600)
+        self.current_view = view
         for item in self.get_items(self.candidates_on_page(), session_id):
             view.add_item(item)
         if self.page > 0:
@@ -155,14 +160,20 @@ class Ballot(abc.ABC):
         from election import load_election_from_db
 
         election = load_election_from_db(self.election_id)
+        if not election:
+            return
 
-        if election and await election.check_session(interaction, session_id):
+        # Either way, the message's old view is replaced or removed.
+        old_view = self.current_view
+        if await election.check_session(interaction, session_id):
             modification()
             # Save modified ballot to database
             db.save_ballot(
                 self, self.election_id, interaction.user.id, is_submitted=False
             )
             await interaction.response.edit_message(**self.render_interim(session_id))
+        if old_view:
+            old_view.stop()
 
     def render_submitted(self) -> dict[str, Any]:
         embed = add_long_field(

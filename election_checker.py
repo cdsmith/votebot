@@ -12,6 +12,12 @@ client = None
 # Maximum time to sleep between checks
 MAX_SLEEP_SECONDS = 60
 
+# Maximum delay between attempts to end an election that keeps failing
+MAX_RETRY_SECONDS = 3600
+
+# Elections that failed to end: election ID -> (failure count, next attempt time)
+_failures: dict[int, tuple[int, int]] = {}
+
 _wake = asyncio.Event()
 _task: asyncio.Task | None = None
 
@@ -69,19 +75,33 @@ async def check_expired_elections() -> int:
     # End expired elections
     for election_data in elections_ending_soon:
         if election_data["end_timestamp"] <= current_time:
-            election = load_election_from_db(election_data["election_id"])
+            election_id = election_data["election_id"]
+            count, next_attempt = _failures.get(election_id, (0, 0))
+            if current_time < next_attempt:
+                continue
+            election = load_election_from_db(election_id)
             if not election:
                 continue
 
             try:
                 # End the election using shared logic
                 channel = client.get_channel(election.channel_id)
-                if channel:
-                    await end_election_and_update_message(
-                        election, channel, include_announcement=True
-                    )
+                if not channel:
+                    raise RuntimeError(f"Channel {election.channel_id} not found")
+                await end_election_and_update_message(
+                    election, channel, include_announcement=True
+                )
+                _failures.pop(election_id, None)
             except Exception as e:
-                print(f"Error ending election {election.election_id}: {e}")
+                # Back off exponentially, so a persistent failure (such as a
+                # missing permission) doesn't retry every minute forever.
+                count += 1
+                delay = min(MAX_SLEEP_SECONDS * 2 ** (count - 1), MAX_RETRY_SECONDS)
+                _failures[election_id] = (count, current_time + delay)
+                print(
+                    f"Error ending election {election_id} (attempt {count}, "
+                    f"retrying in {delay}s): {e}"
+                )
         else:
             next_end = min(next_end, election_data["end_timestamp"])
 

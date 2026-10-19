@@ -15,7 +15,7 @@ class ElectableView(discord.ui.View):
     """Main view for the /electable command."""
 
     def __init__(self, interaction: discord.Interaction):
-        super().__init__(timeout=None)
+        super().__init__(timeout=3600)
         self.interaction = interaction
         self.selected_election_id: int | None = None
 

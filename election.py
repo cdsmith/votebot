@@ -1,5 +1,6 @@
 from __future__ import annotations
 import abc
+import time
 from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import db
@@ -22,6 +23,11 @@ _client = None
 
 # IDs of elections currently being ended, to avoid posting results twice
 _ending_elections: set[int] = set()
+
+# Results messages not yet posted, by election ID.  If posting fails partway,
+# a retry resumes from here, so messages aren't repeated and randomized tie
+# breaks give the same result.
+_unposted_results: dict[int, list[tuple[str | None, list[discord.Embed]]]] = {}
 
 
 def set_client(client):
@@ -106,9 +112,16 @@ class Election(abc.ABC):
             ),
         }
 
+    def accepting_votes(self) -> bool:
+        """Whether voting is open.  Voting closes at the scheduled end time,
+        even if posting the results is delayed."""
+        if self.end_timestamp is not None and self.end_timestamp <= time.time():
+            return False
+        return self.open
+
     async def send_ballot(self, interaction: discord.Interaction):
         """Send a ballot to a user that they can use to vote."""
-        if not self.open:
+        if not self.accepting_votes():
             await interaction.response.send_message(
                 content="This election is not open.", ephemeral=True
             )
@@ -150,7 +163,7 @@ class Election(abc.ABC):
         self, interaction: discord.Interaction, session_id: int
     ) -> bool:
         """Check if the interaction is part of the current session."""
-        if not self.open:
+        if not self.accepting_votes():
             try:
                 await interaction.response.edit_message(
                     content="This election is not open.",
@@ -368,22 +381,30 @@ async def _end_election(
 ) -> None:
     import time_utils
 
-    # Generate results embeds
-    results_embeds = election.get_results(show_details=True)
-    results_embeds[-1].set_footer(
-        text=f"Computed using {election.method_description(election.method_params)}"
-    )
+    unposted = _unposted_results.get(election.election_id)
+    if unposted is None:
+        results_embeds = election.get_results(show_details=True)
+        results_embeds[-1].set_footer(
+            text=f"Computed using {election.method_description(election.method_params)}"
+        )
+        announcement = (
+            truncate(f"Election **{election.title}** has ended!", MESSAGE_CONTENT_LIMIT)
+            if include_announcement
+            else None
+        )
+        unposted = [
+            (announcement if i == 0 else None, embeds)
+            for i, embeds in enumerate(group_embeds(results_embeds))
+        ]
+        _unposted_results[election.election_id] = unposted
 
-    # Post results to channel.  The election stays open in the database until
-    # this succeeds, so a failure here can be retried rather than losing results.
-    content = (
-        truncate(f"Election **{election.title}** has ended!", MESSAGE_CONTENT_LIMIT)
-        if include_announcement
-        else None
-    )
-    for embeds in group_embeds(results_embeds):
+    # Post results to channel.  The election stays in the database until this
+    # succeeds, so a failure here can be retried rather than losing results.
+    while unposted:
+        content, embeds = unposted[0]
         await channel.send(content=content, embeds=embeds)
-        content = None
+        unposted.pop(0)
+    del _unposted_results[election.election_id]
 
     # The results are posted, so the election is over.  Delete it before
     # touching the original message, so that a failure there can't cause the
