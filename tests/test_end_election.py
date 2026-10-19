@@ -79,3 +79,13 @@ def test_failed_post_keeps_election_open():
     election = load_election_from_db(election_id)
     assert election is not None
     assert election.open
+
+
+def test_init_db_removes_stuck_closed_elections():
+    election_id = _create_election()
+    election = load_election_from_db(election_id)
+    election.open = False
+    db.save_election(election)
+
+    db.init_db()
+    assert load_election_from_db(election_id) is None

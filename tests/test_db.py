@@ -124,14 +124,6 @@ def test_election_results(election_id):
     assert details
 
 
-def test_election_closing(election_id):
-    """Test closing an election."""
-    db.mark_election_closed(election_id)
-    election = load_election_from_db(election_id)
-
-    assert election.open is False, "Election should be closed"
-
-
 def test_natural_key_lookup(election_id):
     """Test loading election by channel_id and title."""
     election_data = db.load_election_by_natural_key(CHANNEL_ID, TITLE)

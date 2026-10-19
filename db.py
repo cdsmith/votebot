@@ -145,6 +145,13 @@ def init_db():
     """
     )
 
+    # Elections are deleted when they end, so closed elections are leftovers
+    # from older versions that closed an election before posting its results,
+    # and could get stuck if posting failed.
+    cursor = conn.execute("DELETE FROM elections WHERE open=0")
+    if cursor.rowcount:
+        print(f"Deleted {cursor.rowcount} stuck closed elections")
+
     conn.commit()
     conn.close()
 
@@ -245,16 +252,6 @@ def load_all_elections() -> list[dict[str, Any]]:
             elections.append(_election_from_row(row))
 
         return elections
-    finally:
-        conn.close()
-
-
-def mark_election_closed(election_id: int):
-    """Mark an election as closed."""
-    conn = get_connection()
-    try:
-        conn.execute("UPDATE elections SET open=0 WHERE election_id=?", (election_id,))
-        conn.commit()
     finally:
         conn.close()
 
