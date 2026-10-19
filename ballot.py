@@ -5,6 +5,7 @@ import math
 import discord
 import random
 import db
+from text_utils import EMBED_TITLE_LIMIT, add_long_field, truncate
 
 
 class Ballot(abc.ABC):
@@ -111,7 +112,9 @@ class Ballot(abc.ABC):
                 await self.modify(modification, interaction, session_id)
 
         self.visited_pages.add(self.page)
-        view = discord.ui.View()
+        # Ballots stay usable for an hour of inactivity.  Each interaction
+        # replaces the view, so this also bounds how long old views linger.
+        view = discord.ui.View(timeout=3600)
         for item in self.get_items(self.candidates_on_page(), session_id):
             view.add_item(item)
         if self.page > 0:
@@ -127,9 +130,14 @@ class Ballot(abc.ABC):
 
         election = load_election_from_db(self.election_id)
 
-        embed = discord.Embed(
-            title=election.title, description=self.instructions
-        ).add_field(name="Current vote", value=self.to_markdown(), inline=False)
+        embed = add_long_field(
+            discord.Embed(
+                title=truncate(election.title, EMBED_TITLE_LIMIT),
+                description=self.instructions,
+            ),
+            "Current vote",
+            self.to_markdown(),
+        )
         if self.total_pages() > 1:
             embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages()}")
 
@@ -157,10 +165,8 @@ class Ballot(abc.ABC):
             await interaction.response.edit_message(**self.render_interim(session_id))
 
     def render_submitted(self) -> dict[str, Any]:
-        embed = discord.Embed(title="Vote Submitted").add_field(
-            name="Your ballot:",
-            value=self.to_markdown(),
-            inline=False,
+        embed = add_long_field(
+            discord.Embed(title="Vote Submitted"), "Your ballot:", self.to_markdown()
         )
         return {"content": "Your vote has been submitted.", "embed": embed}
 

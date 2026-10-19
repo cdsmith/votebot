@@ -8,6 +8,11 @@ from ballot import Ballot
 NUMBER_OF_WINNERS = "Number of Winners"
 
 
+def _votes(x: Fraction) -> str:
+    """Format a possibly fractional vote count, e.g. 123 or 12.33."""
+    return f"{float(x):.2f}".rstrip("0").rstrip(".")
+
+
 class STVElection(Election):
     @classmethod
     def method_name(cls) -> str:
@@ -81,7 +86,7 @@ class STVElection(Election):
             )
 
             lines.append(
-                f"Active ballots: {float(total_active):.2g}, exhausted: {float(exhausted):.2g}"
+                f"Active ballots: {_votes(total_active)}, exhausted: {_votes(exhausted)}"
             )
 
             sorted_candidates = sorted(counts.items(), key=lambda x: x[1], reverse=True)
@@ -89,7 +94,7 @@ class STVElection(Election):
                 lines.append("Current first-preference counts:")
                 for c, v in sorted_candidates:
                     lines.append(
-                        f" - {c}: {float(v):.2g} ({float(v / total_active):.2%})"
+                        f" - {c}: {_votes(v)} ({float(v / total_active):.2%})"
                     )
 
             max_count = sorted_candidates[0][1]
@@ -103,7 +108,7 @@ class STVElection(Election):
                         f"Multiple winners with equal votes. Randomly selected **{winner}**."
                     )
                 lines.append(
-                    f"Candidate **{winner}** exceeded {float(100 * quota / total_active):.2g}% ({float(quota):.2g} votes) and is elected."
+                    f"Candidate **{winner}** exceeded {float(quota / total_active):.2%} ({_votes(quota)} votes) and is elected."
                 )
                 elected_candidates.append(winner)
 
@@ -134,7 +139,7 @@ class STVElection(Election):
 
             if quota_fraction > 0:
                 lines.append(
-                    f"Redistributing surplus of {float(max_count - quota):.2g} votes from {elim}."
+                    f"Redistributing surplus of {_votes(max_count - quota)} votes from {elim}."
                 )
 
             new_aggregated: dict[tuple[str, ...], float] = {}

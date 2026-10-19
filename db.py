@@ -20,6 +20,37 @@ def get_connection():
     return conn
 
 
+def _election_from_row(row: sqlite3.Row) -> dict[str, Any]:
+    """Convert an elections table row to a dict of election data."""
+    return {
+        "election_id": row["election_id"],
+        "channel_id": row["channel_id"],
+        "title": row["title"],
+        "description": row["description"],
+        "method_class": row["method_class"],
+        "method_params": json.loads(row["method_params"]),
+        "candidates": json.loads(row["candidates"]),
+        "open": bool(row["open"]),
+        "message_id": row["message_id"],
+        "creator_id": row["creator_id"],
+        "end_timestamp": row["end_timestamp"],
+    }
+
+
+def _ballot_from_row(row: sqlite3.Row) -> dict[str, Any]:
+    """Convert a ballots table row to a dict of ballot data."""
+    ballot_data = json.loads(row["ballot_data"])
+    return {
+        "ballot_id": row["ballot_id"],
+        "election_id": row["election_id"],
+        "user_id": row["user_id"],
+        "ballot_type": row["ballot_type"],
+        "ballot_data": ballot_data,
+        "is_submitted": bool(row["is_submitted"]),
+        "session_id": ballot_data["session_id"],
+    }
+
+
 @contextmanager
 def transaction():
     """Context manager for database transactions."""
@@ -180,19 +211,7 @@ def load_election(election_id: int) -> dict[str, Any] | None:
         if row is None:
             return None
 
-        return {
-            "election_id": row["election_id"],
-            "channel_id": row["channel_id"],
-            "title": row["title"],
-            "description": row["description"],
-            "method_class": row["method_class"],
-            "method_params": json.loads(row["method_params"]),
-            "candidates": json.loads(row["candidates"]),
-            "open": bool(row["open"]),
-            "message_id": row["message_id"],
-            "creator_id": row["creator_id"],
-            "end_timestamp": row["end_timestamp"],
-        }
+        return _election_from_row(row)
     finally:
         conn.close()
 
@@ -210,19 +229,7 @@ def load_election_by_natural_key(channel_id: int, title: str) -> dict[str, Any] 
         if row is None:
             return None
 
-        return {
-            "election_id": row["election_id"],
-            "channel_id": row["channel_id"],
-            "title": row["title"],
-            "description": row["description"],
-            "method_class": row["method_class"],
-            "method_params": json.loads(row["method_params"]),
-            "candidates": json.loads(row["candidates"]),
-            "open": bool(row["open"]),
-            "message_id": row["message_id"],
-            "creator_id": row["creator_id"],
-            "end_timestamp": row["end_timestamp"],
-        }
+        return _election_from_row(row)
     finally:
         conn.close()
 
@@ -235,21 +242,7 @@ def load_all_elections() -> list[dict[str, Any]]:
 
         elections = []
         for row in cursor.fetchall():
-            elections.append(
-                {
-                    "election_id": row["election_id"],
-                    "channel_id": row["channel_id"],
-                    "title": row["title"],
-                    "description": row["description"],
-                    "method_class": row["method_class"],
-                    "method_params": json.loads(row["method_params"]),
-                    "candidates": json.loads(row["candidates"]),
-                    "open": bool(row["open"]),
-                    "message_id": row["message_id"],
-                    "creator_id": row["creator_id"],
-                    "end_timestamp": row["end_timestamp"],
-                }
-            )
+            elections.append(_election_from_row(row))
 
         return elections
     finally:
@@ -331,16 +324,7 @@ def load_ballot(ballot_id: int) -> dict[str, Any] | None:
         if row is None:
             return None
 
-        ballot_data = json.loads(row["ballot_data"])
-        return {
-            "ballot_id": row["ballot_id"],
-            "election_id": row["election_id"],
-            "user_id": row["user_id"],
-            "ballot_type": row["ballot_type"],
-            "ballot_data": ballot_data,
-            "is_submitted": bool(row["is_submitted"]),
-            "session_id": ballot_data["session_id"],
-        }
+        return _ballot_from_row(row)
     finally:
         conn.close()
 
@@ -363,16 +347,7 @@ def load_user_ballot(
         if row is None:
             return None
 
-        ballot_data = json.loads(row["ballot_data"])
-        return {
-            "ballot_id": row["ballot_id"],
-            "election_id": row["election_id"],
-            "user_id": row["user_id"],
-            "ballot_type": row["ballot_type"],
-            "ballot_data": ballot_data,
-            "is_submitted": bool(row["is_submitted"]),
-            "session_id": ballot_data["session_id"],
-        }
+        return _ballot_from_row(row)
     finally:
         conn.close()
 
@@ -391,18 +366,7 @@ def load_all_ballots(election_id: int, is_submitted: bool) -> list[dict[str, Any
 
         ballots = []
         for row in cursor.fetchall():
-            ballot_data = json.loads(row["ballot_data"])
-            ballots.append(
-                {
-                    "ballot_id": row["ballot_id"],
-                    "election_id": row["election_id"],
-                    "user_id": row["user_id"],
-                    "ballot_type": row["ballot_type"],
-                    "ballot_data": ballot_data,
-                    "is_submitted": bool(row["is_submitted"]),
-                    "session_id": ballot_data["session_id"],
-                }
-            )
+            ballots.append(_ballot_from_row(row))
 
         return ballots
     finally:
@@ -462,21 +426,7 @@ def load_elections_by_creator(channel_id: int, creator_id: int) -> list[dict[str
 
         elections = []
         for row in cursor.fetchall():
-            elections.append(
-                {
-                    "election_id": row["election_id"],
-                    "channel_id": row["channel_id"],
-                    "title": row["title"],
-                    "description": row["description"],
-                    "method_class": row["method_class"],
-                    "method_params": json.loads(row["method_params"]),
-                    "candidates": json.loads(row["candidates"]),
-                    "open": bool(row["open"]),
-                    "message_id": row["message_id"],
-                    "creator_id": row["creator_id"],
-                    "end_timestamp": row["end_timestamp"],
-                }
-            )
+            elections.append(_election_from_row(row))
 
         return elections
     finally:
@@ -505,21 +455,7 @@ def load_elections_ending_soon(within_seconds: int = 60) -> list[dict[str, Any]]
 
         elections = []
         for row in cursor.fetchall():
-            elections.append(
-                {
-                    "election_id": row["election_id"],
-                    "channel_id": row["channel_id"],
-                    "title": row["title"],
-                    "description": row["description"],
-                    "method_class": row["method_class"],
-                    "method_params": json.loads(row["method_params"]),
-                    "candidates": json.loads(row["candidates"]),
-                    "open": bool(row["open"]),
-                    "message_id": row["message_id"],
-                    "creator_id": row["creator_id"],
-                    "end_timestamp": row["end_timestamp"],
-                }
-            )
+            elections.append(_election_from_row(row))
 
         return elections
     finally:

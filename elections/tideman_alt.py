@@ -68,6 +68,9 @@ class TidemanAlternativeElection(Election):
                 for i in range(len(ranking)):
                     for j in range(i + 1, len(ranking)):
                         pairwise[ranking[i]][ranking[j]] += 1
+                    # Ranked candidates are preferred over unranked ones.
+                    for c in active_candidates.difference(ranking):
+                        pairwise[ranking[i]][c] += 1
             smith_set = active_candidates
             losses = defaultdict(set)
             for a in active_candidates:

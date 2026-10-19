@@ -85,8 +85,9 @@ class RivestShenGTElection(Election):
         p_star = p * w
 
         total = sum(p_star)
-        if total > 0:
-            p_dist = [x / total for x in p_star]
+        if total <= 0:
+            return [], "No optimal solution found for the Rivest-Shen GT equilibrium."
+        p_dist = [x / total for x in p_star]
 
         winner = random.choices(self.candidates, weights=p_dist, k=1)[0]
 

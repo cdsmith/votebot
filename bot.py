@@ -46,8 +46,7 @@ async def on_ready():
                     pass
 
     # Start background task for checking expired elections
-    if not election_checker.check_expired_elections.is_running():
-        election_checker.check_expired_elections.start()
+    election_checker.start()
 
     await tree.sync()
     print(f"{client.user} has connected to Discord!")

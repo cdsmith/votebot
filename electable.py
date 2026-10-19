@@ -8,6 +8,7 @@ from election import load_election_from_db, end_election_and_update_message
 from setup import ElectionSetup
 import time_utils
 import election_checker
+from text_utils import MESSAGE_CONTENT_LIMIT, truncate
 
 
 class ElectableView(discord.ui.View):
@@ -67,7 +68,7 @@ class ElectableView(discord.ui.View):
                 f"**Ends**: {end_time}\n"
             )
 
-            return {"content": content, "view": self}
+            return {"content": truncate(content, MESSAGE_CONTENT_LIMIT), "view": self}
         else:
             # Show election list view
             if self.elections:

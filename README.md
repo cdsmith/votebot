@@ -43,7 +43,7 @@ You can use this bot by simply adding it to your server (easiest) or by running 
 
 ### Adding to a server
 
-To add the bot to your server, simply visit the [authorization link](https://discord.com/oauth2/authorize?client_id=1318357026493042799&permissions=2048&integration_type=0&scope=bot) in your web browser, and authorize it to join.  Once the bot has joined the server, you can use the `/election` command to begin an election, and the `/end_election` command to end it and report results.
+To add the bot to your server, simply visit the [authorization link](https://discord.com/oauth2/authorize?client_id=1318357026493042799&permissions=84992&integration_type=0&scope=bot) in your web browser, and authorize it to join.  Once the bot has joined the server, you can use the `/electable` command to create and manage elections.
 
 ### Running your own instance
 
@@ -138,8 +138,9 @@ If you'd like to extend the bot with additional features, you can do so as follo
 To implement a new election method, define a new subclass of `Election`.  You will need to implement the following.
 
 ```python
+    @classmethod
     @abc.abstractmethod
-    def name(self) -> str:
+    def method_name(cls) -> str:
         """Return the name of the election method."""
         pass
 
@@ -149,7 +150,7 @@ To implement a new election method, define a new subclass of `Election`.  You wi
         pass
 
     @abc.abstractmethod
-    def tabulate(self) -> tuple[list[str], str]:
+    def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         """Returns tabulated results.
 
         The first result should be a list of winners (usually one, but multiple in case of a tie)
@@ -157,6 +158,8 @@ To implement a new election method, define a new subclass of `Election`.  You wi
         """
         pass
 ```
+
+Then add your class to `METHOD_CLASSES` in `methods.py` so that it appears in the setup menu.  If your method takes parameters (such as the number of winners), also override `method_param_names`, `default_method_params`, and `validate_method_params`.
 
 This is generally the easiest kind of extension you can make.  The code is self-contained and doesn't rely on Discord APIs or other complex systems.  You can refer to the existing `Election` subclasses for hints on implementation.
 
@@ -189,11 +192,22 @@ If there is no ballot format defined for the election method you want to impleme
     def to_markdown(self) -> str:
         """Return a ballot choice in markdown."""
         pass
+
+    @abc.abstractmethod
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize ballot to dictionary for database storage."""
+        pass
+
+    @classmethod
+    @abc.abstractmethod
+    def from_dict(cls, ballot_dict: dict[str, Any], election_id: int) -> "Ballot":
+        """Reconstruct ballot from database dictionary."""
+        pass
 ```
 
 Ballot formats are typically somewhat involved, and require knowing something about the Discord API and available user interface elements.  You can refer to the existing `Ballot` subclasses for hints on implementation.  Because Discord
 limits the UI elements that can be used in a message, ballots are automatically
-paginated if there are more than 5 candidates.  The `candidates_per_page` method
+paginated when there are too many candidates to fit in one message.  The `candidates_per_page` method
 should return the number of candidates that can fit on a single page, or `None`
 if all candidates should be on a single page.
 

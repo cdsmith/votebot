@@ -3,6 +3,15 @@ import abc
 from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import db
+from text_utils import (
+    EMBED_DESCRIPTION_LIMIT,
+    EMBED_TITLE_LIMIT,
+    MESSAGE_CONTENT_LIMIT,
+    add_long_field,
+    group_embeds,
+    split_text,
+    truncate,
+)
 
 
 if TYPE_CHECKING:
@@ -10,6 +19,9 @@ if TYPE_CHECKING:
 
 # Global reference to Discord client (set by bot.py on startup)
 _client = None
+
+# IDs of elections currently being ended, to avoid posting results twice
+_ending_elections: set[int] = set()
 
 
 def set_client(client):
@@ -64,22 +76,17 @@ class Election(abc.ABC):
 
         vote_count = db.get_vote_count(self.election_id)
 
-        embed = (
+        embed = add_long_field(
             discord.Embed(
-                title=self.title,
-                description=self.description,
-            )
-            .add_field(
-                name="Candidates",
-                value="\n".join(f"- {c}" for c in self.candidates)
-                or "*No candidates yet!*",
-                inline=False,
-            )
-            .add_field(
-                name="Method",
-                value=self.method_description(self.method_params),
-                inline=False,
-            )
+                title=truncate(self.title, EMBED_TITLE_LIMIT),
+                description=truncate(self.description, EMBED_DESCRIPTION_LIMIT),
+            ),
+            "Candidates",
+            "\n".join(f"- {c}" for c in self.candidates) or "*No candidates yet!*",
+        ).add_field(
+            name="Method",
+            value=self.method_description(self.method_params),
+            inline=False,
         )
 
         # Add end time field if scheduled
@@ -212,16 +219,19 @@ class Election(abc.ABC):
         except discord.NotFound:
             pass
 
-    def get_results(self, show_details: bool = True) -> discord.Embed:
-        self.open = False
-        db.mark_election_closed(self.election_id)
-
+    def get_results(self, show_details: bool = True) -> list[discord.Embed]:
+        """Tabulate the submitted ballots and return embeds describing the
+        results.  The first embed announces the winners, and any further
+        embeds contain the details of the tabulation."""
         # Load all submitted ballots from database
         ballot_dicts = db.load_all_ballots(self.election_id, is_submitted=True)
         ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
 
         winners, details = self.tabulate(ballots)
-        embed = discord.Embed(title=f"Results for {self.title}", color=0x00FF00)
+        embed = discord.Embed(
+            title=truncate(f"Results for {self.title}", EMBED_TITLE_LIMIT),
+            color=0x00FF00,
+        )
         if len(winners) == 0:
             embed.add_field(name="Winners", value="No winner determined", inline=False)
         elif len(winners) == 1:
@@ -230,14 +240,19 @@ class Election(abc.ABC):
             )
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
-            embed.add_field(
-                name="Winners",
-                value=f":trophy: {winners_str} :trophy:",
-                inline=False,
-            )
-        if show_details:
-            embed.add_field(name="Details", value=details, inline=False)
-        return embed
+            add_long_field(embed, "Winners", f":trophy: {winners_str} :trophy:")
+
+        embeds = [embed]
+        if show_details and details:
+            for i, chunk in enumerate(split_text(details, EMBED_DESCRIPTION_LIMIT)):
+                embeds.append(
+                    discord.Embed(
+                        title="Details" if i == 0 else None,
+                        description=chunk,
+                        color=0x00FF00,
+                    )
+                )
+        return embeds
 
     @classmethod
     @abc.abstractmethod
@@ -337,21 +352,43 @@ async def end_election_and_update_message(
         channel: The Discord channel where the election is posted
         include_announcement: If True, includes "Election **{title}** has ended!" text
     """
+    if election.election_id in _ending_elections:
+        return  # Already being ended elsewhere (e.g. scheduled end vs. End Now)
+    _ending_elections.add(election.election_id)
+    try:
+        await _end_election(election, channel, include_announcement)
+    finally:
+        _ending_elections.discard(election.election_id)
+
+
+async def _end_election(
+    election: "Election",
+    channel: discord.TextChannel,
+    include_announcement: bool,
+) -> None:
     import time_utils
 
-    # Generate results embed
-    results_embed = election.get_results(show_details=True).set_footer(
+    # Generate results embeds
+    results_embeds = election.get_results(show_details=True)
+    results_embeds[-1].set_footer(
         text=f"Computed using {election.method_description(election.method_params)}"
     )
 
-    # Post results to channel
-    if include_announcement:
-        await channel.send(
-            content=f"Election **{election.title}** has ended!",
-            embed=results_embed,
-        )
-    else:
-        await channel.send(embed=results_embed)
+    # Post results to channel.  The election stays open in the database until
+    # this succeeds, so a failure here can be retried rather than losing results.
+    content = (
+        truncate(f"Election **{election.title}** has ended!", MESSAGE_CONTENT_LIMIT)
+        if include_announcement
+        else None
+    )
+    for embeds in group_embeds(results_embeds):
+        await channel.send(content=content, embeds=embeds)
+        content = None
+
+    # The results are posted, so the election is over.  Delete it before
+    # touching the original message, so that a failure there can't cause the
+    # results to be posted again.
+    db.delete_election(election.election_id)
 
     # Update the original election message
     if election.message_id:
@@ -379,6 +416,5 @@ async def end_election_and_update_message(
             await message.edit(embed=embed, view=None)
         except discord.NotFound:
             pass  # Message was deleted
-
-    # Delete the election from database
-    db.delete_election(election.election_id)
+        except discord.HTTPException as e:
+            print(f"Error updating message for election {election.election_id}: {e}")

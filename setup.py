@@ -3,6 +3,13 @@ from election import Election
 import methods
 from typing import Any
 import asyncio
+from text_utils import MESSAGE_CONTENT_LIMIT, truncate
+
+# Input limits chosen to fit Discord's limits wherever these are displayed:
+# button labels (80), select option labels (100), and embed titles (256).
+TITLE_MAX_LENGTH = 100
+DESCRIPTION_MAX_LENGTH = 2000
+CANDIDATE_MAX_LENGTH = 80
 
 
 class ElectionSetup:
@@ -23,13 +30,16 @@ class ElectionSetup:
 
         class NewModal(discord.ui.Modal, title="Create Election"):
             title_field = discord.ui.TextInput(
-                label="Election Title", default=self.title
+                label="Election Title",
+                default=self.title,
+                max_length=TITLE_MAX_LENGTH,
             )
             description = discord.ui.TextInput(
                 label="Description",
                 style=discord.TextStyle.paragraph,
                 default=self.description,
                 required=False,
+                max_length=DESCRIPTION_MAX_LENGTH,
             )
             end_time = discord.ui.TextInput(
                 label="End Time (optional)",
@@ -142,7 +152,7 @@ class ElectionSetup:
             async def callback(_, interaction: discord.Interaction):
                 class AddCandidateModal(discord.ui.Modal, title="Add a Candidate"):
                     candidate_name = discord.ui.TextInput(
-                        label="Candidate Name", max_length=100
+                        label="Candidate Name", max_length=CANDIDATE_MAX_LENGTH
                     )
 
                     async def on_submit(inner_self, interaction: discord.Interaction):
@@ -153,7 +163,8 @@ class ElectionSetup:
                                 ephemeral=True,
                                 delete_after=5,
                             )
-                        elif new_name:
+                            return
+                        if new_name:
                             self.candidates.append(new_name)
                         await interaction.response.edit_message(
                             **self.get_setup_message()
@@ -224,13 +235,16 @@ class ElectionSetup:
             async def callback(_, interaction: discord.Interaction):
                 class EditModal(discord.ui.Modal, title="Edit Attributes"):
                     title_field = discord.ui.TextInput(
-                        label="Election Title", default=self.title
+                        label="Election Title",
+                        default=self.title,
+                        max_length=TITLE_MAX_LENGTH,
                     )
                     description = discord.ui.TextInput(
                         label="Description",
                         style=discord.TextStyle.paragraph,
                         default=self.description,
                         required=False,
+                        max_length=DESCRIPTION_MAX_LENGTH,
                     )
                     end_time = discord.ui.TextInput(
                         label="End Time (optional)",
@@ -303,7 +317,7 @@ class ElectionSetup:
             if self.method_class
             else "*No method set.*"
         )
-        desc = self.description or "*No description set.*"
+        desc = truncate(self.description, 300) or "*No description set.*"
         cands = "\n".join(f"- {c}" for c in self.candidates) or "*No candidates yet.*"
         end_time = time_utils.format_timestamp_discord(self.end_timestamp)
 
@@ -319,7 +333,7 @@ class ElectionSetup:
             fields.append(f":warning: {invalid}")
 
         return {
-            "content": "\n\n".join(fields),
+            "content": truncate("\n\n".join(fields), MESSAGE_CONTENT_LIMIT),
             "view": view,
         }
 

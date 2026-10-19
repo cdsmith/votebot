@@ -15,14 +15,6 @@ class CopelandElection(Election):
         random.shuffle(candidates)
         return RankedBallot(self.election_id, candidates)
 
-    def get_winners(self) -> list[str]:
-        scores, _ = self.compute_copeland_scores()
-        if scores:
-            max_score = max(scores.values())
-            return [c for c, sc in scores.items() if sc == max_score]
-        else:
-            return []
-
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if not self.candidates:
             return [], "No candidates were found."

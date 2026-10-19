@@ -5,11 +5,21 @@ from ballot import Ballot
 import itertools
 import random
 
+MAX_CANDIDATES = 6
+
 
 class KemenyYoungElection(Election):
     @classmethod
     def method_name(self) -> str:
         return "Kemeny-Young"
+
+    @classmethod
+    def validate_method_params(
+        cls, params: dict[str, str], candidates: list[str]
+    ) -> str | None:
+        if len(candidates) > MAX_CANDIDATES:
+            return f"Kemeny-Young supports at most {MAX_CANDIDATES} candidates."
+        return None
 
     def blank_ballot(self) -> RankedBallot:
         candidates = list(self.candidates)
@@ -19,7 +29,7 @@ class KemenyYoungElection(Election):
     def tabulate(self, ballots: Iterable[Ballot]) -> tuple[list[str], str]:
         if len(self.candidates) == 0:
             return [], "No candidates were found."
-        elif len(self.candidates) > 6:
+        elif len(self.candidates) > MAX_CANDIDATES:
             return [], "Too many candidates for Kemeny-Young."
 
         lines = []
@@ -43,7 +53,7 @@ class KemenyYoungElection(Election):
                     b_prefs = pairwise_preference[b][a]
                     if a_prefs + b_prefs > 0:
                         lines.append(
-                            f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):2%} - {b_prefs / (a_prefs + b_prefs):2%})"
+                            f"- {a} vs {b}: {a_prefs} - {b_prefs} ({a_prefs / (a_prefs + b_prefs):.2%} - {b_prefs / (a_prefs + b_prefs):.2%})"
                         )
                     else:
                         lines.append(f"- {a} vs {b}: 0 - 0")
