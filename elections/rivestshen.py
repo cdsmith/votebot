@@ -81,7 +81,8 @@ class RivestShenGTElection(Election):
         if not qp_res.success:
             return [], "No optimal solution found for the Rivest-Shen GT equilibrium."
 
-        p = qp_res.x
+        # Clamp tiny negative values left by solver tolerances.
+        p = np.maximum(qp_res.x, 0)
         p_star = p * w
 
         total = sum(p_star)
