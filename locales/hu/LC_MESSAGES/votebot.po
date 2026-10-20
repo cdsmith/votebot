@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hu\n"
@@ -35,6 +35,9 @@ msgstr "Jelenlegi szavazat"
 
 msgid "Page {page}/{total}"
 msgstr "Oldal: {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Ez a szavazás már nem létezik."
 
 msgid "Vote Submitted"
 msgstr "Szavazat leadva"
@@ -140,9 +143,6 @@ msgstr "Igen, töröld az eredmények közzététele nélkül"
 msgid "Vote"
 msgstr "Szavazás"
 
-msgid "This election no longer exists."
-msgstr "Ez a szavazás már nem létezik."
-
 msgid "*No candidates yet!*"
 msgstr "*Még nincsenek jelöltek!*"
 
@@ -154,6 +154,9 @@ msgstr "Véget ért"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • A szavazás véget ért"
+
+msgid "Run by {user}"
+msgstr "Szervező: {user}"
 
 msgid "Candidates"
 msgstr "Jelöltek"
@@ -208,6 +211,9 @@ msgstr ""
 "{channel}. Ellenőrizd, hogy a bot látja-e a csatornát, és küldhet-e oda "
 "üzeneteket. Továbbra is próbálkozni fog."
 
+msgid "Anyone who can use /electable here"
+msgstr "Bárki, aki itt használhatja a /electable parancsot"
+
 msgid "End Time (optional)"
 msgstr "Befejezési idő (nem kötelező)"
 
@@ -248,6 +254,15 @@ msgstr[0] "**{name}** túl hosszú. A jelöltek neve legfeljebb {n} karakter leh
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Egy szavazásnak legfeljebb {n} jelöltje lehet."
+
+msgid "Only me"
+msgstr "Csak én"
+
+msgid "The election shows you as the person running it."
+msgstr "A szavazás téged mutat szervezőként."
+
+msgid "The election doesn't show who is running it."
+msgstr "A szavazás nem mutatja, ki szervezi."
 
 msgid "Remove Candidate"
 msgstr "Jelölt eltávolítása"
@@ -299,6 +314,9 @@ msgstr "Szerkesztés"
 
 msgid "Language"
 msgstr "Nyelv"
+
+msgid "Who can manage this election"
+msgstr "Ki kezelheti a szavazást"
 
 msgid "No title was set."
 msgstr "Nem adtál meg címet."

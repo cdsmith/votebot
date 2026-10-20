@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: el\n"
@@ -35,6 +35,9 @@ msgstr "Τρέχουσα ψήφος"
 
 msgid "Page {page}/{total}"
 msgstr "Σελίδα {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Αυτή η ψηφοφορία δεν υπάρχει πλέον."
 
 msgid "Vote Submitted"
 msgstr "Η ψήφος υποβλήθηκε"
@@ -142,9 +145,6 @@ msgstr "Ναι, διαγραφή χωρίς δημοσίευση αποτελε�
 msgid "Vote"
 msgstr "Ψηφίστε"
 
-msgid "This election no longer exists."
-msgstr "Αυτή η ψηφοφορία δεν υπάρχει πλέον."
-
 msgid "*No candidates yet!*"
 msgstr "*Δεν υπάρχουν ακόμη υποψήφιοι!*"
 
@@ -156,6 +156,9 @@ msgstr "Έληξε"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Η ψηφοφορία έληξε"
+
+msgid "Run by {user}"
+msgstr "Διοργανωτής: {user}"
 
 msgid "Candidates"
 msgstr "Υποψήφιοι"
@@ -211,6 +214,9 @@ msgstr ""
 " στο {channel}. Βεβαιωθείτε ότι το bot μπορεί να βλέπει αυτό το κανάλι "
 "και να στέλνει μηνύματα εκεί. Θα συνεχίσει να προσπαθεί."
 
+msgid "Anyone who can use /electable here"
+msgstr "Όποιος μπορεί να χρησιμοποιεί το /electable εδώ"
+
 msgid "End Time (optional)"
 msgstr "Ώρα λήξης (προαιρετικό)"
 
@@ -257,6 +263,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Μια ψηφοφορία μπορεί να έχει έως {n} υποψήφιο."
 msgstr[1] "Μια ψηφοφορία μπορεί να έχει έως {n} υποψηφίους."
+
+msgid "Only me"
+msgstr "Μόνο εγώ"
+
+msgid "The election shows you as the person running it."
+msgstr "Η ψηφοφορία σας εμφανίζει ως διοργανωτή."
+
+msgid "The election doesn't show who is running it."
+msgstr "Η ψηφοφορία δεν εμφανίζει ποιος τη διοργανώνει."
 
 msgid "Remove Candidate"
 msgstr "Αφαίρεση υποψηφίου"
@@ -308,6 +323,9 @@ msgstr "Επεξεργασία"
 
 msgid "Language"
 msgstr "Γλώσσα"
+
+msgid "Who can manage this election"
+msgstr "Ποιος μπορεί να διαχειρίζεται την ψηφοφορία"
 
 msgid "No title was set."
 msgstr "Δεν ορίστηκε τίτλος."

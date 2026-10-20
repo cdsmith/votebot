@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -35,6 +35,9 @@ msgstr "現在の投票"
 
 msgid "Page {page}/{total}"
 msgstr "ページ {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "この選挙はもう存在しません。"
 
 msgid "Vote Submitted"
 msgstr "投票を送信しました"
@@ -138,9 +141,6 @@ msgstr "はい、結果を公開せずに削除します"
 msgid "Vote"
 msgstr "投票"
 
-msgid "This election no longer exists."
-msgstr "この選挙はもう存在しません。"
-
 msgid "*No candidates yet!*"
 msgstr "*まだ候補者がいません！*"
 
@@ -152,6 +152,9 @@ msgstr "終了"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • 選挙終了"
+
+msgid "Run by {user}"
+msgstr "主催: {user}"
 
 msgid "Candidates"
 msgstr "候補者"
@@ -203,6 +206,9 @@ msgstr ""
 "選挙 **{title}** の結果を {channel} "
 "に投稿できませんでした。ボットがそのチャンネルを閲覧し、メッセージを送信できることを確認してください。ボットは再試行を続けます。"
 
+msgid "Anyone who can use /electable here"
+msgstr "ここで /electable を使えるすべての人"
+
 msgid "End Time (optional)"
 msgstr "終了日時（任意）"
 
@@ -243,6 +249,15 @@ msgstr[0] "**{name}** は長すぎます。候補者名は {n} 文字以内に�
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "1 つの選挙の候補者は最大 {n} 人です。"
+
+msgid "Only me"
+msgstr "自分のみ"
+
+msgid "The election shows you as the person running it."
+msgstr "選挙にあなたが主催者として表示されます。"
+
+msgid "The election doesn't show who is running it."
+msgstr "選挙に主催者は表示されません。"
 
 msgid "Remove Candidate"
 msgstr "候補者を削除"
@@ -292,6 +307,9 @@ msgstr "編集"
 
 msgid "Language"
 msgstr "言語"
+
+msgid "Who can manage this election"
+msgstr "この選挙を管理できる人"
 
 msgid "No title was set."
 msgstr "タイトルが設定されていません。"

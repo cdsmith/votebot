@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: tr\n"
@@ -35,6 +35,9 @@ msgstr "Mevcut oy"
 
 msgid "Page {page}/{total}"
 msgstr "Sayfa {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Bu seçim artık mevcut değil."
 
 msgid "Vote Submitted"
 msgstr "Oy gönderildi"
@@ -140,9 +143,6 @@ msgstr "Evet, sonuçları yayınlamadan sil"
 msgid "Vote"
 msgstr "Oy ver"
 
-msgid "This election no longer exists."
-msgstr "Bu seçim artık mevcut değil."
-
 msgid "*No candidates yet!*"
 msgstr "*Henüz aday yok!*"
 
@@ -154,6 +154,9 @@ msgstr "Sona erdi"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Seçim sona erdi"
+
+msgid "Run by {user}"
+msgstr "Düzenleyen: {user}"
 
 msgid "Candidates"
 msgstr "Adaylar"
@@ -208,6 +211,9 @@ msgstr ""
 "bu kanalı görebildiğinden ve oraya mesaj gönderebildiğinden emin olun. "
 "Bot denemeye devam edecek."
 
+msgid "Anyone who can use /electable here"
+msgstr "Burada /electable kullanabilen herkes"
+
 msgid "End Time (optional)"
 msgstr "Bitiş zamanı (isteğe bağlı)"
 
@@ -248,6 +254,15 @@ msgstr[0] "**{name}** çok uzun. Aday adları en fazla {n} karakter olabilir."
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Bir seçimde en fazla {n} aday olabilir."
+
+msgid "Only me"
+msgstr "Yalnızca ben"
+
+msgid "The election shows you as the person running it."
+msgstr "Seçim sizi düzenleyen olarak gösterir."
+
+msgid "The election doesn't show who is running it."
+msgstr "Seçim, kimin düzenlediğini göstermez."
 
 msgid "Remove Candidate"
 msgstr "Adayı kaldır"
@@ -299,6 +314,9 @@ msgstr "Düzenle"
 
 msgid "Language"
 msgstr "Dil"
+
+msgid "Who can manage this election"
+msgstr "Bu seçimi kimler yönetebilir"
 
 msgid "No title was set."
 msgstr "Başlık belirlenmedi."

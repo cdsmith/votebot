@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: id\n"
@@ -35,6 +35,9 @@ msgstr "Suara saat ini"
 
 msgid "Page {page}/{total}"
 msgstr "Halaman {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Pemilihan ini sudah tidak ada."
 
 msgid "Vote Submitted"
 msgstr "Suara Terkirim"
@@ -142,9 +145,6 @@ msgstr "Ya, hapus tanpa mengumumkan hasil"
 msgid "Vote"
 msgstr "Pilih"
 
-msgid "This election no longer exists."
-msgstr "Pemilihan ini sudah tidak ada."
-
 msgid "*No candidates yet!*"
 msgstr "*Belum ada kandidat!*"
 
@@ -156,6 +156,9 @@ msgstr "Berakhir pada"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Pemilihan berakhir"
+
+msgid "Run by {user}"
+msgstr "Diselenggarakan oleh {user}"
 
 msgid "Candidates"
 msgstr "Kandidat"
@@ -210,6 +213,9 @@ msgstr ""
 "bot dapat melihat saluran tersebut dan mengirim pesan di sana. Bot akan "
 "terus mencoba."
 
+msgid "Anyone who can use /electable here"
+msgstr "Siapa pun yang dapat menggunakan /electable di sini"
+
 msgid "End Time (optional)"
 msgstr "Waktu Berakhir (opsional)"
 
@@ -252,6 +258,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Pemilihan dapat memiliki paling banyak {n} kandidat."
 msgstr[1] "Pemilihan dapat memiliki paling banyak {n} kandidat."
+
+msgid "Only me"
+msgstr "Hanya saya"
+
+msgid "The election shows you as the person running it."
+msgstr "Pemilihan menampilkan Anda sebagai penyelenggaranya."
+
+msgid "The election doesn't show who is running it."
+msgstr "Pemilihan tidak menampilkan siapa penyelenggaranya."
 
 msgid "Remove Candidate"
 msgstr "Hapus Kandidat"
@@ -303,6 +318,9 @@ msgstr "Edit"
 
 msgid "Language"
 msgstr "Bahasa"
+
+msgid "Who can manage this election"
+msgstr "Siapa yang dapat mengelola pemilihan ini"
 
 msgid "No title was set."
 msgstr "Judul belum diatur."

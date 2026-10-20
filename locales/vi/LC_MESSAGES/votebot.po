@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: vi\n"
@@ -35,6 +35,9 @@ msgstr "Phiếu bầu hiện tại"
 
 msgid "Page {page}/{total}"
 msgstr "Trang {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Cuộc bầu cử này không còn tồn tại."
 
 msgid "Vote Submitted"
 msgstr "Đã gửi phiếu bầu"
@@ -140,9 +143,6 @@ msgstr "Có, xóa mà không công bố kết quả"
 msgid "Vote"
 msgstr "Bỏ phiếu"
 
-msgid "This election no longer exists."
-msgstr "Cuộc bầu cử này không còn tồn tại."
-
 msgid "*No candidates yet!*"
 msgstr "*Chưa có ứng cử viên nào!*"
 
@@ -154,6 +154,9 @@ msgstr "Đã kết thúc"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Cuộc bầu cử đã kết thúc"
+
+msgid "Run by {user}"
+msgstr "Tổ chức bởi {user}"
 
 msgid "Candidates"
 msgstr "Ứng cử viên"
@@ -208,6 +211,9 @@ msgstr ""
 "Hãy đảm bảo bot có thể xem kênh đó và gửi tin nhắn ở đó. Bot sẽ tiếp tục "
 "thử."
 
+msgid "Anyone who can use /electable here"
+msgstr "Bất kỳ ai có thể dùng /electable ở đây"
+
 msgid "End Time (optional)"
 msgstr "Thời gian kết thúc (không bắt buộc)"
 
@@ -248,6 +254,15 @@ msgstr[0] "**{name}** quá dài. Tên ứng cử viên chỉ được tối đa 
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Một cuộc bầu cử có tối đa {n} ứng cử viên."
+
+msgid "Only me"
+msgstr "Chỉ mình tôi"
+
+msgid "The election shows you as the person running it."
+msgstr "Cuộc bầu cử hiển thị bạn là người tổ chức."
+
+msgid "The election doesn't show who is running it."
+msgstr "Cuộc bầu cử không hiển thị người tổ chức."
 
 msgid "Remove Candidate"
 msgstr "Xóa ứng cử viên"
@@ -299,6 +314,9 @@ msgstr "Chỉnh sửa"
 
 msgid "Language"
 msgstr "Ngôn ngữ"
+
+msgid "Who can manage this election"
+msgstr "Ai có thể quản lý cuộc bầu cử này"
 
 msgid "No title was set."
 msgstr "Chưa đặt tiêu đề."

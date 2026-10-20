@@ -5,7 +5,7 @@ import math
 import discord
 import db
 from i18n import _, LocalizedView
-from layout import action_rows
+from layout import action_rows, notice
 
 
 class Ballot(abc.ABC):
@@ -94,7 +94,11 @@ class Ballot(abc.ABC):
                 from election import load_election_from_db
 
                 election = load_election_from_db(inner_self.election_id)
-                if await election.check_session(interaction, inner_self.session_id_val):
+                if not election:
+                    await self.election_gone(interaction)
+                elif await election.check_session(
+                    interaction, inner_self.session_id_val
+                ):
                     await election.submit_ballot(interaction)
                 inner_self.view.stop()
 
@@ -167,6 +171,7 @@ class Ballot(abc.ABC):
 
         election = load_election_from_db(self.election_id)
         if not election:
+            await self.election_gone(interaction)
             return
 
         # Either way, the message's old view is replaced or removed.
@@ -180,6 +185,14 @@ class Ballot(abc.ABC):
             await interaction.response.edit_message(**self.render_interim(session_id))
         if old_view:
             old_view.stop()
+
+    async def election_gone(self, interaction: discord.Interaction):
+        """Tell the voter the election was deleted, e.g. by a moderator."""
+        if self.current_view:
+            self.current_view.stop()
+        await interaction.response.edit_message(
+            view=notice(_("This election no longer exists."))
+        )
 
     def render_submitted(self) -> dict[str, Any]:
         view = LocalizedView(timeout=None)

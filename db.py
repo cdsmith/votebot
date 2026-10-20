@@ -1,7 +1,7 @@
 import sqlite3
 import json
 import time
-from typing import Any
+from typing import Any, Iterable
 from contextlib import contextmanager
 
 DB_PATH = "votebot.db"
@@ -35,6 +35,7 @@ def _election_from_row(row: sqlite3.Row) -> dict[str, Any]:
         "creator_id": row["creator_id"],
         "end_timestamp": row["end_timestamp"],
         "locale": row["locale"],
+        "shared": bool(row["shared"]),
     }
 
 
@@ -85,6 +86,7 @@ def init_db():
             creator_id INTEGER NOT NULL DEFAULT 0,
             end_timestamp INTEGER,
             locale TEXT,
+            shared INTEGER NOT NULL DEFAULT 0,
             UNIQUE(channel_id, title)
         )
     """
@@ -112,6 +114,13 @@ def init_db():
             print("Migrating database: adding locale column...")
             conn.execute("ALTER TABLE elections ADD COLUMN locale TEXT")
             print("✓ Added locale column")
+
+        if "shared" not in columns:
+            print("Migrating database: adding shared column...")
+            conn.execute(
+                "ALTER TABLE elections ADD COLUMN shared INTEGER NOT NULL DEFAULT 0"
+            )
+            print("✓ Added shared column")
     except Exception as e:
         print(f"Migration check failed (this is OK for new databases): {e}")
 
@@ -135,6 +144,14 @@ def init_db():
         """
         CREATE INDEX IF NOT EXISTS idx_elections_channel_title
         ON elections(channel_id, title)
+    """
+    )
+
+    # For finding elections whose post was deleted
+    conn.execute(
+        """
+        CREATE INDEX IF NOT EXISTS idx_elections_message
+        ON elections(message_id)
     """
     )
 
@@ -180,6 +197,7 @@ def save_election(election: Any) -> int:
             election.creator_id,
             election.end_timestamp,
             election.locale,
+            1 if election.shared else 0,
         )
 
         if election.election_id is None:
@@ -188,8 +206,8 @@ def save_election(election: Any) -> int:
                 """
                 INSERT INTO elections (channel_id, title, description, method_class,
                                      method_params, candidates, open, message_id,
-                                     creator_id, end_timestamp, locale)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                     creator_id, end_timestamp, locale, shared)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 data,
             )
@@ -203,7 +221,7 @@ def save_election(election: Any) -> int:
                 UPDATE elections
                 SET channel_id=?, title=?, description=?, method_class=?,
                     method_params=?, candidates=?, open=?, message_id=?,
-                    creator_id=?, end_timestamp=?, locale=?
+                    creator_id=?, end_timestamp=?, locale=?, shared=?
                 WHERE election_id=?
                 """,
                 data + (election.election_id,),
@@ -270,6 +288,31 @@ def delete_election(election_id: int):
     try:
         conn.execute("DELETE FROM elections WHERE election_id=?", (election_id,))
         conn.commit()
+    finally:
+        conn.close()
+
+
+def delete_elections_by_message(message_ids: Iterable[int]) -> int:
+    """Delete the elections announced in the given messages, returning how
+    many were deleted."""
+    conn = get_connection()
+    try:
+        cursor = conn.executemany(
+            "DELETE FROM elections WHERE message_id=?", [(i,) for i in message_ids]
+        )
+        conn.commit()
+        return cursor.rowcount
+    finally:
+        conn.close()
+
+
+def delete_elections_in_channel(channel_id: int) -> int:
+    """Delete all elections in a channel, returning how many were deleted."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute("DELETE FROM elections WHERE channel_id=?", (channel_id,))
+        conn.commit()
+        return cursor.rowcount
     finally:
         conn.close()
 
@@ -420,13 +463,12 @@ def get_vote_count(election_id: int) -> int:
         conn.close()
 
 
-def load_elections_by_creator(channel_id: int, creator_id: int) -> list[dict[str, Any]]:
-    """Load all open elections in a channel created by a specific user."""
+def load_elections_in_channel(channel_id: int) -> list[dict[str, Any]]:
+    """Load all open elections in a channel."""
     conn = get_connection()
     try:
         cursor = conn.execute(
-            "SELECT * FROM elections WHERE channel_id=? AND creator_id=? AND open=1",
-            (channel_id, creator_id),
+            "SELECT * FROM elections WHERE channel_id=? AND open=1", (channel_id,)
         )
 
         elections = []

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -35,6 +35,9 @@ msgstr "当前投票"
 
 msgid "Page {page}/{total}"
 msgstr "第 {page}/{total} 页"
+
+msgid "This election no longer exists."
+msgstr "此选举已不存在。"
 
 msgid "Vote Submitted"
 msgstr "投票已提交"
@@ -138,9 +141,6 @@ msgstr "是，删除且不公布结果"
 msgid "Vote"
 msgstr "投票"
 
-msgid "This election no longer exists."
-msgstr "此选举已不存在。"
-
 msgid "*No candidates yet!*"
 msgstr "*还没有候选人！*"
 
@@ -152,6 +152,9 @@ msgstr "已结束"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • 选举已结束"
+
+msgid "Run by {user}"
+msgstr "发起人：{user}"
 
 msgid "Candidates"
 msgstr "候选人"
@@ -199,6 +202,9 @@ msgid ""
 " will keep trying."
 msgstr "无法在 {channel} 发布选举 **{title}** 的结果。请确认机器人可以查看该频道并在其中发送消息。机器人会继续尝试。"
 
+msgid "Anyone who can use /electable here"
+msgstr "此处所有可以使用 /electable 的人"
+
 msgid "End Time (optional)"
 msgstr "结束时间（可选）"
 
@@ -239,6 +245,15 @@ msgstr[0] "**{name}** 太长。候选人名称最多 {n} 个字符。"
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "每场选举最多 {n} 位候选人。"
+
+msgid "Only me"
+msgstr "仅我自己"
+
+msgid "The election shows you as the person running it."
+msgstr "选举会显示你是发起人。"
+
+msgid "The election doesn't show who is running it."
+msgstr "选举不会显示发起人。"
 
 msgid "Remove Candidate"
 msgstr "移除候选人"
@@ -288,6 +303,9 @@ msgstr "编辑"
 
 msgid "Language"
 msgstr "语言"
+
+msgid "Who can manage this election"
+msgstr "谁可以管理此选举"
 
 msgid "No title was set."
 msgstr "未设置标题。"

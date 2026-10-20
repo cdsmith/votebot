@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -35,6 +35,9 @@ msgstr "Aktuální hlas"
 
 msgid "Page {page}/{total}"
 msgstr "Stránka {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Toto hlasování již neexistuje."
 
 msgid "Vote Submitted"
 msgstr "Hlas odeslán"
@@ -144,9 +147,6 @@ msgstr "Ano, smazat bez zveřejnění výsledků"
 msgid "Vote"
 msgstr "Hlasovat"
 
-msgid "This election no longer exists."
-msgstr "Toto hlasování již neexistuje."
-
 msgid "*No candidates yet!*"
 msgstr "*Zatím žádní kandidáti!*"
 
@@ -158,6 +158,9 @@ msgstr "Skončilo"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Hlasování skončilo"
+
+msgid "Run by {user}"
+msgstr "Pořádá: {user}"
 
 msgid "Candidates"
 msgstr "Kandidáti"
@@ -213,6 +216,9 @@ msgstr ""
 " Ověřte, že bot tento kanál vidí a může do něj posílat zprávy. Bude to "
 "zkoušet dál."
 
+msgid "Anyone who can use /electable here"
+msgstr "Kdokoli, kdo zde může použít /electable"
+
 msgid "End Time (optional)"
 msgstr "Čas ukončení (nepovinné)"
 
@@ -257,6 +263,15 @@ msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Hlasování může mít nejvýše {n} kandidáta."
 msgstr[1] "Hlasování může mít nejvýše {n} kandidáty."
 msgstr[2] "Hlasování může mít nejvýše {n} kandidátů."
+
+msgid "Only me"
+msgstr "Jen já"
+
+msgid "The election shows you as the person running it."
+msgstr "Hlasování vás uvede jako pořadatele."
+
+msgid "The election doesn't show who is running it."
+msgstr "Hlasování neuvede, kdo ho pořádá."
 
 msgid "Remove Candidate"
 msgstr "Odebrat kandidáta"
@@ -308,6 +323,9 @@ msgstr "Upravit"
 
 msgid "Language"
 msgstr "Jazyk"
+
+msgid "Who can manage this election"
+msgstr "Kdo může hlasování spravovat"
 
 msgid "No title was set."
 msgstr "Nebyl nastaven název."

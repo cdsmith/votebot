@@ -33,6 +33,13 @@ ENGLISH = "en"
 SETUP_TIMEOUT_SECONDS = 3600
 
 
+def manager_label(shared: bool, creator_id: int) -> str:
+    """Describe who can manage an election."""
+    if shared:
+        return _("Anyone who can use /electable here")
+    return _("Run by {user}").format(user=f"<@{creator_id}>")
+
+
 class OpenModalButton(discord.ui.Button):
     """A button that opens a form."""
 
@@ -56,6 +63,7 @@ class ElectionSetup:
         self.end_timestamp: int | None = None
         self.locale: str | None = None  # Language of the election's public messages
         self.channel_id: int | None = None
+        self.shared: bool = False  # Managed by anyone who can use /electable
         self.current_view: discord.ui.View | None = None  # Most recently rendered view
 
     def abandon(self):
@@ -379,6 +387,33 @@ class ElectionSetup:
                 self.locale = None if value == ENGLISH else value
                 await interaction.response.edit_message(**self.get_setup_message())
 
+        class ManagerSelect(discord.ui.Select):
+            def __init__(inner_self):
+                super().__init__(
+                    options=[
+                        discord.SelectOption(
+                            label=_("Only me"),
+                            description=_(
+                                "The election shows you as the person running it."
+                            ),
+                            value="personal",
+                            default=not self.shared,
+                        ),
+                        discord.SelectOption(
+                            label=_("Anyone who can use /electable here"),
+                            description=_(
+                                "The election doesn't show who is running it."
+                            ),
+                            value="shared",
+                            default=self.shared,
+                        ),
+                    ]
+                )
+
+            async def callback(inner_self, interaction: discord.Interaction):
+                self.shared = inner_self.values[0] == "shared"
+                await interaction.response.edit_message(**self.get_setup_message())
+
         class RemoveCandidateSelect(discord.ui.Select):
             def __init__(inner_self):
                 super().__init__(
@@ -435,6 +470,7 @@ class ElectionSetup:
                     creator_id=interaction.user.id,
                     end_timestamp=self.end_timestamp,
                     locale=self.locale,
+                    shared=self.shared,
                 )
 
                 # Return the election to the caller - don't edit the message here
@@ -496,6 +532,10 @@ class ElectionSetup:
         if available_locales():
             container.add_item(discord.ui.TextDisplay("**{}**".format(_("Language"))))
             container.add_item(discord.ui.ActionRow(LanguageSelect()))
+        container.add_item(
+            discord.ui.TextDisplay("**{}**".format(_("Who can manage this election")))
+        )
+        container.add_item(discord.ui.ActionRow(ManagerSelect()))
         container.add_item(discord.ui.Separator())
         container.add_item(
             discord.ui.Section(

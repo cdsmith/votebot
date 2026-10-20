@@ -23,6 +23,10 @@ method_choices = [
 ]
 
 
+# Discord error codes for things that no longer exist
+UNKNOWN_CHANNEL = 10003
+UNKNOWN_MESSAGE = 10008
+
 # on_ready runs again after reconnects, but registered views survive those,
 # so startup work only needs to happen once.
 _started = False
@@ -53,8 +57,12 @@ async def on_ready():
                 try:
                     message = await channel.fetch_message(election.message_id)
                     await message.edit(**election.get_public_view())
-                except discord.NotFound:
-                    pass
+                except discord.NotFound as e:
+                    # The post or its channel was deleted while the bot was
+                    # offline.  The post is the election, so it's gone too.
+                    if e.code in (UNKNOWN_CHANNEL, UNKNOWN_MESSAGE):
+                        db.delete_election(election.election_id)
+                        print(f"Deleted election {election.election_id}: post is gone")
                 except discord.HTTPException as e:
                     print(f"Error restoring election {election.election_id}: {e}")
 
@@ -64,6 +72,30 @@ async def on_ready():
     await tree.set_translator(CommandTranslator())
     await tree.sync()
     print(f"{client.user} has connected to Discord!")
+
+
+# An election's public post is the election, so deleting the post (which
+# takes Manage Messages, or the bot itself) or its channel deletes the election.
+
+
+@client.event
+async def on_raw_message_delete(payload: discord.RawMessageDeleteEvent):
+    db.delete_elections_by_message([payload.message_id])
+
+
+@client.event
+async def on_raw_bulk_message_delete(payload: discord.RawBulkMessageDeleteEvent):
+    db.delete_elections_by_message(payload.message_ids)
+
+
+@client.event
+async def on_guild_channel_delete(channel: discord.abc.GuildChannel):
+    db.delete_elections_in_channel(channel.id)
+
+
+@client.event
+async def on_raw_thread_delete(payload: discord.RawThreadDeleteEvent):
+    db.delete_elections_in_channel(payload.thread_id)
 
 
 @tree.command(name="electable", description=N_("Manage your elections."))

@@ -132,6 +132,14 @@ Use `/electable` to:
 - **End Now**: Immediately end an election and show results
 - **Delete**: Remove an election without showing results
 
+When setting up an election, choose who can manage it:
+- **Only me**: The election's message shows you as the person running it, and only you can manage it.
+- **Anyone who can use /electable here**: Anyone who can use the command in the channel can manage it, and no one is shown as running it.
+
+Members who can manage the server can manage every election.  Server admins choose who can use `/electable`, and in which channels, under Server Settings → Integrations.
+
+An election's message is the election: deleting the message (which takes the Manage Messages permission), or its channel, deletes the election.
+
 ## Extending the Bot
 
 If you'd like to extend the bot with additional features, you can do so as follows:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -35,6 +35,9 @@ msgstr "Voto actual"
 
 msgid "Page {page}/{total}"
 msgstr "Página {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Esta elección ya no existe."
 
 msgid "Vote Submitted"
 msgstr "Voto enviado"
@@ -142,9 +145,6 @@ msgstr "Sí, eliminarla sin publicar los resultados"
 msgid "Vote"
 msgstr "Votar"
 
-msgid "This election no longer exists."
-msgstr "Esta elección ya no existe."
-
 msgid "*No candidates yet!*"
 msgstr "*¡Todavía no hay candidatos!*"
 
@@ -156,6 +156,9 @@ msgstr "Terminó"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Elección terminada"
+
+msgid "Run by {user}"
+msgstr "Organizada por {user}"
 
 msgid "Candidates"
 msgstr "Candidatos"
@@ -210,6 +213,9 @@ msgstr ""
 "{channel}. Asegúrate de que el bot pueda ver ese canal y enviar mensajes "
 "allí. Seguirá intentándolo."
 
+msgid "Anyone who can use /electable here"
+msgstr "Cualquiera que pueda usar /electable aquí"
+
 msgid "End Time (optional)"
 msgstr "Fecha de cierre (opcional)"
 
@@ -256,6 +262,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Una elección puede tener como máximo {n} candidato."
 msgstr[1] "Una elección puede tener como máximo {n} candidatos."
+
+msgid "Only me"
+msgstr "Solo yo"
+
+msgid "The election shows you as the person running it."
+msgstr "La elección te muestra como su organizador."
+
+msgid "The election doesn't show who is running it."
+msgstr "La elección no muestra quién la organiza."
 
 msgid "Remove Candidate"
 msgstr "Quitar candidato"
@@ -305,6 +320,9 @@ msgstr "Editar"
 
 msgid "Language"
 msgstr "Idioma"
+
+msgid "Who can manage this election"
+msgstr "Quién puede gestionar esta elección"
 
 msgid "No title was set."
 msgstr "No se estableció ningún título."

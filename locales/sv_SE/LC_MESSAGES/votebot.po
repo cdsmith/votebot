@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: sv_SE\n"
@@ -35,6 +35,9 @@ msgstr "Nuvarande röst"
 
 msgid "Page {page}/{total}"
 msgstr "Sida {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Den här omröstningen finns inte längre."
 
 msgid "Vote Submitted"
 msgstr "Rösten har skickats"
@@ -142,9 +145,6 @@ msgstr "Ja, radera utan att publicera resultatet"
 msgid "Vote"
 msgstr "Rösta"
 
-msgid "This election no longer exists."
-msgstr "Den här omröstningen finns inte längre."
-
 msgid "*No candidates yet!*"
 msgstr "*Inga kandidater än!*"
 
@@ -156,6 +156,9 @@ msgstr "Avslutad"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Omröstningen avslutad"
+
+msgid "Run by {user}"
+msgstr "Arrangeras av {user}"
 
 msgid "Candidates"
 msgstr "Kandidater"
@@ -211,6 +214,9 @@ msgstr ""
 " Se till att boten kan se kanalen och skicka meddelanden där. Den "
 "fortsätter att försöka."
 
+msgid "Anyone who can use /electable here"
+msgstr "Alla som kan använda /electable här"
+
 msgid "End Time (optional)"
 msgstr "Sluttid (valfritt)"
 
@@ -253,6 +259,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "En omröstning kan ha högst {n} kandidat."
 msgstr[1] "En omröstning kan ha högst {n} kandidater."
+
+msgid "Only me"
+msgstr "Bara jag"
+
+msgid "The election shows you as the person running it."
+msgstr "Omröstningen visar dig som arrangör."
+
+msgid "The election doesn't show who is running it."
+msgstr "Omröstningen visar inte vem som arrangerar den."
 
 msgid "Remove Candidate"
 msgstr "Ta bort kandidat"
@@ -304,6 +319,9 @@ msgstr "Redigera"
 
 msgid "Language"
 msgstr "Språk"
+
+msgid "Who can manage this election"
+msgstr "Vem som kan hantera omröstningen"
 
 msgid "No title was set."
 msgstr "Ingen titel har angetts."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hi\n"
@@ -35,6 +35,9 @@ msgstr "मौजूदा वोट"
 
 msgid "Page {page}/{total}"
 msgstr "पेज {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "यह चुनाव अब मौजूद नहीं है।"
 
 msgid "Vote Submitted"
 msgstr "वोट सबमिट हो गया"
@@ -142,9 +145,6 @@ msgstr "हाँ, परिणाम प्रकाशित किए बि�
 msgid "Vote"
 msgstr "वोट करें"
 
-msgid "This election no longer exists."
-msgstr "यह चुनाव अब मौजूद नहीं है।"
-
 msgid "*No candidates yet!*"
 msgstr "*अभी कोई उम्मीदवार नहीं है!*"
 
@@ -156,6 +156,9 @@ msgstr "समाप्त हुआ"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • चुनाव समाप्त"
+
+msgid "Run by {user}"
+msgstr "आयोजक: {user}"
 
 msgid "Candidates"
 msgstr "उम्मीदवार"
@@ -210,6 +213,9 @@ msgstr ""
 " सुनिश्चित करें कि बॉट उस चैनल को देख सकता है और वहाँ संदेश भेज सकता है। "
 "वह प्रयास करता रहेगा।"
 
+msgid "Anyone who can use /electable here"
+msgstr "यहाँ /electable का उपयोग कर सकने वाला कोई भी"
+
 msgid "End Time (optional)"
 msgstr "समाप्ति समय (वैकल्पिक)"
 
@@ -254,6 +260,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "एक चुनाव में अधिकतम {n} उम्मीदवार हो सकता है।"
 msgstr[1] "एक चुनाव में अधिकतम {n} उम्मीदवार हो सकते हैं।"
+
+msgid "Only me"
+msgstr "केवल मैं"
+
+msgid "The election shows you as the person running it."
+msgstr "चुनाव में आपको आयोजक के रूप में दिखाया जाता है।"
+
+msgid "The election doesn't show who is running it."
+msgstr "चुनाव में यह नहीं दिखाया जाता कि इसे कौन चला रहा है।"
 
 msgid "Remove Candidate"
 msgstr "उम्मीदवार हटाएँ"
@@ -305,6 +320,9 @@ msgstr "संपादित करें"
 
 msgid "Language"
 msgstr "भाषा"
+
+msgid "Who can manage this election"
+msgstr "यह चुनाव कौन प्रबंधित कर सकता है"
 
 msgid "No title was set."
 msgstr "कोई शीर्षक तय नहीं किया गया।"

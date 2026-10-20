@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: bg\n"
@@ -35,6 +35,9 @@ msgstr "Текущ глас"
 
 msgid "Page {page}/{total}"
 msgstr "Страница {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Тези избори вече не съществуват."
 
 msgid "Vote Submitted"
 msgstr "Гласът е подаден"
@@ -142,9 +145,6 @@ msgstr "Да, изтрий ги, без да публикуваш резулта
 msgid "Vote"
 msgstr "Гласувай"
 
-msgid "This election no longer exists."
-msgstr "Тези избори вече не съществуват."
-
 msgid "*No candidates yet!*"
 msgstr "*Все още няма кандидати!*"
 
@@ -156,6 +156,9 @@ msgstr "Приключили"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Изборите приключиха"
+
+msgid "Run by {user}"
+msgstr "Организатор: {user}"
 
 msgid "Candidates"
 msgstr "Кандидати"
@@ -211,6 +214,9 @@ msgstr ""
 "{channel}. Уверете се, че ботът може да вижда този канал и да изпраща "
 "съобщения в него. Той ще продължи да опитва."
 
+msgid "Anyone who can use /electable here"
+msgstr "Всеки, който може да използва /electable тук"
+
 msgid "End Time (optional)"
 msgstr "Час на приключване (по избор)"
 
@@ -257,6 +263,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Изборите могат да имат най-много {n} кандидат."
 msgstr[1] "Изборите могат да имат най-много {n} кандидати."
+
+msgid "Only me"
+msgstr "Само аз"
+
+msgid "The election shows you as the person running it."
+msgstr "Изборите показват вас като организатор."
+
+msgid "The election doesn't show who is running it."
+msgstr "Изборите не показват кой ги организира."
 
 msgid "Remove Candidate"
 msgstr "Премахни кандидат"
@@ -308,6 +323,9 @@ msgstr "Редактирай"
 
 msgid "Language"
 msgstr "Език"
+
+msgid "Who can manage this election"
+msgstr "Кой може да управлява изборите"
 
 msgid "No title was set."
 msgstr "Не е зададено заглавие."

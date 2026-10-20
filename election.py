@@ -46,6 +46,7 @@ class Election(abc.ABC):
         creator_id: int = 0,
         end_timestamp: int | None = None,
         locale: str | None = None,
+        shared: bool = False,
     ):
         self.election_id: int | None = election_id
         self.channel_id: int | None = channel_id
@@ -59,6 +60,10 @@ class Election(abc.ABC):
         self.end_timestamp: int | None = end_timestamp
         # Language of public messages, as a Discord locale code; None is English
         self.locale: str | None = locale
+        # Whether anyone who can use /electable in the channel may manage this
+        # election, rather than only its creator.  Personal elections show
+        # their creator.
+        self.shared: bool = shared
 
         # Store method class name for serialization
         self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
@@ -105,20 +110,24 @@ class Election(abc.ABC):
                 )
                 footer = _("{footer} • Election ended").format(footer=votes)
 
-            texts = [
-                f"## {self.title}",
+            heading = [f"## {self.title}"]
+            if not self.shared and self.creator_id:
+                heading.append(
+                    "-# " + _("Run by {user}").format(user=f"<@{self.creator_id}>")
+                )
+            body = [
                 "**{}**\n{}".format(_("Candidates"), candidates),
                 "**{}**\n{}".format(
                     _("Method"), self.method_description(self.method_params)
                 ),
             ]
             if end_time:
-                texts.append(end_time)
+                body.append(end_time)
             footer = f"-# {footer}"
             # The description gets whatever room is left within Discord's limit.
-            room = LAYOUT_TEXT_LIMIT - sum(map(len, texts)) - len(footer)
-            if self.description:
-                texts.insert(1, truncate(self.description, room))
+            room = LAYOUT_TEXT_LIMIT - sum(map(len, heading + body)) - len(footer)
+            description = [truncate(self.description, room)] if self.description else []
+            texts = heading + description + body
 
             container = discord.ui.Container(
                 *(discord.ui.TextDisplay(t) for t in texts),
@@ -139,7 +148,13 @@ class Election(abc.ABC):
             view.add_item(container)
             # Clearing content and embeds converts messages posted before the
             # bot used Components V2.
-            return {"view": view, "content": None, "embeds": []}
+            return {
+                "view": view,
+                "content": None,
+                "embeds": [],
+                # Naming the creator shouldn't notify them.
+                "allowed_mentions": discord.AllowedMentions.none(),
+            }
 
     def accepting_votes(self) -> bool:
         """Whether voting is open.  Voting closes at the scheduled end time,
@@ -260,7 +275,8 @@ class Election(abc.ABC):
             message = await channel.fetch_message(self.message_id)
             await message.edit(**self.get_public_view())
         except discord.NotFound:
-            pass
+            # The post is the election, so with the post gone, so is it.
+            db.delete_election(self.election_id)
 
     def get_results(
         self, announcement: str | None = None
@@ -389,6 +405,7 @@ def load_election_from_db(election_id: int) -> Election | None:
         creator_id=data["creator_id"],
         end_timestamp=data["end_timestamp"],
         locale=data["locale"],
+        shared=data["shared"],
     )
     election.open = data["open"]
     election.message_id = data["message_id"]

@@ -4,7 +4,7 @@ import discord
 from typing import Any
 import db
 from election import load_election_from_db, end_election_and_update_message
-from setup import ElectionSetup
+from setup import ElectionSetup, manager_label
 import time_utils
 import election_checker
 from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale
@@ -13,11 +13,22 @@ from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale
 class ElectableView(LocalizedView):
     """Main view for the /electable command."""
 
-    def __init__(self, channel_id: int, user_id: int):
+    def __init__(self, channel_id: int, user_id: int, manages_all: bool = False):
         super().__init__(timeout=3600)
         self.channel_id = channel_id
         self.user_id = user_id
+        # Whether the user may manage every election in the channel, as people
+        # who can manage the server can.
+        self.manages_all = manages_all
         self.selected_election_id: int | None = None
+
+    def can_manage(self, election: dict[str, Any]) -> bool:
+        """Whether the user may manage an election (given as database data)."""
+        return (
+            self.manages_all
+            or election["shared"]
+            or election["creator_id"] == self.user_id
+        )
 
     def get_content(self) -> dict[str, Any]:
         """Rebuild the view from the current elections, and return it as
@@ -25,18 +36,19 @@ class ElectableView(LocalizedView):
         if self.is_finished():
             # This view timed out, e.g. during a long setup, so continue in a
             # new one.
-            view = ElectableView(self.channel_id, self.user_id)
+            view = ElectableView(self.channel_id, self.user_id, self.manages_all)
             view.selected_election_id = self.selected_election_id
             return view.get_content()
         # Restart the timeout, which doesn't count time spent in a setup.
         self.timeout = self.timeout
         self.clear_items()
-        election = (
-            load_election_from_db(self.selected_election_id)
+        data = (
+            db.load_election(self.selected_election_id)
             if self.selected_election_id
             else None
         )
-        if election:
+        if data and self.can_manage(data):
+            election = load_election_from_db(self.selected_election_id)
             self.show_election(election)
         else:
             # The election may have been deleted elsewhere.
@@ -45,8 +57,12 @@ class ElectableView(LocalizedView):
         return {"view": self}
 
     def show_list(self):
-        """Show the user's elections in this channel."""
-        elections = db.load_elections_by_creator(self.channel_id, self.user_id)
+        """Show the elections in this channel that the user can manage."""
+        elections = [
+            e
+            for e in db.load_elections_in_channel(self.channel_id)
+            if self.can_manage(e)
+        ]
         if elections:
             self.add_item(discord.ui.ActionRow(ElectionSelect(elections)))
         self.add_item(discord.ui.ActionRow(CreateNewButton()))
@@ -59,6 +75,9 @@ class ElectableView(LocalizedView):
         self.add_item(
             discord.ui.Container(
                 discord.ui.TextDisplay(f"## {election.title}"),
+                discord.ui.TextDisplay(
+                    "-# " + manager_label(election.shared, election.creator_id)
+                ),
                 discord.ui.TextDisplay(
                     _("**Method**:\n{method}").format(
                         method=election.method_description(election.method_params)
@@ -337,5 +356,9 @@ class DeleteButton(discord.ui.Button):
 async def show_electable(interaction: discord.Interaction):
     """Show the electable command interface."""
     with use_locale(interaction.locale.value):
-        view = ElectableView(interaction.channel_id, interaction.user.id)
+        view = ElectableView(
+            interaction.channel_id,
+            interaction.user.id,
+            manages_all=interaction.permissions.manage_guild,
+        )
         await interaction.response.send_message(**view.get_content(), ephemeral=True)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -36,6 +36,9 @@ msgstr "Votul curent"
 
 msgid "Page {page}/{total}"
 msgstr "Pagina {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Aceste alegeri nu mai există."
 
 msgid "Vote Submitted"
 msgstr "Vot trimis"
@@ -145,9 +148,6 @@ msgstr "Da, ștergeți-le fără a publica rezultatele"
 msgid "Vote"
 msgstr "Votează"
 
-msgid "This election no longer exists."
-msgstr "Aceste alegeri nu mai există."
-
 msgid "*No candidates yet!*"
 msgstr "*Încă nu există candidați!*"
 
@@ -159,6 +159,9 @@ msgstr "Încheiate"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Alegeri încheiate"
+
+msgid "Run by {user}"
+msgstr "Organizate de {user}"
 
 msgid "Candidates"
 msgstr "Candidați"
@@ -214,6 +217,9 @@ msgstr ""
 " Asigurați-vă că botul poate vedea acel canal și poate trimite mesaje "
 "acolo. Va continua să încerce."
 
+msgid "Anyone who can use /electable here"
+msgstr "Oricine poate folosi /electable aici"
+
 msgid "End Time (optional)"
 msgstr "Ora de încheiere (opțional)"
 
@@ -265,6 +271,15 @@ msgstr[0] "Alegerile pot avea cel mult {n} candidat."
 msgstr[1] "Alegerile pot avea cel mult {n} candidați."
 msgstr[2] "Alegerile pot avea cel mult {n} de candidați."
 
+msgid "Only me"
+msgstr "Doar eu"
+
+msgid "The election shows you as the person running it."
+msgstr "Alegerile vă afișează ca organizator."
+
+msgid "The election doesn't show who is running it."
+msgstr "Alegerile nu afișează cine le organizează."
+
 msgid "Remove Candidate"
 msgstr "Elimină candidatul"
 
@@ -315,6 +330,9 @@ msgstr "Editează"
 
 msgid "Language"
 msgstr "Limbă"
+
+msgid "Who can manage this election"
+msgstr "Cine poate gestiona alegerile"
 
 msgid "No title was set."
 msgstr "Nu a fost setat niciun titlu."

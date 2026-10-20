@@ -67,6 +67,10 @@ SHORT_TEXT = [
     "Select an election to manage",
     "Remove Candidate",
     "Remove a candidate from your ranking",
+    "Only me",
+    "Anyone who can use /electable here",
+    "The election shows you as the person running it.",
+    "The election doesn't show who is running it.",
 ]
 
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: th\n"
@@ -35,6 +35,9 @@ msgstr "คะแนนโหวตปัจจุบัน"
 
 msgid "Page {page}/{total}"
 msgstr "หน้า {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "การเลือกตั้งนี้ไม่มีอยู่แล้ว"
 
 msgid "Vote Submitted"
 msgstr "ส่งคะแนนโหวตแล้ว"
@@ -140,9 +143,6 @@ msgstr "ใช่ ลบโดยไม่ประกาศผล"
 msgid "Vote"
 msgstr "โหวต"
 
-msgid "This election no longer exists."
-msgstr "การเลือกตั้งนี้ไม่มีอยู่แล้ว"
-
 msgid "*No candidates yet!*"
 msgstr "*ยังไม่มีผู้สมัคร!*"
 
@@ -154,6 +154,9 @@ msgstr "สิ้นสุดแล้ว"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • การเลือกตั้งสิ้นสุดแล้ว"
+
+msgid "Run by {user}"
+msgstr "ผู้จัด: {user}"
 
 msgid "Candidates"
 msgstr "ผู้สมัคร"
@@ -208,6 +211,9 @@ msgstr ""
 "โปรดตรวจสอบว่าบอทมองเห็นช่องนั้นและส่งข้อความในช่องนั้นได้ "
 "บอทจะพยายามต่อไป"
 
+msgid "Anyone who can use /electable here"
+msgstr "ทุกคนที่ใช้ /electable ที่นี่ได้"
+
 msgid "End Time (optional)"
 msgstr "เวลาสิ้นสุด (ไม่บังคับ)"
 
@@ -248,6 +254,15 @@ msgstr[0] "**{name}** ยาวเกินไป ชื่อผู้สมั
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "การเลือกตั้งหนึ่งมีผู้สมัครได้ไม่เกิน {n} คน"
+
+msgid "Only me"
+msgstr "เฉพาะฉัน"
+
+msgid "The election shows you as the person running it."
+msgstr "การเลือกตั้งจะแสดงคุณเป็นผู้จัด"
+
+msgid "The election doesn't show who is running it."
+msgstr "การเลือกตั้งจะไม่แสดงว่าใครเป็นผู้จัด"
 
 msgid "Remove Candidate"
 msgstr "ลบผู้สมัคร"
@@ -299,6 +314,9 @@ msgstr "แก้ไข"
 
 msgid "Language"
 msgstr "ภาษา"
+
+msgid "Who can manage this election"
+msgstr "ผู้ที่จัดการการเลือกตั้งนี้ได้"
 
 msgid "No title was set."
 msgstr "ยังไม่ได้ตั้งชื่อ"

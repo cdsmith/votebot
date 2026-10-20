@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -35,6 +35,9 @@ msgstr "현재 투표"
 
 msgid "Page {page}/{total}"
 msgstr "페이지 {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "이 선거는 더 이상 존재하지 않습니다."
 
 msgid "Vote Submitted"
 msgstr "투표 제출됨"
@@ -138,9 +141,6 @@ msgstr "네, 결과를 게시하지 않고 삭제합니다"
 msgid "Vote"
 msgstr "투표"
 
-msgid "This election no longer exists."
-msgstr "이 선거는 더 이상 존재하지 않습니다."
-
 msgid "*No candidates yet!*"
 msgstr "*아직 후보가 없습니다!*"
 
@@ -152,6 +152,9 @@ msgstr "종료됨"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • 선거 종료"
+
+msgid "Run by {user}"
+msgstr "주최: {user}"
 
 msgid "Candidates"
 msgstr "후보"
@@ -201,6 +204,9 @@ msgstr ""
 "**{title}** 선거 결과를 {channel}에 게시하지 못했습니다. 봇이 해당 채널을 보고 메시지를 보낼 수 있는지 "
 "확인하세요. 봇은 계속 시도합니다."
 
+msgid "Anyone who can use /electable here"
+msgstr "여기서 /electable을 사용할 수 있는 모든 사람"
+
 msgid "End Time (optional)"
 msgstr "종료 시간 (선택)"
 
@@ -241,6 +247,15 @@ msgstr[0] "**{name}** 이름이 너무 깁니다. 후보 이름은 최대 {n}자
 msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "선거에는 후보를 최대 {n}명까지 등록할 수 있습니다."
+
+msgid "Only me"
+msgstr "나만"
+
+msgid "The election shows you as the person running it."
+msgstr "선거에 내가 주최자로 표시됩니다."
+
+msgid "The election doesn't show who is running it."
+msgstr "선거에 주최자가 표시되지 않습니다."
 
 msgid "Remove Candidate"
 msgstr "후보 삭제"
@@ -290,6 +305,9 @@ msgstr "편집"
 
 msgid "Language"
 msgstr "언어"
+
+msgid "Who can manage this election"
+msgstr "이 선거를 관리할 수 있는 사람"
 
 msgid "No title was set."
 msgstr "제목이 설정되지 않았습니다."

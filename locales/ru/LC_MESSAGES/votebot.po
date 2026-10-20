@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -36,6 +36,9 @@ msgstr "Текущий голос"
 
 msgid "Page {page}/{total}"
 msgstr "Страница {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Это голосование больше не существует."
 
 msgid "Vote Submitted"
 msgstr "Голос отправлен"
@@ -145,9 +148,6 @@ msgstr "Да, удалить без публикации результатов"
 msgid "Vote"
 msgstr "Голосовать"
 
-msgid "This election no longer exists."
-msgstr "Это голосование больше не существует."
-
 msgid "*No candidates yet!*"
 msgstr "*Кандидатов пока нет!*"
 
@@ -159,6 +159,9 @@ msgstr "Завершено"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Голосование завершено"
+
+msgid "Run by {user}"
+msgstr "Проводит: {user}"
 
 msgid "Candidates"
 msgstr "Кандидаты"
@@ -213,6 +216,9 @@ msgstr ""
 "{channel}. Убедитесь, что бот видит этот канал и может отправлять в него "
 "сообщения. Бот продолжит попытки."
 
+msgid "Anyone who can use /electable here"
+msgstr "Все, кто может использовать /electable здесь"
+
 msgid "End Time (optional)"
 msgstr "Время окончания (необязательно)"
 
@@ -264,6 +270,15 @@ msgstr[0] "В голосовании может быть не более {n} к�
 msgstr[1] "В голосовании может быть не более {n} кандидатов."
 msgstr[2] "В голосовании может быть не более {n} кандидатов."
 
+msgid "Only me"
+msgstr "Только я"
+
+msgid "The election shows you as the person running it."
+msgstr "В голосовании вы будете указаны как организатор."
+
+msgid "The election doesn't show who is running it."
+msgstr "В голосовании не указано, кто его проводит."
+
 msgid "Remove Candidate"
 msgstr "Удалить кандидата"
 
@@ -314,6 +329,9 @@ msgstr "Изменить"
 
 msgid "Language"
 msgstr "Язык"
+
+msgid "Who can manage this election"
+msgstr "Кто может управлять голосованием"
 
 msgid "No title was set."
 msgstr "Название не задано."

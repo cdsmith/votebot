@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,9 @@ msgid "Current vote"
 msgstr ""
 
 msgid "Page {page}/{total}"
+msgstr ""
+
+msgid "This election no longer exists."
 msgstr ""
 
 msgid "Vote Submitted"
@@ -133,9 +136,6 @@ msgstr ""
 msgid "Vote"
 msgstr ""
 
-msgid "This election no longer exists."
-msgstr ""
-
 msgid "*No candidates yet!*"
 msgstr ""
 
@@ -146,6 +146,9 @@ msgid "Ended"
 msgstr ""
 
 msgid "{footer} • Election ended"
+msgstr ""
+
+msgid "Run by {user}"
 msgstr ""
 
 msgid "Candidates"
@@ -194,6 +197,9 @@ msgid ""
 " will keep trying."
 msgstr ""
 
+msgid "Anyone who can use /electable here"
+msgstr ""
+
 msgid "End Time (optional)"
 msgstr ""
 
@@ -236,6 +242,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Only me"
+msgstr ""
+
+msgid "The election shows you as the person running it."
+msgstr ""
+
+msgid "The election doesn't show who is running it."
+msgstr ""
 
 msgid "Remove Candidate"
 msgstr ""
@@ -280,6 +295,9 @@ msgid "Edit"
 msgstr ""
 
 msgid "Language"
+msgstr ""
+
+msgid "Who can manage this election"
 msgstr ""
 
 msgid "No title was set."

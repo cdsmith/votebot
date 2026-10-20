@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:15-0600\n"
+"POT-Creation-Date: 2026-10-20 11:31-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -35,6 +35,9 @@ msgstr "Huidige stem"
 
 msgid "Page {page}/{total}"
 msgstr "Pagina {page}/{total}"
+
+msgid "This election no longer exists."
+msgstr "Deze verkiezing bestaat niet meer."
 
 msgid "Vote Submitted"
 msgstr "Stem uitgebracht"
@@ -142,9 +145,6 @@ msgstr "Ja, verwijderen zonder de uitslag te publiceren"
 msgid "Vote"
 msgstr "Stemmen"
 
-msgid "This election no longer exists."
-msgstr "Deze verkiezing bestaat niet meer."
-
 msgid "*No candidates yet!*"
 msgstr "*Nog geen kandidaten!*"
 
@@ -156,6 +156,9 @@ msgstr "Afgelopen"
 
 msgid "{footer} • Election ended"
 msgstr "{footer} • Verkiezing afgelopen"
+
+msgid "Run by {user}"
+msgstr "Georganiseerd door {user}"
 
 msgid "Candidates"
 msgstr "Kandidaten"
@@ -211,6 +214,9 @@ msgstr ""
 "gepubliceerd. Zorg dat de bot dat kanaal kan zien en er berichten kan "
 "sturen. Hij blijft het proberen."
 
+msgid "Anyone who can use /electable here"
+msgstr "Iedereen die /electable hier kan gebruiken"
+
 msgid "End Time (optional)"
 msgstr "Eindtijd (optioneel)"
 
@@ -257,6 +263,15 @@ msgid "An election can have at most {n} candidate."
 msgid_plural "An election can have at most {n} candidates."
 msgstr[0] "Een verkiezing kan maximaal {n} kandidaat hebben."
 msgstr[1] "Een verkiezing kan maximaal {n} kandidaten hebben."
+
+msgid "Only me"
+msgstr "Alleen ik"
+
+msgid "The election shows you as the person running it."
+msgstr "De verkiezing toont jou als organisator."
+
+msgid "The election doesn't show who is running it."
+msgstr "De verkiezing toont niet wie haar organiseert."
 
 msgid "Remove Candidate"
 msgstr "Kandidaat verwijderen"
@@ -308,6 +323,9 @@ msgstr "Bewerken"
 
 msgid "Language"
 msgstr "Taal"
+
+msgid "Who can manage this election"
+msgstr "Wie deze verkiezing kan beheren"
 
 msgid "No title was set."
 msgstr "Er is geen titel ingesteld."
