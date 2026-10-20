@@ -59,11 +59,8 @@ class ElectableView(LocalizedView):
                 discord.ui.TextDisplay(
                     _("**Candidates**:\n{candidates}").format(candidates=candidates)
                 ),
-                discord.ui.Section(
-                    discord.ui.TextDisplay(
-                        _("**Ends**:\n{end_time}").format(end_time=end_time)
-                    ),
-                    accessory=RescheduleButton(election.election_id),
+                discord.ui.TextDisplay(
+                    _("**Ends**:\n{end_time}").format(end_time=end_time)
                 ),
                 discord.ui.Separator(),
                 discord.ui.TextDisplay(
@@ -77,6 +74,7 @@ class ElectableView(LocalizedView):
         self.add_item(
             discord.ui.ActionRow(
                 BackButton(),
+                RescheduleButton(election.election_id),
                 EndNowButton(election.election_id),
                 DeleteButton(election.election_id),
             )
