@@ -147,33 +147,3 @@ def format_timestamp_discord(
         return f"<t:{timestamp}:f> (<t:{timestamp}:R>)"
     else:
         return f"<t:{timestamp}:f>"
-
-
-def humanize_duration(seconds: int) -> str:
-    """
-    Convert a duration in seconds to a human-readable string.
-
-    Examples:
-    - 3600 -> "1 hour"
-    - 7200 -> "2 hours"
-    - 90 -> "1 minute"
-    """
-    if seconds < 60:
-        return f"{seconds} second{'s' if seconds != 1 else ''}"
-
-    minutes = seconds // 60
-    if minutes < 60:
-        return f"{minutes} minute{'s' if minutes != 1 else ''}"
-
-    hours = minutes // 60
-    if hours < 24:
-        remaining_minutes = minutes % 60
-        if remaining_minutes == 0:
-            return f"{hours} hour{'s' if hours != 1 else ''}"
-        return f"{hours} hour{'s' if hours != 1 else ''} {remaining_minutes} minute{'s' if remaining_minutes != 1 else ''}"
-
-    days = hours // 24
-    remaining_hours = hours % 24
-    if remaining_hours == 0:
-        return f"{days} day{'s' if days != 1 else ''}"
-    return f"{days} day{'s' if days != 1 else ''} {remaining_hours} hour{'s' if remaining_hours != 1 else ''}"

@@ -97,7 +97,7 @@ def test_largest_screens_fit():
                 assert_fits(view)
             db.delete_election(election.election_id)
 
-        view = ElectableView(FakeInteraction())
+        view = ElectableView(1, 2)
         for cls in [ApprovalElection, STARElection]:
             _election(cls)
         assert_fits(view.get_content()["view"])
@@ -249,5 +249,34 @@ def test_confirmation_requires_the_box():
         modal.confirm._values = ["yes"]
         await modal.on_submit(FakeInteraction())
         assert confirmed
+
+    asyncio.run(main())
+
+
+def test_duplicate_title_is_caught_during_setup():
+    async def main():
+        _election(ApprovalElection)
+        s = _full_setup()
+        s.channel_id = 1
+        assert s.invalid_reason() is None
+        s.title = db.load_elections_by_creator(1, 2)[0]["title"]
+        assert "already ongoing" in s.invalid_reason()
+        start = next(
+            item
+            for item in s.get_setup_message()["view"].walk_children()
+            if isinstance(item, discord.ui.Button) and item.label == "Start Election"
+        )
+        assert start.disabled
+
+    asyncio.run(main())
+
+
+def test_electable_view_continues_after_timing_out():
+    async def main():
+        view = ElectableView(1, 2)
+        assert view.get_content()["view"] is view
+        view.stop()  # As when it times out during a long setup
+        fresh = view.get_content()["view"]
+        assert fresh is not view and not fresh.is_finished()
 
     asyncio.run(main())

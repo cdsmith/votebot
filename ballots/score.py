@@ -1,6 +1,5 @@
 from ballot import Ballot
 import discord
-import random
 from i18n import _
 
 STAR = "⭐"

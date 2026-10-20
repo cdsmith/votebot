@@ -3,7 +3,6 @@ from typing import Any, Callable, Optional
 import copy
 import math
 import discord
-import random
 import db
 from i18n import _, LocalizedView
 from layout import action_rows

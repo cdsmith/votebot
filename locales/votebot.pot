@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 08:04-0600\n"
+"POT-Creation-Date: 2026-10-20 11:15-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,11 @@ msgstr ""
 msgid "End Now"
 msgstr ""
 
+msgid ""
+"The results couldn't be posted in this channel. Please make sure the bot "
+"can send messages here, then try again."
+msgstr ""
+
 msgid "Confirm End Election"
 msgstr ""
 
@@ -181,6 +186,12 @@ msgid "Computed using {method}"
 msgstr ""
 
 msgid "Election **{title}** has ended!"
+msgstr ""
+
+msgid ""
+"The results of the election **{title}** couldn't be posted in {channel}. "
+"Please make sure the bot can see that channel and send messages there. It"
+" will keep trying."
 msgstr ""
 
 msgid "End Time (optional)"

@@ -2,8 +2,10 @@
 
 import asyncio
 import time
+import discord
 import db
 from election import load_election_from_db, end_election_and_update_message
+from i18n import _, use_locale
 
 
 # Will be set by bot.py
@@ -58,6 +60,26 @@ async def _run():
             pass
 
 
+async def notify_creator(election):
+    """Tell an election's creator that its results couldn't be posted, since
+    otherwise nobody may notice."""
+    if not election.creator_id:
+        return  # Created before creators were recorded
+    try:
+        user = await client.fetch_user(election.creator_id)
+        with use_locale(election.locale):
+            await user.send(
+                _(
+                    "The results of the election **{title}** couldn't be posted "
+                    "in {channel}. Please make sure the bot can see that channel "
+                    "and send messages there. It will keep trying."
+                ).format(title=election.title, channel=f"<#{election.channel_id}>")
+            )
+    except discord.HTTPException as e:
+        # For example, the creator doesn't accept direct messages.
+        print(f"Couldn't notify the creator of election {election.election_id}: {e}")
+
+
 async def check_expired_elections() -> int:
     """End any expired elections, and return how long to sleep before the next
     check.
@@ -102,6 +124,8 @@ async def check_expired_elections() -> int:
                     f"Error ending election {election_id} (attempt {count}, "
                     f"retrying in {delay}s): {e}"
                 )
+                if count == 1:
+                    await notify_creator(election)
         else:
             next_end = min(next_end, election_data["end_timestamp"])
 

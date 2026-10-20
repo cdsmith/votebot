@@ -1,4 +1,5 @@
 import discord
+import db
 from election import Election
 import methods
 from typing import Any, Callable
@@ -54,6 +55,7 @@ class ElectionSetup:
         self.end_time_str: str = ""
         self.end_timestamp: int | None = None
         self.locale: str | None = None  # Language of the election's public messages
+        self.channel_id: int | None = None
         self.current_view: discord.ui.View | None = None  # Most recently rendered view
 
     def abandon(self):
@@ -113,6 +115,7 @@ class ElectionSetup:
         self, interaction: discord.Interaction, parent_view=None
     ) -> tuple[int, str, Election] | None:
         self.parent_view = parent_view
+        self.channel_id = interaction.channel_id
         # Public messages default to the server's language.
         if interaction.guild_locale:
             self.locale = supported_locale(interaction.guild_locale.value)
@@ -529,6 +532,13 @@ class ElectionSetup:
     def invalid_reason(self) -> str | None:
         if not self.title:
             return _("No title was set.")
+        if self.channel_id and db.load_election_by_natural_key(
+            self.channel_id, self.title
+        ):
+            return _(
+                "An election with the title `{title}` is already ongoing in "
+                "this channel."
+            ).format(title=self.title)
         if not self.method_class:
             return _("No method was set.")
         if not self.candidates or len(self.candidates) < 2:

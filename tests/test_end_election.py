@@ -28,12 +28,24 @@ class FakeChannel:
         self.sent.append(view)
 
 
+class FakeUser:
+    def __init__(self):
+        self.messages = []
+
+    async def send(self, content):
+        self.messages.append(content)
+
+
 class FakeClient:
     def __init__(self, channel):
         self.channel = channel
+        self.user = FakeUser()
 
     def get_channel(self, channel_id):
         return self.channel
+
+    async def fetch_user(self, user_id):
+        return self.user
 
 
 class _FakeResponse:
@@ -52,13 +64,14 @@ def fresh_db(tmp_path, monkeypatch):
     db.DB_PATH = original
 
 
-def _create_election(end_timestamp=None):
+def _create_election(end_timestamp=None, creator_id=0):
     election = CopelandElection(
         title="Big Election",
         description="",
         candidates=list(CANDIDATES),
         method_params={},
         channel_id=1,
+        creator_id=creator_id,
         end_timestamp=end_timestamp,
     )
     return db.save_election(election)
@@ -148,3 +161,22 @@ def test_checker_backs_off_after_failure(monkeypatch):
     asyncio.run(election_checker.check_expired_elections())
     assert channel.attempts == 1
     assert load_election_from_db(election_id) is not None
+
+
+def test_creator_is_told_once_about_failures(monkeypatch):
+    monkeypatch.setattr(election_checker, "_failures", {})
+    _create_election(end_timestamp=int(time.time()) - 1, creator_id=7)
+    client = FakeClient(FakeChannel(fail=True))
+    election_checker.set_client(client)
+
+    asyncio.run(election_checker.check_expired_elections())
+    assert len(client.user.messages) == 1
+    assert "**Big Election**" in client.user.messages[0]
+
+    # Retries don't send more messages.
+    monkeypatch.setattr(
+        election_checker, "_failures", {k: (1, 0) for k in election_checker._failures}
+    )
+    asyncio.run(election_checker.check_expired_elections())
+    assert client.channel.attempts == 2
+    assert len(client.user.messages) == 1

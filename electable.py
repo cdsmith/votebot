@@ -13,15 +13,23 @@ from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale
 class ElectableView(LocalizedView):
     """Main view for the /electable command."""
 
-    def __init__(self, interaction: discord.Interaction):
+    def __init__(self, channel_id: int, user_id: int):
         super().__init__(timeout=3600)
-        self.channel_id = interaction.channel_id
-        self.user_id = interaction.user.id
+        self.channel_id = channel_id
+        self.user_id = user_id
         self.selected_election_id: int | None = None
 
     def get_content(self) -> dict[str, Any]:
         """Rebuild the view from the current elections, and return it as
         message fields."""
+        if self.is_finished():
+            # This view timed out, e.g. during a long setup, so continue in a
+            # new one.
+            view = ElectableView(self.channel_id, self.user_id)
+            view.selected_election_id = self.selected_election_id
+            return view.get_content()
+        # Restart the timeout, which doesn't count time spent in a setup.
+        self.timeout = self.timeout
         self.clear_items()
         election = (
             load_election_from_db(self.selected_election_id)
@@ -262,9 +270,20 @@ class EndNowButton(discord.ui.Button):
         async def end(interaction: discord.Interaction):
             # Posting results can take a moment for long tabulations.
             await interaction.response.defer()
-            await end_election_and_update_message(
-                election, interaction.channel, include_announcement=False
-            )
+            try:
+                await end_election_and_update_message(
+                    election, interaction.channel, include_announcement=False
+                )
+            except discord.HTTPException as e:
+                print(f"Error ending election {election.election_id}: {e}")
+                await interaction.followup.send(
+                    _(
+                        "The results couldn't be posted in this channel. Please "
+                        "make sure the bot can send messages here, then try again."
+                    ),
+                    ephemeral=True,
+                )
+                return
             self.view.selected_election_id = None
             await interaction.edit_original_response(**self.view.get_content())
 
@@ -318,5 +337,5 @@ class DeleteButton(discord.ui.Button):
 async def show_electable(interaction: discord.Interaction):
     """Show the electable command interface."""
     with use_locale(interaction.locale.value):
-        view = ElectableView(interaction)
+        view = ElectableView(interaction.channel_id, interaction.user.id)
         await interaction.response.send_message(**view.get_content(), ephemeral=True)

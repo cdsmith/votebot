@@ -1,7 +1,6 @@
 from ballot import Ballot
 from typing import Optional
 import discord
-import random
 from i18n import _
 from text_utils import SELECT_OPTION_LIMIT, SELECT_PLACEHOLDER_LIMIT, truncate
 
