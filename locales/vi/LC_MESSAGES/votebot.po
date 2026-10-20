@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: vi\n"
@@ -109,6 +109,9 @@ msgstr "Ví dụ: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Lỗi: {error}"
 
+msgid "Partial Results"
+msgstr "Kết quả tạm thời"
+
 msgid "End Now"
 msgstr "Kết thúc ngay"
 
@@ -145,6 +148,9 @@ msgstr "Bất kỳ ai có thể dùng /electable ở đây"
 
 msgid "Run by {user}"
 msgstr "Tổ chức bởi {user}"
+
+msgid "No winner determined"
+msgstr "Không xác định được người thắng cử"
 
 msgid "Details"
 msgstr "Chi tiết"
@@ -187,20 +193,32 @@ msgstr ""
 "Phiếu bầu của bạn **chưa được ghi nhận** vì bạn không có lá phiếu nào "
 "đang mở. Để bỏ phiếu hoặc cập nhật lá phiếu, hãy nhấn lại nút Bỏ phiếu."
 
-msgid "Winners"
-msgstr "Những người thắng cử"
-
-msgid "No winner determined"
-msgstr "Không xác định được người thắng cử"
-
 msgid "Winner"
 msgstr "Người thắng cử"
+
+msgid "Winners"
+msgstr "Những người thắng cử"
 
 msgid "Results for {title}"
 msgstr "Kết quả của {title}"
 
 msgid "Computed using {method}"
 msgstr "Tính theo {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Cuộc bầu cử vẫn đang mở. Kết quả này chỉ tính các phiếu đã bầu cho đến "
+"nay và sẽ thay đổi khi có thêm người bỏ phiếu. Các trường hợp hòa có thể "
+"được phân định khác trong kết quả cuối cùng."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Kết quả tạm thời không chính thức: {title}"
+
+msgid "Currently leading"
+msgstr "Đang dẫn đầu"
 
 msgid "Election **{title}** has ended!"
 msgstr "Cuộc bầu cử **{title}** đã kết thúc!"

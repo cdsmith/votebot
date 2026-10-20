@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hu\n"
@@ -109,6 +109,9 @@ msgstr "Példák: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Hiba: {error}"
 
+msgid "Partial Results"
+msgstr "Részeredmények"
+
 msgid "End Now"
 msgstr "Befejezés most"
 
@@ -145,6 +148,9 @@ msgstr "Bárki, aki itt használhatja a /electable parancsot"
 
 msgid "Run by {user}"
 msgstr "Szervező: {user}"
+
+msgid "No winner determined"
+msgstr "Nincs győztes"
 
 msgid "Details"
 msgstr "Részletek"
@@ -187,20 +193,32 @@ msgstr ""
 "A szavazatod **nem lett rögzítve**, mert nem volt nyitott szavazólapod.  "
 "A szavazat leadásához vagy módosításához kattints újra a Szavazás gombra."
 
-msgid "Winners"
-msgstr "Győztesek"
-
-msgid "No winner determined"
-msgstr "Nincs győztes"
-
 msgid "Winner"
 msgstr "Győztes"
+
+msgid "Winners"
+msgstr "Győztesek"
 
 msgid "Results for {title}"
 msgstr "Eredmények: {title}"
 
 msgid "Computed using {method}"
 msgstr "Számítási módszer: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"A szavazás még tart. Ezek az eredmények csak az eddig leadott "
+"szavazatokat számolják, és változni fognak, ahogy egyre többen szavaznak."
+" A holtversenyek a végeredményben másként dőlhetnek el."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Nem hivatalos részeredmények: {title}"
+
+msgid "Currently leading"
+msgstr "Jelenleg vezet"
 
 msgid "Election **{title}** has ended!"
 msgstr "Véget ért a szavazás: **{title}**!"

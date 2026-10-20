@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: id\n"
@@ -111,6 +111,9 @@ msgstr "Contoh: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Kesalahan: {error}"
 
+msgid "Partial Results"
+msgstr "Hasil Sementara"
+
 msgid "End Now"
 msgstr "Akhiri Sekarang"
 
@@ -147,6 +150,9 @@ msgstr "Siapa pun yang dapat menggunakan /electable di sini"
 
 msgid "Run by {user}"
 msgstr "Diselenggarakan oleh {user}"
+
+msgid "No winner determined"
+msgstr "Tidak ada pemenang yang ditentukan"
 
 msgid "Details"
 msgstr "Rincian"
@@ -189,13 +195,10 @@ msgstr ""
 "Suara Anda **tidak tercatat** karena Anda tidak sedang membuka surat "
 "suara. Untuk memberikan atau memperbarui suara, klik tombol Pilih lagi."
 
-msgid "Winners"
+msgid "Winner"
 msgstr "Pemenang"
 
-msgid "No winner determined"
-msgstr "Tidak ada pemenang yang ditentukan"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "Pemenang"
 
 msgid "Results for {title}"
@@ -203,6 +206,21 @@ msgstr "Hasil {title}"
 
 msgid "Computed using {method}"
 msgstr "Dihitung menggunakan {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Pemilihan masih berlangsung. Hasil ini hanya menghitung suara yang masuk "
+"sejauh ini dan akan berubah seiring makin banyak orang memilih. Hasil "
+"seri dapat diputuskan secara berbeda pada hasil akhir."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Hasil sementara tidak resmi: {title}"
+
+msgid "Currently leading"
+msgstr "Unggul saat ini"
 
 msgid "Election **{title}** has ended!"
 msgstr "Pemilihan **{title}** telah berakhir!"

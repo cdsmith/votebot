@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -114,6 +114,9 @@ msgstr "Exemple: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Eroare: {error}"
 
+msgid "Partial Results"
+msgstr "Rezultate parțiale"
+
 msgid "End Now"
 msgstr "Încheie acum"
 
@@ -150,6 +153,9 @@ msgstr "Oricine poate folosi /electable aici"
 
 msgid "Run by {user}"
 msgstr "Organizate de {user}"
+
+msgid "No winner determined"
+msgstr "Niciun câștigător stabilit"
 
 msgid "Details"
 msgstr "Detalii"
@@ -193,20 +199,32 @@ msgstr ""
 "deschis.  Pentru a vota sau a vă actualiza buletinul, faceți din nou clic"
 " pe butonul „Votează”."
 
-msgid "Winners"
-msgstr "Câștigători"
-
-msgid "No winner determined"
-msgstr "Niciun câștigător stabilit"
-
 msgid "Winner"
 msgstr "Câștigător"
+
+msgid "Winners"
+msgstr "Câștigători"
 
 msgid "Results for {title}"
 msgstr "Rezultate pentru {title}"
 
 msgid "Computed using {method}"
 msgstr "Calculat folosind {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Alegerile sunt încă deschise. Aceste rezultate numără doar voturile "
+"exprimate până acum și se vor schimba pe măsură ce votează mai mulți "
+"oameni. Egalitățile pot fi rezolvate altfel în rezultatele finale."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Rezultate parțiale neoficiale: {title}"
+
+msgid "Currently leading"
+msgstr "Conduce în prezent"
 
 msgid "Election **{title}** has ended!"
 msgstr "Alegerile **{title}** s-au încheiat!"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: sv_SE\n"
@@ -111,6 +111,9 @@ msgstr "Exempel: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Fel: {error}"
 
+msgid "Partial Results"
+msgstr "Delresultat"
+
 msgid "End Now"
 msgstr "Avsluta nu"
 
@@ -147,6 +150,9 @@ msgstr "Alla som kan använda /electable här"
 
 msgid "Run by {user}"
 msgstr "Arrangeras av {user}"
+
+msgid "No winner determined"
+msgstr "Ingen vinnare kunde utses"
 
 msgid "Details"
 msgstr "Detaljer"
@@ -190,13 +196,10 @@ msgstr ""
 "öppen.  Klicka på knappen Rösta igen för att avge eller uppdatera din "
 "röst."
 
-msgid "Winners"
+msgid "Winner"
 msgstr "Vinnare"
 
-msgid "No winner determined"
-msgstr "Ingen vinnare kunde utses"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "Vinnare"
 
 msgid "Results for {title}"
@@ -204,6 +207,21 @@ msgstr "Resultat för {title}"
 
 msgid "Computed using {method}"
 msgstr "Beräknat med {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Omröstningen pågår fortfarande. Det här resultatet räknar bara de röster "
+"som lagts hittills och kommer att ändras när fler röstar. Oavgjorda lägen"
+" kan avgöras annorlunda i slutresultatet."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Inofficiellt delresultat: {title}"
+
+msgid "Currently leading"
+msgstr "Leder just nu"
 
 msgid "Election **{title}** has ended!"
 msgstr "Omröstningen **{title}** har avslutats!"

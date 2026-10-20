@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: el\n"
@@ -111,6 +111,9 @@ msgstr "Παραδείγματα: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Σφάλμα: {error}"
 
+msgid "Partial Results"
+msgstr "Μερικά αποτελέσματα"
+
 msgid "End Now"
 msgstr "Λήξη τώρα"
 
@@ -147,6 +150,9 @@ msgstr "Όποιος μπορεί να χρησιμοποιεί το /electable 
 
 msgid "Run by {user}"
 msgstr "Διοργανωτής: {user}"
+
+msgid "No winner determined"
+msgstr "Δεν αναδείχθηκε νικητής"
 
 msgid "Details"
 msgstr "Λεπτομέρειες"
@@ -190,20 +196,33 @@ msgstr ""
 "Για να ψηφίσετε ή να ενημερώσετε την ψήφο σας, κάντε ξανά κλικ στο κουμπί"
 " Ψηφίστε."
 
-msgid "Winners"
-msgstr "Νικητές"
-
-msgid "No winner determined"
-msgstr "Δεν αναδείχθηκε νικητής"
-
 msgid "Winner"
 msgstr "Νικητής"
+
+msgid "Winners"
+msgstr "Νικητές"
 
 msgid "Results for {title}"
 msgstr "Αποτελέσματα: {title}"
 
 msgid "Computed using {method}"
 msgstr "Μέθοδος υπολογισμού: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Η ψηφοφορία είναι ακόμα ανοιχτή. Αυτά τα αποτελέσματα μετρούν μόνο τις "
+"ψήφους που έχουν δοθεί μέχρι τώρα και θα αλλάξουν καθώς ψηφίζουν κι "
+"άλλοι. Οι ισοψηφίες μπορεί να κριθούν διαφορετικά στα τελικά "
+"αποτελέσματα."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Ανεπίσημα μερικά αποτελέσματα: {title}"
+
+msgid "Currently leading"
+msgstr "Προηγείται αυτή τη στιγμή"
 
 msgid "Election **{title}** has ended!"
 msgstr "Η ψηφοφορία **{title}** έληξε!"

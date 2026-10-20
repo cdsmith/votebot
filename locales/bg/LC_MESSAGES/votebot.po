@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: bg\n"
@@ -111,6 +111,9 @@ msgstr "Примери: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Грешка: {error}"
 
+msgid "Partial Results"
+msgstr "Частични резултати"
+
 msgid "End Now"
 msgstr "Приключи сега"
 
@@ -147,6 +150,9 @@ msgstr "Всеки, който може да използва /electable тук"
 
 msgid "Run by {user}"
 msgstr "Организатор: {user}"
+
+msgid "No winner determined"
+msgstr "Няма определен победител"
 
 msgid "Details"
 msgstr "Подробности"
@@ -190,20 +196,32 @@ msgstr ""
 "гласувате или да актуализирате бюлетината си, натиснете отново бутона "
 "„Гласувай“."
 
-msgid "Winners"
-msgstr "Победители"
-
-msgid "No winner determined"
-msgstr "Няма определен победител"
-
 msgid "Winner"
 msgstr "Победител"
+
+msgid "Winners"
+msgstr "Победители"
 
 msgid "Results for {title}"
 msgstr "Резултати за {title}"
 
 msgid "Computed using {method}"
 msgstr "Изчислено чрез {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Изборите все още са отворени. Тези резултати отчитат само подадените "
+"досега гласове и ще се променят, докато хората гласуват. Равенствата може"
+" да бъдат решени различно в окончателните резултати."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Неофициални частични резултати: {title}"
+
+msgid "Currently leading"
+msgstr "Водят в момента"
 
 msgid "Election **{title}** has ended!"
 msgstr "Изборите **{title}** приключиха!"

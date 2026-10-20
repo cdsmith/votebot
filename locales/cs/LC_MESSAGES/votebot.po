@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -113,6 +113,9 @@ msgstr "Příklady: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Chyba: {error}"
 
+msgid "Partial Results"
+msgstr "Průběžné výsledky"
+
 msgid "End Now"
 msgstr "Ukončit nyní"
 
@@ -149,6 +152,9 @@ msgstr "Kdokoli, kdo zde může použít /electable"
 
 msgid "Run by {user}"
 msgstr "Pořádá: {user}"
+
+msgid "No winner determined"
+msgstr "Vítěz nebyl určen"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -192,20 +198,32 @@ msgstr ""
 "lístek. Chcete-li hlasovat nebo svůj hlas změnit, klikněte znovu na "
 "tlačítko Hlasovat."
 
-msgid "Winners"
-msgstr "Vítězové"
-
-msgid "No winner determined"
-msgstr "Vítěz nebyl určen"
-
 msgid "Winner"
 msgstr "Vítěz"
+
+msgid "Winners"
+msgstr "Vítězové"
 
 msgid "Results for {title}"
 msgstr "Výsledky: {title}"
 
 msgid "Computed using {method}"
 msgstr "Vypočteno metodou: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Hlasování stále probíhá. Tyto výsledky zahrnují jen dosud odevzdané hlasy"
+" a budou se měnit, jak budou hlasovat další lidé. Rovnost může být v "
+"konečných výsledcích rozhodnuta jinak."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Neoficiální průběžné výsledky: {title}"
+
+msgid "Currently leading"
+msgstr "Aktuálně vede"
 
 msgid "Election **{title}** has ended!"
 msgstr "Hlasování **{title}** skončilo!"

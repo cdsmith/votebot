@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,9 @@ msgstr ""
 msgid "Error: {error}"
 msgstr ""
 
+msgid "Partial Results"
+msgstr ""
+
 msgid "End Now"
 msgstr ""
 
@@ -137,6 +140,9 @@ msgid "Anyone who can use /electable here"
 msgstr ""
 
 msgid "Run by {user}"
+msgstr ""
+
+msgid "No winner determined"
 msgstr ""
 
 msgid "Details"
@@ -176,19 +182,28 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr ""
 
-msgid "Winners"
-msgstr ""
-
-msgid "No winner determined"
-msgstr ""
-
 msgid "Winner"
+msgstr ""
+
+msgid "Winners"
 msgstr ""
 
 msgid "Results for {title}"
 msgstr ""
 
 msgid "Computed using {method}"
+msgstr ""
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+
+msgid "Unofficial partial results: {title}"
+msgstr ""
+
+msgid "Currently leading"
 msgstr ""
 
 msgid "Election **{title}** has ended!"

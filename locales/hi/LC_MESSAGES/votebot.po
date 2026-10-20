@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hi\n"
@@ -111,6 +111,9 @@ msgstr "उदाहरण: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "त्रुटि: {error}"
 
+msgid "Partial Results"
+msgstr "आंशिक परिणाम"
+
 msgid "End Now"
 msgstr "अभी समाप्त करें"
 
@@ -147,6 +150,9 @@ msgstr "यहाँ /electable का उपयोग कर सकने व�
 
 msgid "Run by {user}"
 msgstr "आयोजक: {user}"
+
+msgid "No winner determined"
+msgstr "कोई विजेता तय नहीं हुआ"
 
 msgid "Details"
 msgstr "विवरण"
@@ -189,13 +195,10 @@ msgstr ""
 "आपका वोट **दर्ज नहीं हुआ** क्योंकि आपका कोई मतपत्र खुला नहीं था। वोट "
 "डालने या बदलने के लिए फिर से \"वोट करें\" बटन दबाएँ।"
 
-msgid "Winners"
+msgid "Winner"
 msgstr "विजेता"
 
-msgid "No winner determined"
-msgstr "कोई विजेता तय नहीं हुआ"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "विजेता"
 
 msgid "Results for {title}"
@@ -203,6 +206,21 @@ msgstr "{title} के परिणाम"
 
 msgid "Computed using {method}"
 msgstr "{method} से गणना की गई"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"चुनाव अभी जारी है। ये परिणाम केवल अब तक डाले गए वोटों की गिनती हैं, और "
+"अधिक लोगों के वोट देने पर बदलेंगे। अंतिम परिणामों में बराबरी का निर्णय "
+"अलग तरीके से हो सकता है।"
+
+msgid "Unofficial partial results: {title}"
+msgstr "अनौपचारिक आंशिक परिणाम: {title}"
+
+msgid "Currently leading"
+msgstr "अभी आगे"
 
 msgid "Election **{title}** has ended!"
 msgstr "चुनाव **{title}** समाप्त हो गया है!"

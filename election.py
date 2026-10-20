@@ -12,6 +12,7 @@ from text_utils import LAYOUT_TEXT_LIMIT, truncate
 OPEN_COLOR = 0x5865F2
 ENDED_COLOR = 0x99AAB5
 RESULTS_COLOR = 0x00FF00
+PARTIAL_RESULTS_COLOR = 0xF1C40F
 
 if TYPE_CHECKING:
     from ballot import Ballot
@@ -35,18 +36,31 @@ def manager_label(shared: bool, creator_id: int) -> str:
     return _("Run by {user}").format(user=f"<@{creator_id}>")
 
 
-def text_views(blocks: list[str]) -> list[discord.ui.LayoutView]:
+def text_views(
+    blocks: list[str], color: int = RESULTS_COLOR
+) -> list[discord.ui.LayoutView]:
     """Messages showing blocks of text, split to fit Discord's limits."""
     views = []
     for texts in pack_text(blocks):
         view = LocalizedView(timeout=None)
         view.add_item(
             discord.ui.Container(
-                *(discord.ui.TextDisplay(t) for t in texts), accent_color=RESULTS_COLOR
+                *(discord.ui.TextDisplay(t) for t in texts), accent_color=color
             )
         )
         views.append(view)
     return views
+
+
+def winners_text(winners: list[str], one: str, many: str, trophy: bool = True) -> str:
+    """Show the winners, under the heading one or many depending on how many
+    there are."""
+    if len(winners) == 0:
+        return "**{}**\n{}".format(many, _("No winner determined"))
+    names = ", ".join([f"**{w}**" for w in winners])
+    if trophy:
+        names = f":trophy: {names} :trophy:"
+    return "**{}**\n{}".format(one if len(winners) == 1 else many, names)
 
 
 class DetailsButton(
@@ -389,23 +403,13 @@ class Election(abc.ABC):
         ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
 
         winners, details = self.tabulate(ballots)
-        if len(winners) == 0:
-            winners_text = "**{}**\n{}".format(_("Winners"), _("No winner determined"))
-        elif len(winners) == 1:
-            winners_text = "**{}**\n:trophy: **{}** :trophy:".format(
-                _("Winner"), winners[0]
-            )
-        else:
-            winners_str = ", ".join([f"**{w}**" for w in winners])
-            winners_text = "**{}**\n:trophy: {} :trophy:".format(
-                _("Winners"), winners_str
-            )
+        winners_shown = winners_text(winners, _("Winner"), _("Winners"))
 
         heading = "## " + _("Results for {title}").format(title=self.title)
         computed = "-# " + _("Computed using {method}").format(
             method=self.method_description(self.method_params)
         )
-        blocks = [heading, winners_text, computed]
+        blocks = [heading, winners_shown, computed]
         if details:
             blocks += ["### " + _("Details"), details]
         result_id = db.save_results(blocks)
@@ -416,12 +420,48 @@ class Election(abc.ABC):
         view.add_item(
             discord.ui.Container(
                 discord.ui.TextDisplay(heading),
-                discord.ui.TextDisplay(winners_text),
+                discord.ui.TextDisplay(winners_shown),
                 discord.ui.ActionRow(DetailsButton(result_id)),
                 accent_color=RESULTS_COLOR,
             )
         )
         return view, result_id
+
+    def get_partial_results(self) -> list[discord.ui.LayoutView]:
+        """Tabulate the votes cast so far, for the people managing an election
+        that's still open.  These are shown privately, clearly marked as
+        unofficial, and aren't saved."""
+        ballot_dicts = db.load_all_ballots(self.election_id, is_submitted=True)
+        ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
+        winners, details = self.tabulate(ballots)
+
+        warning = _(
+            "The election is still open. These results count only the votes "
+            "cast so far, and will change as more people vote. Ties may be "
+            "broken differently in the final results."
+        )
+        unofficial = _("Unofficial partial results: {title}").format(title=self.title)
+        blocks = [
+            f"## :warning: {unofficial}",
+            warning,
+            "-# "
+            + ngettext("{n} vote cast", "{n} votes cast", len(ballots)).format(
+                n=len(ballots)
+            ),
+            # No trophies, which would suggest these are the winners.
+            winners_text(
+                winners, _("Currently leading"), _("Currently leading"), trophy=False
+            ),
+            "-# "
+            + _("Computed using {method}").format(
+                method=self.method_description(self.method_params)
+            ),
+        ]
+        if details:
+            blocks += ["### " + _("Details"), details]
+        # Repeated at the end, for anyone who scrolls straight down.
+        blocks.append(f":warning: **{unofficial}**\n{warning}")
+        return text_views(blocks, color=PARTIAL_RESULTS_COLOR)
 
     @classmethod
     @abc.abstractmethod

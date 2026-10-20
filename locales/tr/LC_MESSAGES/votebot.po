@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: tr\n"
@@ -109,6 +109,9 @@ msgstr "Örnekler: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Hata: {error}"
 
+msgid "Partial Results"
+msgstr "Ara Sonuçlar"
+
 msgid "End Now"
 msgstr "Şimdi bitir"
 
@@ -145,6 +148,9 @@ msgstr "Burada /electable kullanabilen herkes"
 
 msgid "Run by {user}"
 msgstr "Düzenleyen: {user}"
+
+msgid "No winner determined"
+msgstr "Kazanan belirlenemedi"
 
 msgid "Details"
 msgstr "Ayrıntılar"
@@ -187,20 +193,32 @@ msgstr ""
 "Açık bir oy pusulanız olmadığı için oyunuz **kaydedilmedi**.  Oy vermek "
 "veya oyunuzu güncellemek için Oy ver düğmesine tekrar tıklayın."
 
-msgid "Winners"
-msgstr "Kazananlar"
-
-msgid "No winner determined"
-msgstr "Kazanan belirlenemedi"
-
 msgid "Winner"
 msgstr "Kazanan"
+
+msgid "Winners"
+msgstr "Kazananlar"
 
 msgid "Results for {title}"
 msgstr "Sonuçlar: {title}"
 
 msgid "Computed using {method}"
 msgstr "Hesaplama yöntemi: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Seçim hâlâ açık. Bu sonuçlar yalnızca şu ana kadar verilen oyları sayar "
+"ve daha fazla kişi oy verdikçe değişecektir. Eşitlikler kesin sonuçlarda "
+"farklı çözülebilir."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Resmî olmayan ara sonuçlar: {title}"
+
+msgid "Currently leading"
+msgstr "Şu anda önde"
 
 msgid "Election **{title}** has ended!"
 msgstr "**{title}** seçimi sona erdi!"

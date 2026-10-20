@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -111,6 +111,9 @@ msgstr "Ejemplos: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Error: {error}"
 
+msgid "Partial Results"
+msgstr "Resultados parciales"
+
 msgid "End Now"
 msgstr "Terminar ahora"
 
@@ -147,6 +150,9 @@ msgstr "Cualquiera que pueda usar /electable aquí"
 
 msgid "Run by {user}"
 msgstr "Organizada por {user}"
+
+msgid "No winner determined"
+msgstr "No se determinó ningún ganador"
 
 msgid "Details"
 msgstr "Detalles"
@@ -189,20 +195,32 @@ msgstr ""
 "Tu voto **no se registró** porque no tenías una boleta abierta. Para "
 "votar o actualizar tu boleta, haz clic de nuevo en el botón Votar."
 
-msgid "Winners"
-msgstr "Ganadores"
-
-msgid "No winner determined"
-msgstr "No se determinó ningún ganador"
-
 msgid "Winner"
 msgstr "Ganador"
+
+msgid "Winners"
+msgstr "Ganadores"
 
 msgid "Results for {title}"
 msgstr "Resultados: {title}"
 
 msgid "Computed using {method}"
 msgstr "Calculado con: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"La elección sigue abierta. Estos resultados solo cuentan los votos "
+"emitidos hasta ahora y cambiarán a medida que vote más gente. Los empates"
+" pueden resolverse de otra manera en los resultados finales."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Resultados parciales no oficiales: {title}"
+
+msgid "Currently leading"
+msgstr "Va a la cabeza"
 
 msgid "Election **{title}** has ended!"
 msgstr "¡La elección **{title}** ha terminado!"

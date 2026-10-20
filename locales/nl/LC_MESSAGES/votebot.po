@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -111,6 +111,9 @@ msgstr "Voorbeelden: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Fout: {error}"
 
+msgid "Partial Results"
+msgstr "Tussenstand"
+
 msgid "End Now"
 msgstr "Nu beëindigen"
 
@@ -147,6 +150,9 @@ msgstr "Iedereen die /electable hier kan gebruiken"
 
 msgid "Run by {user}"
 msgstr "Georganiseerd door {user}"
+
+msgid "No winner determined"
+msgstr "Geen winnaar bepaald"
 
 msgid "Details"
 msgstr "Details"
@@ -190,20 +196,32 @@ msgstr ""
 "Klik nogmaals op de knop Stemmen om te stemmen of je stembiljet bij te "
 "werken."
 
-msgid "Winners"
-msgstr "Winnaars"
-
-msgid "No winner determined"
-msgstr "Geen winnaar bepaald"
-
 msgid "Winner"
 msgstr "Winnaar"
+
+msgid "Winners"
+msgstr "Winnaars"
 
 msgid "Results for {title}"
 msgstr "Uitslag van {title}"
 
 msgid "Computed using {method}"
 msgstr "Berekend met {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"De verkiezing loopt nog. Deze uitslag telt alleen de stemmen die tot nu "
+"toe zijn uitgebracht, en verandert als meer mensen stemmen. Gelijke "
+"standen kunnen in de einduitslag anders worden beslist."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Onofficiële tussenstand: {title}"
+
+msgid "Currently leading"
+msgstr "Ligt nu voor"
 
 msgid "Election **{title}** has ended!"
 msgstr "De verkiezing **{title}** is afgelopen!"

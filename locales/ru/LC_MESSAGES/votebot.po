@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -114,6 +114,9 @@ msgstr "Примеры: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Ошибка: {error}"
 
+msgid "Partial Results"
+msgstr "Промежуточные результаты"
+
 msgid "End Now"
 msgstr "Завершить сейчас"
 
@@ -150,6 +153,9 @@ msgstr "Все, кто может использовать /electable здесь
 
 msgid "Run by {user}"
 msgstr "Проводит: {user}"
+
+msgid "No winner determined"
+msgstr "Победитель не определён"
 
 msgid "Details"
 msgstr "Подробности"
@@ -192,20 +198,32 @@ msgstr ""
 "Ваш голос **не был учтён**, так как у вас не был открыт бюллетень. Чтобы "
 "проголосовать или изменить голос, снова нажмите кнопку «Голосовать»."
 
-msgid "Winners"
-msgstr "Победители"
-
-msgid "No winner determined"
-msgstr "Победитель не определён"
-
 msgid "Winner"
 msgstr "Победитель"
+
+msgid "Winners"
+msgstr "Победители"
 
 msgid "Results for {title}"
 msgstr "Результаты: {title}"
 
 msgid "Computed using {method}"
 msgstr "Подсчитано методом: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Голосование ещё идёт. Эти результаты учитывают только поданные на данный "
+"момент голоса и изменятся по мере того, как будут голосовать другие. "
+"Ничьи в окончательных результатах могут быть разрешены иначе."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Неофициальные промежуточные результаты: {title}"
+
+msgid "Currently leading"
+msgstr "Сейчас лидирует"
 
 msgid "Election **{title}** has ended!"
 msgstr "Голосование **{title}** завершено!"

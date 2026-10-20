@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -109,6 +109,9 @@ msgstr "예: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "오류: {error}"
 
+msgid "Partial Results"
+msgstr "중간 결과"
+
 msgid "End Now"
 msgstr "지금 종료"
 
@@ -143,6 +146,9 @@ msgstr "여기서 /electable을 사용할 수 있는 모든 사람"
 
 msgid "Run by {user}"
 msgstr "주최: {user}"
+
+msgid "No winner determined"
+msgstr "당선자가 결정되지 않음"
 
 msgid "Details"
 msgstr "세부 정보"
@@ -181,13 +187,10 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr "열려 있는 투표지가 없어 투표가 **기록되지 않았습니다**. 투표하거나 투표를 변경하려면 투표 버튼을 다시 클릭하세요."
 
-msgid "Winners"
+msgid "Winner"
 msgstr "당선자"
 
-msgid "No winner determined"
-msgstr "당선자가 결정되지 않음"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "당선자"
 
 msgid "Results for {title}"
@@ -195,6 +198,20 @@ msgstr "{title} 결과"
 
 msgid "Computed using {method}"
 msgstr "{method} 방식으로 계산됨"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"선거가 아직 진행 중입니다. 이 결과는 지금까지 투표한 표만 집계한 것이며, 더 많은 사람이 투표하면 바뀝니다. 동점은 최종 "
+"결과에서 다르게 결정될 수 있습니다."
+
+msgid "Unofficial partial results: {title}"
+msgstr "비공식 중간 결과: {title}"
+
+msgid "Currently leading"
+msgstr "현재 선두"
 
 msgid "Election **{title}** has ended!"
 msgstr "**{title}** 선거가 종료되었습니다!"

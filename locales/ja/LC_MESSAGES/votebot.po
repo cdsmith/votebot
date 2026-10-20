@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -109,6 +109,9 @@ msgstr "例: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "エラー: {error}"
 
+msgid "Partial Results"
+msgstr "途中結果"
+
 msgid "End Now"
 msgstr "今すぐ終了"
 
@@ -143,6 +146,9 @@ msgstr "ここで /electable を使えるすべての人"
 
 msgid "Run by {user}"
 msgstr "主催: {user}"
+
+msgid "No winner determined"
+msgstr "当選者は決まりませんでした"
 
 msgid "Details"
 msgstr "詳細"
@@ -183,13 +189,10 @@ msgstr ""
 "投票用紙が開かれていなかったため、投票は "
 "**記録されませんでした**。投票または投票内容の変更を行うには、もう一度「投票」ボタンをクリックしてください。"
 
-msgid "Winners"
+msgid "Winner"
 msgstr "当選者"
 
-msgid "No winner determined"
-msgstr "当選者は決まりませんでした"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "当選者"
 
 msgid "Results for {title}"
@@ -197,6 +200,18 @@ msgstr "{title} の結果"
 
 msgid "Computed using {method}"
 msgstr "{method} で集計"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr "選挙はまだ受付中です。この結果はこれまでに投じられた票だけを集計したもので、投票が進むにつれて変わります。同点の扱いは最終結果では異なる場合があります。"
+
+msgid "Unofficial partial results: {title}"
+msgstr "非公式の途中結果: {title}"
+
+msgid "Currently leading"
+msgstr "現在リード"
 
 msgid "Election **{title}** has ended!"
 msgstr "選挙 **{title}** が終了しました！"

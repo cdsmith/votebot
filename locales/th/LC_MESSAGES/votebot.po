@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: th\n"
@@ -109,6 +109,9 @@ msgstr "ตัวอย่าง: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "ข้อผิดพลาด: {error}"
 
+msgid "Partial Results"
+msgstr "ผลเบื้องต้น"
+
 msgid "End Now"
 msgstr "สิ้นสุดเดี๋ยวนี้"
 
@@ -145,6 +148,9 @@ msgstr "ทุกคนที่ใช้ /electable ที่นี่ได้
 
 msgid "Run by {user}"
 msgstr "ผู้จัด: {user}"
+
+msgid "No winner determined"
+msgstr "ไม่สามารถตัดสินผู้ชนะได้"
 
 msgid "Details"
 msgstr "รายละเอียด"
@@ -187,13 +193,10 @@ msgstr ""
 "คะแนนโหวตของคุณ**ไม่ถูกบันทึก** เพราะคุณไม่ได้เปิดบัตรลงคะแนนไว้ "
 "หากต้องการลงคะแนนหรือแก้ไขบัตรลงคะแนน ให้คลิกปุ่มโหวตอีกครั้ง"
 
-msgid "Winners"
+msgid "Winner"
 msgstr "ผู้ชนะ"
 
-msgid "No winner determined"
-msgstr "ไม่สามารถตัดสินผู้ชนะได้"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "ผู้ชนะ"
 
 msgid "Results for {title}"
@@ -201,6 +204,21 @@ msgstr "ผลการเลือกตั้ง {title}"
 
 msgid "Computed using {method}"
 msgstr "คำนวณด้วย {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"การเลือกตั้งยังเปิดอยู่ ผลนี้นับเฉพาะคะแนนที่ลงมาแล้วจนถึงตอนนี้ "
+"และจะเปลี่ยนไปเมื่อมีคนลงคะแนนเพิ่ม "
+"การตัดสินกรณีคะแนนเท่ากันอาจต่างไปในผลสุดท้าย"
+
+msgid "Unofficial partial results: {title}"
+msgstr "ผลเบื้องต้นที่ไม่เป็นทางการ: {title}"
+
+msgid "Currently leading"
+msgstr "นำอยู่ในขณะนี้"
 
 msgid "Election **{title}** has ended!"
 msgstr "การเลือกตั้ง **{title}** สิ้นสุดแล้ว!"

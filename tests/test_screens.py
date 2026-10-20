@@ -482,3 +482,33 @@ def test_old_results_are_deleted(monkeypatch):
     assert db.delete_old_results() == 1
     assert db.load_results(old) is None
     assert db.load_results(new) == ["new"]
+
+
+def test_partial_results():
+    async def main():
+        election = _election(ApprovalElection)
+        for user, votes in enumerate([{CANDIDATES[0]}, {CANDIDATES[0], CANDIDATES[1]}]):
+            ballot = election.blank_ballot()
+            ballot.votes = votes
+            db.save_ballot(ballot, election.election_id, user, is_submitted=False)
+            db.submit_ballot(election.election_id, user, ballot)
+
+        views = election.get_partial_results()
+        for view in views:
+            assert_fits(view)
+        shown = [t for view in views for t in texts(view)]
+        # Clearly unofficial at the start and the end
+        assert shown[0].startswith("## :warning: Unofficial partial results")
+        assert "Unofficial partial results" in shown[-1]
+        assert any(t.startswith("**Currently leading**") for t in shown)
+        assert "-# 2 votes cast" in shown
+
+        # Nothing is saved, and the election goes on.
+        assert db.load_results(1) is None
+        assert db.load_election(election.election_id) is not None
+
+        view = ElectableView(1, 2)
+        view.selected_election_id = election.election_id
+        assert "Partial Results" in labels(view.get_content()["view"])
+
+    asyncio.run(main())

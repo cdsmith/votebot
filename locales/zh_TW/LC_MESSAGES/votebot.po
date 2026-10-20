@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hant_TW\n"
@@ -109,6 +109,9 @@ msgstr "例如：2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "錯誤：{error}"
 
+msgid "Partial Results"
+msgstr "部分結果"
+
 msgid "End Now"
 msgstr "立即結束"
 
@@ -143,6 +146,9 @@ msgstr "此處所有可以使用 /electable 的人"
 
 msgid "Run by {user}"
 msgstr "發起人：{user}"
+
+msgid "No winner determined"
+msgstr "未決出獲勝者"
 
 msgid "Details"
 msgstr "詳細資訊"
@@ -181,13 +187,10 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr "由於你沒有開啟的選票，你的投票 **未被記錄**。要投票或更新選票，請再次點擊「投票」按鈕。"
 
-msgid "Winners"
+msgid "Winner"
 msgstr "獲勝者"
 
-msgid "No winner determined"
-msgstr "未決出獲勝者"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "獲勝者"
 
 msgid "Results for {title}"
@@ -195,6 +198,18 @@ msgstr "{title} 的結果"
 
 msgid "Computed using {method}"
 msgstr "使用 {method} 計算"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr "選舉仍在進行中。這些結果只統計了目前已投的票，隨著更多人投票會有所變化。最終結果中平手的處理可能不同。"
+
+msgid "Unofficial partial results: {title}"
+msgstr "非正式部分結果：{title}"
+
+msgid "Currently leading"
+msgstr "目前領先"
 
 msgid "Election **{title}** has ended!"
 msgstr "選舉 **{title}** 已結束！"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -109,6 +109,9 @@ msgstr "例如：2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "错误：{error}"
 
+msgid "Partial Results"
+msgstr "部分结果"
+
 msgid "End Now"
 msgstr "立即结束"
 
@@ -143,6 +146,9 @@ msgstr "此处所有可以使用 /electable 的人"
 
 msgid "Run by {user}"
 msgstr "发起人：{user}"
+
+msgid "No winner determined"
+msgstr "未决出获胜者"
 
 msgid "Details"
 msgstr "详情"
@@ -181,13 +187,10 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr "由于你没有打开的选票，你的投票 **未被记录**。要投票或更新选票，请再次点击“投票”按钮。"
 
-msgid "Winners"
+msgid "Winner"
 msgstr "获胜者"
 
-msgid "No winner determined"
-msgstr "未决出获胜者"
-
-msgid "Winner"
+msgid "Winners"
 msgstr "获胜者"
 
 msgid "Results for {title}"
@@ -195,6 +198,18 @@ msgstr "{title} 的结果"
 
 msgid "Computed using {method}"
 msgstr "使用 {method} 计算"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr "选举仍在进行中。这些结果只统计了目前已投的票，随着更多人投票会发生变化。最终结果中平局的处理可能不同。"
+
+msgid "Unofficial partial results: {title}"
+msgstr "非正式部分结果：{title}"
+
+msgid "Currently leading"
+msgstr "目前领先"
 
 msgid "Election **{title}** has ended!"
 msgstr "选举 **{title}** 已结束！"

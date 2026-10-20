@@ -53,6 +53,7 @@ BUTTON_TEXT = [
     "Create New Election",
     "Reschedule",
     "End Now",
+    "Partial Results",
     "Delete",
     "Edit",
     "Add Candidate",

@@ -106,6 +106,7 @@ class ElectableView(LocalizedView):
             discord.ui.ActionRow(
                 BackButton(),
                 RescheduleButton(election.election_id),
+                PartialResultsButton(election.election_id),
                 EndNowButton(election.election_id),
                 DeleteButton(election.election_id),
             )
@@ -275,6 +276,24 @@ class ConfirmModal(LocalizedModal):
     async def on_submit(self, interaction: discord.Interaction):
         if "yes" in self.confirm.values:
             await self.on_confirm(interaction)
+
+
+class PartialResultsButton(discord.ui.Button):
+    """Button to privately see the results so far of an open election."""
+
+    def __init__(self, election_id: int):
+        super().__init__(label=_("Partial Results"), style=discord.ButtonStyle.secondary)
+        self.election_id = election_id
+
+    async def callback(self, interaction: discord.Interaction):
+        election = load_election_from_db(self.election_id)
+        if not election:
+            await _show_list(self.view, interaction)
+            return
+        views = election.get_partial_results()
+        await interaction.response.send_message(view=views[0], ephemeral=True)
+        for view in views[1:]:
+            await interaction.followup.send(view=view, ephemeral=True)
 
 
 class EndNowButton(discord.ui.Button):

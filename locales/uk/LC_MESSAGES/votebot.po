@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 16:09-0600\n"
+"POT-Creation-Date: 2026-10-20 16:14-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -114,6 +114,9 @@ msgstr "Приклади: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Помилка: {error}"
 
+msgid "Partial Results"
+msgstr "Проміжні результати"
+
 msgid "End Now"
 msgstr "Завершити зараз"
 
@@ -150,6 +153,9 @@ msgstr "Усі, хто може використовувати /electable тут
 
 msgid "Run by {user}"
 msgstr "Проводить: {user}"
+
+msgid "No winner determined"
+msgstr "Переможця не визначено"
 
 msgid "Details"
 msgstr "Подробиці"
@@ -192,20 +198,32 @@ msgstr ""
 "Ваш голос **не враховано**, оскільки у вас не було відкритого бюлетеня. "
 "Щоб проголосувати або змінити голос, знову натисніть кнопку «Голосувати»."
 
-msgid "Winners"
-msgstr "Переможці"
-
-msgid "No winner determined"
-msgstr "Переможця не визначено"
-
 msgid "Winner"
 msgstr "Переможець"
+
+msgid "Winners"
+msgstr "Переможці"
 
 msgid "Results for {title}"
 msgstr "Результати: {title}"
 
 msgid "Computed using {method}"
 msgstr "Підраховано методом: {method}"
+
+msgid ""
+"The election is still open. These results count only the votes cast so "
+"far, and will change as more people vote. Ties may be broken differently "
+"in the final results."
+msgstr ""
+"Голосування ще триває. Ці результати враховують лише подані досі голоси і"
+" змінюватимуться, коли голосуватимуть інші. Нічиї в остаточних "
+"результатах можуть бути розв’язані інакше."
+
+msgid "Unofficial partial results: {title}"
+msgstr "Неофіційні проміжні результати: {title}"
+
+msgid "Currently leading"
+msgstr "Зараз лідирує"
 
 msgid "Election **{title}** has ended!"
 msgstr "Голосування **{title}** завершено!"
