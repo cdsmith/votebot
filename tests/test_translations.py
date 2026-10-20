@@ -44,6 +44,7 @@ MODAL_TEXT = [
 ]
 BUTTON_TEXT = [
     "Vote",
+    "Details",
     "Next Page",
     "Prev Page",
     "Submit Vote",

@@ -3,8 +3,12 @@
 import discord
 from typing import Any
 import db
-from election import load_election_from_db, end_election_and_update_message
-from setup import ElectionSetup, manager_label
+from election import (
+    end_election_and_update_message,
+    load_election_from_db,
+    manager_label,
+)
+from setup import ElectionSetup
 import time_utils
 import election_checker
 from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale

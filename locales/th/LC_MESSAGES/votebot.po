@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: th\n"
@@ -140,6 +140,18 @@ msgstr "ลบการเลือกตั้งนี้หรือไม่
 msgid "Yes, delete it without posting results"
 msgstr "ใช่ ลบโดยไม่ประกาศผล"
 
+msgid "Anyone who can use /electable here"
+msgstr "ทุกคนที่ใช้ /electable ที่นี่ได้"
+
+msgid "Run by {user}"
+msgstr "ผู้จัด: {user}"
+
+msgid "Details"
+msgstr "รายละเอียด"
+
+msgid "These results are no longer available."
+msgstr "ผลลัพธ์นี้ไม่มีให้ดูแล้ว"
+
 msgid "Vote"
 msgstr "โหวต"
 
@@ -155,14 +167,8 @@ msgstr "สิ้นสุดแล้ว"
 msgid "{footer} • Election ended"
 msgstr "{footer} • การเลือกตั้งสิ้นสุดแล้ว"
 
-msgid "Run by {user}"
-msgstr "ผู้จัด: {user}"
-
 msgid "Candidates"
 msgstr "ผู้สมัคร"
-
-msgid "Method"
-msgstr "วิธีการ"
 
 msgid "This election is not open."
 msgstr "การเลือกตั้งนี้ไม่ได้เปิดอยู่"
@@ -193,9 +199,6 @@ msgstr "ผู้ชนะ"
 msgid "Results for {title}"
 msgstr "ผลการเลือกตั้ง {title}"
 
-msgid "Details"
-msgstr "รายละเอียด"
-
 msgid "Computed using {method}"
 msgstr "คำนวณด้วย {method}"
 
@@ -211,9 +214,6 @@ msgstr ""
 "โปรดตรวจสอบว่าบอทมองเห็นช่องนั้นและส่งข้อความในช่องนั้นได้ "
 "บอทจะพยายามต่อไป"
 
-msgid "Anyone who can use /electable here"
-msgstr "ทุกคนที่ใช้ /electable ที่นี่ได้"
-
 msgid "End Time (optional)"
 msgstr "เวลาสิ้นสุด (ไม่บังคับ)"
 
@@ -228,6 +228,9 @@ msgstr "ชื่อการเลือกตั้ง"
 
 msgid "Description"
 msgstr "คำอธิบาย"
+
+msgid "Method"
+msgstr "วิธีการ"
 
 msgid "Edit Attributes"
 msgstr "แก้ไขรายละเอียด"

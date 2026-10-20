@@ -33,13 +33,6 @@ ENGLISH = "en"
 SETUP_TIMEOUT_SECONDS = 3600
 
 
-def manager_label(shared: bool, creator_id: int) -> str:
-    """Describe who can manage an election."""
-    if shared:
-        return _("Anyone who can use /electable here")
-    return _("Run by {user}").format(user=f"<@{creator_id}>")
-
-
 class OpenModalButton(discord.ui.Button):
     """A button that opens a form."""
 

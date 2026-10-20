@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -138,6 +138,18 @@ msgstr "删除此选举？"
 msgid "Yes, delete it without posting results"
 msgstr "是，删除且不公布结果"
 
+msgid "Anyone who can use /electable here"
+msgstr "此处所有可以使用 /electable 的人"
+
+msgid "Run by {user}"
+msgstr "发起人：{user}"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "These results are no longer available."
+msgstr "这些结果已不可用。"
+
 msgid "Vote"
 msgstr "投票"
 
@@ -153,14 +165,8 @@ msgstr "已结束"
 msgid "{footer} • Election ended"
 msgstr "{footer} • 选举已结束"
 
-msgid "Run by {user}"
-msgstr "发起人：{user}"
-
 msgid "Candidates"
 msgstr "候选人"
-
-msgid "Method"
-msgstr "投票方式"
 
 msgid "This election is not open."
 msgstr "此选举未开放。"
@@ -187,9 +193,6 @@ msgstr "获胜者"
 msgid "Results for {title}"
 msgstr "{title} 的结果"
 
-msgid "Details"
-msgstr "详情"
-
 msgid "Computed using {method}"
 msgstr "使用 {method} 计算"
 
@@ -201,9 +204,6 @@ msgid ""
 "Please make sure the bot can see that channel and send messages there. It"
 " will keep trying."
 msgstr "无法在 {channel} 发布选举 **{title}** 的结果。请确认机器人可以查看该频道并在其中发送消息。机器人会继续尝试。"
-
-msgid "Anyone who can use /electable here"
-msgstr "此处所有可以使用 /electable 的人"
 
 msgid "End Time (optional)"
 msgstr "结束时间（可选）"
@@ -219,6 +219,9 @@ msgstr "选举标题"
 
 msgid "Description"
 msgstr "描述"
+
+msgid "Method"
+msgstr "投票方式"
 
 msgid "Edit Attributes"
 msgstr "编辑属性"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: id\n"
@@ -142,6 +142,18 @@ msgstr "Hapus pemilihan ini?"
 msgid "Yes, delete it without posting results"
 msgstr "Ya, hapus tanpa mengumumkan hasil"
 
+msgid "Anyone who can use /electable here"
+msgstr "Siapa pun yang dapat menggunakan /electable di sini"
+
+msgid "Run by {user}"
+msgstr "Diselenggarakan oleh {user}"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "These results are no longer available."
+msgstr "Hasil ini sudah tidak tersedia."
+
 msgid "Vote"
 msgstr "Pilih"
 
@@ -157,14 +169,8 @@ msgstr "Berakhir pada"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Pemilihan berakhir"
 
-msgid "Run by {user}"
-msgstr "Diselenggarakan oleh {user}"
-
 msgid "Candidates"
 msgstr "Kandidat"
-
-msgid "Method"
-msgstr "Metode"
 
 msgid "This election is not open."
 msgstr "Pemilihan ini tidak sedang dibuka."
@@ -195,9 +201,6 @@ msgstr "Pemenang"
 msgid "Results for {title}"
 msgstr "Hasil {title}"
 
-msgid "Details"
-msgstr "Rincian"
-
 msgid "Computed using {method}"
 msgstr "Dihitung menggunakan {method}"
 
@@ -213,9 +216,6 @@ msgstr ""
 "bot dapat melihat saluran tersebut dan mengirim pesan di sana. Bot akan "
 "terus mencoba."
 
-msgid "Anyone who can use /electable here"
-msgstr "Siapa pun yang dapat menggunakan /electable di sini"
-
 msgid "End Time (optional)"
 msgstr "Waktu Berakhir (opsional)"
 
@@ -230,6 +230,9 @@ msgstr "Judul Pemilihan"
 
 msgid "Description"
 msgstr "Deskripsi"
+
+msgid "Method"
+msgstr "Metode"
 
 msgid "Edit Attributes"
 msgstr "Edit Atribut"

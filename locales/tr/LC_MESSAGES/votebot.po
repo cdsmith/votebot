@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: tr\n"
@@ -140,6 +140,18 @@ msgstr "Bu seçim silinsin mi?"
 msgid "Yes, delete it without posting results"
 msgstr "Evet, sonuçları yayınlamadan sil"
 
+msgid "Anyone who can use /electable here"
+msgstr "Burada /electable kullanabilen herkes"
+
+msgid "Run by {user}"
+msgstr "Düzenleyen: {user}"
+
+msgid "Details"
+msgstr "Ayrıntılar"
+
+msgid "These results are no longer available."
+msgstr "Bu sonuçlar artık mevcut değil."
+
 msgid "Vote"
 msgstr "Oy ver"
 
@@ -155,14 +167,8 @@ msgstr "Sona erdi"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Seçim sona erdi"
 
-msgid "Run by {user}"
-msgstr "Düzenleyen: {user}"
-
 msgid "Candidates"
 msgstr "Adaylar"
-
-msgid "Method"
-msgstr "Yöntem"
 
 msgid "This election is not open."
 msgstr "Bu seçim açık değil."
@@ -193,9 +199,6 @@ msgstr "Kazanan"
 msgid "Results for {title}"
 msgstr "Sonuçlar: {title}"
 
-msgid "Details"
-msgstr "Ayrıntılar"
-
 msgid "Computed using {method}"
 msgstr "Hesaplama yöntemi: {method}"
 
@@ -211,9 +214,6 @@ msgstr ""
 "bu kanalı görebildiğinden ve oraya mesaj gönderebildiğinden emin olun. "
 "Bot denemeye devam edecek."
 
-msgid "Anyone who can use /electable here"
-msgstr "Burada /electable kullanabilen herkes"
-
 msgid "End Time (optional)"
 msgstr "Bitiş zamanı (isteğe bağlı)"
 
@@ -228,6 +228,9 @@ msgstr "Seçim başlığı"
 
 msgid "Description"
 msgstr "Açıklama"
+
+msgid "Method"
+msgstr "Yöntem"
 
 msgid "Edit Attributes"
 msgstr "Özellikleri düzenle"

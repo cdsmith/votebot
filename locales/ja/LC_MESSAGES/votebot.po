@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -138,6 +138,18 @@ msgstr "この選挙を削除しますか？"
 msgid "Yes, delete it without posting results"
 msgstr "はい、結果を公開せずに削除します"
 
+msgid "Anyone who can use /electable here"
+msgstr "ここで /electable を使えるすべての人"
+
+msgid "Run by {user}"
+msgstr "主催: {user}"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "These results are no longer available."
+msgstr "この結果はもう利用できません。"
+
 msgid "Vote"
 msgstr "投票"
 
@@ -153,14 +165,8 @@ msgstr "終了"
 msgid "{footer} • Election ended"
 msgstr "{footer} • 選挙終了"
 
-msgid "Run by {user}"
-msgstr "主催: {user}"
-
 msgid "Candidates"
 msgstr "候補者"
-
-msgid "Method"
-msgstr "投票方式"
 
 msgid "This election is not open."
 msgstr "この選挙は受付中ではありません。"
@@ -189,9 +195,6 @@ msgstr "当選者"
 msgid "Results for {title}"
 msgstr "{title} の結果"
 
-msgid "Details"
-msgstr "詳細"
-
 msgid "Computed using {method}"
 msgstr "{method} で集計"
 
@@ -205,9 +208,6 @@ msgid ""
 msgstr ""
 "選挙 **{title}** の結果を {channel} "
 "に投稿できませんでした。ボットがそのチャンネルを閲覧し、メッセージを送信できることを確認してください。ボットは再試行を続けます。"
-
-msgid "Anyone who can use /electable here"
-msgstr "ここで /electable を使えるすべての人"
 
 msgid "End Time (optional)"
 msgstr "終了日時（任意）"
@@ -223,6 +223,9 @@ msgstr "選挙のタイトル"
 
 msgid "Description"
 msgstr "説明"
+
+msgid "Method"
+msgstr "投票方式"
 
 msgid "Edit Attributes"
 msgstr "属性を編集"

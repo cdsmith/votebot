@@ -42,6 +42,11 @@ async def on_ready():
     # Initialize database
     db.init_db()
 
+    # Details buttons on results messages work by their custom IDs.
+    from election import DetailsButton
+
+    client.add_dynamic_items(DetailsButton)
+
     # Set client reference for election_checker to use
     election_checker.set_client(client)
 
@@ -96,6 +101,14 @@ async def on_guild_channel_delete(channel: discord.abc.GuildChannel):
 @client.event
 async def on_raw_thread_delete(payload: discord.RawThreadDeleteEvent):
     db.delete_elections_in_channel(payload.thread_id)
+
+
+@client.event
+async def on_guild_remove(guild: discord.Guild):
+    # The bot was removed from the server, so its elections there can never
+    # finish.  The privacy policy promises they're deleted.
+    for channel in [*guild.channels, *guild.threads]:
+        db.delete_elections_in_channel(channel.id)
 
 
 @tree.command(name="electable", description=N_("Manage your elections."))

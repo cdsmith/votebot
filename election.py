@@ -22,10 +22,69 @@ _client = None
 # IDs of elections currently being ended, to avoid posting results twice
 _ending_elections: set[int] = set()
 
-# Results messages not yet posted, by election ID.  If posting fails partway,
-# a retry resumes from here, so messages aren't repeated and randomized tie
-# breaks give the same result.
-_unposted_results: dict[int, list[discord.ui.LayoutView]] = {}
+# Results messages not yet posted, with their results' IDs, by election ID.
+# If posting fails, a retry posts the same results, so randomized tie breaks
+# give the same result.
+_unposted_results: dict[int, tuple[discord.ui.LayoutView, int]] = {}
+
+
+def manager_label(shared: bool, creator_id: int) -> str:
+    """Describe who can manage an election."""
+    if shared:
+        return _("Anyone who can use /electable here")
+    return _("Run by {user}").format(user=f"<@{creator_id}>")
+
+
+def text_views(blocks: list[str]) -> list[discord.ui.LayoutView]:
+    """Messages showing blocks of text, split to fit Discord's limits."""
+    views = []
+    for texts in pack_text(blocks):
+        view = LocalizedView(timeout=None)
+        view.add_item(
+            discord.ui.Container(
+                *(discord.ui.TextDisplay(t) for t in texts), accent_color=RESULTS_COLOR
+            )
+        )
+        views.append(view)
+    return views
+
+
+class DetailsButton(
+    discord.ui.DynamicItem[discord.ui.Button], template=r"results:(?P<id>[0-9]+)"
+):
+    """Shows the details of an election's results to whoever clicks it.
+
+    Results messages aren't restored when the bot restarts, so this finds its
+    results from its custom ID instead, and must be registered with the client.
+    """
+
+    def __init__(self, result_id: int):
+        super().__init__(
+            discord.ui.Button(
+                label=_("Details"),
+                style=discord.ButtonStyle.secondary,
+                custom_id=f"results:{result_id}",
+            )
+        )
+        self.result_id = result_id
+
+    @classmethod
+    async def from_custom_id(cls, interaction, item, match):
+        return cls(int(match["id"]))
+
+    async def callback(self, interaction: discord.Interaction):
+        with use_locale(interaction.locale.value):
+            blocks = db.load_results(self.result_id)
+            if blocks is None:
+                await interaction.response.send_message(
+                    _("These results are no longer available."), ephemeral=True
+                )
+                return
+            # The results themselves are in the election's language.
+            views = text_views(blocks)
+            await interaction.response.send_message(view=views[0], ephemeral=True)
+            for view in views[1:]:
+                await interaction.followup.send(view=view, ephemeral=True)
 
 
 def set_client(client):
@@ -68,9 +127,12 @@ class Election(abc.ABC):
         # Store method class name for serialization
         self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
-    def get_public_view(self, ended_at: int | None = None) -> dict[str, Any]:
+    def get_public_view(
+        self, ended_at: int | None = None, result_id: int | None = None
+    ) -> dict[str, Any]:
         """Return the public message announcing the election, as message
-        fields.  If ended_at is given, show the election as ended then."""
+        fields.  If ended_at is given, show the election as ended then, with
+        a button to show the details of its results."""
         # Public text is in the election's language, whoever caused the update.
         with use_locale(self.locale):
             import time_utils
@@ -84,6 +146,24 @@ class Election(abc.ABC):
                     election = load_election_from_db(inner_self.election_id)
                     if election:
                         await election.send_ballot(interaction)
+                    else:
+                        await interaction.response.send_message(
+                            _("This election no longer exists."), ephemeral=True
+                        )
+
+            class ElectionDetailsButton(discord.ui.Button):
+                def __init__(inner_self, election_id: int):
+                    super().__init__(
+                        style=discord.ButtonStyle.secondary, label=_("Details")
+                    )
+                    inner_self.election_id = election_id
+
+                async def callback(inner_self, interaction: discord.Interaction):
+                    election = load_election_from_db(inner_self.election_id)
+                    if election:
+                        await interaction.response.send_message(
+                            **election.get_info(), ephemeral=True
+                        )
                     else:
                         await interaction.response.send_message(
                             _("This election no longer exists."), ephemeral=True
@@ -115,12 +195,8 @@ class Election(abc.ABC):
                 heading.append(
                     "-# " + _("Run by {user}").format(user=f"<@{self.creator_id}>")
                 )
-            body = [
-                "**{}**\n{}".format(_("Candidates"), candidates),
-                "**{}**\n{}".format(
-                    _("Method"), self.method_description(self.method_params)
-                ),
-            ]
+            # How votes are counted is shown on request, with Details.
+            body = ["**{}**\n{}".format(_("Candidates"), candidates)]
             if end_time:
                 body.append(end_time)
             footer = f"-# {footer}"
@@ -134,15 +210,15 @@ class Election(abc.ABC):
                 accent_color=OPEN_COLOR if ended_at is None else ENDED_COLOR,
             )
             container.add_item(discord.ui.Separator())
+            container.add_item(discord.ui.TextDisplay(footer))
             if ended_at is None:
                 container.add_item(
-                    discord.ui.Section(
-                        discord.ui.TextDisplay(footer),
-                        accessory=VoteButton(self.election_id),
+                    discord.ui.ActionRow(
+                        VoteButton(self.election_id), ElectionDetailsButton(self.election_id)
                     )
                 )
-            else:
-                container.add_item(discord.ui.TextDisplay(footer))
+            elif result_id is not None:
+                container.add_item(discord.ui.ActionRow(DetailsButton(result_id)))
 
             view = LocalizedView(timeout=None)
             view.add_item(container)
@@ -155,6 +231,31 @@ class Election(abc.ABC):
                 # Naming the creator shouldn't notify them.
                 "allowed_mentions": discord.AllowedMentions.none(),
             }
+
+    def get_info(self) -> dict[str, Any]:
+        """Return a message with details of how the election works."""
+        import time_utils
+
+        view = LocalizedView(timeout=None)
+        view.add_item(
+            discord.ui.Container(
+                discord.ui.TextDisplay(f"## {self.title}"),
+                discord.ui.TextDisplay(
+                    "-# " + manager_label(self.shared, self.creator_id)
+                ),
+                discord.ui.TextDisplay(
+                    _("**Method**:\n{method}").format(
+                        method=self.method_description(self.method_params)
+                    )
+                ),
+                discord.ui.TextDisplay(
+                    _("**Ends**:\n{end_time}").format(
+                        end_time=time_utils.format_timestamp_discord(self.end_timestamp)
+                    )
+                ),
+            )
+        )
+        return {"view": view, "allowed_mentions": discord.AllowedMentions.none()}
 
     def accepting_votes(self) -> bool:
         """Whether voting is open.  Voting closes at the scheduled end time,
@@ -280,10 +381,9 @@ class Election(abc.ABC):
 
     def get_results(
         self, announcement: str | None = None
-    ) -> list[discord.ui.LayoutView]:
-        """Tabulate the submitted ballots and return messages describing the
-        results: the winners, then the details of the tabulation, split across
-        as many messages as needed."""
+    ) -> tuple[discord.ui.LayoutView, int]:
+        """Tabulate the submitted ballots, and return a message announcing the
+        winners, with the ID of the saved details for the Details button."""
         # Load all submitted ballots from database
         ballot_dicts = db.load_all_ballots(self.election_id, is_submitted=True)
         ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
@@ -302,29 +402,26 @@ class Election(abc.ABC):
             )
 
         heading = "## " + _("Results for {title}").format(title=self.title)
-        blocks = [heading, winners_text]
+        computed = "-# " + _("Computed using {method}").format(
+            method=self.method_description(self.method_params)
+        )
+        blocks = [heading, winners_text, computed]
         if details:
             blocks += ["### " + _("Details"), details]
-        blocks.append(
-            "-# "
-            + _("Computed using {method}").format(
-                method=self.method_description(self.method_params)
+        result_id = db.save_results(blocks)
+
+        view = LocalizedView(timeout=None)
+        if announcement:
+            view.add_item(discord.ui.TextDisplay(announcement))
+        view.add_item(
+            discord.ui.Container(
+                discord.ui.TextDisplay(heading),
+                discord.ui.TextDisplay(winners_text),
+                discord.ui.ActionRow(DetailsButton(result_id)),
+                accent_color=RESULTS_COLOR,
             )
         )
-
-        messages = []
-        for i, texts in enumerate(pack_text(blocks, len(announcement or ""))):
-            view = LocalizedView(timeout=None)
-            if i == 0 and announcement:
-                view.add_item(discord.ui.TextDisplay(announcement))
-            view.add_item(
-                discord.ui.Container(
-                    *(discord.ui.TextDisplay(t) for t in texts),
-                    accent_color=RESULTS_COLOR,
-                )
-            )
-            messages.append(view)
-        return messages
+        return view, result_id
 
     @classmethod
     @abc.abstractmethod
@@ -464,12 +561,11 @@ async def _end_election(
         )
         unposted = election.get_results(announcement)
         _unposted_results[election.election_id] = unposted
+    results_view, result_id = unposted
 
     # Post results to channel.  The election stays in the database until this
     # succeeds, so a failure here can be retried rather than losing results.
-    while unposted:
-        await channel.send(view=unposted[0])
-        unposted.pop(0)
+    await channel.send(view=results_view)
     del _unposted_results[election.election_id]
 
     # Show the original message as ended, at its scheduled time if it had one.
@@ -477,9 +573,10 @@ async def _end_election(
     # is deleted.
     now = int(time.time())
     if election.end_timestamp and election.end_timestamp <= now:
-        ended = election.get_public_view(ended_at=election.end_timestamp)
+        ended_at = election.end_timestamp
     else:
-        ended = election.get_public_view(ended_at=now)
+        ended_at = now
+    ended = election.get_public_view(ended_at=ended_at, result_id=result_id)
 
     # The results are posted, so the election is over.  Delete it before
     # touching the original message, so that a failure there can't cause the

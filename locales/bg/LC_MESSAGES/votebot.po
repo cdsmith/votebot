@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: bg\n"
@@ -142,6 +142,18 @@ msgstr "Да се изтрият ли изборите?"
 msgid "Yes, delete it without posting results"
 msgstr "Да, изтрий ги, без да публикуваш резултатите"
 
+msgid "Anyone who can use /electable here"
+msgstr "Всеки, който може да използва /electable тук"
+
+msgid "Run by {user}"
+msgstr "Организатор: {user}"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "These results are no longer available."
+msgstr "Тези резултати вече не са налични."
+
 msgid "Vote"
 msgstr "Гласувай"
 
@@ -157,14 +169,8 @@ msgstr "Приключили"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Изборите приключиха"
 
-msgid "Run by {user}"
-msgstr "Организатор: {user}"
-
 msgid "Candidates"
 msgstr "Кандидати"
-
-msgid "Method"
-msgstr "Метод"
 
 msgid "This election is not open."
 msgstr "Тези избори не са отворени."
@@ -196,9 +202,6 @@ msgstr "Победител"
 msgid "Results for {title}"
 msgstr "Резултати за {title}"
 
-msgid "Details"
-msgstr "Подробности"
-
 msgid "Computed using {method}"
 msgstr "Изчислено чрез {method}"
 
@@ -214,9 +217,6 @@ msgstr ""
 "{channel}. Уверете се, че ботът може да вижда този канал и да изпраща "
 "съобщения в него. Той ще продължи да опитва."
 
-msgid "Anyone who can use /electable here"
-msgstr "Всеки, който може да използва /electable тук"
-
 msgid "End Time (optional)"
 msgstr "Час на приключване (по избор)"
 
@@ -231,6 +231,9 @@ msgstr "Заглавие на изборите"
 
 msgid "Description"
 msgstr "Описание"
+
+msgid "Method"
+msgstr "Метод"
 
 msgid "Edit Attributes"
 msgstr "Редактиране на атрибутите"

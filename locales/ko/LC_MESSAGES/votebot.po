@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -138,6 +138,18 @@ msgstr "이 선거를 삭제할까요?"
 msgid "Yes, delete it without posting results"
 msgstr "네, 결과를 게시하지 않고 삭제합니다"
 
+msgid "Anyone who can use /electable here"
+msgstr "여기서 /electable을 사용할 수 있는 모든 사람"
+
+msgid "Run by {user}"
+msgstr "주최: {user}"
+
+msgid "Details"
+msgstr "세부 정보"
+
+msgid "These results are no longer available."
+msgstr "이 결과는 더 이상 볼 수 없습니다."
+
 msgid "Vote"
 msgstr "투표"
 
@@ -153,14 +165,8 @@ msgstr "종료됨"
 msgid "{footer} • Election ended"
 msgstr "{footer} • 선거 종료"
 
-msgid "Run by {user}"
-msgstr "주최: {user}"
-
 msgid "Candidates"
 msgstr "후보"
-
-msgid "Method"
-msgstr "투표 방식"
 
 msgid "This election is not open."
 msgstr "이 선거는 진행 중이 아닙니다."
@@ -187,9 +193,6 @@ msgstr "당선자"
 msgid "Results for {title}"
 msgstr "{title} 결과"
 
-msgid "Details"
-msgstr "세부 정보"
-
 msgid "Computed using {method}"
 msgstr "{method} 방식으로 계산됨"
 
@@ -203,9 +206,6 @@ msgid ""
 msgstr ""
 "**{title}** 선거 결과를 {channel}에 게시하지 못했습니다. 봇이 해당 채널을 보고 메시지를 보낼 수 있는지 "
 "확인하세요. 봇은 계속 시도합니다."
-
-msgid "Anyone who can use /electable here"
-msgstr "여기서 /electable을 사용할 수 있는 모든 사람"
 
 msgid "End Time (optional)"
 msgstr "종료 시간 (선택)"
@@ -221,6 +221,9 @@ msgstr "선거 제목"
 
 msgid "Description"
 msgstr "설명"
+
+msgid "Method"
+msgstr "투표 방식"
 
 msgid "Edit Attributes"
 msgstr "속성 편집"

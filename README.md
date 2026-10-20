@@ -112,7 +112,9 @@ From the `/electable` interface, click "Create New Election" and fill out:
 
 Each setting has an Edit button beside it, so you can change anything before starting the election.
 
-The bot will post a public message in the channel announcing the election. Anyone can click the Vote button to cast a ballot. Ballots are private and votes can be changed until submission.
+The bot will post a public message in the channel announcing the election. Anyone can click the Vote button to cast a ballot, or Details to see how the votes will be counted. Ballots are private and votes can be changed until submission.
+
+When the election ends, the bot posts the winners. The Details button shows anyone who clicks it how the votes were counted. These details are kept for 30 days.
 
 ### Scheduling elections
 

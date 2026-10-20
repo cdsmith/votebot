@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -145,6 +145,18 @@ msgstr "Видалити це голосування?"
 msgid "Yes, delete it without posting results"
 msgstr "Так, видалити без публікації результатів"
 
+msgid "Anyone who can use /electable here"
+msgstr "Усі, хто може використовувати /electable тут"
+
+msgid "Run by {user}"
+msgstr "Проводить: {user}"
+
+msgid "Details"
+msgstr "Подробиці"
+
+msgid "These results are no longer available."
+msgstr "Ці результати більше недоступні."
+
 msgid "Vote"
 msgstr "Голосувати"
 
@@ -160,14 +172,8 @@ msgstr "Завершено"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Голосування завершено"
 
-msgid "Run by {user}"
-msgstr "Проводить: {user}"
-
 msgid "Candidates"
 msgstr "Кандидати"
-
-msgid "Method"
-msgstr "Метод"
 
 msgid "This election is not open."
 msgstr "Це голосування не відкрите."
@@ -198,9 +204,6 @@ msgstr "Переможець"
 msgid "Results for {title}"
 msgstr "Результати: {title}"
 
-msgid "Details"
-msgstr "Подробиці"
-
 msgid "Computed using {method}"
 msgstr "Підраховано методом: {method}"
 
@@ -216,9 +219,6 @@ msgstr ""
 "{channel}. Переконайтеся, що бот бачить цей канал і може надсилати в "
 "нього повідомлення. Бот продовжить спроби."
 
-msgid "Anyone who can use /electable here"
-msgstr "Усі, хто може використовувати /electable тут"
-
 msgid "End Time (optional)"
 msgstr "Час завершення (необов’язково)"
 
@@ -233,6 +233,9 @@ msgstr "Назва голосування"
 
 msgid "Description"
 msgstr "Опис"
+
+msgid "Method"
+msgstr "Метод"
 
 msgid "Edit Attributes"
 msgstr "Редагувати параметри"

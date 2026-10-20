@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: el\n"
@@ -142,6 +142,18 @@ msgstr "Διαγραφή αυτής της ψηφοφορίας;"
 msgid "Yes, delete it without posting results"
 msgstr "Ναι, διαγραφή χωρίς δημοσίευση αποτελεσμάτων"
 
+msgid "Anyone who can use /electable here"
+msgstr "Όποιος μπορεί να χρησιμοποιεί το /electable εδώ"
+
+msgid "Run by {user}"
+msgstr "Διοργανωτής: {user}"
+
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgid "These results are no longer available."
+msgstr "Αυτά τα αποτελέσματα δεν είναι πλέον διαθέσιμα."
+
 msgid "Vote"
 msgstr "Ψηφίστε"
 
@@ -157,14 +169,8 @@ msgstr "Έληξε"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Η ψηφοφορία έληξε"
 
-msgid "Run by {user}"
-msgstr "Διοργανωτής: {user}"
-
 msgid "Candidates"
 msgstr "Υποψήφιοι"
-
-msgid "Method"
-msgstr "Μέθοδος"
 
 msgid "This election is not open."
 msgstr "Αυτή η ψηφοφορία δεν είναι ανοιχτή."
@@ -196,9 +202,6 @@ msgstr "Νικητής"
 msgid "Results for {title}"
 msgstr "Αποτελέσματα: {title}"
 
-msgid "Details"
-msgstr "Λεπτομέρειες"
-
 msgid "Computed using {method}"
 msgstr "Μέθοδος υπολογισμού: {method}"
 
@@ -214,9 +217,6 @@ msgstr ""
 " στο {channel}. Βεβαιωθείτε ότι το bot μπορεί να βλέπει αυτό το κανάλι "
 "και να στέλνει μηνύματα εκεί. Θα συνεχίσει να προσπαθεί."
 
-msgid "Anyone who can use /electable here"
-msgstr "Όποιος μπορεί να χρησιμοποιεί το /electable εδώ"
-
 msgid "End Time (optional)"
 msgstr "Ώρα λήξης (προαιρετικό)"
 
@@ -231,6 +231,9 @@ msgstr "Τίτλος ψηφοφορίας"
 
 msgid "Description"
 msgstr "Περιγραφή"
+
+msgid "Method"
+msgstr "Μέθοδος"
 
 msgid "Edit Attributes"
 msgstr "Επεξεργασία στοιχείων"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hi\n"
@@ -142,6 +142,18 @@ msgstr "क्या यह चुनाव हटाएँ?"
 msgid "Yes, delete it without posting results"
 msgstr "हाँ, परिणाम प्रकाशित किए बिना हटाएँ"
 
+msgid "Anyone who can use /electable here"
+msgstr "यहाँ /electable का उपयोग कर सकने वाला कोई भी"
+
+msgid "Run by {user}"
+msgstr "आयोजक: {user}"
+
+msgid "Details"
+msgstr "विवरण"
+
+msgid "These results are no longer available."
+msgstr "ये परिणाम अब उपलब्ध नहीं हैं।"
+
 msgid "Vote"
 msgstr "वोट करें"
 
@@ -157,14 +169,8 @@ msgstr "समाप्त हुआ"
 msgid "{footer} • Election ended"
 msgstr "{footer} • चुनाव समाप्त"
 
-msgid "Run by {user}"
-msgstr "आयोजक: {user}"
-
 msgid "Candidates"
 msgstr "उम्मीदवार"
-
-msgid "Method"
-msgstr "विधि"
 
 msgid "This election is not open."
 msgstr "यह चुनाव खुला नहीं है।"
@@ -195,9 +201,6 @@ msgstr "विजेता"
 msgid "Results for {title}"
 msgstr "{title} के परिणाम"
 
-msgid "Details"
-msgstr "विवरण"
-
 msgid "Computed using {method}"
 msgstr "{method} से गणना की गई"
 
@@ -213,9 +216,6 @@ msgstr ""
 " सुनिश्चित करें कि बॉट उस चैनल को देख सकता है और वहाँ संदेश भेज सकता है। "
 "वह प्रयास करता रहेगा।"
 
-msgid "Anyone who can use /electable here"
-msgstr "यहाँ /electable का उपयोग कर सकने वाला कोई भी"
-
 msgid "End Time (optional)"
 msgstr "समाप्ति समय (वैकल्पिक)"
 
@@ -230,6 +230,9 @@ msgstr "चुनाव का शीर्षक"
 
 msgid "Description"
 msgstr "विवरण"
+
+msgid "Method"
+msgstr "विधि"
 
 msgid "Edit Attributes"
 msgstr "विवरण संपादित करें"

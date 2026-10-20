@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,6 +133,18 @@ msgstr ""
 msgid "Yes, delete it without posting results"
 msgstr ""
 
+msgid "Anyone who can use /electable here"
+msgstr ""
+
+msgid "Run by {user}"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "These results are no longer available."
+msgstr ""
+
 msgid "Vote"
 msgstr ""
 
@@ -148,13 +160,7 @@ msgstr ""
 msgid "{footer} • Election ended"
 msgstr ""
 
-msgid "Run by {user}"
-msgstr ""
-
 msgid "Candidates"
-msgstr ""
-
-msgid "Method"
 msgstr ""
 
 msgid "This election is not open."
@@ -182,9 +188,6 @@ msgstr ""
 msgid "Results for {title}"
 msgstr ""
 
-msgid "Details"
-msgstr ""
-
 msgid "Computed using {method}"
 msgstr ""
 
@@ -195,9 +198,6 @@ msgid ""
 "The results of the election **{title}** couldn't be posted in {channel}. "
 "Please make sure the bot can see that channel and send messages there. It"
 " will keep trying."
-msgstr ""
-
-msgid "Anyone who can use /electable here"
 msgstr ""
 
 msgid "End Time (optional)"
@@ -213,6 +213,9 @@ msgid "Election Title"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Method"
 msgstr ""
 
 msgid "Edit Attributes"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -144,6 +144,18 @@ msgstr "Smazat toto hlasování?"
 msgid "Yes, delete it without posting results"
 msgstr "Ano, smazat bez zveřejnění výsledků"
 
+msgid "Anyone who can use /electable here"
+msgstr "Kdokoli, kdo zde může použít /electable"
+
+msgid "Run by {user}"
+msgstr "Pořádá: {user}"
+
+msgid "Details"
+msgstr "Podrobnosti"
+
+msgid "These results are no longer available."
+msgstr "Tyto výsledky už nejsou k dispozici."
+
 msgid "Vote"
 msgstr "Hlasovat"
 
@@ -159,14 +171,8 @@ msgstr "Skončilo"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Hlasování skončilo"
 
-msgid "Run by {user}"
-msgstr "Pořádá: {user}"
-
 msgid "Candidates"
 msgstr "Kandidáti"
-
-msgid "Method"
-msgstr "Metoda"
 
 msgid "This election is not open."
 msgstr "Toto hlasování není otevřené."
@@ -198,9 +204,6 @@ msgstr "Vítěz"
 msgid "Results for {title}"
 msgstr "Výsledky: {title}"
 
-msgid "Details"
-msgstr "Podrobnosti"
-
 msgid "Computed using {method}"
 msgstr "Vypočteno metodou: {method}"
 
@@ -216,9 +219,6 @@ msgstr ""
 " Ověřte, že bot tento kanál vidí a může do něj posílat zprávy. Bude to "
 "zkoušet dál."
 
-msgid "Anyone who can use /electable here"
-msgstr "Kdokoli, kdo zde může použít /electable"
-
 msgid "End Time (optional)"
 msgstr "Čas ukončení (nepovinné)"
 
@@ -233,6 +233,9 @@ msgstr "Název hlasování"
 
 msgid "Description"
 msgstr "Popis"
+
+msgid "Method"
+msgstr "Metoda"
 
 msgid "Edit Attributes"
 msgstr "Upravit vlastnosti"

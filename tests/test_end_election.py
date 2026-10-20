@@ -7,7 +7,12 @@ import pytest
 import db
 import election as election_module
 import election_checker
-from election import end_election_and_update_message, load_election_from_db
+from election import (
+    DetailsButton,
+    end_election_and_update_message,
+    load_election_from_db,
+    text_views,
+)
 from elections.copeland import CopelandElection
 from tests.testutil import assert_fits, texts
 
@@ -77,7 +82,7 @@ def _create_election(end_timestamp=None, creator_id=0):
     return db.save_election(election)
 
 
-def test_long_results_are_split_across_messages():
+def test_results_are_one_message_with_details():
     election_id = _create_election()
     channel = FakeChannel()
     asyncio.run(
@@ -86,12 +91,17 @@ def test_long_results_are_split_across_messages():
         )
     )
 
-    assert len(channel.sent) > 1
-    # The announcement starts the first message.
-    assert texts(channel.sent[0])[0] == "Election **Big Election** has ended!"
-    for view in channel.sent:
-        assert_fits(view)
-    assert texts(channel.sent[-1])[-1].startswith("-# Computed using")
+    (view,) = channel.sent
+    assert_fits(view)
+    # The announcement starts the message.
+    assert texts(view)[0] == "Election **Big Election** has ended!"
+    # The long details are saved for the Details button, not posted.
+    (button,) = [i for i in view.walk_children() if isinstance(i, DetailsButton)]
+    blocks = db.load_results(button.result_id)
+    assert any(b.startswith("-# Computed using") for b in blocks)
+    for details_view in text_views(blocks):
+        assert_fits(details_view)
+    assert len(text_views(blocks)) > 1
     assert load_election_from_db(election_id) is None
 
 
@@ -119,23 +129,23 @@ def test_init_db_removes_stuck_closed_elections():
     assert load_election_from_db(election_id) is None
 
 
-def test_retry_after_partial_post_resumes():
+def test_retry_posts_the_same_results():
     election_id = _create_election()
-    channel = FakeChannel(fail_after=1)
+    channel = FakeChannel(fail=True)
     with pytest.raises(discord.HTTPException):
         asyncio.run(
             end_election_and_update_message(load_election_from_db(election_id), channel)
         )
-    assert len(channel.sent) == 1
-    first = channel.sent[0]
 
-    channel.fail_after = None
+    channel.fail = False
     asyncio.run(
         end_election_and_update_message(load_election_from_db(election_id), channel)
     )
-    assert channel.sent[0] is first
-    assert len(channel.sent) > 1
-    assert first not in channel.sent[1:]
+    (view,) = channel.sent
+    (button,) = [i for i in view.walk_children() if isinstance(i, DetailsButton)]
+    # The retry didn't tabulate (and randomize ties) again.
+    assert button.result_id == 1
+    assert db.load_results(2) is None
     assert load_election_from_db(election_id) is None
 
 

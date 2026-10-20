@@ -9,6 +9,7 @@ import pytest
 import db
 import setup
 from electable import ConfirmModal, ElectableView
+from election import DetailsButton, text_views
 from elections.approval import ApprovalElection
 from elections.star import STARElection
 from elections.stv import NUMBER_OF_WINNERS, STVElection
@@ -93,8 +94,11 @@ def test_largest_screens_fit():
                 assert_fits(ballot.render_interim(1)["view"])
             assert_fits(ballot.render_submitted()["view"])
 
-            for view in election.get_results("Election **x** has ended!"):
-                assert_fits(view)
+            view, result_id = election.get_results("Election **x** has ended!")
+            assert_fits(view)
+            for details in text_views(db.load_results(result_id)):
+                assert_fits(details)
+            assert_fits(election.get_info()["view"])
             db.delete_election(election.election_id)
 
         view = ElectableView(1, 2)
@@ -407,3 +411,74 @@ def test_vote_count_update_finds_post_gone(monkeypatch):
         assert db.load_election(election.election_id) is None
 
     asyncio.run(main())
+
+
+
+class FakeFollowupViews:
+    def __init__(self):
+        self.sent = []
+
+    async def send(self, view=None, ephemeral=False):
+        assert ephemeral
+        self.sent.append(view)
+
+
+class FakeSendResponse:
+    def __init__(self):
+        self.sent = []
+
+    async def send_message(self, content=None, view=None, ephemeral=False):
+        assert ephemeral
+        self.sent.append(view or content)
+
+
+class FakeClickInteraction:
+    locale = discord.Locale("en-US")
+
+    def __init__(self):
+        self.response = FakeSendResponse()
+        self.followup = FakeFollowupViews()
+
+
+def test_details_button_shows_results_privately():
+    async def main():
+        result_id = db.save_results(["## Results", "x" * 9000])
+        interaction = FakeClickInteraction()
+        await DetailsButton(result_id).callback(interaction)
+        views = interaction.response.sent + interaction.followup.sent
+        assert len(views) > 1
+        assert "## Results" in texts(views[0])
+
+        interaction = FakeClickInteraction()
+        await DetailsButton(999).callback(interaction)
+        assert interaction.response.sent == ["These results are no longer available."]
+
+    asyncio.run(main())
+
+
+def test_post_shows_method_on_request():
+    async def main():
+        election = _election(STVElection, {NUMBER_OF_WINNERS: "1"})
+        post = election.get_public_view()["view"]
+        assert not any("Instant Runoff" in t for t in texts(post))
+        assert labels(post)[-2:] == ["Vote", "Details"]
+        info = election.get_info()["view"]
+        assert "**Method**:\nInstant Runoff" in texts(info)
+
+        ended = election.get_public_view(ended_at=2_000_000_000, result_id=5)["view"]
+        assert labels(ended) == ["Details"]
+
+    asyncio.run(main())
+
+
+def test_old_results_are_deleted(monkeypatch):
+    old = db.save_results(["old"])
+    new = db.save_results(["new"])
+    with db.transaction() as conn:
+        conn.execute(
+            "UPDATE results SET created = created - ? WHERE result_id = ?",
+            (db.RESULTS_RETENTION_SECONDS, old),
+        )
+    assert db.delete_old_results() == 1
+    assert db.load_results(old) is None
+    assert db.load_results(new) == ["new"]

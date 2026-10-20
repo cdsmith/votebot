@@ -87,6 +87,9 @@ async def check_expired_elections() -> int:
     The sleep time is based on the next election end time, so elections end
     promptly rather than waiting for a fixed polling interval.
     """
+    # Results are only kept for a limited time.
+    db.delete_old_results()
+
     # Load only elections ending soon (or already expired)
     elections_ending_soon = db.load_elections_ending_soon(
         within_seconds=MAX_SLEEP_SECONDS

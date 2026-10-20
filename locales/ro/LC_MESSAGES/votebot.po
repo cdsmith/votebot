@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -145,6 +145,18 @@ msgstr "Ștergeți aceste alegeri?"
 msgid "Yes, delete it without posting results"
 msgstr "Da, ștergeți-le fără a publica rezultatele"
 
+msgid "Anyone who can use /electable here"
+msgstr "Oricine poate folosi /electable aici"
+
+msgid "Run by {user}"
+msgstr "Organizate de {user}"
+
+msgid "Details"
+msgstr "Detalii"
+
+msgid "These results are no longer available."
+msgstr "Aceste rezultate nu mai sunt disponibile."
+
 msgid "Vote"
 msgstr "Votează"
 
@@ -160,14 +172,8 @@ msgstr "Încheiate"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Alegeri încheiate"
 
-msgid "Run by {user}"
-msgstr "Organizate de {user}"
-
 msgid "Candidates"
 msgstr "Candidați"
-
-msgid "Method"
-msgstr "Metodă"
 
 msgid "This election is not open."
 msgstr "Aceste alegeri nu sunt deschise."
@@ -199,9 +205,6 @@ msgstr "Câștigător"
 msgid "Results for {title}"
 msgstr "Rezultate pentru {title}"
 
-msgid "Details"
-msgstr "Detalii"
-
 msgid "Computed using {method}"
 msgstr "Calculat folosind {method}"
 
@@ -217,9 +220,6 @@ msgstr ""
 " Asigurați-vă că botul poate vedea acel canal și poate trimite mesaje "
 "acolo. Va continua să încerce."
 
-msgid "Anyone who can use /electable here"
-msgstr "Oricine poate folosi /electable aici"
-
 msgid "End Time (optional)"
 msgstr "Ora de încheiere (opțional)"
 
@@ -234,6 +234,9 @@ msgstr "Titlul alegerilor"
 
 msgid "Description"
 msgstr "Descriere"
+
+msgid "Method"
+msgstr "Metodă"
 
 msgid "Edit Attributes"
 msgstr "Editare atribute"

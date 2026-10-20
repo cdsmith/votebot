@@ -20,9 +20,13 @@ def texts(view: discord.ui.LayoutView) -> list[str]:
 
 def labels(view: discord.ui.LayoutView) -> list[str]:
     """The labels and placeholders of a view's buttons and selects."""
+    items = [
+        item.item if isinstance(item, discord.ui.DynamicItem) else item
+        for item in view.walk_children()
+    ]
     return [
         getattr(item, "label", None) or getattr(item, "placeholder", None)
-        for item in view.walk_children()
+        for item in items
         if isinstance(item, (discord.ui.Button, discord.ui.Select))
     ]
 

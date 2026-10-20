@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hu\n"
@@ -140,6 +140,18 @@ msgstr "Törlöd ezt a szavazást?"
 msgid "Yes, delete it without posting results"
 msgstr "Igen, töröld az eredmények közzététele nélkül"
 
+msgid "Anyone who can use /electable here"
+msgstr "Bárki, aki itt használhatja a /electable parancsot"
+
+msgid "Run by {user}"
+msgstr "Szervező: {user}"
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "These results are no longer available."
+msgstr "Ezek az eredmények már nem érhetők el."
+
 msgid "Vote"
 msgstr "Szavazás"
 
@@ -155,14 +167,8 @@ msgstr "Véget ért"
 msgid "{footer} • Election ended"
 msgstr "{footer} • A szavazás véget ért"
 
-msgid "Run by {user}"
-msgstr "Szervező: {user}"
-
 msgid "Candidates"
 msgstr "Jelöltek"
-
-msgid "Method"
-msgstr "Módszer"
 
 msgid "This election is not open."
 msgstr "Ez a szavazás nincs nyitva."
@@ -193,9 +199,6 @@ msgstr "Győztes"
 msgid "Results for {title}"
 msgstr "Eredmények: {title}"
 
-msgid "Details"
-msgstr "Részletek"
-
 msgid "Computed using {method}"
 msgstr "Számítási módszer: {method}"
 
@@ -211,9 +214,6 @@ msgstr ""
 "{channel}. Ellenőrizd, hogy a bot látja-e a csatornát, és küldhet-e oda "
 "üzeneteket. Továbbra is próbálkozni fog."
 
-msgid "Anyone who can use /electable here"
-msgstr "Bárki, aki itt használhatja a /electable parancsot"
-
 msgid "End Time (optional)"
 msgstr "Befejezési idő (nem kötelező)"
 
@@ -228,6 +228,9 @@ msgstr "Szavazás címe"
 
 msgid "Description"
 msgstr "Leírás"
+
+msgid "Method"
+msgstr "Módszer"
 
 msgid "Edit Attributes"
 msgstr "Adatok szerkesztése"

@@ -6,6 +6,10 @@ from contextlib import contextmanager
 
 DB_PATH = "votebot.db"
 
+# How long the detailed results of past elections are kept, as promised in
+# the privacy policy.  They hold only tallies, not who voted or how.
+RESULTS_RETENTION_SECONDS = 30 * 24 * 60 * 60
+
 
 def get_connection():
     """Get a database connection.
@@ -145,6 +149,23 @@ def init_db():
         CREATE INDEX IF NOT EXISTS idx_elections_channel_title
         ON elections(channel_id, title)
     """
+    )
+
+    # Results of past elections, shown on request.  These outlive their
+    # elections, which are deleted once the results are posted.
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS results (
+            result_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            blocks TEXT NOT NULL,
+            created INTEGER NOT NULL
+        )
+    """
+    )
+
+    conn.execute(
+        "DELETE FROM results WHERE created <= ?",
+        (int(time.time()) - RESULTS_RETENTION_SECONDS,),
     )
 
     # For finding elections whose post was deleted
@@ -313,6 +334,46 @@ def delete_elections_in_channel(channel_id: int) -> int:
         cursor = conn.execute("DELETE FROM elections WHERE channel_id=?", (channel_id,))
         conn.commit()
         return cursor.rowcount
+    finally:
+        conn.close()
+
+
+def delete_old_results() -> int:
+    """Delete results kept longer than allowed, returning how many."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            "DELETE FROM results WHERE created <= ?",
+            (int(time.time()) - RESULTS_RETENTION_SECONDS,),
+        )
+        conn.commit()
+        return cursor.rowcount
+    finally:
+        conn.close()
+
+
+def save_results(blocks: list[str]) -> int:
+    """Save the text of an election's detailed results, returning its ID."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            "INSERT INTO results (blocks, created) VALUES (?, ?)",
+            (json.dumps(blocks), int(time.time())),
+        )
+        conn.commit()
+        return cursor.lastrowid
+    finally:
+        conn.close()
+
+
+def load_results(result_id: int) -> list[str] | None:
+    """Load the text of an election's detailed results."""
+    conn = get_connection()
+    try:
+        row = conn.execute(
+            "SELECT blocks FROM results WHERE result_id=?", (result_id,)
+        ).fetchone()
+        return json.loads(row["blocks"]) if row else None
     finally:
         conn.close()
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hant_TW\n"
@@ -138,6 +138,18 @@ msgstr "刪除此選舉？"
 msgid "Yes, delete it without posting results"
 msgstr "是，刪除且不公布結果"
 
+msgid "Anyone who can use /electable here"
+msgstr "此處所有可以使用 /electable 的人"
+
+msgid "Run by {user}"
+msgstr "發起人：{user}"
+
+msgid "Details"
+msgstr "詳細資訊"
+
+msgid "These results are no longer available."
+msgstr "這些結果已無法查看。"
+
 msgid "Vote"
 msgstr "投票"
 
@@ -153,14 +165,8 @@ msgstr "已結束"
 msgid "{footer} • Election ended"
 msgstr "{footer} • 選舉已結束"
 
-msgid "Run by {user}"
-msgstr "發起人：{user}"
-
 msgid "Candidates"
 msgstr "候選人"
-
-msgid "Method"
-msgstr "投票方式"
 
 msgid "This election is not open."
 msgstr "此選舉未開放。"
@@ -187,9 +193,6 @@ msgstr "獲勝者"
 msgid "Results for {title}"
 msgstr "{title} 的結果"
 
-msgid "Details"
-msgstr "詳細資訊"
-
 msgid "Computed using {method}"
 msgstr "使用 {method} 計算"
 
@@ -201,9 +204,6 @@ msgid ""
 "Please make sure the bot can see that channel and send messages there. It"
 " will keep trying."
 msgstr "無法在 {channel} 發布選舉 **{title}** 的結果。請確認機器人可以檢視該頻道並在其中傳送訊息。機器人會繼續嘗試。"
-
-msgid "Anyone who can use /electable here"
-msgstr "此處所有可以使用 /electable 的人"
 
 msgid "End Time (optional)"
 msgstr "結束時間（選填）"
@@ -219,6 +219,9 @@ msgstr "選舉標題"
 
 msgid "Description"
 msgstr "說明"
+
+msgid "Method"
+msgstr "投票方式"
 
 msgid "Edit Attributes"
 msgstr "編輯屬性"

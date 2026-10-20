@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl\n"
@@ -145,6 +145,18 @@ msgstr "Usunąć to głosowanie?"
 msgid "Yes, delete it without posting results"
 msgstr "Tak, usuń bez publikowania wyników"
 
+msgid "Anyone who can use /electable here"
+msgstr "Każdy, kto może tu używać /electable"
+
+msgid "Run by {user}"
+msgstr "Prowadzi: {user}"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "These results are no longer available."
+msgstr "Te wyniki nie są już dostępne."
+
 msgid "Vote"
 msgstr "Głosuj"
 
@@ -160,14 +172,8 @@ msgstr "Zakończono"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Głosowanie zakończone"
 
-msgid "Run by {user}"
-msgstr "Prowadzi: {user}"
-
 msgid "Candidates"
 msgstr "Kandydaci"
-
-msgid "Method"
-msgstr "Metoda"
 
 msgid "This election is not open."
 msgstr "To głosowanie nie jest otwarte."
@@ -199,9 +205,6 @@ msgstr "Zwycięzca"
 msgid "Results for {title}"
 msgstr "Wyniki: {title}"
 
-msgid "Details"
-msgstr "Szczegóły"
-
 msgid "Computed using {method}"
 msgstr "Obliczono metodą: {method}"
 
@@ -217,9 +220,6 @@ msgstr ""
 "{channel}. Upewnij się, że bot widzi ten kanał i może na nim wysyłać "
 "wiadomości. Bot będzie próbował dalej."
 
-msgid "Anyone who can use /electable here"
-msgstr "Każdy, kto może tu używać /electable"
-
 msgid "End Time (optional)"
 msgstr "Czas zakończenia (opcjonalnie)"
 
@@ -234,6 +234,9 @@ msgstr "Tytuł głosowania"
 
 msgid "Description"
 msgstr "Opis"
+
+msgid "Method"
+msgstr "Metoda"
 
 msgid "Edit Attributes"
 msgstr "Edytuj ustawienia"

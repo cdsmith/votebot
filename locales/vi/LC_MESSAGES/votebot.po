@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 11:31-0600\n"
+"POT-Creation-Date: 2026-10-20 16:09-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: vi\n"
@@ -140,6 +140,18 @@ msgstr "Xóa cuộc bầu cử này?"
 msgid "Yes, delete it without posting results"
 msgstr "Có, xóa mà không công bố kết quả"
 
+msgid "Anyone who can use /electable here"
+msgstr "Bất kỳ ai có thể dùng /electable ở đây"
+
+msgid "Run by {user}"
+msgstr "Tổ chức bởi {user}"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "These results are no longer available."
+msgstr "Kết quả này không còn khả dụng."
+
 msgid "Vote"
 msgstr "Bỏ phiếu"
 
@@ -155,14 +167,8 @@ msgstr "Đã kết thúc"
 msgid "{footer} • Election ended"
 msgstr "{footer} • Cuộc bầu cử đã kết thúc"
 
-msgid "Run by {user}"
-msgstr "Tổ chức bởi {user}"
-
 msgid "Candidates"
 msgstr "Ứng cử viên"
-
-msgid "Method"
-msgstr "Phương pháp"
 
 msgid "This election is not open."
 msgstr "Cuộc bầu cử này không mở."
@@ -193,9 +199,6 @@ msgstr "Người thắng cử"
 msgid "Results for {title}"
 msgstr "Kết quả của {title}"
 
-msgid "Details"
-msgstr "Chi tiết"
-
 msgid "Computed using {method}"
 msgstr "Tính theo {method}"
 
@@ -211,9 +214,6 @@ msgstr ""
 "Hãy đảm bảo bot có thể xem kênh đó và gửi tin nhắn ở đó. Bot sẽ tiếp tục "
 "thử."
 
-msgid "Anyone who can use /electable here"
-msgstr "Bất kỳ ai có thể dùng /electable ở đây"
-
 msgid "End Time (optional)"
 msgstr "Thời gian kết thúc (không bắt buộc)"
 
@@ -228,6 +228,9 @@ msgstr "Tiêu đề cuộc bầu cử"
 
 msgid "Description"
 msgstr "Mô tả"
+
+msgid "Method"
+msgstr "Phương pháp"
 
 msgid "Edit Attributes"
 msgstr "Chỉnh sửa thông tin"
