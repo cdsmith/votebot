@@ -68,6 +68,22 @@ class RankedBallot(Ballot):
 
                 await self.modify(modification, interaction, session_id)
 
+        class RemoveSelect(discord.ui.Select):
+            def __init__(inner_self):
+                super().__init__(
+                    placeholder=_("Remove a candidate from your ranking"),
+                    options=[
+                        discord.SelectOption(label=c, value=c) for c in self.ranking
+                    ],
+                )
+
+            async def callback(inner_self, interaction: discord.Interaction):
+                def modification():
+                    if inner_self.values[0] in self.ranking:
+                        self.ranking.remove(inner_self.values[0])
+
+                await self.modify(modification, interaction, session_id)
+
         options = []
         for i in range(0, len(remaining_candidates), 25):
             if remaining_candidates:
@@ -75,6 +91,8 @@ class RankedBallot(Ballot):
                 options.append(
                     CandidateSelect(remaining_candidates[i : i + 25], partial)
                 )
+        if self.ranking:
+            options.append(RemoveSelect())
         return options
 
     def submittable(self) -> bool:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: bg\n"
@@ -39,44 +39,40 @@ msgstr "Страница {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Гласът е подаден"
 
-msgid "Your ballot:"
-msgstr "Вашата бюлетина:"
-
 msgid "Your vote has been submitted."
 msgstr "Гласът ви беше подаден."
+
+msgid "Your ballot:"
+msgstr "Вашата бюлетина:"
 
 msgid "Manage your elections."
 msgstr "Управлявайте изборите си."
 
-msgid "Error: Election not found."
-msgstr "Грешка: изборите не са намерени."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Метод**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Управление: {title}**\n"
-"\n"
-"**Метод**: {method}\n"
-"**Кандидати**: {candidates}\n"
-"**Гласове**: {votes}\n"
-"**Край**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Изберете избори за управление или създайте нови."
+"**Кандидати**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Нямате активни избори в този канал.\n"
-"\n"
-"Натиснете бутона по-долу, за да създадете!"
+"**Край**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} подаден глас"
+msgstr[1] "{n} подадени гласа"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Примери: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Грешка: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Изборите са пренасрочени!"
-
 msgid "End Now"
 msgstr "Приключи сега"
 
 msgid "Confirm End Election"
 msgstr "Потвърждаване на приключването"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Въведете „CONFIRM“ за край на изборите"
+msgid "End this election now?"
+msgstr "Да приключат ли изборите сега?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Изборите не са приключени. Текстът за потвърждение не съвпада."
+msgid "Yes, end it and post the results"
+msgstr "Да, приключи ги и публикувай резултатите"
 
 msgid "Delete"
 msgstr "Изтрий"
@@ -134,12 +126,11 @@ msgstr "Изтрий"
 msgid "Confirm Delete Election"
 msgstr "Потвърждаване на изтриването"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Въведете „DELETE“ за изтриване на изборите"
+msgid "Delete this election?"
+msgstr "Да се изтрият ли изборите?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Изборите не са изтрити. Текстът за потвърждение не съвпада."
+msgid "Yes, delete it without posting results"
+msgstr "Да, изтрий ги, без да публикуваш резултатите"
 
 msgid "Vote"
 msgstr "Гласувай"
@@ -147,22 +138,23 @@ msgstr "Гласувай"
 msgid "This election no longer exists."
 msgstr "Тези избори вече не съществуват."
 
-msgid "Candidates"
-msgstr "Кандидати"
-
 msgid "*No candidates yet!*"
 msgstr "*Все още няма кандидати!*"
-
-msgid "Method"
-msgstr "Метод"
 
 msgid "Ends"
 msgstr "Край"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} подаден глас"
-msgstr[1] "{n} подадени гласа"
+msgid "Ended"
+msgstr "Приключили"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Изборите приключиха"
+
+msgid "Candidates"
+msgstr "Кандидати"
+
+msgid "Method"
+msgstr "Метод"
 
 msgid "This election is not open."
 msgstr "Тези избори не са отворени."
@@ -182,9 +174,6 @@ msgstr ""
 "гласувате или да актуализирате бюлетината си, натиснете отново бутона "
 "„Гласувай“."
 
-msgid "Results for {title}"
-msgstr "Резултати за {title}"
-
 msgid "Winners"
 msgstr "Победители"
 
@@ -193,6 +182,9 @@ msgstr "Няма определен победител"
 
 msgid "Winner"
 msgstr "Победител"
+
+msgid "Results for {title}"
+msgstr "Резултати за {title}"
 
 msgid "Details"
 msgstr "Подробности"
@@ -203,14 +195,14 @@ msgstr "Изчислено чрез {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Изборите **{title}** приключиха!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Изборите приключиха"
-
-msgid "Ended"
-msgstr "Приключили"
+msgid "End Time (optional)"
+msgstr "Час на приключване (по избор)"
 
 msgid "Create Election"
 msgstr "Създаване на избори"
+
+msgid "Select Method"
+msgstr "Изберете метод"
 
 msgid "Election Title"
 msgstr "Заглавие на изборите"
@@ -218,29 +210,37 @@ msgstr "Заглавие на изборите"
 msgid "Description"
 msgstr "Описание"
 
-msgid "End Time (optional)"
-msgstr "Час на приключване (по избор)"
-
-msgid "Select Method"
-msgstr "Изберете метод"
+msgid "Edit Attributes"
+msgstr "Редактиране на атрибутите"
 
 msgid "Configure Method"
 msgstr "Настройки на метода"
 
-msgid "Language"
-msgstr "Език"
-
 msgid "Add Candidate"
 msgstr "Добави кандидат"
 
-msgid "Add a Candidate"
-msgstr "Добавяне на кандидат"
+msgid "Candidate Names"
+msgstr "Имена на кандидати"
 
-msgid "Candidate Name"
-msgstr "Име на кандидата"
+msgid "One per line"
+msgstr "По едно на ред"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** вече е кандидат."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+"**{name}** е твърде дълго. Имената на кандидатите могат да имат най-много"
+" {n} знак."
+msgstr[1] ""
+"**{name}** е твърде дълго. Имената на кандидатите могат да имат най-много"
+" {n} знака."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Изборите могат да имат най-много {n} кандидат."
+msgstr[1] "Изборите могат да имат най-много {n} кандидати."
 
 msgid "Remove Candidate"
 msgstr "Премахни кандидат"
@@ -258,12 +258,6 @@ msgstr ""
 "Грешка: насроченият час на приключване вече е минал. Пренасрочете или "
 "премахнете часа на приключване."
 
-msgid "Edit"
-msgstr "Редактирай"
-
-msgid "Edit Attributes"
-msgstr "Редактиране на атрибутите"
-
 msgid "Cancel"
 msgstr "Отказ"
 
@@ -272,9 +266,6 @@ msgstr "Настройката е отменена."
 
 msgid "*No title set.*"
 msgstr "*Няма зададено заглавие.*"
-
-msgid "*No method set.*"
-msgstr "*Няма зададен метод.*"
 
 msgid "*No description set.*"
 msgstr "*Няма зададено описание.*"
@@ -296,40 +287,11 @@ msgstr ""
 "**Описание**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Метод**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Редактирай"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Кандидати**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Край**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Език**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Изберете езика за публичните съобщения на тези избори. Бюлетината на "
-"всеки гласоподавател е на неговия собствен език."
+msgid "Language"
+msgstr "Език"
 
 msgid "No title was set."
 msgstr "Не е зададено заглавие."
@@ -368,6 +330,9 @@ msgstr "Изберете кандидат за #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Изберете кандидат за #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Премахнете кандидат от класирането си"
 
 msgid "No candidates ranked."
 msgstr "Няма класирани кандидати."

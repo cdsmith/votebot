@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hant_TW\n"
@@ -39,44 +39,39 @@ msgstr "第 {page}/{total} 頁"
 msgid "Vote Submitted"
 msgstr "投票已送出"
 
-msgid "Your ballot:"
-msgstr "你的選票："
-
 msgid "Your vote has been submitted."
 msgstr "你的投票已送出。"
+
+msgid "Your ballot:"
+msgstr "你的選票："
 
 msgid "Manage your elections."
 msgstr "管理你的選舉。"
 
-msgid "Error: Election not found."
-msgstr "錯誤：找不到選舉。"
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**投票方式**：\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**正在管理：{title}**\n"
-"\n"
-"**投票方式**：{method}\n"
-"**候選人**：{candidates}\n"
-"**票數**：{votes}\n"
-"**結束時間**：{end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "選擇要管理的選舉，或建立新選舉。"
+"**候選人**：\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"此頻道中沒有進行中的選舉。\n"
-"\n"
-"點擊下方按鈕建立一個！"
+"**結束時間**：\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "已投 {n} 票"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "例如：2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "錯誤：{error}"
 
-msgid "Election rescheduled!"
-msgstr "選舉已重新排程！"
-
 msgid "End Now"
 msgstr "立即結束"
 
 msgid "Confirm End Election"
 msgstr "確認結束選舉"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "輸入「CONFIRM」以結束此選舉"
+msgid "End this election now?"
+msgstr "立即結束選舉？"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "選舉未結束。確認文字不符。"
+msgid "Yes, end it and post the results"
+msgstr "是，結束並公布結果"
 
 msgid "Delete"
 msgstr "刪除"
@@ -133,12 +124,11 @@ msgstr "刪除"
 msgid "Confirm Delete Election"
 msgstr "確認刪除選舉"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "輸入「DELETE」以刪除此選舉"
+msgid "Delete this election?"
+msgstr "刪除此選舉？"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "選舉未刪除。確認文字不符。"
+msgid "Yes, delete it without posting results"
+msgstr "是，刪除且不公布結果"
 
 msgid "Vote"
 msgstr "投票"
@@ -146,21 +136,23 @@ msgstr "投票"
 msgid "This election no longer exists."
 msgstr "此選舉已不存在。"
 
-msgid "Candidates"
-msgstr "候選人"
-
 msgid "*No candidates yet!*"
 msgstr "*尚無候選人！*"
-
-msgid "Method"
-msgstr "投票方式"
 
 msgid "Ends"
 msgstr "結束時間"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "已投 {n} 票"
+msgid "Ended"
+msgstr "已結束"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • 選舉已結束"
+
+msgid "Candidates"
+msgstr "候選人"
+
+msgid "Method"
+msgstr "投票方式"
 
 msgid "This election is not open."
 msgstr "此選舉未開放。"
@@ -175,9 +167,6 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr "由於你沒有開啟的選票，你的投票 **未被記錄**。要投票或更新選票，請再次點擊「投票」按鈕。"
 
-msgid "Results for {title}"
-msgstr "{title} 的結果"
-
 msgid "Winners"
 msgstr "獲勝者"
 
@@ -186,6 +175,9 @@ msgstr "未決出獲勝者"
 
 msgid "Winner"
 msgstr "獲勝者"
+
+msgid "Results for {title}"
+msgstr "{title} 的結果"
 
 msgid "Details"
 msgstr "詳細資訊"
@@ -196,14 +188,14 @@ msgstr "使用 {method} 計算"
 msgid "Election **{title}** has ended!"
 msgstr "選舉 **{title}** 已結束！"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • 選舉已結束"
-
-msgid "Ended"
-msgstr "已結束"
+msgid "End Time (optional)"
+msgstr "結束時間（選填）"
 
 msgid "Create Election"
 msgstr "建立選舉"
+
+msgid "Select Method"
+msgstr "選擇投票方式"
 
 msgid "Election Title"
 msgstr "選舉標題"
@@ -211,29 +203,31 @@ msgstr "選舉標題"
 msgid "Description"
 msgstr "說明"
 
-msgid "End Time (optional)"
-msgstr "結束時間（選填）"
-
-msgid "Select Method"
-msgstr "選擇投票方式"
+msgid "Edit Attributes"
+msgstr "編輯屬性"
 
 msgid "Configure Method"
 msgstr "設定投票方式"
 
-msgid "Language"
-msgstr "語言"
-
 msgid "Add Candidate"
 msgstr "新增候選人"
 
-msgid "Add a Candidate"
-msgstr "新增候選人"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "候選人名稱"
+
+msgid "One per line"
+msgstr "每行一個"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** 已經是候選人。"
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** 太長。候選人名稱最多 {n} 個字元。"
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "每場選舉最多 {n} 位候選人。"
 
 msgid "Remove Candidate"
 msgstr "移除候選人"
@@ -249,12 +243,6 @@ msgid ""
 "remove the end time."
 msgstr "錯誤：預定的結束時間已過。請重新排程或移除結束時間。"
 
-msgid "Edit"
-msgstr "編輯"
-
-msgid "Edit Attributes"
-msgstr "編輯屬性"
-
 msgid "Cancel"
 msgstr "取消"
 
@@ -263,9 +251,6 @@ msgstr "設定已取消。"
 
 msgid "*No title set.*"
 msgstr "*未設定標題。*"
-
-msgid "*No method set.*"
-msgstr "*未設定投票方式。*"
 
 msgid "*No description set.*"
 msgstr "*未設定說明。*"
@@ -287,38 +272,11 @@ msgstr ""
 "**說明**：\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**投票方式**：\n"
-"{method}"
+msgid "Edit"
+msgstr "編輯"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**候選人**：\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**結束時間**：\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**語言**：\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr "選擇此選舉公開訊息所用的語言。每位投票者的選票將以其自己的語言顯示。"
+msgid "Language"
+msgstr "語言"
 
 msgid "No title was set."
 msgstr "未設定標題。"
@@ -353,6 +311,9 @@ msgstr "選擇排在 #{place} 的候選人... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "選擇排在 #{place} 的候選人..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "從你的排名中移除候選人"
 
 msgid "No candidates ranked."
 msgstr "沒有為任何候選人排名。"

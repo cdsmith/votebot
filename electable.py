@@ -2,14 +2,12 @@
 
 import discord
 from typing import Any
-import asyncio
 import db
 from election import load_election_from_db, end_election_and_update_message
 from setup import ElectionSetup
 import time_utils
 import election_checker
 from i18n import LocalizedModal, LocalizedView, _, ngettext, use_locale
-from text_utils import MESSAGE_CONTENT_LIMIT, truncate
 
 
 class ElectableView(LocalizedView):
@@ -17,136 +15,120 @@ class ElectableView(LocalizedView):
 
     def __init__(self, interaction: discord.Interaction):
         super().__init__(timeout=3600)
-        self.interaction = interaction
+        self.channel_id = interaction.channel_id
+        self.user_id = interaction.user.id
         self.selected_election_id: int | None = None
 
-        # Load user's elections in this channel
-        self.elections = db.load_elections_by_creator(
-            interaction.channel_id, interaction.user.id
+    def get_content(self) -> dict[str, Any]:
+        """Rebuild the view from the current elections, and return it as
+        message fields."""
+        self.clear_items()
+        election = (
+            load_election_from_db(self.selected_election_id)
+            if self.selected_election_id
+            else None
+        )
+        if election:
+            self.show_election(election)
+        else:
+            # The election may have been deleted elsewhere.
+            self.selected_election_id = None
+            self.show_list()
+        return {"view": self}
+
+    def show_list(self):
+        """Show the user's elections in this channel."""
+        elections = db.load_elections_by_creator(self.channel_id, self.user_id)
+        if elections:
+            self.add_item(discord.ui.ActionRow(ElectionSelect(elections)))
+        self.add_item(discord.ui.ActionRow(CreateNewButton()))
+
+    def show_election(self, election):
+        """Show the management screen for an election."""
+        vote_count = db.get_vote_count(election.election_id)
+        end_time = time_utils.format_timestamp_discord(election.end_timestamp)
+        candidates = "\n".join(f"- {c}" for c in election.candidates)
+        self.add_item(
+            discord.ui.Container(
+                discord.ui.TextDisplay(f"## {election.title}"),
+                discord.ui.TextDisplay(
+                    _("**Method**:\n{method}").format(
+                        method=election.method_description(election.method_params)
+                    )
+                ),
+                discord.ui.TextDisplay(
+                    _("**Candidates**:\n{candidates}").format(candidates=candidates)
+                ),
+                discord.ui.Section(
+                    discord.ui.TextDisplay(
+                        _("**Ends**:\n{end_time}").format(end_time=end_time)
+                    ),
+                    accessory=RescheduleButton(election.election_id),
+                ),
+                discord.ui.Separator(),
+                discord.ui.TextDisplay(
+                    "-# "
+                    + ngettext("{n} vote cast", "{n} votes cast", vote_count).format(
+                        n=vote_count
+                    )
+                ),
+            )
+        )
+        self.add_item(
+            discord.ui.ActionRow(
+                BackButton(),
+                EndNowButton(election.election_id),
+                DeleteButton(election.election_id),
+            )
         )
 
-        self.build_view()
 
-    def build_view(self):
-        """Build the UI based on current state."""
-        self.clear_items()
-
-        if self.selected_election_id:
-            # Show management view for selected election
-            self.add_item(BackButton())
-            self.add_item(RescheduleButton(self.selected_election_id))
-            self.add_item(EndNowButton(self.selected_election_id))
-            self.add_item(DeleteButton(self.selected_election_id))
-        else:
-            # Show election list view
-            if self.elections:
-                self.add_item(ElectionSelect(self.elections, self))
-                self.add_item(
-                    CreateNewButton(row=1)
-                )  # Row 1 when there's a select menu
-            else:
-                self.add_item(CreateNewButton(row=0))  # Row 0 when no select menu
-
-    def get_content(self) -> dict[str, Any]:
-        """Get the message content for the current view."""
-        if self.selected_election_id:
-            # Show selected election details
-            election = load_election_from_db(self.selected_election_id)
-            if not election:
-                return {
-                    "content": _("Error: Election not found."),
-                    "view": None,
-                }
-
-            vote_count = db.get_vote_count(election.election_id)
-            end_time = time_utils.format_timestamp_discord(election.end_timestamp)
-
-            content = _(
-                "**Managing: {title}**\n\n"
-                "**Method**: {method}\n"
-                "**Candidates**: {candidates}\n"
-                "**Votes**: {votes}\n"
-                "**Ends**: {end_time}\n"
-            ).format(
-                title=election.title,
-                method=election.method_description(election.method_params),
-                candidates=", ".join(election.candidates),
-                votes=vote_count,
-                end_time=end_time,
-            )
-
-            return {"content": truncate(content, MESSAGE_CONTENT_LIMIT), "view": self}
-        else:
-            # Show election list view
-            if self.elections:
-                content = _("Select an election to manage, or create a new one.")
-            else:
-                content = _(
-                    "You have no active elections in this channel.\n\n"
-                    "Click the button below to create one!"
-                )
-
-            return {"content": content, "view": self}
+async def _show_list(view: ElectableView, interaction: discord.Interaction):
+    """Go back to the list of elections."""
+    view.selected_election_id = None
+    await interaction.response.edit_message(**view.get_content())
 
 
 class ElectionSelect(discord.ui.Select):
     """Dropdown to select an election to manage."""
 
-    def __init__(self, elections: list[dict[str, Any]], parent_view: ElectableView):
-        self.parent_view = parent_view
-
+    def __init__(self, elections: list[dict[str, Any]]):
         options = []
         for e_data in elections[:25]:  # Discord limit
-            election = load_election_from_db(e_data["election_id"])
-            vote_count = db.get_vote_count(election.election_id)
+            vote_count = db.get_vote_count(e_data["election_id"])
             options.append(
                 discord.SelectOption(
-                    label=election.title[:100],  # Discord limit
-                    value=str(election.election_id),
+                    label=e_data["title"][:100],  # Discord limit
+                    value=str(e_data["election_id"]),
                     description=ngettext("{n} vote", "{n} votes", vote_count).format(
                         n=vote_count
                     ),
                 )
             )
 
-        super().__init__(
-            placeholder=_("Select an election to manage"),
-            options=options,
-            row=0,
-        )
+        super().__init__(placeholder=_("Select an election to manage"), options=options)
 
     async def callback(self, interaction: discord.Interaction):
-        self.parent_view.selected_election_id = int(self.values[0])
-        self.parent_view.build_view()
-        await interaction.response.edit_message(**self.parent_view.get_content())
+        self.view.selected_election_id = int(self.values[0])
+        await interaction.response.edit_message(**self.view.get_content())
 
 
 class BackButton(discord.ui.Button):
     """Button to go back to the election list."""
 
     def __init__(self):
-        super().__init__(label=_("← Back"), style=discord.ButtonStyle.secondary, row=1)
+        super().__init__(label=_("← Back"), style=discord.ButtonStyle.secondary)
 
     async def callback(self, interaction: discord.Interaction):
-        view = self.view
-        if isinstance(view, ElectableView):
-            view.selected_election_id = None
-            # Reload elections in case they changed
-            view.elections = db.load_elections_by_creator(
-                interaction.channel_id, interaction.user.id
-            )
-            view.build_view()
-            await interaction.response.edit_message(**view.get_content())
+        await _show_list(self.view, interaction)
 
 
 class CreateNewButton(discord.ui.Button):
     """Button to create a new election."""
 
-    def __init__(self, row: int = 0):
+    def __init__(self):
         super().__init__(
-            label=_("Create New Election"),
-            style=discord.ButtonStyle.success,
-            row=row,
+            label=_("Create New Election"), style=discord.ButtonStyle.success
         )
 
     async def callback(self, interaction: discord.Interaction):
@@ -181,56 +163,42 @@ class CreateNewButton(discord.ui.Button):
             # Trigger background task to check for expiration immediately
             election_checker.trigger_check()
 
-            # Update the electable view to refresh the election list
-            if isinstance(parent_view, ElectableView):
-                parent_view.elections = db.load_elections_by_creator(
-                    channel_id, interaction.user.id
+            # Edit the message using the start interaction to show the updated list
+            try:
+                await start_interaction.response.edit_message(
+                    **parent_view.get_content()
                 )
-                parent_view.build_view()
-                # Edit the message using the start interaction to show the updated list
-                try:
-                    await start_interaction.response.edit_message(
-                        **parent_view.get_content()
-                    )
-                except (discord.errors.NotFound, discord.errors.HTTPException):
-                    pass  # If we can't edit it (message deleted or interaction expired), that's okay
+            except (discord.errors.NotFound, discord.errors.HTTPException):
+                pass  # If we can't edit it (message deleted or interaction expired), that's okay
 
 
 class RescheduleButton(discord.ui.Button):
     """Button to reschedule an election's end time."""
 
     def __init__(self, election_id: int):
-        super().__init__(
-            label=_("Reschedule"),
-            style=discord.ButtonStyle.primary,
-            row=2,
-        )
+        super().__init__(label=_("Reschedule"), style=discord.ButtonStyle.primary)
         self.election_id = election_id
 
     async def callback(self, interaction: discord.Interaction):
         election = load_election_from_db(self.election_id)
         if not election:
-            # Election no longer exists - refresh the view to show current elections
-            view = self.view
-            if isinstance(view, ElectableView):
-                view.selected_election_id = None
-                view.elections = db.load_elections_by_creator(
-                    interaction.channel_id, interaction.user.id
-                )
-                view.build_view()
-                await interaction.response.edit_message(**view.get_content())
+            await _show_list(self.view, interaction)
             return
 
         parent_view = self.view
 
-        class RescheduleModal(LocalizedModal, title=_("Reschedule Election")):
-            end_time = discord.ui.TextInput(
-                label=_("New End Time"),
-                # Translators: keep the examples as they are; only these formats can be parsed.
-                placeholder=_("Examples: 2d, 3h30m, 2025-12-25 14:30"),
-                default="",
-                required=False,
-            )
+        class RescheduleModal(LocalizedModal):
+            def __init__(inner_self):
+                super().__init__(title=_("Reschedule Election"))
+                inner_self.end_time = discord.ui.TextInput(required=False)
+                inner_self.add_item(
+                    discord.ui.Label(
+                        text=_("New End Time"),
+                        # Translators: keep the examples as they are; only these formats can be parsed.
+                        description=_("Examples: 2d, 3h30m, 2025-12-25 14:30"),
+                        component=inner_self.end_time,
+                    )
+                )
 
             async def on_submit(inner_self, interaction: discord.Interaction):
                 # Parse new end time
@@ -256,142 +224,97 @@ class RescheduleButton(discord.ui.Button):
                 await election.update_vote_count()
 
                 # Update the management view to show new end time
-                if isinstance(parent_view, ElectableView):
-                    await interaction.response.edit_message(**parent_view.get_content())
-                else:
-                    # Fallback if view context is lost
-                    await interaction.response.send_message(
-                        _("Election rescheduled!"),
-                        ephemeral=True,
-                        delete_after=5,
-                    )
+                await interaction.response.edit_message(**parent_view.get_content())
 
         await interaction.response.send_modal(RescheduleModal())
+
+
+class ConfirmModal(LocalizedModal):
+    """Asks the user to confirm with a checkbox, which they must check to
+    submit the form."""
+
+    def __init__(self, title: str, question: str, answer: str, on_confirm):
+        super().__init__(title=title)
+        self.on_confirm = on_confirm
+        self.confirm = discord.ui.CheckboxGroup(
+            required=True,
+            min_values=1,
+            options=[discord.CheckboxGroupOption(label=answer, value="yes")],
+        )
+        self.add_item(discord.ui.Label(text=question, component=self.confirm))
+
+    async def on_submit(self, interaction: discord.Interaction):
+        if "yes" in self.confirm.values:
+            await self.on_confirm(interaction)
 
 
 class EndNowButton(discord.ui.Button):
     """Button to end an election immediately."""
 
     def __init__(self, election_id: int):
-        super().__init__(
-            label=_("End Now"),
-            style=discord.ButtonStyle.danger,
-            row=2,
-        )
+        super().__init__(label=_("End Now"), style=discord.ButtonStyle.danger)
         self.election_id = election_id
 
     async def callback(self, interaction: discord.Interaction):
         election = load_election_from_db(self.election_id)
         if not election:
-            # Election no longer exists - refresh the view to show current elections
-            view = self.view
-            if isinstance(view, ElectableView):
-                view.selected_election_id = None
-                view.elections = db.load_elections_by_creator(
-                    interaction.channel_id, interaction.user.id
-                )
-                view.build_view()
-                await interaction.response.edit_message(**view.get_content())
+            await _show_list(self.view, interaction)
             return
 
-        class ConfirmModal(LocalizedModal, title=_("Confirm End Election")):
-            confirm = discord.ui.TextInput(
-                # Translators: keep "CONFIRM" in English; users must type it exactly.
-                label=_('Type "CONFIRM" to end this election'),
-                placeholder="CONFIRM",
-                max_length=7,
+        async def end(interaction: discord.Interaction):
+            # Posting results can take a moment for long tabulations.
+            await interaction.response.defer()
+            await end_election_and_update_message(
+                election, interaction.channel, include_announcement=False
             )
+            self.view.selected_election_id = None
+            await interaction.edit_original_response(**self.view.get_content())
 
-            async def on_submit(inner_self, interaction: discord.Interaction):
-                if inner_self.confirm.value.strip().upper() != "CONFIRM":
-                    await interaction.response.send_message(
-                        _("Election not ended. Confirmation text did not match."),
-                        ephemeral=True,
-                    )
-                    return
-
-                # End the election using shared logic
-                await end_election_and_update_message(
-                    election, interaction.channel, include_announcement=False
-                )
-
-                # Update the parent view and go back to the election list
-                view = self.view
-                if isinstance(view, ElectableView):
-                    view.selected_election_id = None
-                    view.elections = db.load_elections_by_creator(
-                        interaction.channel_id, interaction.user.id
-                    )
-                    view.build_view()
-                    await interaction.response.edit_message(**view.get_content())
-
-        await interaction.response.send_modal(ConfirmModal())
+        await interaction.response.send_modal(
+            ConfirmModal(
+                _("Confirm End Election"),
+                _("End this election now?"),
+                _("Yes, end it and post the results"),
+                end,
+            )
+        )
 
 
 class DeleteButton(discord.ui.Button):
     """Button to delete an election without showing results."""
 
     def __init__(self, election_id: int):
-        super().__init__(
-            label=_("Delete"),
-            style=discord.ButtonStyle.danger,
-            row=2,
-        )
+        super().__init__(label=_("Delete"), style=discord.ButtonStyle.danger)
         self.election_id = election_id
 
     async def callback(self, interaction: discord.Interaction):
         election = load_election_from_db(self.election_id)
         if not election:
-            # Election no longer exists - refresh the view to show current elections
-            view = self.view
-            if isinstance(view, ElectableView):
-                view.selected_election_id = None
-                view.elections = db.load_elections_by_creator(
-                    interaction.channel_id, interaction.user.id
-                )
-                view.build_view()
-                await interaction.response.edit_message(**view.get_content())
+            await _show_list(self.view, interaction)
             return
 
-        class ConfirmModal(LocalizedModal, title=_("Confirm Delete Election")):
-            confirm = discord.ui.TextInput(
-                # Translators: keep "DELETE" in English; users must type it exactly.
-                label=_('Type "DELETE" to delete this election'),
-                placeholder="DELETE",
-                max_length=6,
+        async def delete(interaction: discord.Interaction):
+            # Delete the public message if it exists
+            if election.message_id:
+                try:
+                    message = await interaction.channel.fetch_message(
+                        election.message_id
+                    )
+                    await message.delete()
+                except discord.NotFound:
+                    pass  # Message was already deleted
+
+            db.delete_election(election.election_id)
+            await _show_list(self.view, interaction)
+
+        await interaction.response.send_modal(
+            ConfirmModal(
+                _("Confirm Delete Election"),
+                _("Delete this election?"),
+                _("Yes, delete it without posting results"),
+                delete,
             )
-
-            async def on_submit(inner_self, interaction: discord.Interaction):
-                if inner_self.confirm.value.strip().upper() != "DELETE":
-                    await interaction.response.send_message(
-                        _("Election not deleted. Confirmation text did not match."),
-                        ephemeral=True,
-                    )
-                    return
-
-                # Delete the public message if it exists
-                if election.message_id:
-                    try:
-                        channel = interaction.channel
-                        message = await channel.fetch_message(election.message_id)
-                        await message.delete()
-                    except discord.NotFound:
-                        pass  # Message was already deleted
-
-                # Delete the election from database
-                db.delete_election(election.election_id)
-
-                # Update the parent view and go back to the election list
-                view = self.view
-                if isinstance(view, ElectableView):
-                    view.selected_election_id = None
-                    view.elections = db.load_elections_by_creator(
-                        interaction.channel_id, interaction.user.id
-                    )
-                    view.build_view()
-                    await interaction.response.edit_message(**view.get_content())
-
-        await interaction.response.send_modal(ConfirmModal())
+        )
 
 
 async def show_electable(interaction: discord.Interaction):

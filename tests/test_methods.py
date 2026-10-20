@@ -1,4 +1,3 @@
-import discord
 import pytest
 
 from elections.copeland import CopelandElection
@@ -8,12 +7,8 @@ from elections.rivestshen import RivestShenGTElection
 from elections.stv import STVElection
 from elections.tideman_alt import TidemanAlternativeElection
 from tests.testutil import PrefillBallot
-from text_utils import (
-    EMBED_DESCRIPTION_LIMIT,
-    EMBED_TOTAL_LIMIT,
-    group_embeds,
-    split_text,
-)
+from layout import pack_text
+from text_utils import LAYOUT_TEXT_LIMIT, split_text
 
 CONDORCET_METHODS = [
     CopelandElection,
@@ -85,17 +80,20 @@ def test_split_text():
     assert split_text("", 100) == [""]
 
 
-def test_long_details_fit_in_embeds():
+def test_long_details_fit_in_messages():
     candidates = [f"Candidate number {i} with a long name" for i in range(20)]
     election = CopelandElection("", "", candidates=candidates, method_params={})
     _, details = election.tabulate(ranked(candidates, reversed(candidates)))
-    assert len(details) > EMBED_DESCRIPTION_LIMIT
+    assert len(details) > LAYOUT_TEXT_LIMIT
 
-    embeds = [
-        discord.Embed(description=chunk)
-        for chunk in split_text(details, EMBED_DESCRIPTION_LIMIT)
-    ]
-    groups = group_embeds(embeds)
-    assert sum(len(g) for g in groups) == len(embeds)
-    for group in groups:
-        assert sum(len(e) for e in group) <= EMBED_TOTAL_LIMIT
+    messages = pack_text(["## Heading", details], first_message_used=100)
+    assert len(messages) > 1
+    assert sum(map(len, messages[0])) + 100 <= LAYOUT_TEXT_LIMIT
+    for message in messages:
+        assert sum(map(len, message)) <= LAYOUT_TEXT_LIMIT
+    # Nothing is lost when splitting.
+    pieces = [t for m in messages for t in m]
+    assert pieces[0] == "## Heading"
+    assert "\n".join(pieces[1:]) == details
+
+

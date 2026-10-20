@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: tr\n"
@@ -39,44 +39,39 @@ msgstr "Sayfa {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Oy gönderildi"
 
-msgid "Your ballot:"
-msgstr "Oy pusulanız:"
-
 msgid "Your vote has been submitted."
 msgstr "Oyunuz gönderildi."
+
+msgid "Your ballot:"
+msgstr "Oy pusulanız:"
 
 msgid "Manage your elections."
 msgstr "Seçimlerinizi yönetin."
 
-msgid "Error: Election not found."
-msgstr "Hata: Seçim bulunamadı."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Yöntem**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Yönetiliyor: {title}**\n"
-"\n"
-"**Yöntem**: {method}\n"
-"**Adaylar**: {candidates}\n"
-"**Oylar**: {votes}\n"
-"**Bitiş**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Yönetmek için bir seçim seçin veya yeni bir tane oluşturun."
+"**Adaylar**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Bu kanalda etkin seçiminiz yok.\n"
-"\n"
-"Oluşturmak için aşağıdaki düğmeye tıklayın!"
+"**Bitiş**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} oy kullanıldı"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "Örnekler: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Hata: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Seçim yeniden planlandı!"
-
 msgid "End Now"
 msgstr "Şimdi bitir"
 
 msgid "Confirm End Election"
 msgstr "Seçimi bitirmeyi onayla"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Seçimi bitirmek için \"CONFIRM\" yazın"
+msgid "End this election now?"
+msgstr "Seçim şimdi bitirilsin mi?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Seçim bitirilmedi. Onay metni eşleşmedi."
+msgid "Yes, end it and post the results"
+msgstr "Evet, bitir ve sonuçları yayınla"
 
 msgid "Delete"
 msgstr "Sil"
@@ -133,12 +124,11 @@ msgstr "Sil"
 msgid "Confirm Delete Election"
 msgstr "Seçimi silmeyi onayla"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Seçimi silmek için \"DELETE\" yazın"
+msgid "Delete this election?"
+msgstr "Bu seçim silinsin mi?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Seçim silinmedi. Onay metni eşleşmedi."
+msgid "Yes, delete it without posting results"
+msgstr "Evet, sonuçları yayınlamadan sil"
 
 msgid "Vote"
 msgstr "Oy ver"
@@ -146,21 +136,23 @@ msgstr "Oy ver"
 msgid "This election no longer exists."
 msgstr "Bu seçim artık mevcut değil."
 
-msgid "Candidates"
-msgstr "Adaylar"
-
 msgid "*No candidates yet!*"
 msgstr "*Henüz aday yok!*"
-
-msgid "Method"
-msgstr "Yöntem"
 
 msgid "Ends"
 msgstr "Bitiş"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} oy kullanıldı"
+msgid "Ended"
+msgstr "Sona erdi"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Seçim sona erdi"
+
+msgid "Candidates"
+msgstr "Adaylar"
+
+msgid "Method"
+msgstr "Yöntem"
 
 msgid "This election is not open."
 msgstr "Bu seçim açık değil."
@@ -179,9 +171,6 @@ msgstr ""
 "Açık bir oy pusulanız olmadığı için oyunuz **kaydedilmedi**.  Oy vermek "
 "veya oyunuzu güncellemek için Oy ver düğmesine tekrar tıklayın."
 
-msgid "Results for {title}"
-msgstr "Sonuçlar: {title}"
-
 msgid "Winners"
 msgstr "Kazananlar"
 
@@ -190,6 +179,9 @@ msgstr "Kazanan belirlenemedi"
 
 msgid "Winner"
 msgstr "Kazanan"
+
+msgid "Results for {title}"
+msgstr "Sonuçlar: {title}"
 
 msgid "Details"
 msgstr "Ayrıntılar"
@@ -200,14 +192,14 @@ msgstr "Hesaplama yöntemi: {method}"
 msgid "Election **{title}** has ended!"
 msgstr "**{title}** seçimi sona erdi!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Seçim sona erdi"
-
-msgid "Ended"
-msgstr "Sona erdi"
+msgid "End Time (optional)"
+msgstr "Bitiş zamanı (isteğe bağlı)"
 
 msgid "Create Election"
 msgstr "Seçim oluştur"
+
+msgid "Select Method"
+msgstr "Yöntem seç"
 
 msgid "Election Title"
 msgstr "Seçim başlığı"
@@ -215,29 +207,31 @@ msgstr "Seçim başlığı"
 msgid "Description"
 msgstr "Açıklama"
 
-msgid "End Time (optional)"
-msgstr "Bitiş zamanı (isteğe bağlı)"
-
-msgid "Select Method"
-msgstr "Yöntem seç"
+msgid "Edit Attributes"
+msgstr "Özellikleri düzenle"
 
 msgid "Configure Method"
 msgstr "Yöntemi yapılandır"
 
-msgid "Language"
-msgstr "Dil"
-
 msgid "Add Candidate"
 msgstr "Aday ekle"
 
-msgid "Add a Candidate"
-msgstr "Aday ekle"
+msgid "Candidate Names"
+msgstr "Aday adları"
 
-msgid "Candidate Name"
-msgstr "Aday adı"
+msgid "One per line"
+msgstr "Her satıra bir tane"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** zaten aday."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** çok uzun. Aday adları en fazla {n} karakter olabilir."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Bir seçimde en fazla {n} aday olabilir."
 
 msgid "Remove Candidate"
 msgstr "Adayı kaldır"
@@ -255,12 +249,6 @@ msgstr ""
 "Hata: Planlanan bitiş zamanı zaten geçti. Lütfen yeniden planlayın veya "
 "bitiş zamanını kaldırın."
 
-msgid "Edit"
-msgstr "Düzenle"
-
-msgid "Edit Attributes"
-msgstr "Özellikleri düzenle"
-
 msgid "Cancel"
 msgstr "İptal"
 
@@ -269,9 +257,6 @@ msgstr "Kurulum iptal edildi."
 
 msgid "*No title set.*"
 msgstr "*Başlık belirlenmedi.*"
-
-msgid "*No method set.*"
-msgstr "*Yöntem belirlenmedi.*"
 
 msgid "*No description set.*"
 msgstr "*Açıklama belirlenmedi.*"
@@ -293,40 +278,11 @@ msgstr ""
 "**Açıklama**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Yöntem**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Düzenle"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Adaylar**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Bitiş**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Dil**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Seçimin herkese açık mesajlarının dilini seçin. Her seçmen oy pusulasını "
-"kendi dilinde görür."
+msgid "Language"
+msgstr "Dil"
 
 msgid "No title was set."
 msgstr "Başlık belirlenmedi."
@@ -365,6 +321,9 @@ msgstr "#{place} sıra için bir aday seçin... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "#{place} sıra için bir aday seçin..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Sıralamanızdan bir adayı çıkarın"
 
 msgid "No candidates ranked."
 msgstr "Sıralanan aday yok."

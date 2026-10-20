@@ -107,7 +107,10 @@ From the `/electable` interface, click "Create New Election" and fill out:
 * **End Time** (optional): Schedule when the election ends automatically
   - Use relative durations: `2d` (2 days), `3h30m` (3 hours 30 minutes), `1w` (1 week)
   - Or absolute dates: `2025-12-25 14:30`
-* **Candidates**: Add at least two candidates
+* **Candidates**: Add at least two candidates, one per line (up to 20)
+* **Language**: The language of the election's public messages, which defaults to the server's.  Ballots and other private screens are shown in each user's own Discord language.
+
+Each setting has an Edit button beside it, so you can change anything before starting the election.
 
 The bot will post a public message in the channel announcing the election. Anyone can click the Vote button to cast a ballot. Ballots are private and votes can be changed until submission.
 
@@ -159,7 +162,7 @@ To implement a new election method, define a new subclass of `Election`.  You wi
         pass
 ```
 
-Then add your class to `METHOD_CLASSES` in `methods.py` so that it appears in the setup menu.  If your method takes parameters (such as the number of winners), also override `method_param_names`, `default_method_params`, and `validate_method_params`.
+Then add your class to `METHOD_CLASSES` in `methods.py` so that it appears in the setup menu.  If your method takes parameters (such as the number of winners), also override `method_param_names`, `default_method_params`, and `validate_method_params`, and optionally `method_param_choices` to offer the values as a list.
 
 This is generally the easiest kind of extension you can make.  The code is self-contained and doesn't rely on Discord APIs or other complex systems.  You can refer to the existing `Election` subclasses for hints on implementation.
 

@@ -1,4 +1,4 @@
-discord.py
+discord.py>=2.7  # Components V2 and modal checkboxes
 python-dotenv
 scipy
 numpy

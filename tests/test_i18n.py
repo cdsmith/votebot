@@ -47,6 +47,19 @@ def test_translated_strings_are_constant(path):
 
 
 @pytest.mark.parametrize("path", SOURCES, ids=lambda p: str(p.relative_to(ROOT)))
+def test_no_translation_inside_fstrings(path):
+    """The catalog extractor can't see _() inside an f-string, so those
+    strings would silently drop out of the catalog."""
+    for node in ast.walk(ast.parse(path.read_text())):
+        if isinstance(node, ast.JoinedStr):
+            for inner in ast.walk(node):
+                assert not (
+                    isinstance(inner, ast.Call)
+                    and getattr(inner.func, "id", None) in ("_", "ngettext", "N_")
+                ), f"{path.name}:{node.lineno}: translate outside the f-string"
+
+
+@pytest.mark.parametrize("path", SOURCES, ids=lambda p: str(p.relative_to(ROOT)))
 def test_underscore_is_not_shadowed(path):
     """Assigning to _ in a function hides the translation function there."""
     tree = ast.parse(path.read_text())

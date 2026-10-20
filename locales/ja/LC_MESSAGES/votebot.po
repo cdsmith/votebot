@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -39,44 +39,39 @@ msgstr "ページ {page}/{total}"
 msgid "Vote Submitted"
 msgstr "投票を送信しました"
 
-msgid "Your ballot:"
-msgstr "あなたの投票:"
-
 msgid "Your vote has been submitted."
 msgstr "投票が送信されました。"
+
+msgid "Your ballot:"
+msgstr "あなたの投票:"
 
 msgid "Manage your elections."
 msgstr "選挙を管理します。"
 
-msgid "Error: Election not found."
-msgstr "エラー: 選挙が見つかりません。"
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**投票方式**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**管理中: {title}**\n"
-"\n"
-"**投票方式**: {method}\n"
-"**候補者**: {candidates}\n"
-"**投票数**: {votes}\n"
-"**終了日時**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "管理する選挙を選択するか、新しく作成してください。"
+"**候補者**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"このチャンネルには進行中の選挙がありません。\n"
-"\n"
-"下のボタンをクリックして作成しましょう！"
+"**終了日時**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "投票数 {n}"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "例: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "エラー: {error}"
 
-msgid "Election rescheduled!"
-msgstr "選挙の日程を変更しました！"
-
 msgid "End Now"
 msgstr "今すぐ終了"
 
 msgid "Confirm End Election"
 msgstr "選挙終了の確認"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "この選挙を終了するには「CONFIRM」と入力"
+msgid "End this election now?"
+msgstr "今すぐ選挙を終了しますか？"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "選挙は終了されませんでした。確認テキストが一致しません。"
+msgid "Yes, end it and post the results"
+msgstr "はい、終了して結果を公開します"
 
 msgid "Delete"
 msgstr "削除"
@@ -133,12 +124,11 @@ msgstr "削除"
 msgid "Confirm Delete Election"
 msgstr "選挙削除の確認"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "この選挙を削除するには「DELETE」と入力"
+msgid "Delete this election?"
+msgstr "この選挙を削除しますか？"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "選挙は削除されませんでした。確認テキストが一致しません。"
+msgid "Yes, delete it without posting results"
+msgstr "はい、結果を公開せずに削除します"
 
 msgid "Vote"
 msgstr "投票"
@@ -146,21 +136,23 @@ msgstr "投票"
 msgid "This election no longer exists."
 msgstr "この選挙はもう存在しません。"
 
-msgid "Candidates"
-msgstr "候補者"
-
 msgid "*No candidates yet!*"
 msgstr "*まだ候補者がいません！*"
-
-msgid "Method"
-msgstr "投票方式"
 
 msgid "Ends"
 msgstr "終了日時"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "投票数 {n}"
+msgid "Ended"
+msgstr "終了"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • 選挙終了"
+
+msgid "Candidates"
+msgstr "候補者"
+
+msgid "Method"
+msgstr "投票方式"
 
 msgid "This election is not open."
 msgstr "この選挙は受付中ではありません。"
@@ -177,9 +169,6 @@ msgstr ""
 "投票用紙が開かれていなかったため、投票は "
 "**記録されませんでした**。投票または投票内容の変更を行うには、もう一度「投票」ボタンをクリックしてください。"
 
-msgid "Results for {title}"
-msgstr "{title} の結果"
-
 msgid "Winners"
 msgstr "当選者"
 
@@ -188,6 +177,9 @@ msgstr "当選者は決まりませんでした"
 
 msgid "Winner"
 msgstr "当選者"
+
+msgid "Results for {title}"
+msgstr "{title} の結果"
 
 msgid "Details"
 msgstr "詳細"
@@ -198,14 +190,14 @@ msgstr "{method} で集計"
 msgid "Election **{title}** has ended!"
 msgstr "選挙 **{title}** が終了しました！"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • 選挙終了"
-
-msgid "Ended"
-msgstr "終了"
+msgid "End Time (optional)"
+msgstr "終了日時（任意）"
 
 msgid "Create Election"
 msgstr "選挙を作成"
+
+msgid "Select Method"
+msgstr "投票方式を選択"
 
 msgid "Election Title"
 msgstr "選挙のタイトル"
@@ -213,29 +205,31 @@ msgstr "選挙のタイトル"
 msgid "Description"
 msgstr "説明"
 
-msgid "End Time (optional)"
-msgstr "終了日時（任意）"
-
-msgid "Select Method"
-msgstr "投票方式を選択"
+msgid "Edit Attributes"
+msgstr "属性を編集"
 
 msgid "Configure Method"
 msgstr "投票方式を設定"
 
-msgid "Language"
-msgstr "言語"
-
 msgid "Add Candidate"
 msgstr "候補者を追加"
 
-msgid "Add a Candidate"
-msgstr "候補者を追加"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "候補者名"
+
+msgid "One per line"
+msgstr "1 行に 1 人"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** はすでに候補者です。"
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** は長すぎます。候補者名は {n} 文字以内にしてください。"
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "1 つの選挙の候補者は最大 {n} 人です。"
 
 msgid "Remove Candidate"
 msgstr "候補者を削除"
@@ -251,12 +245,6 @@ msgid ""
 "remove the end time."
 msgstr "エラー: 予定された終了日時はすでに過ぎています。日程を変更するか、終了日時を削除してください。"
 
-msgid "Edit"
-msgstr "編集"
-
-msgid "Edit Attributes"
-msgstr "属性を編集"
-
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -265,9 +253,6 @@ msgstr "設定をキャンセルしました。"
 
 msgid "*No title set.*"
 msgstr "*タイトルが設定されていません。*"
-
-msgid "*No method set.*"
-msgstr "*投票方式が設定されていません。*"
 
 msgid "*No description set.*"
 msgstr "*説明が設定されていません。*"
@@ -289,38 +274,11 @@ msgstr ""
 "**説明**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**投票方式**:\n"
-"{method}"
+msgid "Edit"
+msgstr "編集"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**候補者**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**終了日時**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**言語**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr "この選挙の公開メッセージの言語を選択してください。各投票者の投票用紙は、それぞれの言語で表示されます。"
+msgid "Language"
+msgstr "言語"
 
 msgid "No title was set."
 msgstr "タイトルが設定されていません。"
@@ -355,6 +313,9 @@ msgstr "#{place} にする候補者を選択... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "#{place} にする候補者を選択..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "順位から候補者を外す"
 
 msgid "No candidates ranked."
 msgstr "順位が付けられた候補者はいません。"

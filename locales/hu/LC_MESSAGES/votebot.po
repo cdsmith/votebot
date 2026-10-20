@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hu\n"
@@ -39,44 +39,39 @@ msgstr "Oldal: {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Szavazat leadva"
 
-msgid "Your ballot:"
-msgstr "A szavazólapod:"
-
 msgid "Your vote has been submitted."
 msgstr "A szavazatodat rögzítettük."
+
+msgid "Your ballot:"
+msgstr "A szavazólapod:"
 
 msgid "Manage your elections."
 msgstr "Szavazásaid kezelése."
 
-msgid "Error: Election not found."
-msgstr "Hiba: A szavazás nem található."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Módszer**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Kezelés: {title}**\n"
-"\n"
-"**Módszer**: {method}\n"
-"**Jelöltek**: {candidates}\n"
-"**Szavazatok**: {votes}\n"
-"**Vége**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Válassz egy kezelendő szavazást, vagy hozz létre újat."
+"**Jelöltek**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Nincs aktív szavazásod ezen a csatornán.\n"
-"\n"
-"Kattints az alábbi gombra, hogy létrehozz egyet!"
+"**Vége**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} leadott szavazat"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "Példák: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Hiba: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Szavazás átütemezve!"
-
 msgid "End Now"
 msgstr "Befejezés most"
 
 msgid "Confirm End Election"
 msgstr "Szavazás befejezésének megerősítése"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "A befejezéshez írd be: \"CONFIRM\""
+msgid "End this election now?"
+msgstr "Befejezed most a szavazást?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "A szavazás nem fejeződött be. A megerősítő szöveg nem egyezett."
+msgid "Yes, end it and post the results"
+msgstr "Igen, fejezd be, és tedd közzé az eredményeket"
 
 msgid "Delete"
 msgstr "Törlés"
@@ -133,12 +124,11 @@ msgstr "Törlés"
 msgid "Confirm Delete Election"
 msgstr "Szavazás törlésének megerősítése"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "A törléshez írd be: \"DELETE\""
+msgid "Delete this election?"
+msgstr "Törlöd ezt a szavazást?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "A szavazás nem lett törölve. A megerősítő szöveg nem egyezett."
+msgid "Yes, delete it without posting results"
+msgstr "Igen, töröld az eredmények közzététele nélkül"
 
 msgid "Vote"
 msgstr "Szavazás"
@@ -146,21 +136,23 @@ msgstr "Szavazás"
 msgid "This election no longer exists."
 msgstr "Ez a szavazás már nem létezik."
 
-msgid "Candidates"
-msgstr "Jelöltek"
-
 msgid "*No candidates yet!*"
 msgstr "*Még nincsenek jelöltek!*"
-
-msgid "Method"
-msgstr "Módszer"
 
 msgid "Ends"
 msgstr "Vége"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} leadott szavazat"
+msgid "Ended"
+msgstr "Véget ért"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • A szavazás véget ért"
+
+msgid "Candidates"
+msgstr "Jelöltek"
+
+msgid "Method"
+msgstr "Módszer"
 
 msgid "This election is not open."
 msgstr "Ez a szavazás nincs nyitva."
@@ -179,9 +171,6 @@ msgstr ""
 "A szavazatod **nem lett rögzítve**, mert nem volt nyitott szavazólapod.  "
 "A szavazat leadásához vagy módosításához kattints újra a Szavazás gombra."
 
-msgid "Results for {title}"
-msgstr "Eredmények: {title}"
-
 msgid "Winners"
 msgstr "Győztesek"
 
@@ -190,6 +179,9 @@ msgstr "Nincs győztes"
 
 msgid "Winner"
 msgstr "Győztes"
+
+msgid "Results for {title}"
+msgstr "Eredmények: {title}"
 
 msgid "Details"
 msgstr "Részletek"
@@ -200,14 +192,14 @@ msgstr "Számítási módszer: {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Véget ért a szavazás: **{title}**!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • A szavazás véget ért"
-
-msgid "Ended"
-msgstr "Véget ért"
+msgid "End Time (optional)"
+msgstr "Befejezési idő (nem kötelező)"
 
 msgid "Create Election"
 msgstr "Szavazás létrehozása"
+
+msgid "Select Method"
+msgstr "Módszer kiválasztása"
 
 msgid "Election Title"
 msgstr "Szavazás címe"
@@ -215,29 +207,31 @@ msgstr "Szavazás címe"
 msgid "Description"
 msgstr "Leírás"
 
-msgid "End Time (optional)"
-msgstr "Befejezési idő (nem kötelező)"
-
-msgid "Select Method"
-msgstr "Módszer kiválasztása"
+msgid "Edit Attributes"
+msgstr "Adatok szerkesztése"
 
 msgid "Configure Method"
 msgstr "Módszer beállítása"
 
-msgid "Language"
-msgstr "Nyelv"
-
 msgid "Add Candidate"
 msgstr "Jelölt hozzáadása"
 
-msgid "Add a Candidate"
-msgstr "Jelölt hozzáadása"
+msgid "Candidate Names"
+msgstr "Jelöltek nevei"
 
-msgid "Candidate Name"
-msgstr "Jelölt neve"
+msgid "One per line"
+msgstr "Soronként egy"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** már jelölt."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** túl hosszú. A jelöltek neve legfeljebb {n} karakter lehet."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Egy szavazásnak legfeljebb {n} jelöltje lehet."
 
 msgid "Remove Candidate"
 msgstr "Jelölt eltávolítása"
@@ -255,12 +249,6 @@ msgstr ""
 "Hiba: Az ütemezett befejezési idő már elmúlt. Ütemezd át, vagy távolítsd "
 "el a befejezési időt."
 
-msgid "Edit"
-msgstr "Szerkesztés"
-
-msgid "Edit Attributes"
-msgstr "Adatok szerkesztése"
-
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -269,9 +257,6 @@ msgstr "Beállítás megszakítva."
 
 msgid "*No title set.*"
 msgstr "*Nincs cím megadva.*"
-
-msgid "*No method set.*"
-msgstr "*Nincs módszer kiválasztva.*"
 
 msgid "*No description set.*"
 msgstr "*Nincs leírás megadva.*"
@@ -293,40 +278,11 @@ msgstr ""
 "**Leírás**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Módszer**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Szerkesztés"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Jelöltek**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Vége**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Nyelv**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Válaszd ki a szavazás nyilvános üzeneteinek nyelvét. Minden szavazó a "
-"saját nyelvén látja a szavazólapját."
+msgid "Language"
+msgstr "Nyelv"
 
 msgid "No title was set."
 msgstr "Nem adtál meg címet."
@@ -365,6 +321,9 @@ msgstr "Válassz jelöltet erre a helyre: #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Válassz jelöltet erre a helyre: #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Jelölt eltávolítása a rangsorodból"
 
 msgid "No candidates ranked."
 msgstr "Nincs rangsorolt jelölt."

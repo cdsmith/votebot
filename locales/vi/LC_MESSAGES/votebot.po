@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: vi\n"
@@ -39,44 +39,39 @@ msgstr "Trang {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Đã gửi phiếu bầu"
 
-msgid "Your ballot:"
-msgstr "Lá phiếu của bạn:"
-
 msgid "Your vote has been submitted."
 msgstr "Phiếu bầu của bạn đã được gửi."
+
+msgid "Your ballot:"
+msgstr "Lá phiếu của bạn:"
 
 msgid "Manage your elections."
 msgstr "Quản lý các cuộc bầu cử của bạn."
 
-msgid "Error: Election not found."
-msgstr "Lỗi: Không tìm thấy cuộc bầu cử."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Phương pháp**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Đang quản lý: {title}**\n"
-"\n"
-"**Phương pháp**: {method}\n"
-"**Ứng cử viên**: {candidates}\n"
-"**Số phiếu**: {votes}\n"
-"**Kết thúc**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Chọn một cuộc bầu cử để quản lý, hoặc tạo cuộc bầu cử mới."
+"**Ứng cử viên**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Bạn không có cuộc bầu cử nào đang diễn ra trong kênh này.\n"
-"\n"
-"Nhấn nút bên dưới để tạo một cuộc bầu cử!"
+"**Kết thúc**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Đã bỏ {n} phiếu"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "Ví dụ: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Lỗi: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Đã đổi lịch bầu cử!"
-
 msgid "End Now"
 msgstr "Kết thúc ngay"
 
 msgid "Confirm End Election"
 msgstr "Xác nhận kết thúc bầu cử"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Nhập \"CONFIRM\" để kết thúc cuộc bầu cử này"
+msgid "End this election now?"
+msgstr "Kết thúc cuộc bầu cử ngay bây giờ?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Cuộc bầu cử chưa kết thúc. Văn bản xác nhận không khớp."
+msgid "Yes, end it and post the results"
+msgstr "Có, kết thúc và công bố kết quả"
 
 msgid "Delete"
 msgstr "Xóa"
@@ -133,12 +124,11 @@ msgstr "Xóa"
 msgid "Confirm Delete Election"
 msgstr "Xác nhận xóa cuộc bầu cử"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Nhập \"DELETE\" để xóa cuộc bầu cử này"
+msgid "Delete this election?"
+msgstr "Xóa cuộc bầu cử này?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Cuộc bầu cử chưa bị xóa. Văn bản xác nhận không khớp."
+msgid "Yes, delete it without posting results"
+msgstr "Có, xóa mà không công bố kết quả"
 
 msgid "Vote"
 msgstr "Bỏ phiếu"
@@ -146,21 +136,23 @@ msgstr "Bỏ phiếu"
 msgid "This election no longer exists."
 msgstr "Cuộc bầu cử này không còn tồn tại."
 
-msgid "Candidates"
-msgstr "Ứng cử viên"
-
 msgid "*No candidates yet!*"
 msgstr "*Chưa có ứng cử viên nào!*"
-
-msgid "Method"
-msgstr "Phương pháp"
 
 msgid "Ends"
 msgstr "Kết thúc"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "Đã bỏ {n} phiếu"
+msgid "Ended"
+msgstr "Đã kết thúc"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Cuộc bầu cử đã kết thúc"
+
+msgid "Candidates"
+msgstr "Ứng cử viên"
+
+msgid "Method"
+msgstr "Phương pháp"
 
 msgid "This election is not open."
 msgstr "Cuộc bầu cử này không mở."
@@ -179,9 +171,6 @@ msgstr ""
 "Phiếu bầu của bạn **chưa được ghi nhận** vì bạn không có lá phiếu nào "
 "đang mở. Để bỏ phiếu hoặc cập nhật lá phiếu, hãy nhấn lại nút Bỏ phiếu."
 
-msgid "Results for {title}"
-msgstr "Kết quả của {title}"
-
 msgid "Winners"
 msgstr "Những người thắng cử"
 
@@ -190,6 +179,9 @@ msgstr "Không xác định được người thắng cử"
 
 msgid "Winner"
 msgstr "Người thắng cử"
+
+msgid "Results for {title}"
+msgstr "Kết quả của {title}"
 
 msgid "Details"
 msgstr "Chi tiết"
@@ -200,14 +192,14 @@ msgstr "Tính theo {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Cuộc bầu cử **{title}** đã kết thúc!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Cuộc bầu cử đã kết thúc"
-
-msgid "Ended"
-msgstr "Đã kết thúc"
+msgid "End Time (optional)"
+msgstr "Thời gian kết thúc (không bắt buộc)"
 
 msgid "Create Election"
 msgstr "Tạo cuộc bầu cử"
+
+msgid "Select Method"
+msgstr "Chọn phương pháp"
 
 msgid "Election Title"
 msgstr "Tiêu đề cuộc bầu cử"
@@ -215,29 +207,31 @@ msgstr "Tiêu đề cuộc bầu cử"
 msgid "Description"
 msgstr "Mô tả"
 
-msgid "End Time (optional)"
-msgstr "Thời gian kết thúc (không bắt buộc)"
-
-msgid "Select Method"
-msgstr "Chọn phương pháp"
+msgid "Edit Attributes"
+msgstr "Chỉnh sửa thông tin"
 
 msgid "Configure Method"
 msgstr "Cấu hình phương pháp"
 
-msgid "Language"
-msgstr "Ngôn ngữ"
-
 msgid "Add Candidate"
 msgstr "Thêm ứng cử viên"
 
-msgid "Add a Candidate"
-msgstr "Thêm một ứng cử viên"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "Tên ứng cử viên"
+
+msgid "One per line"
+msgstr "Mỗi dòng một tên"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** đã là ứng cử viên."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** quá dài. Tên ứng cử viên chỉ được tối đa {n} ký tự."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Một cuộc bầu cử có tối đa {n} ứng cử viên."
 
 msgid "Remove Candidate"
 msgstr "Xóa ứng cử viên"
@@ -255,12 +249,6 @@ msgstr ""
 "Lỗi: Thời gian kết thúc đã lên lịch đã trôi qua. Vui lòng đổi lịch hoặc "
 "bỏ thời gian kết thúc."
 
-msgid "Edit"
-msgstr "Chỉnh sửa"
-
-msgid "Edit Attributes"
-msgstr "Chỉnh sửa thông tin"
-
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -269,9 +257,6 @@ msgstr "Đã hủy thiết lập."
 
 msgid "*No title set.*"
 msgstr "*Chưa đặt tiêu đề.*"
-
-msgid "*No method set.*"
-msgstr "*Chưa chọn phương pháp.*"
 
 msgid "*No description set.*"
 msgstr "*Chưa có mô tả.*"
@@ -293,40 +278,11 @@ msgstr ""
 "**Mô tả**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Phương pháp**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Chỉnh sửa"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Ứng cử viên**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Kết thúc**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Ngôn ngữ**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Chọn ngôn ngữ cho các tin nhắn công khai của cuộc bầu cử này. Lá phiếu "
-"của mỗi cử tri sẽ hiển thị bằng ngôn ngữ của chính họ."
+msgid "Language"
+msgstr "Ngôn ngữ"
 
 msgid "No title was set."
 msgstr "Chưa đặt tiêu đề."
@@ -365,6 +321,9 @@ msgstr "Chọn ứng cử viên cho hạng #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Chọn ứng cử viên cho hạng #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Xóa một ứng cử viên khỏi thứ hạng của bạn"
 
 msgid "No candidates ranked."
 msgstr "Chưa xếp hạng ứng cử viên nào."

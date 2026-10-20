@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: id\n"
@@ -39,44 +39,40 @@ msgstr "Halaman {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Suara Terkirim"
 
-msgid "Your ballot:"
-msgstr "Surat suara Anda:"
-
 msgid "Your vote has been submitted."
 msgstr "Suara Anda telah dikirim."
+
+msgid "Your ballot:"
+msgstr "Surat suara Anda:"
 
 msgid "Manage your elections."
 msgstr "Kelola pemilihan Anda."
 
-msgid "Error: Election not found."
-msgstr "Kesalahan: Pemilihan tidak ditemukan."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metode**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Mengelola: {title}**\n"
-"\n"
-"**Metode**: {method}\n"
-"**Kandidat**: {candidates}\n"
-"**Suara**: {votes}\n"
-"**Berakhir**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Pilih pemilihan yang ingin dikelola, atau buat pemilihan baru."
+"**Kandidat**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Anda tidak memiliki pemilihan aktif di saluran ini.\n"
-"\n"
-"Klik tombol di bawah untuk membuatnya!"
+"**Berakhir**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} suara masuk"
+msgstr[1] "{n} suara masuk"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Contoh: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Kesalahan: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Pemilihan telah dijadwalkan ulang!"
-
 msgid "End Now"
 msgstr "Akhiri Sekarang"
 
 msgid "Confirm End Election"
 msgstr "Konfirmasi Akhiri Pemilihan"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Ketik \"CONFIRM\" untuk mengakhiri pemilihan"
+msgid "End this election now?"
+msgstr "Akhiri pemilihan sekarang?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Pemilihan tidak diakhiri. Teks konfirmasi tidak cocok."
+msgid "Yes, end it and post the results"
+msgstr "Ya, akhiri dan umumkan hasilnya"
 
 msgid "Delete"
 msgstr "Hapus"
@@ -134,12 +126,11 @@ msgstr "Hapus"
 msgid "Confirm Delete Election"
 msgstr "Konfirmasi Hapus Pemilihan"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Ketik \"DELETE\" untuk menghapus pemilihan ini"
+msgid "Delete this election?"
+msgstr "Hapus pemilihan ini?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Pemilihan tidak dihapus. Teks konfirmasi tidak cocok."
+msgid "Yes, delete it without posting results"
+msgstr "Ya, hapus tanpa mengumumkan hasil"
 
 msgid "Vote"
 msgstr "Pilih"
@@ -147,22 +138,23 @@ msgstr "Pilih"
 msgid "This election no longer exists."
 msgstr "Pemilihan ini sudah tidak ada."
 
-msgid "Candidates"
-msgstr "Kandidat"
-
 msgid "*No candidates yet!*"
 msgstr "*Belum ada kandidat!*"
-
-msgid "Method"
-msgstr "Metode"
 
 msgid "Ends"
 msgstr "Berakhir"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} suara masuk"
-msgstr[1] "{n} suara masuk"
+msgid "Ended"
+msgstr "Berakhir pada"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Pemilihan berakhir"
+
+msgid "Candidates"
+msgstr "Kandidat"
+
+msgid "Method"
+msgstr "Metode"
 
 msgid "This election is not open."
 msgstr "Pemilihan ini tidak sedang dibuka."
@@ -181,9 +173,6 @@ msgstr ""
 "Suara Anda **tidak tercatat** karena Anda tidak sedang membuka surat "
 "suara. Untuk memberikan atau memperbarui suara, klik tombol Pilih lagi."
 
-msgid "Results for {title}"
-msgstr "Hasil {title}"
-
 msgid "Winners"
 msgstr "Pemenang"
 
@@ -192,6 +181,9 @@ msgstr "Tidak ada pemenang yang ditentukan"
 
 msgid "Winner"
 msgstr "Pemenang"
+
+msgid "Results for {title}"
+msgstr "Hasil {title}"
 
 msgid "Details"
 msgstr "Rincian"
@@ -202,14 +194,14 @@ msgstr "Dihitung menggunakan {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Pemilihan **{title}** telah berakhir!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Pemilihan berakhir"
-
-msgid "Ended"
-msgstr "Berakhir pada"
+msgid "End Time (optional)"
+msgstr "Waktu Berakhir (opsional)"
 
 msgid "Create Election"
 msgstr "Buat Pemilihan"
+
+msgid "Select Method"
+msgstr "Pilih Metode"
 
 msgid "Election Title"
 msgstr "Judul Pemilihan"
@@ -217,29 +209,33 @@ msgstr "Judul Pemilihan"
 msgid "Description"
 msgstr "Deskripsi"
 
-msgid "End Time (optional)"
-msgstr "Waktu Berakhir (opsional)"
-
-msgid "Select Method"
-msgstr "Pilih Metode"
+msgid "Edit Attributes"
+msgstr "Edit Atribut"
 
 msgid "Configure Method"
 msgstr "Atur Metode"
 
-msgid "Language"
-msgstr "Bahasa"
-
 msgid "Add Candidate"
 msgstr "Tambah Kandidat"
 
-msgid "Add a Candidate"
-msgstr "Tambah Kandidat"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "Nama Kandidat"
+
+msgid "One per line"
+msgstr "Satu per baris"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** sudah menjadi kandidat."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** terlalu panjang. Nama kandidat paling banyak {n} karakter."
+msgstr[1] "**{name}** terlalu panjang. Nama kandidat paling banyak {n} karakter."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Pemilihan dapat memiliki paling banyak {n} kandidat."
+msgstr[1] "Pemilihan dapat memiliki paling banyak {n} kandidat."
 
 msgid "Remove Candidate"
 msgstr "Hapus Kandidat"
@@ -257,12 +253,6 @@ msgstr ""
 "Kesalahan: Waktu berakhir yang dijadwalkan sudah lewat. Jadwalkan ulang "
 "atau hapus waktu berakhirnya."
 
-msgid "Edit"
-msgstr "Edit"
-
-msgid "Edit Attributes"
-msgstr "Edit Atribut"
-
 msgid "Cancel"
 msgstr "Batal"
 
@@ -271,9 +261,6 @@ msgstr "Penyiapan dibatalkan."
 
 msgid "*No title set.*"
 msgstr "*Judul belum diatur.*"
-
-msgid "*No method set.*"
-msgstr "*Metode belum diatur.*"
 
 msgid "*No description set.*"
 msgstr "*Deskripsi belum diatur.*"
@@ -295,40 +282,11 @@ msgstr ""
 "**Deskripsi**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Metode**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Edit"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Kandidat**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Berakhir**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Bahasa**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Pilih bahasa untuk pesan publik pemilihan ini. Surat suara setiap pemilih"
-" ditampilkan dalam bahasanya sendiri."
+msgid "Language"
+msgstr "Bahasa"
 
 msgid "No title was set."
 msgstr "Judul belum diatur."
@@ -367,6 +325,9 @@ msgstr "Pilih kandidat untuk peringkat #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Pilih kandidat untuk peringkat #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Hapus kandidat dari peringkat Anda"
 
 msgid "No candidates ranked."
 msgstr "Tidak ada kandidat yang diperingkat."

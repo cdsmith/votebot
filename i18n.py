@@ -32,24 +32,19 @@ DOMAIN = "votebot"
 LANGUAGE_NAMES = {
     "bg": "български",
     "cs": "Čeština",
-    "da": "Dansk",
     "de": "Deutsch",
     "el": "Ελληνικά",
     "es": "Español",
     "es-ES": "Español",
     "es-419": "Español, LATAM",
-    "fi": "Suomi",
     "fr": "Français",
     "hi": "हिन्दी",
-    "hr": "Hrvatski",
     "hu": "Magyar",
     "id": "Bahasa Indonesia",
     "it": "Italiano",
     "ja": "日本語",
     "ko": "한국어",
-    "lt": "Lietuviškai",
     "nl": "Nederlands",
-    "no": "Norsk",
     "pl": "Polski",
     "pt": "Português",
     "pt-BR": "Português do Brasil",
@@ -159,9 +154,10 @@ class CommandTranslator(discord.app_commands.Translator):
         return translated if translated != string.message else None
 
 
-class LocalizedView(discord.ui.View):
+class LocalizedView(discord.ui.LayoutView):
     """A view whose callbacks show text in the language of the user who
-    interacted with it."""
+    interacted with it.  All of the bot's messages use these Components V2
+    layouts."""
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         _set_locale_for(interaction)

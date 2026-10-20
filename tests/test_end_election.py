@@ -9,7 +9,7 @@ import election as election_module
 import election_checker
 from election import end_election_and_update_message, load_election_from_db
 from elections.copeland import CopelandElection
-from text_utils import EMBED_TOTAL_LIMIT, EMBEDS_PER_MESSAGE
+from tests.testutil import assert_fits, texts
 
 CANDIDATES = [f"Candidate number {i} with a long name" for i in range(20)]
 
@@ -21,11 +21,11 @@ class FakeChannel:
         self.sent = []
         self.attempts = 0
 
-    async def send(self, content=None, embeds=()):
+    async def send(self, view=None):
         self.attempts += 1
         if self.fail or (self.fail_after is not None and len(self.sent) >= self.fail_after):
             raise discord.HTTPException(_FakeResponse(), "Invalid Form Body")
-        self.sent.append((content, embeds))
+        self.sent.append(view)
 
 
 class FakeClient:
@@ -73,14 +73,12 @@ def test_long_results_are_split_across_messages():
         )
     )
 
-    assert len(channel.sent) >= 1
-    assert channel.sent[0][0] is not None  # Announcement on the first message
-    for _, embeds in channel.sent:
-        assert len(embeds) <= EMBEDS_PER_MESSAGE
-        assert sum(len(e) for e in embeds) <= EMBED_TOTAL_LIMIT
-        for embed in embeds:
-            for field in embed.fields:
-                assert len(field.value) <= 1024
+    assert len(channel.sent) > 1
+    # The announcement starts the first message.
+    assert texts(channel.sent[0])[0] == "Election **Big Election** has ended!"
+    for view in channel.sent:
+        assert_fits(view)
+    assert texts(channel.sent[-1])[-1].startswith("-# Computed using")
     assert load_election_from_db(election_id) is None
 
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cs\n"
@@ -39,44 +39,41 @@ msgstr "Stránka {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Hlas odeslán"
 
-msgid "Your ballot:"
-msgstr "Váš hlasovací lístek:"
-
 msgid "Your vote has been submitted."
 msgstr "Váš hlas byl odeslán."
+
+msgid "Your ballot:"
+msgstr "Váš hlasovací lístek:"
 
 msgid "Manage your elections."
 msgstr "Spravujte svá hlasování."
 
-msgid "Error: Election not found."
-msgstr "Chyba: Hlasování nebylo nalezeno."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metoda**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Správa: {title}**\n"
-"\n"
-"**Metoda**: {method}\n"
-"**Kandidáti**: {candidates}\n"
-"**Hlasy**: {votes}\n"
-"**Konec**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Vyberte hlasování ke správě, nebo vytvořte nové."
+"**Kandidáti**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"V tomto kanálu nemáte žádná aktivní hlasování.\n"
-"\n"
-"Nové vytvoříte kliknutím na tlačítko níže!"
+"**Konec**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} odevzdaný hlas"
+msgstr[1] "{n} odevzdané hlasy"
+msgstr[2] "{n} odevzdaných hlasů"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -113,21 +110,17 @@ msgstr "Příklady: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Chyba: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Termín hlasování byl změněn!"
-
 msgid "End Now"
 msgstr "Ukončit nyní"
 
 msgid "Confirm End Election"
 msgstr "Potvrdit ukončení hlasování"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Pro ukončení hlasování napište \"CONFIRM\""
+msgid "End this election now?"
+msgstr "Ukončit hlasování nyní?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Hlasování nebylo ukončeno. Potvrzovací text se neshodoval."
+msgid "Yes, end it and post the results"
+msgstr "Ano, ukončit a zveřejnit výsledky"
 
 msgid "Delete"
 msgstr "Smazat"
@@ -135,12 +128,11 @@ msgstr "Smazat"
 msgid "Confirm Delete Election"
 msgstr "Potvrdit smazání hlasování"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Pro smazání hlasování napište \"DELETE\""
+msgid "Delete this election?"
+msgstr "Smazat toto hlasování?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Hlasování nebylo smazáno. Potvrzovací text se neshodoval."
+msgid "Yes, delete it without posting results"
+msgstr "Ano, smazat bez zveřejnění výsledků"
 
 msgid "Vote"
 msgstr "Hlasovat"
@@ -148,23 +140,23 @@ msgstr "Hlasovat"
 msgid "This election no longer exists."
 msgstr "Toto hlasování již neexistuje."
 
-msgid "Candidates"
-msgstr "Kandidáti"
-
 msgid "*No candidates yet!*"
 msgstr "*Zatím žádní kandidáti!*"
-
-msgid "Method"
-msgstr "Metoda"
 
 msgid "Ends"
 msgstr "Konec"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} odevzdaný hlas"
-msgstr[1] "{n} odevzdané hlasy"
-msgstr[2] "{n} odevzdaných hlasů"
+msgid "Ended"
+msgstr "Skončilo"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Hlasování skončilo"
+
+msgid "Candidates"
+msgstr "Kandidáti"
+
+msgid "Method"
+msgstr "Metoda"
 
 msgid "This election is not open."
 msgstr "Toto hlasování není otevřené."
@@ -184,9 +176,6 @@ msgstr ""
 "lístek. Chcete-li hlasovat nebo svůj hlas změnit, klikněte znovu na "
 "tlačítko Hlasovat."
 
-msgid "Results for {title}"
-msgstr "Výsledky: {title}"
-
 msgid "Winners"
 msgstr "Vítězové"
 
@@ -195,6 +184,9 @@ msgstr "Vítěz nebyl určen"
 
 msgid "Winner"
 msgstr "Vítěz"
+
+msgid "Results for {title}"
+msgstr "Výsledky: {title}"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -205,14 +197,14 @@ msgstr "Vypočteno metodou: {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Hlasování **{title}** skončilo!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Hlasování skončilo"
-
-msgid "Ended"
-msgstr "Skončilo"
+msgid "End Time (optional)"
+msgstr "Čas ukončení (nepovinné)"
 
 msgid "Create Election"
 msgstr "Vytvořit hlasování"
+
+msgid "Select Method"
+msgstr "Vybrat metodu"
 
 msgid "Election Title"
 msgstr "Název hlasování"
@@ -220,29 +212,35 @@ msgstr "Název hlasování"
 msgid "Description"
 msgstr "Popis"
 
-msgid "End Time (optional)"
-msgstr "Čas ukončení (nepovinné)"
-
-msgid "Select Method"
-msgstr "Vybrat metodu"
+msgid "Edit Attributes"
+msgstr "Upravit vlastnosti"
 
 msgid "Configure Method"
 msgstr "Nastavit metodu"
 
-msgid "Language"
-msgstr "Jazyk"
-
 msgid "Add Candidate"
 msgstr "Přidat kandidáta"
 
-msgid "Add a Candidate"
-msgstr "Přidat kandidáta"
+msgid "Candidate Names"
+msgstr "Jména kandidátů"
 
-msgid "Candidate Name"
-msgstr "Jméno kandidáta"
+msgid "One per line"
+msgstr "Jedno na řádek"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** již je kandidátem."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** je příliš dlouhé. Jména kandidátů mohou mít nejvýše {n} znak."
+msgstr[1] "**{name}** je příliš dlouhé. Jména kandidátů mohou mít nejvýše {n} znaky."
+msgstr[2] "**{name}** je příliš dlouhé. Jména kandidátů mohou mít nejvýše {n} znaků."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Hlasování může mít nejvýše {n} kandidáta."
+msgstr[1] "Hlasování může mít nejvýše {n} kandidáty."
+msgstr[2] "Hlasování může mít nejvýše {n} kandidátů."
 
 msgid "Remove Candidate"
 msgstr "Odebrat kandidáta"
@@ -260,12 +258,6 @@ msgstr ""
 "Chyba: Naplánovaný čas ukončení již uplynul. Změňte termín nebo čas "
 "ukončení odstraňte."
 
-msgid "Edit"
-msgstr "Upravit"
-
-msgid "Edit Attributes"
-msgstr "Upravit vlastnosti"
-
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -274,9 +266,6 @@ msgstr "Nastavení bylo zrušeno."
 
 msgid "*No title set.*"
 msgstr "*Název není nastaven.*"
-
-msgid "*No method set.*"
-msgstr "*Metoda není nastavena.*"
 
 msgid "*No description set.*"
 msgstr "*Popis není nastaven.*"
@@ -298,40 +287,11 @@ msgstr ""
 "**Popis**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Metoda**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Upravit"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Kandidáti**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Konec**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Jazyk**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Zvolte jazyk veřejných zpráv tohoto hlasování. Každý hlasující vidí svůj "
-"hlasovací lístek ve vlastním jazyce."
+msgid "Language"
+msgstr "Jazyk"
 
 msgid "No title was set."
 msgstr "Nebyl nastaven název."
@@ -370,6 +330,9 @@ msgstr "Vyberte kandidáta na místo #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Vyberte kandidáta na místo #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Odebrat kandidáta z vašeho pořadí"
 
 msgid "No candidates ranked."
 msgstr "Žádní kandidáti nebyli seřazeni."

@@ -5,16 +5,13 @@ from typing import Any, Iterable, TYPE_CHECKING
 import discord
 import db
 from i18n import LocalizedView, _, ngettext, use_locale
-from text_utils import (
-    EMBED_DESCRIPTION_LIMIT,
-    EMBED_TITLE_LIMIT,
-    MESSAGE_CONTENT_LIMIT,
-    add_long_field,
-    group_embeds,
-    split_text,
-    truncate,
-)
+from layout import notice, pack_text
+from text_utils import LAYOUT_TEXT_LIMIT, truncate
 
+# Accent colors for public messages
+OPEN_COLOR = 0x5865F2
+ENDED_COLOR = 0x99AAB5
+RESULTS_COLOR = 0x00FF00
 
 if TYPE_CHECKING:
     from ballot import Ballot
@@ -28,7 +25,7 @@ _ending_elections: set[int] = set()
 # Results messages not yet posted, by election ID.  If posting fails partway,
 # a retry resumes from here, so messages aren't repeated and randomized tie
 # breaks give the same result.
-_unposted_results: dict[int, list[tuple[str | None, list[discord.Embed]]]] = {}
+_unposted_results: dict[int, list[discord.ui.LayoutView]] = {}
 
 
 def set_client(client):
@@ -66,8 +63,9 @@ class Election(abc.ABC):
         # Store method class name for serialization
         self.method_class = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
-    def get_public_view(self) -> dict[str, Any]:
-        """Return a dictionary representation of the public view of the election as Discord message fields."""
+    def get_public_view(self, ended_at: int | None = None) -> dict[str, Any]:
+        """Return the public message announcing the election, as message
+        fields.  If ended_at is given, show the election as ended then."""
         # Public text is in the election's language, whoever caused the update.
         with use_locale(self.locale):
             import time_utils
@@ -87,38 +85,61 @@ class Election(abc.ABC):
                         )
 
             vote_count = db.get_vote_count(self.election_id)
-
-            embed = add_long_field(
-                discord.Embed(
-                    title=truncate(self.title, EMBED_TITLE_LIMIT),
-                    description=truncate(self.description, EMBED_DESCRIPTION_LIMIT),
-                ),
-                _("Candidates"),
-                "\n".join(f"- {c}" for c in self.candidates) or _("*No candidates yet!*"),
-            ).add_field(
-                name=_("Method"),
-                value=self.method_description(self.method_params),
-                inline=False,
+            votes = ngettext("{n} vote cast", "{n} votes cast", vote_count).format(
+                n=vote_count
             )
-
-            # Add end time field if scheduled
-            if self.end_timestamp:
-                embed.add_field(
-                    name=_("Ends"),
-                    value=time_utils.format_timestamp_discord(self.end_timestamp),
-                    inline=False,
+            candidates = "\n".join(f"- {c}" for c in self.candidates) or _(
+                "*No candidates yet!*"
+            )
+            if ended_at is None:
+                end_time = self.end_timestamp and "**{}**\n{}".format(
+                    _("Ends"), time_utils.format_timestamp_discord(self.end_timestamp)
                 )
+                footer = votes
+            else:
+                end_time = "**{}**\n{}".format(
+                    _("Ended"),
+                    time_utils.format_timestamp_discord(
+                        ended_at, include_relative=False
+                    ),
+                )
+                footer = _("{footer} • Election ended").format(footer=votes)
 
-            embed.set_footer(
-                text=ngettext("{n} vote cast", "{n} votes cast", vote_count).format(n=vote_count)
-            )
-
-            return {
-                "embed": embed,
-                "view": LocalizedView(timeout=None).add_item(
-                    VoteButton(self.election_id)
+            texts = [
+                f"## {self.title}",
+                "**{}**\n{}".format(_("Candidates"), candidates),
+                "**{}**\n{}".format(
+                    _("Method"), self.method_description(self.method_params)
                 ),
-            }
+            ]
+            if end_time:
+                texts.append(end_time)
+            footer = f"-# {footer}"
+            # The description gets whatever room is left within Discord's limit.
+            room = LAYOUT_TEXT_LIMIT - sum(map(len, texts)) - len(footer)
+            if self.description:
+                texts.insert(1, truncate(self.description, room))
+
+            container = discord.ui.Container(
+                *(discord.ui.TextDisplay(t) for t in texts),
+                accent_color=OPEN_COLOR if ended_at is None else ENDED_COLOR,
+            )
+            container.add_item(discord.ui.Separator())
+            if ended_at is None:
+                container.add_item(
+                    discord.ui.Section(
+                        discord.ui.TextDisplay(footer),
+                        accessory=VoteButton(self.election_id),
+                    )
+                )
+            else:
+                container.add_item(discord.ui.TextDisplay(footer))
+
+            view = LocalizedView(timeout=None)
+            view.add_item(container)
+            # Clearing content and embeds converts messages posted before the
+            # bot used Components V2.
+            return {"view": view, "content": None, "embeds": []}
 
     def accepting_votes(self) -> bool:
         """Whether voting is open.  Voting closes at the scheduled end time,
@@ -174,10 +195,7 @@ class Election(abc.ABC):
         if not self.accepting_votes():
             try:
                 await interaction.response.edit_message(
-                    content=_("This election is not open."),
-                    embed=None,
-                    view=None,
-                    delete_after=5,
+                    view=notice(_("This election is not open.")), delete_after=5
                 )
             except discord.errors.NotFound:
                 # Interaction token expired (bot restarted)
@@ -191,12 +209,12 @@ class Election(abc.ABC):
         if ballot_data is None or ballot_data["session_id"] != session_id:
             try:
                 await interaction.response.edit_message(
-                    content=_(
-                        "This ballot has been superseded by a new ballot. "
-                        "Click the Vote button again to continue."
+                    view=notice(
+                        _(
+                            "This ballot has been superseded by a new ballot. "
+                            "Click the Vote button again to continue."
+                        )
                     ),
-                    embed=None,
-                    view=None,
                     delete_after=10,
                 )
             except discord.errors.NotFound:
@@ -219,21 +237,19 @@ class Election(abc.ABC):
             # Atomically move from interim to submitted
             db.submit_ballot(self.election_id, interaction.user.id, ballot)
 
-            await interaction.response.edit_message(
-                **ballot.render_submitted(),
-                view=None,
-            )
+            await interaction.response.edit_message(**ballot.render_submitted())
 
             # Update vote count on public message
             await self.update_vote_count()
         else:
             await interaction.response.edit_message(
-                content=_(
-                    "Your vote **was not recorded** because you did not have a ballot "
-                    "open.  To cast or update your ballot, click the Vote button again."
+                view=notice(
+                    _(
+                        "Your vote **was not recorded** because you did not have a "
+                        "ballot open.  To cast or update your ballot, click the Vote "
+                        "button again."
+                    )
                 ),
-                embed=None,
-                view=None,
                 delete_after=5,
             )
 
@@ -246,46 +262,53 @@ class Election(abc.ABC):
         except discord.NotFound:
             pass
 
-    def get_results(self, show_details: bool = True) -> list[discord.Embed]:
-        """Tabulate the submitted ballots and return embeds describing the
-        results.  The first embed announces the winners, and any further
-        embeds contain the details of the tabulation."""
+    def get_results(
+        self, announcement: str | None = None
+    ) -> list[discord.ui.LayoutView]:
+        """Tabulate the submitted ballots and return messages describing the
+        results: the winners, then the details of the tabulation, split across
+        as many messages as needed."""
         # Load all submitted ballots from database
         ballot_dicts = db.load_all_ballots(self.election_id, is_submitted=True)
         ballots = [ballot_from_dict(bd, self.election_id) for bd in ballot_dicts]
 
         winners, details = self.tabulate(ballots)
-        embed = discord.Embed(
-            title=truncate(
-                _("Results for {title}").format(title=self.title), EMBED_TITLE_LIMIT
-            ),
-            color=0x00FF00,
-        )
         if len(winners) == 0:
-            embed.add_field(
-                name=_("Winners"), value=_("No winner determined"), inline=False
-            )
+            winners_text = "**{}**\n{}".format(_("Winners"), _("No winner determined"))
         elif len(winners) == 1:
-            embed.add_field(
-                name=_("Winner"),
-                value=f":trophy: **{winners[0]}** :trophy:",
-                inline=False,
+            winners_text = "**{}**\n:trophy: **{}** :trophy:".format(
+                _("Winner"), winners[0]
             )
         else:
             winners_str = ", ".join([f"**{w}**" for w in winners])
-            add_long_field(embed, _("Winners"), f":trophy: {winners_str} :trophy:")
+            winners_text = "**{}**\n:trophy: {} :trophy:".format(
+                _("Winners"), winners_str
+            )
 
-        embeds = [embed]
-        if show_details and details:
-            for i, chunk in enumerate(split_text(details, EMBED_DESCRIPTION_LIMIT)):
-                embeds.append(
-                    discord.Embed(
-                        title=_("Details") if i == 0 else None,
-                        description=chunk,
-                        color=0x00FF00,
-                    )
+        heading = "## " + _("Results for {title}").format(title=self.title)
+        blocks = [heading, winners_text]
+        if details:
+            blocks += ["### " + _("Details"), details]
+        blocks.append(
+            "-# "
+            + _("Computed using {method}").format(
+                method=self.method_description(self.method_params)
+            )
+        )
+
+        messages = []
+        for i, texts in enumerate(pack_text(blocks, len(announcement or ""))):
+            view = LocalizedView(timeout=None)
+            if i == 0 and announcement:
+                view.add_item(discord.ui.TextDisplay(announcement))
+            view.add_item(
+                discord.ui.Container(
+                    *(discord.ui.TextDisplay(t) for t in texts),
+                    accent_color=RESULTS_COLOR,
                 )
-        return embeds
+            )
+            messages.append(view)
+        return messages
 
     @classmethod
     @abc.abstractmethod
@@ -311,6 +334,14 @@ class Election(abc.ABC):
     def default_method_params(self) -> dict[str, str]:
         """Return a dictionary of default parameter values."""
         return {}
+
+    @classmethod
+    def method_param_choices(
+        self, param: str, candidates: list[str]
+    ) -> list[str] | None:
+        """Return the allowed values of a parameter, to choose from a list, or
+        None to enter the value as text."""
+        return None
 
     @classmethod
     def validate_method_params(
@@ -407,69 +438,41 @@ async def _end_election(
     channel: discord.TextChannel,
     include_announcement: bool,
 ) -> None:
-    import time_utils
-
     unposted = _unposted_results.get(election.election_id)
     if unposted is None:
-        results_embeds = election.get_results(show_details=True)
-        results_embeds[-1].set_footer(
-            text=_("Computed using {method}").format(
-                method=election.method_description(election.method_params)
-            )
-        )
         announcement = (
-            truncate(
-                _("Election **{title}** has ended!").format(title=election.title),
-                MESSAGE_CONTENT_LIMIT,
-            )
+            _("Election **{title}** has ended!").format(title=election.title)
             if include_announcement
             else None
         )
-        unposted = [
-            (announcement if i == 0 else None, embeds)
-            for i, embeds in enumerate(group_embeds(results_embeds))
-        ]
+        unposted = election.get_results(announcement)
         _unposted_results[election.election_id] = unposted
 
     # Post results to channel.  The election stays in the database until this
     # succeeds, so a failure here can be retried rather than losing results.
     while unposted:
-        content, embeds = unposted[0]
-        await channel.send(content=content, embeds=embeds)
+        await channel.send(view=unposted[0])
         unposted.pop(0)
     del _unposted_results[election.election_id]
+
+    # Show the original message as ended, at its scheduled time if it had one.
+    # This needs the election's vote count, so it's built before the election
+    # is deleted.
+    now = int(time.time())
+    if election.end_timestamp and election.end_timestamp <= now:
+        ended = election.get_public_view(ended_at=election.end_timestamp)
+    else:
+        ended = election.get_public_view(ended_at=now)
 
     # The results are posted, so the election is over.  Delete it before
     # touching the original message, so that a failure there can't cause the
     # results to be posted again.
     db.delete_election(election.election_id)
 
-    # Update the original election message
     if election.message_id:
         try:
             message = await channel.fetch_message(election.message_id)
-            embed = message.embeds[0] if message.embeds else None
-            if embed:
-                # Update footer
-                embed.set_footer(
-                    text=_("{footer} • Election ended").format(footer=embed.footer.text)
-                )
-
-                # Update "Ends" field to "Ended" and remove relative time
-                if election.end_timestamp:
-                    for i, field in enumerate(embed.fields):
-                        if field.name == _("Ends"):
-                            embed.set_field_at(
-                                i,
-                                name=_("Ended"),
-                                value=time_utils.format_timestamp_discord(
-                                    election.end_timestamp,
-                                    include_relative=False,
-                                ),
-                                inline=False,
-                            )
-                            break
-            await message.edit(embed=embed, view=None)
+            await message.edit(**ended)
         except discord.NotFound:
             pass  # Message was deleted
         except discord.HTTPException as e:

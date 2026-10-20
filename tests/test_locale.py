@@ -15,6 +15,7 @@ import setup
 from election import end_election_and_update_message, load_election_from_db
 from elections.plurality import PluralityElection
 from i18n import LocalizedView, _, use_locale
+from tests.testutil import labels, texts
 
 POLISH = {
     "Vote": "Głosuj",
@@ -70,9 +71,9 @@ class FakeInteraction:
 
 
 class FakeMessage:
-    def __init__(self, embed):
-        self.id = 1
-        self.embeds = [embed]
+    id = 1
+
+    def __init__(self):
         self.edited = None
 
     async def edit(self, **kwargs):
@@ -84,8 +85,8 @@ class FakeChannel:
         self.message = message
         self.sent = []
 
-    async def send(self, content=None, embeds=()):
-        self.sent.append((content, embeds))
+    async def send(self, view=None):
+        self.sent.append(view)
 
     async def fetch_message(self, message_id):
         return self.message
@@ -117,16 +118,16 @@ def test_public_view_uses_election_language():
         with use_locale("en-US"):
             return election.get_public_view()
 
-    view = asyncio.run(main())
-    assert view["embed"].fields[0].name == "Kandydaci"
-    assert view["view"].children[0].label == "Głosuj"
+    view = asyncio.run(main())["view"]
+    assert "**Kandydaci**\n- Alice\n- Bob" in texts(view)
+    assert "Głosuj" in labels(view)
 
 
 def test_results_use_election_language():
     election = _create_election("pl", end_timestamp=int(time.time()) + 3600)
 
     async def main():
-        message = FakeMessage(election.get_public_view()["embed"])
+        message = FakeMessage()
         election.message_id = message.id
         channel = FakeChannel(message)
         # Ended by a user whose screen is in another language
@@ -136,11 +137,13 @@ def test_results_use_election_language():
 
     message, channel = asyncio.run(main())
 
-    _, embeds = channel.sent[0]
-    assert embeds[0].title == "Wyniki: Big Election"
-    # The original message's end time is relabeled in its own language.
-    names = [f.name for f in message.edited["embed"].fields]
-    assert "Zakończono" in names and "Koniec" not in names
+    assert "## Wyniki: Big Election" in texts(channel.sent[0])
+    # The original message is shown as ended, in its own language.
+    ended = texts(message.edited["view"])
+    assert any(t.startswith("**Zakończono**") for t in ended)
+    assert not any(t.startswith("**Koniec**") for t in ended)
+    # Messages posted before Components V2 are converted.
+    assert message.edited["content"] is None and message.edited["embeds"] == []
 
 
 def test_views_use_interacting_users_language():
@@ -163,37 +166,25 @@ def test_views_use_interacting_users_language():
 def test_language_choice_in_setup():
     async def main():
         s = setup.ElectionSetup()
-        message = s.get_setup_message()
-        assert "Polski" not in message["content"]
-        assert "English" in message["content"]
-        assert any(
-            getattr(item, "label", None) == "Language" for item in message["view"].children
+        s.locale = "pl"
+        view = s.get_setup_message()["view"]
+        assert "**Language**" in texts(view)
+        menu = next(
+            item
+            for item in view.walk_children()
+            if isinstance(item, discord.ui.Select)
+            and any(o.label == "Polski" for o in item.options)
         )
-
-        s.locale = "pl"
-        message = s.get_language_message()
-        assert "Polski" in message["content"]
-        select, back = message["view"].children
-        assert [o.label for o in select.options] == ["English", "Polski"]
-        assert [o.value for o in select.options] == ["en", "pl"]
-        # Discord ignores choosing the default, so the current language isn't one.
-        assert not any(o.default for o in select.options)
-        assert back.label == "← Back"
-
-        s.locale = "pl"
-        assert "Polski" in s.get_setup_message()["content"]
+        assert [o.label for o in menu.options if o.default] == ["Polski"]
 
     asyncio.run(main())
 
 
-def test_language_button_hidden_without_translations(monkeypatch):
+def test_language_hidden_without_translations(monkeypatch):
     monkeypatch.setattr(setup, "available_locales", lambda: [])
 
     async def main():
-        message = setup.ElectionSetup().get_setup_message()
-        assert not any(
-            getattr(item, "label", None) == "Language" for item in message["view"].children
-        )
-        assert "English" not in message["content"]
+        view = setup.ElectionSetup().get_setup_message()["view"]
+        assert not any(t.startswith("**Language**") for t in texts(view))
 
     asyncio.run(main())

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: th\n"
@@ -39,44 +39,39 @@ msgstr "หน้า {page}/{total}"
 msgid "Vote Submitted"
 msgstr "ส่งคะแนนโหวตแล้ว"
 
-msgid "Your ballot:"
-msgstr "บัตรลงคะแนนของคุณ:"
-
 msgid "Your vote has been submitted."
 msgstr "ส่งคะแนนโหวตของคุณเรียบร้อยแล้ว"
+
+msgid "Your ballot:"
+msgstr "บัตรลงคะแนนของคุณ:"
 
 msgid "Manage your elections."
 msgstr "จัดการการเลือกตั้งของคุณ"
 
-msgid "Error: Election not found."
-msgstr "ข้อผิดพลาด: ไม่พบการเลือกตั้ง"
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**วิธีการ**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**กำลังจัดการ: {title}**\n"
-"\n"
-"**วิธีการ**: {method}\n"
-"**ผู้สมัคร**: {candidates}\n"
-"**คะแนนโหวต**: {votes}\n"
-"**สิ้นสุด**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "เลือกการเลือกตั้งที่ต้องการจัดการ หรือสร้างการเลือกตั้งใหม่"
+"**ผู้สมัคร**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"คุณไม่มีการเลือกตั้งที่กำลังดำเนินอยู่ในช่องนี้\n"
-"\n"
-"คลิกปุ่มด้านล่างเพื่อสร้างการเลือกตั้ง!"
+"**สิ้นสุด**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "ลงคะแนนแล้ว {n} เสียง"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "ตัวอย่าง: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "ข้อผิดพลาด: {error}"
 
-msgid "Election rescheduled!"
-msgstr "เปลี่ยนเวลาการเลือกตั้งแล้ว!"
-
 msgid "End Now"
 msgstr "สิ้นสุดเดี๋ยวนี้"
 
 msgid "Confirm End Election"
 msgstr "ยืนยันการสิ้นสุดการเลือกตั้ง"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "พิมพ์ \"CONFIRM\" เพื่อสิ้นสุดการเลือกตั้งนี้"
+msgid "End this election now?"
+msgstr "สิ้นสุดการเลือกตั้งตอนนี้หรือไม่"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "การเลือกตั้งยังไม่สิ้นสุด ข้อความยืนยันไม่ตรงกัน"
+msgid "Yes, end it and post the results"
+msgstr "ใช่ สิ้นสุดและประกาศผล"
 
 msgid "Delete"
 msgstr "ลบ"
@@ -133,12 +124,11 @@ msgstr "ลบ"
 msgid "Confirm Delete Election"
 msgstr "ยืนยันการลบการเลือกตั้ง"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "พิมพ์ \"DELETE\" เพื่อลบการเลือกตั้งนี้"
+msgid "Delete this election?"
+msgstr "ลบการเลือกตั้งนี้หรือไม่"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "ไม่ได้ลบการเลือกตั้ง ข้อความยืนยันไม่ตรงกัน"
+msgid "Yes, delete it without posting results"
+msgstr "ใช่ ลบโดยไม่ประกาศผล"
 
 msgid "Vote"
 msgstr "โหวต"
@@ -146,21 +136,23 @@ msgstr "โหวต"
 msgid "This election no longer exists."
 msgstr "การเลือกตั้งนี้ไม่มีอยู่แล้ว"
 
-msgid "Candidates"
-msgstr "ผู้สมัคร"
-
 msgid "*No candidates yet!*"
 msgstr "*ยังไม่มีผู้สมัคร!*"
-
-msgid "Method"
-msgstr "วิธีการ"
 
 msgid "Ends"
 msgstr "สิ้นสุด"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "ลงคะแนนแล้ว {n} เสียง"
+msgid "Ended"
+msgstr "สิ้นสุดแล้ว"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • การเลือกตั้งสิ้นสุดแล้ว"
+
+msgid "Candidates"
+msgstr "ผู้สมัคร"
+
+msgid "Method"
+msgstr "วิธีการ"
 
 msgid "This election is not open."
 msgstr "การเลือกตั้งนี้ไม่ได้เปิดอยู่"
@@ -179,9 +171,6 @@ msgstr ""
 "คะแนนโหวตของคุณ**ไม่ถูกบันทึก** เพราะคุณไม่ได้เปิดบัตรลงคะแนนไว้ "
 "หากต้องการลงคะแนนหรือแก้ไขบัตรลงคะแนน ให้คลิกปุ่มโหวตอีกครั้ง"
 
-msgid "Results for {title}"
-msgstr "ผลการเลือกตั้ง {title}"
-
 msgid "Winners"
 msgstr "ผู้ชนะ"
 
@@ -190,6 +179,9 @@ msgstr "ไม่สามารถตัดสินผู้ชนะได้
 
 msgid "Winner"
 msgstr "ผู้ชนะ"
+
+msgid "Results for {title}"
+msgstr "ผลการเลือกตั้ง {title}"
 
 msgid "Details"
 msgstr "รายละเอียด"
@@ -200,14 +192,14 @@ msgstr "คำนวณด้วย {method}"
 msgid "Election **{title}** has ended!"
 msgstr "การเลือกตั้ง **{title}** สิ้นสุดแล้ว!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • การเลือกตั้งสิ้นสุดแล้ว"
-
-msgid "Ended"
-msgstr "สิ้นสุดแล้ว"
+msgid "End Time (optional)"
+msgstr "เวลาสิ้นสุด (ไม่บังคับ)"
 
 msgid "Create Election"
 msgstr "สร้างการเลือกตั้ง"
+
+msgid "Select Method"
+msgstr "เลือกวิธีการ"
 
 msgid "Election Title"
 msgstr "ชื่อการเลือกตั้ง"
@@ -215,29 +207,31 @@ msgstr "ชื่อการเลือกตั้ง"
 msgid "Description"
 msgstr "คำอธิบาย"
 
-msgid "End Time (optional)"
-msgstr "เวลาสิ้นสุด (ไม่บังคับ)"
-
-msgid "Select Method"
-msgstr "เลือกวิธีการ"
+msgid "Edit Attributes"
+msgstr "แก้ไขรายละเอียด"
 
 msgid "Configure Method"
 msgstr "ตั้งค่าวิธีการ"
 
-msgid "Language"
-msgstr "ภาษา"
-
 msgid "Add Candidate"
 msgstr "เพิ่มผู้สมัคร"
 
-msgid "Add a Candidate"
-msgstr "เพิ่มผู้สมัคร"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "ชื่อผู้สมัคร"
+
+msgid "One per line"
+msgstr "บรรทัดละหนึ่งชื่อ"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** เป็นผู้สมัครอยู่แล้ว"
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** ยาวเกินไป ชื่อผู้สมัครยาวได้ไม่เกิน {n} ตัวอักษร"
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "การเลือกตั้งหนึ่งมีผู้สมัครได้ไม่เกิน {n} คน"
 
 msgid "Remove Candidate"
 msgstr "ลบผู้สมัคร"
@@ -255,12 +249,6 @@ msgstr ""
 "ข้อผิดพลาด: เลยเวลาสิ้นสุดที่กำหนดไว้แล้ว "
 "โปรดเปลี่ยนเวลาหรือนำเวลาสิ้นสุดออก"
 
-msgid "Edit"
-msgstr "แก้ไข"
-
-msgid "Edit Attributes"
-msgstr "แก้ไขรายละเอียด"
-
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -269,9 +257,6 @@ msgstr "ยกเลิกการตั้งค่าแล้ว"
 
 msgid "*No title set.*"
 msgstr "*ยังไม่ได้ตั้งชื่อ*"
-
-msgid "*No method set.*"
-msgstr "*ยังไม่ได้ตั้งวิธีการ*"
 
 msgid "*No description set.*"
 msgstr "*ยังไม่ได้ใส่คำอธิบาย*"
@@ -293,40 +278,11 @@ msgstr ""
 "**คำอธิบาย**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**วิธีการ**:\n"
-"{method}"
+msgid "Edit"
+msgstr "แก้ไข"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**ผู้สมัคร**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**สิ้นสุด**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**ภาษา**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"เลือกภาษาสำหรับข้อความสาธารณะของการเลือกตั้งนี้ "
-"บัตรลงคะแนนของผู้มีสิทธิ์เลือกตั้งแต่ละคนจะแสดงเป็นภาษาของผู้นั้นเอง"
+msgid "Language"
+msgstr "ภาษา"
 
 msgid "No title was set."
 msgstr "ยังไม่ได้ตั้งชื่อ"
@@ -363,6 +319,9 @@ msgstr "เลือกผู้สมัครสำหรับอันดั
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "เลือกผู้สมัครสำหรับอันดับ #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "นำผู้สมัครออกจากการจัดอันดับของคุณ"
 
 msgid "No candidates ranked."
 msgstr "ไม่ได้จัดอันดับผู้สมัคร"

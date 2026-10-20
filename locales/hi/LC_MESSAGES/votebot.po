@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hi\n"
@@ -39,44 +39,40 @@ msgstr "पेज {page}/{total}"
 msgid "Vote Submitted"
 msgstr "वोट सबमिट हो गया"
 
-msgid "Your ballot:"
-msgstr "आपका मतपत्र:"
-
 msgid "Your vote has been submitted."
 msgstr "आपका वोट सबमिट हो गया है।"
+
+msgid "Your ballot:"
+msgstr "आपका मतपत्र:"
 
 msgid "Manage your elections."
 msgstr "अपने चुनाव प्रबंधित करें।"
 
-msgid "Error: Election not found."
-msgstr "त्रुटि: चुनाव नहीं मिला।"
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**विधि**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**प्रबंधन: {title}**\n"
-"\n"
-"**विधि**: {method}\n"
-"**उम्मीदवार**: {candidates}\n"
-"**वोट**: {votes}\n"
-"**समाप्ति**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "प्रबंधित करने के लिए कोई चुनाव चुनें, या नया चुनाव बनाएँ।"
+"**उम्मीदवार**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"इस चैनल में आपका कोई सक्रिय चुनाव नहीं है।\n"
-"\n"
-"नया चुनाव बनाने के लिए नीचे दिया गया बटन दबाएँ!"
+"**समाप्ति**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} वोट डाला गया"
+msgstr[1] "{n} वोट डाले गए"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "उदाहरण: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "त्रुटि: {error}"
 
-msgid "Election rescheduled!"
-msgstr "चुनाव का समय बदल दिया गया!"
-
 msgid "End Now"
 msgstr "अभी समाप्त करें"
 
 msgid "Confirm End Election"
 msgstr "चुनाव समाप्त करने की पुष्टि करें"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "चुनाव समाप्त करने के लिए \"CONFIRM\" लिखें"
+msgid "End this election now?"
+msgstr "क्या अभी चुनाव समाप्त करें?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "चुनाव समाप्त नहीं हुआ। पुष्टि का टेक्स्ट मेल नहीं खाया।"
+msgid "Yes, end it and post the results"
+msgstr "हाँ, समाप्त करें और परिणाम प्रकाशित करें"
 
 msgid "Delete"
 msgstr "हटाएँ"
@@ -134,12 +126,11 @@ msgstr "हटाएँ"
 msgid "Confirm Delete Election"
 msgstr "चुनाव हटाने की पुष्टि करें"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "चुनाव हटाने के लिए \"DELETE\" लिखें"
+msgid "Delete this election?"
+msgstr "क्या यह चुनाव हटाएँ?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "चुनाव नहीं हटाया गया। पुष्टि का टेक्स्ट मेल नहीं खाया।"
+msgid "Yes, delete it without posting results"
+msgstr "हाँ, परिणाम प्रकाशित किए बिना हटाएँ"
 
 msgid "Vote"
 msgstr "वोट करें"
@@ -147,22 +138,23 @@ msgstr "वोट करें"
 msgid "This election no longer exists."
 msgstr "यह चुनाव अब मौजूद नहीं है।"
 
-msgid "Candidates"
-msgstr "उम्मीदवार"
-
 msgid "*No candidates yet!*"
 msgstr "*अभी कोई उम्मीदवार नहीं है!*"
-
-msgid "Method"
-msgstr "विधि"
 
 msgid "Ends"
 msgstr "समाप्ति"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} वोट डाला गया"
-msgstr[1] "{n} वोट डाले गए"
+msgid "Ended"
+msgstr "समाप्त हुआ"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • चुनाव समाप्त"
+
+msgid "Candidates"
+msgstr "उम्मीदवार"
+
+msgid "Method"
+msgstr "विधि"
 
 msgid "This election is not open."
 msgstr "यह चुनाव खुला नहीं है।"
@@ -181,9 +173,6 @@ msgstr ""
 "आपका वोट **दर्ज नहीं हुआ** क्योंकि आपका कोई मतपत्र खुला नहीं था। वोट "
 "डालने या बदलने के लिए फिर से \"वोट करें\" बटन दबाएँ।"
 
-msgid "Results for {title}"
-msgstr "{title} के परिणाम"
-
 msgid "Winners"
 msgstr "विजेता"
 
@@ -192,6 +181,9 @@ msgstr "कोई विजेता तय नहीं हुआ"
 
 msgid "Winner"
 msgstr "विजेता"
+
+msgid "Results for {title}"
+msgstr "{title} के परिणाम"
 
 msgid "Details"
 msgstr "विवरण"
@@ -202,14 +194,14 @@ msgstr "{method} से गणना की गई"
 msgid "Election **{title}** has ended!"
 msgstr "चुनाव **{title}** समाप्त हो गया है!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • चुनाव समाप्त"
-
-msgid "Ended"
-msgstr "समाप्त हुआ"
+msgid "End Time (optional)"
+msgstr "समाप्ति समय (वैकल्पिक)"
 
 msgid "Create Election"
 msgstr "चुनाव बनाएँ"
+
+msgid "Select Method"
+msgstr "विधि चुनें"
 
 msgid "Election Title"
 msgstr "चुनाव का शीर्षक"
@@ -217,29 +209,35 @@ msgstr "चुनाव का शीर्षक"
 msgid "Description"
 msgstr "विवरण"
 
-msgid "End Time (optional)"
-msgstr "समाप्ति समय (वैकल्पिक)"
-
-msgid "Select Method"
-msgstr "विधि चुनें"
+msgid "Edit Attributes"
+msgstr "विवरण संपादित करें"
 
 msgid "Configure Method"
 msgstr "विधि कॉन्फ़िगर करें"
 
-msgid "Language"
-msgstr "भाषा"
-
 msgid "Add Candidate"
 msgstr "उम्मीदवार जोड़ें"
 
-msgid "Add a Candidate"
-msgstr "उम्मीदवार जोड़ें"
+msgid "Candidate Names"
+msgstr "उम्मीदवारों के नाम"
 
-msgid "Candidate Name"
-msgstr "उम्मीदवार का नाम"
+msgid "One per line"
+msgstr "हर पंक्ति में एक"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** पहले से उम्मीदवार है।"
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** बहुत लंबा है। उम्मीदवार के नाम में अधिकतम {n} अक्षर हो सकता है।"
+msgstr[1] ""
+"**{name}** बहुत लंबा है। उम्मीदवार के नाम में अधिकतम {n} अक्षर हो सकते "
+"हैं।"
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "एक चुनाव में अधिकतम {n} उम्मीदवार हो सकता है।"
+msgstr[1] "एक चुनाव में अधिकतम {n} उम्मीदवार हो सकते हैं।"
 
 msgid "Remove Candidate"
 msgstr "उम्मीदवार हटाएँ"
@@ -257,12 +255,6 @@ msgstr ""
 "त्रुटि: तय समाप्ति समय पहले ही बीत चुका है। कृपया समय बदलें या समाप्ति "
 "समय हटा दें।"
 
-msgid "Edit"
-msgstr "संपादित करें"
-
-msgid "Edit Attributes"
-msgstr "विवरण संपादित करें"
-
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -271,9 +263,6 @@ msgstr "सेटअप रद्द कर दिया गया।"
 
 msgid "*No title set.*"
 msgstr "*कोई शीर्षक तय नहीं है।*"
-
-msgid "*No method set.*"
-msgstr "*कोई विधि तय नहीं है।*"
 
 msgid "*No description set.*"
 msgstr "*कोई विवरण तय नहीं है।*"
@@ -295,40 +284,11 @@ msgstr ""
 "**विवरण**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**विधि**:\n"
-"{method}"
+msgid "Edit"
+msgstr "संपादित करें"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**उम्मीदवार**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**समाप्ति**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**भाषा**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"इस चुनाव के सार्वजनिक संदेशों की भाषा चुनें। हर मतदाता का मतपत्र उसकी "
-"अपनी भाषा में होता है।"
+msgid "Language"
+msgstr "भाषा"
 
 msgid "No title was set."
 msgstr "कोई शीर्षक तय नहीं किया गया।"
@@ -367,6 +327,9 @@ msgstr "#{place} स्थान के लिए उम्मीदवार �
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "#{place} स्थान के लिए उम्मीदवार चुनें..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "अपनी रैंकिंग से एक उम्मीदवार हटाएँ"
 
 msgid "No candidates ranked."
 msgstr "किसी उम्मीदवार को क्रम नहीं दिया गया।"

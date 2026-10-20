@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: el\n"
@@ -39,44 +39,40 @@ msgstr "Σελίδα {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Η ψήφος υποβλήθηκε"
 
-msgid "Your ballot:"
-msgstr "Το ψηφοδέλτιό σας:"
-
 msgid "Your vote has been submitted."
 msgstr "Η ψήφος σας υποβλήθηκε."
+
+msgid "Your ballot:"
+msgstr "Το ψηφοδέλτιό σας:"
 
 msgid "Manage your elections."
 msgstr "Διαχειριστείτε τις ψηφοφορίες σας."
 
-msgid "Error: Election not found."
-msgstr "Σφάλμα: Η ψηφοφορία δεν βρέθηκε."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Μέθοδος**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Διαχείριση: {title}**\n"
-"\n"
-"**Μέθοδος**: {method}\n"
-"**Υποψήφιοι**: {candidates}\n"
-"**Ψήφοι**: {votes}\n"
-"**Λήξη**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Επιλέξτε μια ψηφοφορία για διαχείριση ή δημιουργήστε μια νέα."
+"**Υποψήφιοι**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Δεν έχετε ενεργές ψηφοφορίες σε αυτό το κανάλι.\n"
-"\n"
-"Κάντε κλικ στο παρακάτω κουμπί για να δημιουργήσετε μία!"
+"**Λήξη**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "Δόθηκε {n} ψήφος"
+msgstr[1] "Δόθηκαν {n} ψήφοι"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Παραδείγματα: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Σφάλμα: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Η λήξη της ψηφοφορίας άλλαξε!"
-
 msgid "End Now"
 msgstr "Λήξη τώρα"
 
 msgid "Confirm End Election"
 msgstr "Επιβεβαίωση λήξης ψηφοφορίας"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Πληκτρολογήστε \"CONFIRM\" για λήξη"
+msgid "End this election now?"
+msgstr "Λήξη της ψηφοφορίας τώρα;"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Η ψηφοφορία δεν έληξε. Το κείμενο επιβεβαίωσης δεν ταίριαζε."
+msgid "Yes, end it and post the results"
+msgstr "Ναι, λήξη και δημοσίευση των αποτελεσμάτων"
 
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -134,12 +126,11 @@ msgstr "Διαγραφή"
 msgid "Confirm Delete Election"
 msgstr "Επιβεβαίωση διαγραφής ψηφοφορίας"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Πληκτρολογήστε \"DELETE\" για διαγραφή"
+msgid "Delete this election?"
+msgstr "Διαγραφή αυτής της ψηφοφορίας;"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Η ψηφοφορία δεν διαγράφηκε. Το κείμενο επιβεβαίωσης δεν ταίριαζε."
+msgid "Yes, delete it without posting results"
+msgstr "Ναι, διαγραφή χωρίς δημοσίευση αποτελεσμάτων"
 
 msgid "Vote"
 msgstr "Ψηφίστε"
@@ -147,22 +138,23 @@ msgstr "Ψηφίστε"
 msgid "This election no longer exists."
 msgstr "Αυτή η ψηφοφορία δεν υπάρχει πλέον."
 
-msgid "Candidates"
-msgstr "Υποψήφιοι"
-
 msgid "*No candidates yet!*"
 msgstr "*Δεν υπάρχουν ακόμη υποψήφιοι!*"
-
-msgid "Method"
-msgstr "Μέθοδος"
 
 msgid "Ends"
 msgstr "Λήξη"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "Δόθηκε {n} ψήφος"
-msgstr[1] "Δόθηκαν {n} ψήφοι"
+msgid "Ended"
+msgstr "Έληξε"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Η ψηφοφορία έληξε"
+
+msgid "Candidates"
+msgstr "Υποψήφιοι"
+
+msgid "Method"
+msgstr "Μέθοδος"
 
 msgid "This election is not open."
 msgstr "Αυτή η ψηφοφορία δεν είναι ανοιχτή."
@@ -182,9 +174,6 @@ msgstr ""
 "Για να ψηφίσετε ή να ενημερώσετε την ψήφο σας, κάντε ξανά κλικ στο κουμπί"
 " Ψηφίστε."
 
-msgid "Results for {title}"
-msgstr "Αποτελέσματα: {title}"
-
 msgid "Winners"
 msgstr "Νικητές"
 
@@ -193,6 +182,9 @@ msgstr "Δεν αναδείχθηκε νικητής"
 
 msgid "Winner"
 msgstr "Νικητής"
+
+msgid "Results for {title}"
+msgstr "Αποτελέσματα: {title}"
 
 msgid "Details"
 msgstr "Λεπτομέρειες"
@@ -203,14 +195,14 @@ msgstr "Μέθοδος υπολογισμού: {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Η ψηφοφορία **{title}** έληξε!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Η ψηφοφορία έληξε"
-
-msgid "Ended"
-msgstr "Έληξε"
+msgid "End Time (optional)"
+msgstr "Ώρα λήξης (προαιρετικό)"
 
 msgid "Create Election"
 msgstr "Δημιουργία ψηφοφορίας"
+
+msgid "Select Method"
+msgstr "Επιλογή μεθόδου"
 
 msgid "Election Title"
 msgstr "Τίτλος ψηφοφορίας"
@@ -218,29 +210,37 @@ msgstr "Τίτλος ψηφοφορίας"
 msgid "Description"
 msgstr "Περιγραφή"
 
-msgid "End Time (optional)"
-msgstr "Ώρα λήξης (προαιρετικό)"
-
-msgid "Select Method"
-msgstr "Επιλογή μεθόδου"
+msgid "Edit Attributes"
+msgstr "Επεξεργασία στοιχείων"
 
 msgid "Configure Method"
 msgstr "Ρύθμιση μεθόδου"
 
-msgid "Language"
-msgstr "Γλώσσα"
-
 msgid "Add Candidate"
 msgstr "Προσθήκη υποψηφίου"
 
-msgid "Add a Candidate"
-msgstr "Προσθήκη υποψηφίου"
+msgid "Candidate Names"
+msgstr "Ονόματα υποψηφίων"
 
-msgid "Candidate Name"
-msgstr "Όνομα υποψηφίου"
+msgid "One per line"
+msgstr "Ένα ανά γραμμή"
 
 msgid "**{name}** is already a candidate."
 msgstr "Υπάρχει ήδη υποψήφιος με όνομα **{name}**."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+"Το **{name}** είναι πολύ μεγάλο. Τα ονόματα υποψηφίων μπορούν να έχουν "
+"έως {n} χαρακτήρα."
+msgstr[1] ""
+"Το **{name}** είναι πολύ μεγάλο. Τα ονόματα υποψηφίων μπορούν να έχουν "
+"έως {n} χαρακτήρες."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Μια ψηφοφορία μπορεί να έχει έως {n} υποψήφιο."
+msgstr[1] "Μια ψηφοφορία μπορεί να έχει έως {n} υποψηφίους."
 
 msgid "Remove Candidate"
 msgstr "Αφαίρεση υποψηφίου"
@@ -258,12 +258,6 @@ msgstr ""
 "Σφάλμα: Η προγραμματισμένη ώρα λήξης έχει ήδη περάσει. Αλλάξτε ή "
 "αφαιρέστε την ώρα λήξης."
 
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-msgid "Edit Attributes"
-msgstr "Επεξεργασία στοιχείων"
-
 msgid "Cancel"
 msgstr "Ακύρωση"
 
@@ -272,9 +266,6 @@ msgstr "Η ρύθμιση ακυρώθηκε."
 
 msgid "*No title set.*"
 msgstr "*Δεν ορίστηκε τίτλος.*"
-
-msgid "*No method set.*"
-msgstr "*Δεν ορίστηκε μέθοδος.*"
 
 msgid "*No description set.*"
 msgstr "*Δεν ορίστηκε περιγραφή.*"
@@ -296,40 +287,11 @@ msgstr ""
 "**Περιγραφή**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Μέθοδος**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Επεξεργασία"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Υποψήφιοι**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Λήξη**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Γλώσσα**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Επιλέξτε τη γλώσσα των δημόσιων μηνυμάτων της ψηφοφορίας. Κάθε ψηφοφόρος "
-"βλέπει το ψηφοδέλτιό του στη δική του γλώσσα."
+msgid "Language"
+msgstr "Γλώσσα"
 
 msgid "No title was set."
 msgstr "Δεν ορίστηκε τίτλος."
@@ -369,6 +331,9 @@ msgstr "Επιλέξτε υποψήφιο για τη θέση #{place}... ({fir
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Επιλέξτε υποψήφιο για τη θέση #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Αφαιρέστε έναν υποψήφιο από την κατάταξή σας"
 
 msgid "No candidates ranked."
 msgstr "Δεν κατατάχθηκε κανένας υποψήφιος."

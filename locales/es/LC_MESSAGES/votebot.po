@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -39,44 +39,40 @@ msgstr "Página {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Voto enviado"
 
-msgid "Your ballot:"
-msgstr "Tu boleta:"
-
 msgid "Your vote has been submitted."
 msgstr "Tu voto se ha enviado."
+
+msgid "Your ballot:"
+msgstr "Tu boleta:"
 
 msgid "Manage your elections."
 msgstr "Administra tus elecciones."
 
-msgid "Error: Election not found."
-msgstr "Error: no se encontró la elección."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Método**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Administrando: {title}**\n"
-"\n"
-"**Método**: {method}\n"
-"**Candidatos**: {candidates}\n"
-"**Votos**: {votes}\n"
-"**Termina**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Selecciona una elección para administrar o crea una nueva."
+"**Candidatos**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"No tienes elecciones activas en este canal.\n"
-"\n"
-"¡Haz clic en el botón de abajo para crear una!"
+"**Termina**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} voto emitido"
+msgstr[1] "{n} votos emitidos"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Ejemplos: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Error: {error}"
 
-msgid "Election rescheduled!"
-msgstr "¡Elección reprogramada!"
-
 msgid "End Now"
 msgstr "Terminar ahora"
 
 msgid "Confirm End Election"
 msgstr "Confirmar cierre de la elección"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Escribe \"CONFIRM\" para terminar la elección"
+msgid "End this election now?"
+msgstr "¿Terminar la elección ahora?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "La elección no se terminó. El texto de confirmación no coincide."
+msgid "Yes, end it and post the results"
+msgstr "Sí, terminarla y publicar los resultados"
 
 msgid "Delete"
 msgstr "Eliminar"
@@ -134,12 +126,11 @@ msgstr "Eliminar"
 msgid "Confirm Delete Election"
 msgstr "Confirmar eliminación de la elección"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Escribe \"DELETE\" para eliminar la elección"
+msgid "Delete this election?"
+msgstr "¿Eliminar esta elección?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "La elección no se eliminó. El texto de confirmación no coincide."
+msgid "Yes, delete it without posting results"
+msgstr "Sí, eliminarla sin publicar los resultados"
 
 msgid "Vote"
 msgstr "Votar"
@@ -147,22 +138,23 @@ msgstr "Votar"
 msgid "This election no longer exists."
 msgstr "Esta elección ya no existe."
 
-msgid "Candidates"
-msgstr "Candidatos"
-
 msgid "*No candidates yet!*"
 msgstr "*¡Todavía no hay candidatos!*"
-
-msgid "Method"
-msgstr "Método"
 
 msgid "Ends"
 msgstr "Termina"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} voto emitido"
-msgstr[1] "{n} votos emitidos"
+msgid "Ended"
+msgstr "Terminó"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Elección terminada"
+
+msgid "Candidates"
+msgstr "Candidatos"
+
+msgid "Method"
+msgstr "Método"
 
 msgid "This election is not open."
 msgstr "Esta elección no está abierta."
@@ -181,9 +173,6 @@ msgstr ""
 "Tu voto **no se registró** porque no tenías una boleta abierta. Para "
 "votar o actualizar tu boleta, haz clic de nuevo en el botón Votar."
 
-msgid "Results for {title}"
-msgstr "Resultados: {title}"
-
 msgid "Winners"
 msgstr "Ganadores"
 
@@ -192,6 +181,9 @@ msgstr "No se determinó ningún ganador"
 
 msgid "Winner"
 msgstr "Ganador"
+
+msgid "Results for {title}"
+msgstr "Resultados: {title}"
 
 msgid "Details"
 msgstr "Detalles"
@@ -202,14 +194,14 @@ msgstr "Calculado con: {method}"
 msgid "Election **{title}** has ended!"
 msgstr "¡La elección **{title}** ha terminado!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Elección terminada"
-
-msgid "Ended"
-msgstr "Terminó"
+msgid "End Time (optional)"
+msgstr "Fecha de cierre (opcional)"
 
 msgid "Create Election"
 msgstr "Crear elección"
+
+msgid "Select Method"
+msgstr "Elegir método"
 
 msgid "Election Title"
 msgstr "Título de la elección"
@@ -217,29 +209,37 @@ msgstr "Título de la elección"
 msgid "Description"
 msgstr "Descripción"
 
-msgid "End Time (optional)"
-msgstr "Fecha de cierre (opcional)"
-
-msgid "Select Method"
-msgstr "Elegir método"
+msgid "Edit Attributes"
+msgstr "Editar ajustes"
 
 msgid "Configure Method"
 msgstr "Configurar método"
 
-msgid "Language"
-msgstr "Idioma"
-
 msgid "Add Candidate"
 msgstr "Añadir candidato"
 
-msgid "Add a Candidate"
-msgstr "Añadir un candidato"
+msgid "Candidate Names"
+msgstr "Nombres de los candidatos"
 
-msgid "Candidate Name"
-msgstr "Nombre del candidato"
+msgid "One per line"
+msgstr "Uno por línea"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** ya es candidato."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+"**{name}** es demasiado largo. Los nombres de los candidatos pueden tener"
+" como máximo {n} carácter."
+msgstr[1] ""
+"**{name}** es demasiado largo. Los nombres de los candidatos pueden tener"
+" como máximo {n} caracteres."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Una elección puede tener como máximo {n} candidato."
+msgstr[1] "Una elección puede tener como máximo {n} candidatos."
 
 msgid "Remove Candidate"
 msgstr "Quitar candidato"
@@ -255,12 +255,6 @@ msgid ""
 "remove the end time."
 msgstr "Error: la fecha de cierre programada ya pasó. Reprográmala o elimínala."
 
-msgid "Edit"
-msgstr "Editar"
-
-msgid "Edit Attributes"
-msgstr "Editar ajustes"
-
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -269,9 +263,6 @@ msgstr "Configuración cancelada."
 
 msgid "*No title set.*"
 msgstr "*Sin título.*"
-
-msgid "*No method set.*"
-msgstr "*Sin método.*"
 
 msgid "*No description set.*"
 msgstr "*Sin descripción.*"
@@ -293,40 +284,11 @@ msgstr ""
 "**Descripción**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Método**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Editar"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Candidatos**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Termina**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Idioma**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Elige el idioma de los mensajes públicos de esta elección. Cada votante "
-"recibe su boleta en su propio idioma."
+msgid "Language"
+msgstr "Idioma"
 
 msgid "No title was set."
 msgstr "No se estableció ningún título."
@@ -365,6 +327,9 @@ msgstr "Elige al candidato del puesto #{place}… ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Elige al candidato del puesto #{place}…"
+
+msgid "Remove a candidate from your ranking"
+msgstr "Quitar un candidato de tu clasificación"
 
 msgid "No candidates ranked."
 msgstr "No hay candidatos clasificados."

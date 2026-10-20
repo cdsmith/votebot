@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: sv_SE\n"
@@ -39,44 +39,40 @@ msgstr "Sida {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Rösten har skickats"
 
-msgid "Your ballot:"
-msgstr "Din valsedel:"
-
 msgid "Your vote has been submitted."
 msgstr "Din röst har skickats."
+
+msgid "Your ballot:"
+msgstr "Din valsedel:"
 
 msgid "Manage your elections."
 msgstr "Hantera dina omröstningar."
 
-msgid "Error: Election not found."
-msgstr "Fel: Omröstningen hittades inte."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metod**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Hanterar: {title}**\n"
-"\n"
-"**Metod**: {method}\n"
-"**Kandidater**: {candidates}\n"
-"**Röster**: {votes}\n"
-"**Slutar**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Välj en omröstning att hantera, eller skapa en ny."
+"**Kandidater**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Du har inga aktiva omröstningar i den här kanalen.\n"
-"\n"
-"Klicka på knappen nedan för att skapa en!"
+"**Slutar**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} avgiven röst"
+msgstr[1] "{n} avgivna röster"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Exempel: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Fel: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Omröstningens sluttid har ändrats!"
-
 msgid "End Now"
 msgstr "Avsluta nu"
 
 msgid "Confirm End Election"
 msgstr "Bekräfta avslutning"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Skriv \"CONFIRM\" för att avsluta omröstningen"
+msgid "End this election now?"
+msgstr "Avsluta omröstningen nu?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Omröstningen avslutades inte. Bekräftelsetexten stämde inte."
+msgid "Yes, end it and post the results"
+msgstr "Ja, avsluta och publicera resultatet"
 
 msgid "Delete"
 msgstr "Radera"
@@ -134,12 +126,11 @@ msgstr "Radera"
 msgid "Confirm Delete Election"
 msgstr "Bekräfta radering"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Skriv \"DELETE\" för att radera omröstningen"
+msgid "Delete this election?"
+msgstr "Radera den här omröstningen?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Omröstningen raderades inte. Bekräftelsetexten stämde inte."
+msgid "Yes, delete it without posting results"
+msgstr "Ja, radera utan att publicera resultatet"
 
 msgid "Vote"
 msgstr "Rösta"
@@ -147,22 +138,23 @@ msgstr "Rösta"
 msgid "This election no longer exists."
 msgstr "Den här omröstningen finns inte längre."
 
-msgid "Candidates"
-msgstr "Kandidater"
-
 msgid "*No candidates yet!*"
 msgstr "*Inga kandidater än!*"
-
-msgid "Method"
-msgstr "Metod"
 
 msgid "Ends"
 msgstr "Slutar"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} avgiven röst"
-msgstr[1] "{n} avgivna röster"
+msgid "Ended"
+msgstr "Avslutad"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Omröstningen avslutad"
+
+msgid "Candidates"
+msgstr "Kandidater"
+
+msgid "Method"
+msgstr "Metod"
 
 msgid "This election is not open."
 msgstr "Den här omröstningen är inte öppen."
@@ -182,9 +174,6 @@ msgstr ""
 "öppen.  Klicka på knappen Rösta igen för att avge eller uppdatera din "
 "röst."
 
-msgid "Results for {title}"
-msgstr "Resultat för {title}"
-
 msgid "Winners"
 msgstr "Vinnare"
 
@@ -193,6 +182,9 @@ msgstr "Ingen vinnare kunde utses"
 
 msgid "Winner"
 msgstr "Vinnare"
+
+msgid "Results for {title}"
+msgstr "Resultat för {title}"
 
 msgid "Details"
 msgstr "Detaljer"
@@ -203,14 +195,14 @@ msgstr "Beräknat med {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Omröstningen **{title}** har avslutats!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Omröstningen avslutad"
-
-msgid "Ended"
-msgstr "Avslutad"
+msgid "End Time (optional)"
+msgstr "Sluttid (valfritt)"
 
 msgid "Create Election"
 msgstr "Skapa omröstning"
+
+msgid "Select Method"
+msgstr "Välj metod"
 
 msgid "Election Title"
 msgstr "Omröstningens titel"
@@ -218,29 +210,33 @@ msgstr "Omröstningens titel"
 msgid "Description"
 msgstr "Beskrivning"
 
-msgid "End Time (optional)"
-msgstr "Sluttid (valfritt)"
-
-msgid "Select Method"
-msgstr "Välj metod"
+msgid "Edit Attributes"
+msgstr "Redigera egenskaper"
 
 msgid "Configure Method"
 msgstr "Konfigurera metod"
 
-msgid "Language"
-msgstr "Språk"
-
 msgid "Add Candidate"
 msgstr "Lägg till kandidat"
 
-msgid "Add a Candidate"
-msgstr "Lägg till en kandidat"
+msgid "Candidate Names"
+msgstr "Kandidatnamn"
 
-msgid "Candidate Name"
-msgstr "Kandidatens namn"
+msgid "One per line"
+msgstr "Ett per rad"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** är redan kandidat."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** är för långt. Kandidatnamn får ha högst {n} tecken."
+msgstr[1] "**{name}** är för långt. Kandidatnamn får ha högst {n} tecken."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "En omröstning kan ha högst {n} kandidat."
+msgstr[1] "En omröstning kan ha högst {n} kandidater."
 
 msgid "Remove Candidate"
 msgstr "Ta bort kandidat"
@@ -258,12 +254,6 @@ msgstr ""
 "Fel: Den planerade sluttiden har redan passerat. Ändra eller ta bort "
 "sluttiden."
 
-msgid "Edit"
-msgstr "Redigera"
-
-msgid "Edit Attributes"
-msgstr "Redigera egenskaper"
-
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -272,9 +262,6 @@ msgstr "Konfigurationen avbröts."
 
 msgid "*No title set.*"
 msgstr "*Ingen titel angiven.*"
-
-msgid "*No method set.*"
-msgstr "*Ingen metod vald.*"
 
 msgid "*No description set.*"
 msgstr "*Ingen beskrivning angiven.*"
@@ -296,40 +283,11 @@ msgstr ""
 "**Beskrivning**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Metod**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Redigera"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Kandidater**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Slutar**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Språk**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Välj språk för omröstningens offentliga meddelanden. Varje väljare ser "
-"sin valsedel på sitt eget språk."
+msgid "Language"
+msgstr "Språk"
 
 msgid "No title was set."
 msgstr "Ingen titel har angetts."
@@ -368,6 +326,9 @@ msgstr "Välj en kandidat för plats #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Välj en kandidat för plats #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Ta bort en kandidat från din rangordning"
 
 msgid "No candidates ranked."
 msgstr "Inga kandidater rangordnade."

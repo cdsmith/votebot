@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,35 +38,34 @@ msgstr ""
 msgid "Vote Submitted"
 msgstr ""
 
-msgid "Your ballot:"
+msgid "Your vote has been submitted."
 msgstr ""
 
-msgid "Your vote has been submitted."
+msgid "Your ballot:"
 msgstr ""
 
 msgid "Manage your elections."
 msgstr ""
 
-msgid "Error: Election not found."
+msgid ""
+"**Method**:\n"
+"{method}"
 msgstr ""
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
-msgstr ""
-
-msgid "Select an election to manage, or create a new one."
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -102,20 +101,16 @@ msgstr ""
 msgid "Error: {error}"
 msgstr ""
 
-msgid "Election rescheduled!"
-msgstr ""
-
 msgid "End Now"
 msgstr ""
 
 msgid "Confirm End Election"
 msgstr ""
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
+msgid "End this election now?"
 msgstr ""
 
-msgid "Election not ended. Confirmation text did not match."
+msgid "Yes, end it and post the results"
 msgstr ""
 
 msgid "Delete"
@@ -124,11 +119,10 @@ msgstr ""
 msgid "Confirm Delete Election"
 msgstr ""
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
+msgid "Delete this election?"
 msgstr ""
 
-msgid "Election not deleted. Confirmation text did not match."
+msgid "Yes, delete it without posting results"
 msgstr ""
 
 msgid "Vote"
@@ -137,22 +131,23 @@ msgstr ""
 msgid "This election no longer exists."
 msgstr ""
 
-msgid "Candidates"
-msgstr ""
-
 msgid "*No candidates yet!*"
-msgstr ""
-
-msgid "Method"
 msgstr ""
 
 msgid "Ends"
 msgstr ""
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] ""
-msgstr[1] ""
+msgid "Ended"
+msgstr ""
+
+msgid "{footer} • Election ended"
+msgstr ""
+
+msgid "Candidates"
+msgstr ""
+
+msgid "Method"
+msgstr ""
 
 msgid "This election is not open."
 msgstr ""
@@ -167,9 +162,6 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr ""
 
-msgid "Results for {title}"
-msgstr ""
-
 msgid "Winners"
 msgstr ""
 
@@ -177,6 +169,9 @@ msgid "No winner determined"
 msgstr ""
 
 msgid "Winner"
+msgstr ""
+
+msgid "Results for {title}"
 msgstr ""
 
 msgid "Details"
@@ -188,13 +183,13 @@ msgstr ""
 msgid "Election **{title}** has ended!"
 msgstr ""
 
-msgid "{footer} • Election ended"
-msgstr ""
-
-msgid "Ended"
+msgid "End Time (optional)"
 msgstr ""
 
 msgid "Create Election"
+msgstr ""
+
+msgid "Select Method"
 msgstr ""
 
 msgid "Election Title"
@@ -203,29 +198,33 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-msgid "End Time (optional)"
-msgstr ""
-
-msgid "Select Method"
+msgid "Edit Attributes"
 msgstr ""
 
 msgid "Configure Method"
 msgstr ""
 
-msgid "Language"
-msgstr ""
-
 msgid "Add Candidate"
 msgstr ""
 
-msgid "Add a Candidate"
+msgid "Candidate Names"
 msgstr ""
 
-msgid "Candidate Name"
+msgid "One per line"
 msgstr ""
 
 msgid "**{name}** is already a candidate."
 msgstr ""
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Remove Candidate"
 msgstr ""
@@ -241,12 +240,6 @@ msgid ""
 "remove the end time."
 msgstr ""
 
-msgid "Edit"
-msgstr ""
-
-msgid "Edit Attributes"
-msgstr ""
-
 msgid "Cancel"
 msgstr ""
 
@@ -254,9 +247,6 @@ msgid "Setup canceled."
 msgstr ""
 
 msgid "*No title set.*"
-msgstr ""
-
-msgid "*No method set.*"
 msgstr ""
 
 msgid "*No description set.*"
@@ -275,29 +265,10 @@ msgid ""
 "{description}"
 msgstr ""
 
-msgid ""
-"**Method**:\n"
-"{method}"
+msgid "Edit"
 msgstr ""
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
+msgid "Language"
 msgstr ""
 
 msgid "No title was set."
@@ -332,6 +303,9 @@ msgid "Select a candidate to rank #{place}... ({first} - {last})"
 msgstr ""
 
 msgid "Select a candidate to rank #{place}..."
+msgstr ""
+
+msgid "Remove a candidate from your ranking"
 msgstr ""
 
 msgid "No candidates ranked."

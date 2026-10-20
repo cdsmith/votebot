@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -39,44 +39,40 @@ msgstr "Pagina {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Stem uitgebracht"
 
-msgid "Your ballot:"
-msgstr "Je stembiljet:"
-
 msgid "Your vote has been submitted."
 msgstr "Je stem is uitgebracht."
+
+msgid "Your ballot:"
+msgstr "Je stembiljet:"
 
 msgid "Manage your elections."
 msgstr "Beheer je verkiezingen."
 
-msgid "Error: Election not found."
-msgstr "Fout: verkiezing niet gevonden."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Methode**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Beheer: {title}**\n"
-"\n"
-"**Methode**: {method}\n"
-"**Kandidaten**: {candidates}\n"
-"**Stemmen**: {votes}\n"
-"**Eindigt**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Kies een verkiezing om te beheren, of maak een nieuwe aan."
+"**Kandidaten**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Je hebt geen actieve verkiezingen in dit kanaal.\n"
-"\n"
-"Klik op de knop hieronder om er een aan te maken!"
+"**Eindigt**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} uitgebrachte stem"
+msgstr[1] "{n} uitgebrachte stemmen"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -112,21 +108,17 @@ msgstr "Voorbeelden: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Fout: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Verkiezing verzet!"
-
 msgid "End Now"
 msgstr "Nu beëindigen"
 
 msgid "Confirm End Election"
 msgstr "Beëindigen bevestigen"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Typ \"CONFIRM\" om de verkiezing te beëindigen"
+msgid "End this election now?"
+msgstr "Verkiezing nu beëindigen?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Verkiezing niet beëindigd. De bevestigingstekst kwam niet overeen."
+msgid "Yes, end it and post the results"
+msgstr "Ja, beëindigen en de uitslag publiceren"
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -134,12 +126,11 @@ msgstr "Verwijderen"
 msgid "Confirm Delete Election"
 msgstr "Verwijderen bevestigen"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Typ \"DELETE\" om de verkiezing te verwijderen"
+msgid "Delete this election?"
+msgstr "Deze verkiezing verwijderen?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Verkiezing niet verwijderd. De bevestigingstekst kwam niet overeen."
+msgid "Yes, delete it without posting results"
+msgstr "Ja, verwijderen zonder de uitslag te publiceren"
 
 msgid "Vote"
 msgstr "Stemmen"
@@ -147,22 +138,23 @@ msgstr "Stemmen"
 msgid "This election no longer exists."
 msgstr "Deze verkiezing bestaat niet meer."
 
-msgid "Candidates"
-msgstr "Kandidaten"
-
 msgid "*No candidates yet!*"
 msgstr "*Nog geen kandidaten!*"
-
-msgid "Method"
-msgstr "Methode"
 
 msgid "Ends"
 msgstr "Eindigt"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} uitgebrachte stem"
-msgstr[1] "{n} uitgebrachte stemmen"
+msgid "Ended"
+msgstr "Afgelopen"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Verkiezing afgelopen"
+
+msgid "Candidates"
+msgstr "Kandidaten"
+
+msgid "Method"
+msgstr "Methode"
 
 msgid "This election is not open."
 msgstr "Deze verkiezing is niet open."
@@ -182,9 +174,6 @@ msgstr ""
 "Klik nogmaals op de knop Stemmen om te stemmen of je stembiljet bij te "
 "werken."
 
-msgid "Results for {title}"
-msgstr "Uitslag van {title}"
-
 msgid "Winners"
 msgstr "Winnaars"
 
@@ -193,6 +182,9 @@ msgstr "Geen winnaar bepaald"
 
 msgid "Winner"
 msgstr "Winnaar"
+
+msgid "Results for {title}"
+msgstr "Uitslag van {title}"
 
 msgid "Details"
 msgstr "Details"
@@ -203,14 +195,14 @@ msgstr "Berekend met {method}"
 msgid "Election **{title}** has ended!"
 msgstr "De verkiezing **{title}** is afgelopen!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Verkiezing afgelopen"
-
-msgid "Ended"
-msgstr "Afgelopen"
+msgid "End Time (optional)"
+msgstr "Eindtijd (optioneel)"
 
 msgid "Create Election"
 msgstr "Verkiezing aanmaken"
+
+msgid "Select Method"
+msgstr "Kies methode"
 
 msgid "Election Title"
 msgstr "Titel van de verkiezing"
@@ -218,29 +210,37 @@ msgstr "Titel van de verkiezing"
 msgid "Description"
 msgstr "Beschrijving"
 
-msgid "End Time (optional)"
-msgstr "Eindtijd (optioneel)"
-
-msgid "Select Method"
-msgstr "Kies methode"
+msgid "Edit Attributes"
+msgstr "Eigenschappen bewerken"
 
 msgid "Configure Method"
 msgstr "Methode instellen"
 
-msgid "Language"
-msgstr "Taal"
-
 msgid "Add Candidate"
 msgstr "Kandidaat toevoegen"
 
-msgid "Add a Candidate"
-msgstr "Kandidaat toevoegen"
+msgid "Candidate Names"
+msgstr "Namen van kandidaten"
 
-msgid "Candidate Name"
-msgstr "Naam van de kandidaat"
+msgid "One per line"
+msgstr "Eén per regel"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** is al kandidaat."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+"**{name}** is te lang. Namen van kandidaten mogen maximaal {n} teken "
+"hebben."
+msgstr[1] ""
+"**{name}** is te lang. Namen van kandidaten mogen maximaal {n} tekens "
+"hebben."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Een verkiezing kan maximaal {n} kandidaat hebben."
+msgstr[1] "Een verkiezing kan maximaal {n} kandidaten hebben."
 
 msgid "Remove Candidate"
 msgstr "Kandidaat verwijderen"
@@ -258,12 +258,6 @@ msgstr ""
 "Fout: de geplande eindtijd is al verstreken. Verzet of verwijder de "
 "eindtijd."
 
-msgid "Edit"
-msgstr "Bewerken"
-
-msgid "Edit Attributes"
-msgstr "Eigenschappen bewerken"
-
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -272,9 +266,6 @@ msgstr "Instellen geannuleerd."
 
 msgid "*No title set.*"
 msgstr "*Geen titel ingesteld.*"
-
-msgid "*No method set.*"
-msgstr "*Geen methode ingesteld.*"
 
 msgid "*No description set.*"
 msgstr "*Geen beschrijving ingesteld.*"
@@ -296,40 +287,11 @@ msgstr ""
 "**Beschrijving**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Methode**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Bewerken"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Kandidaten**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Eindigt**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Taal**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Kies de taal voor de openbare berichten van deze verkiezing. Elke kiezer "
-"krijgt het stembiljet in de eigen taal."
+msgid "Language"
+msgstr "Taal"
 
 msgid "No title was set."
 msgstr "Er is geen titel ingesteld."
@@ -368,6 +330,9 @@ msgstr "Kies een kandidaat voor plaats #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Kies een kandidaat voor plaats #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Een kandidaat uit je rangorde verwijderen"
 
 msgid "No candidates ranked."
 msgstr "Geen kandidaten gerangschikt."

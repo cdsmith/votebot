@@ -41,6 +41,12 @@ class STVElection(Election):
         return {NUMBER_OF_WINNERS: "1"}
 
     @classmethod
+    def method_param_choices(
+        cls, param: str, candidates: list[str]
+    ) -> list[str] | None:
+        return [str(n) for n in range(1, max(len(candidates), 1) + 1)]
+
+    @classmethod
     def validate_method_params(
         cls, params: dict[str, str], candidates: list[str]
     ) -> str | None:

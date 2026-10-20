@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ro\n"
@@ -40,44 +40,41 @@ msgstr "Pagina {page}/{total}"
 msgid "Vote Submitted"
 msgstr "Vot trimis"
 
-msgid "Your ballot:"
-msgstr "Buletinul dvs. de vot:"
-
 msgid "Your vote has been submitted."
 msgstr "Votul dvs. a fost trimis."
+
+msgid "Your ballot:"
+msgstr "Buletinul dvs. de vot:"
 
 msgid "Manage your elections."
 msgstr "Gestionați-vă alegerile."
 
-msgid "Error: Election not found."
-msgstr "Eroare: alegerile nu au fost găsite."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**Metodă**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**Gestionare: {title}**\n"
-"\n"
-"**Metodă**: {method}\n"
-"**Candidați**: {candidates}\n"
-"**Voturi**: {votes}\n"
-"**Se încheie**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "Selectați alegerile pe care doriți să le gestionați sau creați altele noi."
+"**Candidați**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"Nu aveți alegeri active în acest canal.\n"
-"\n"
-"Faceți clic pe butonul de mai jos pentru a crea!"
+"**Se încheie**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n} vot exprimat"
+msgstr[1] "{n} voturi exprimate"
+msgstr[2] "{n} de voturi exprimate"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -114,21 +111,17 @@ msgstr "Exemple: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "Eroare: {error}"
 
-msgid "Election rescheduled!"
-msgstr "Alegerile au fost reprogramate!"
-
 msgid "End Now"
 msgstr "Încheie acum"
 
 msgid "Confirm End Election"
 msgstr "Confirmare încheiere alegeri"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "Tastați „CONFIRM” pentru a încheia alegerile"
+msgid "End this election now?"
+msgstr "Încheiați alegerile acum?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "Alegerile nu au fost încheiate. Textul de confirmare nu corespunde."
+msgid "Yes, end it and post the results"
+msgstr "Da, încheiați-le și publicați rezultatele"
 
 msgid "Delete"
 msgstr "Șterge"
@@ -136,12 +129,11 @@ msgstr "Șterge"
 msgid "Confirm Delete Election"
 msgstr "Confirmare ștergere alegeri"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "Tastați „DELETE” pentru a șterge alegerile"
+msgid "Delete this election?"
+msgstr "Ștergeți aceste alegeri?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "Alegerile nu au fost șterse. Textul de confirmare nu corespunde."
+msgid "Yes, delete it without posting results"
+msgstr "Da, ștergeți-le fără a publica rezultatele"
 
 msgid "Vote"
 msgstr "Votează"
@@ -149,23 +141,23 @@ msgstr "Votează"
 msgid "This election no longer exists."
 msgstr "Aceste alegeri nu mai există."
 
-msgid "Candidates"
-msgstr "Candidați"
-
 msgid "*No candidates yet!*"
 msgstr "*Încă nu există candidați!*"
-
-msgid "Method"
-msgstr "Metodă"
 
 msgid "Ends"
 msgstr "Se încheie"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n} vot exprimat"
-msgstr[1] "{n} voturi exprimate"
-msgstr[2] "{n} de voturi exprimate"
+msgid "Ended"
+msgstr "Încheiate"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • Alegeri încheiate"
+
+msgid "Candidates"
+msgstr "Candidați"
+
+msgid "Method"
+msgstr "Metodă"
 
 msgid "This election is not open."
 msgstr "Aceste alegeri nu sunt deschise."
@@ -185,9 +177,6 @@ msgstr ""
 "deschis.  Pentru a vota sau a vă actualiza buletinul, faceți din nou clic"
 " pe butonul „Votează”."
 
-msgid "Results for {title}"
-msgstr "Rezultate pentru {title}"
-
 msgid "Winners"
 msgstr "Câștigători"
 
@@ -196,6 +185,9 @@ msgstr "Niciun câștigător stabilit"
 
 msgid "Winner"
 msgstr "Câștigător"
+
+msgid "Results for {title}"
+msgstr "Rezultate pentru {title}"
 
 msgid "Details"
 msgstr "Detalii"
@@ -206,14 +198,14 @@ msgstr "Calculat folosind {method}"
 msgid "Election **{title}** has ended!"
 msgstr "Alegerile **{title}** s-au încheiat!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • Alegeri încheiate"
-
-msgid "Ended"
-msgstr "Încheiate"
+msgid "End Time (optional)"
+msgstr "Ora de încheiere (opțional)"
 
 msgid "Create Election"
 msgstr "Creare alegeri"
+
+msgid "Select Method"
+msgstr "Selectați metoda"
 
 msgid "Election Title"
 msgstr "Titlul alegerilor"
@@ -221,29 +213,41 @@ msgstr "Titlul alegerilor"
 msgid "Description"
 msgstr "Descriere"
 
-msgid "End Time (optional)"
-msgstr "Ora de încheiere (opțional)"
-
-msgid "Select Method"
-msgstr "Selectați metoda"
+msgid "Edit Attributes"
+msgstr "Editare atribute"
 
 msgid "Configure Method"
 msgstr "Configurează metoda"
 
-msgid "Language"
-msgstr "Limbă"
-
 msgid "Add Candidate"
 msgstr "Adaugă candidat"
 
-msgid "Add a Candidate"
-msgstr "Adăugare candidat"
+msgid "Candidate Names"
+msgstr "Numele candidaților"
 
-msgid "Candidate Name"
-msgstr "Numele candidatului"
+msgid "One per line"
+msgstr "Câte unul pe rând"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** este deja candidat."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] ""
+"**{name}** este prea lung. Numele candidaților pot avea cel mult {n} "
+"caracter."
+msgstr[1] ""
+"**{name}** este prea lung. Numele candidaților pot avea cel mult {n} "
+"caractere."
+msgstr[2] ""
+"**{name}** este prea lung. Numele candidaților pot avea cel mult {n} de "
+"caractere."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "Alegerile pot avea cel mult {n} candidat."
+msgstr[1] "Alegerile pot avea cel mult {n} candidați."
+msgstr[2] "Alegerile pot avea cel mult {n} de candidați."
 
 msgid "Remove Candidate"
 msgstr "Elimină candidatul"
@@ -261,12 +265,6 @@ msgstr ""
 "Eroare: ora de încheiere programată a trecut deja. Reprogramați sau "
 "eliminați ora de încheiere."
 
-msgid "Edit"
-msgstr "Editează"
-
-msgid "Edit Attributes"
-msgstr "Editare atribute"
-
 msgid "Cancel"
 msgstr "Anulează"
 
@@ -275,9 +273,6 @@ msgstr "Configurare anulată."
 
 msgid "*No title set.*"
 msgstr "*Niciun titlu setat.*"
-
-msgid "*No method set.*"
-msgstr "*Nicio metodă setată.*"
 
 msgid "*No description set.*"
 msgstr "*Nicio descriere setată.*"
@@ -299,40 +294,11 @@ msgstr ""
 "**Descriere**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**Metodă**:\n"
-"{method}"
+msgid "Edit"
+msgstr "Editează"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**Candidați**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**Se încheie**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**Limbă**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr ""
-"Alegeți limba pentru mesajele publice ale acestor alegeri. Buletinul "
-"fiecărui alegător este în limba proprie."
+msgid "Language"
+msgstr "Limbă"
 
 msgid "No title was set."
 msgstr "Nu a fost setat niciun titlu."
@@ -371,6 +337,9 @@ msgstr "Selectați un candidat pentru locul #{place}... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "Selectați un candidat pentru locul #{place}..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "Eliminați un candidat din clasamentul dvs."
 
 msgid "No candidates ranked."
 msgstr "Niciun candidat clasat."

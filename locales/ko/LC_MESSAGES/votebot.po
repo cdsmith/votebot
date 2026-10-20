@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: votebot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-19 08:54-0600\n"
+"POT-Creation-Date: 2026-10-20 08:04-0600\n"
 "PO-Revision-Date: 2026-10-19 08:58-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -39,44 +39,39 @@ msgstr "페이지 {page}/{total}"
 msgid "Vote Submitted"
 msgstr "투표 제출됨"
 
-msgid "Your ballot:"
-msgstr "내 투표지:"
-
 msgid "Your vote has been submitted."
 msgstr "투표가 제출되었습니다."
+
+msgid "Your ballot:"
+msgstr "내 투표지:"
 
 msgid "Manage your elections."
 msgstr "선거를 관리하세요."
 
-msgid "Error: Election not found."
-msgstr "오류: 선거를 찾을 수 없습니다."
+msgid ""
+"**Method**:\n"
+"{method}"
+msgstr ""
+"**투표 방식**:\n"
+"{method}"
 
 msgid ""
-"**Managing: {title}**\n"
-"\n"
-"**Method**: {method}\n"
-"**Candidates**: {candidates}\n"
-"**Votes**: {votes}\n"
-"**Ends**: {end_time}\n"
+"**Candidates**:\n"
+"{candidates}"
 msgstr ""
-"**관리 중: {title}**\n"
-"\n"
-"**투표 방식**: {method}\n"
-"**후보**: {candidates}\n"
-"**투표 수**: {votes}\n"
-"**종료**: {end_time}\n"
-
-msgid "Select an election to manage, or create a new one."
-msgstr "관리할 선거를 선택하거나 새 선거를 만드세요."
+"**후보**:\n"
+"{candidates}"
 
 msgid ""
-"You have no active elections in this channel.\n"
-"\n"
-"Click the button below to create one!"
+"**Ends**:\n"
+"{end_time}"
 msgstr ""
-"이 채널에 진행 중인 선거가 없습니다.\n"
-"\n"
-"아래 버튼을 클릭하여 선거를 만드세요!"
+"**종료**:\n"
+"{end_time}"
+
+msgid "{n} vote cast"
+msgid_plural "{n} votes cast"
+msgstr[0] "{n}표 투표됨"
 
 msgid "{n} vote"
 msgid_plural "{n} votes"
@@ -111,21 +106,17 @@ msgstr "예: 2d, 3h30m, 2025-12-25 14:30"
 msgid "Error: {error}"
 msgstr "오류: {error}"
 
-msgid "Election rescheduled!"
-msgstr "선거 일정이 변경되었습니다!"
-
 msgid "End Now"
 msgstr "지금 종료"
 
 msgid "Confirm End Election"
 msgstr "선거 종료 확인"
 
-#. Translators: keep "CONFIRM" in English; users must type it exactly.
-msgid "Type \"CONFIRM\" to end this election"
-msgstr "이 선거를 종료하려면 \"CONFIRM\" 입력"
+msgid "End this election now?"
+msgstr "지금 선거를 종료할까요?"
 
-msgid "Election not ended. Confirmation text did not match."
-msgstr "선거가 종료되지 않았습니다. 확인 문구가 일치하지 않습니다."
+msgid "Yes, end it and post the results"
+msgstr "네, 종료하고 결과를 게시합니다"
 
 msgid "Delete"
 msgstr "삭제"
@@ -133,12 +124,11 @@ msgstr "삭제"
 msgid "Confirm Delete Election"
 msgstr "선거 삭제 확인"
 
-#. Translators: keep "DELETE" in English; users must type it exactly.
-msgid "Type \"DELETE\" to delete this election"
-msgstr "이 선거를 삭제하려면 \"DELETE\" 입력"
+msgid "Delete this election?"
+msgstr "이 선거를 삭제할까요?"
 
-msgid "Election not deleted. Confirmation text did not match."
-msgstr "선거가 삭제되지 않았습니다. 확인 문구가 일치하지 않습니다."
+msgid "Yes, delete it without posting results"
+msgstr "네, 결과를 게시하지 않고 삭제합니다"
 
 msgid "Vote"
 msgstr "투표"
@@ -146,21 +136,23 @@ msgstr "투표"
 msgid "This election no longer exists."
 msgstr "이 선거는 더 이상 존재하지 않습니다."
 
-msgid "Candidates"
-msgstr "후보"
-
 msgid "*No candidates yet!*"
 msgstr "*아직 후보가 없습니다!*"
-
-msgid "Method"
-msgstr "투표 방식"
 
 msgid "Ends"
 msgstr "종료"
 
-msgid "{n} vote cast"
-msgid_plural "{n} votes cast"
-msgstr[0] "{n}표 투표됨"
+msgid "Ended"
+msgstr "종료됨"
+
+msgid "{footer} • Election ended"
+msgstr "{footer} • 선거 종료"
+
+msgid "Candidates"
+msgstr "후보"
+
+msgid "Method"
+msgstr "투표 방식"
 
 msgid "This election is not open."
 msgstr "이 선거는 진행 중이 아닙니다."
@@ -175,9 +167,6 @@ msgid ""
 "To cast or update your ballot, click the Vote button again."
 msgstr "열려 있는 투표지가 없어 투표가 **기록되지 않았습니다**. 투표하거나 투표를 변경하려면 투표 버튼을 다시 클릭하세요."
 
-msgid "Results for {title}"
-msgstr "{title} 결과"
-
 msgid "Winners"
 msgstr "당선자"
 
@@ -186,6 +175,9 @@ msgstr "당선자가 결정되지 않음"
 
 msgid "Winner"
 msgstr "당선자"
+
+msgid "Results for {title}"
+msgstr "{title} 결과"
 
 msgid "Details"
 msgstr "세부 정보"
@@ -196,14 +188,14 @@ msgstr "{method} 방식으로 계산됨"
 msgid "Election **{title}** has ended!"
 msgstr "**{title}** 선거가 종료되었습니다!"
 
-msgid "{footer} • Election ended"
-msgstr "{footer} • 선거 종료"
-
-msgid "Ended"
-msgstr "종료됨"
+msgid "End Time (optional)"
+msgstr "종료 시간 (선택)"
 
 msgid "Create Election"
 msgstr "선거 만들기"
+
+msgid "Select Method"
+msgstr "투표 방식 선택"
 
 msgid "Election Title"
 msgstr "선거 제목"
@@ -211,29 +203,31 @@ msgstr "선거 제목"
 msgid "Description"
 msgstr "설명"
 
-msgid "End Time (optional)"
-msgstr "종료 시간 (선택)"
-
-msgid "Select Method"
-msgstr "투표 방식 선택"
+msgid "Edit Attributes"
+msgstr "속성 편집"
 
 msgid "Configure Method"
 msgstr "투표 방식 설정"
 
-msgid "Language"
-msgstr "언어"
-
 msgid "Add Candidate"
 msgstr "후보 추가"
 
-msgid "Add a Candidate"
-msgstr "후보 추가"
-
-msgid "Candidate Name"
+msgid "Candidate Names"
 msgstr "후보 이름"
+
+msgid "One per line"
+msgstr "한 줄에 하나씩"
 
 msgid "**{name}** is already a candidate."
 msgstr "**{name}** 후보는 이미 등록되어 있습니다."
+
+msgid "**{name}** is too long. Candidate names can have at most {n} character."
+msgid_plural "**{name}** is too long. Candidate names can have at most {n} characters."
+msgstr[0] "**{name}** 이름이 너무 깁니다. 후보 이름은 최대 {n}자까지 가능합니다."
+
+msgid "An election can have at most {n} candidate."
+msgid_plural "An election can have at most {n} candidates."
+msgstr[0] "선거에는 후보를 최대 {n}명까지 등록할 수 있습니다."
 
 msgid "Remove Candidate"
 msgstr "후보 삭제"
@@ -249,12 +243,6 @@ msgid ""
 "remove the end time."
 msgstr "오류: 예정된 종료 시간이 이미 지났습니다. 일정을 변경하거나 종료 시간을 제거하세요."
 
-msgid "Edit"
-msgstr "편집"
-
-msgid "Edit Attributes"
-msgstr "속성 편집"
-
 msgid "Cancel"
 msgstr "취소"
 
@@ -263,9 +251,6 @@ msgstr "설정이 취소되었습니다."
 
 msgid "*No title set.*"
 msgstr "*제목이 설정되지 않았습니다.*"
-
-msgid "*No method set.*"
-msgstr "*투표 방식이 설정되지 않았습니다.*"
 
 msgid "*No description set.*"
 msgstr "*설명이 설정되지 않았습니다.*"
@@ -287,38 +272,11 @@ msgstr ""
 "**설명**:\n"
 "{description}"
 
-msgid ""
-"**Method**:\n"
-"{method}"
-msgstr ""
-"**투표 방식**:\n"
-"{method}"
+msgid "Edit"
+msgstr "편집"
 
-msgid ""
-"**Candidates**:\n"
-"{candidates}"
-msgstr ""
-"**후보**:\n"
-"{candidates}"
-
-msgid ""
-"**Ends**:\n"
-"{end_time}"
-msgstr ""
-"**종료**:\n"
-"{end_time}"
-
-msgid ""
-"**Language**:\n"
-"{language}"
-msgstr ""
-"**언어**:\n"
-"{language}"
-
-msgid ""
-"Choose the language for this election's public messages. Each voter's "
-"ballot is in their own language."
-msgstr "이 선거의 공개 메시지 언어를 선택하세요. 각 투표자의 투표지는 각자의 언어로 표시됩니다."
+msgid "Language"
+msgstr "언어"
 
 msgid "No title was set."
 msgstr "제목이 설정되지 않았습니다."
@@ -353,6 +311,9 @@ msgstr "#{place}위로 지정할 후보 선택... ({first} - {last})"
 
 msgid "Select a candidate to rank #{place}..."
 msgstr "#{place}위로 지정할 후보 선택..."
+
+msgid "Remove a candidate from your ranking"
+msgstr "순위에서 후보 제외"
 
 msgid "No candidates ranked."
 msgstr "순위가 매겨진 후보가 없습니다."

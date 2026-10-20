@@ -17,27 +17,29 @@ LOCALES = sorted(
     for p in pathlib.Path(i18n.LOCALE_DIR).glob(f"*/LC_MESSAGES/{i18n.DOMAIN}.mo")
 )
 
-# Text that users must type or the bot must parse, so it can't be translated
-UNTRANSLATABLE = ["CONFIRM", "DELETE", "2d", "3h30m", "2025-12-25 14:30"]
+# Text that the bot must parse, so it can't be translated
+UNTRANSLATABLE = ["2d", "3h30m", "2025-12-25 14:30"]
 
-
-# Discord's length limits for fixed text: modal titles and text input labels
-# allow 45 characters, and buttons 80.
+# Discord's length limits for fixed text: form titles and field labels allow
+# 45 characters, and buttons 80.  Field descriptions, checkbox options and
+# select placeholders allow 100.
 MODAL_TEXT = [
     "Create Election",
     "Configure Method",
-    "Add a Candidate",
+    "Add Candidate",
     "Edit Attributes",
+    "Language",
     "Reschedule Election",
     "Confirm End Election",
     "Confirm Delete Election",
     "Election Title",
     "Description",
     "End Time (optional)",
-    "Candidate Name",
+    "Method",
+    "Candidate Names",
     "New End Time",
-    'Type "CONFIRM" to end this election',
-    'Type "DELETE" to delete this election',
+    "End this election now?",
+    "Delete this election?",
     "Number of Winners",
 ]
 BUTTON_TEXT = [
@@ -51,12 +53,20 @@ BUTTON_TEXT = [
     "Reschedule",
     "End Now",
     "Delete",
-    "Configure Method",
-    "Language",
+    "Edit",
     "Add Candidate",
     "Start Election",
-    "Edit",
     "Cancel",
+]
+SHORT_TEXT = [
+    "Examples: 2d, 3h30m, 2025-12-25 14:30",
+    "One per line",
+    "Yes, end it and post the results",
+    "Yes, delete it without posting results",
+    "Select Method",
+    "Select an election to manage",
+    "Remove Candidate",
+    "Remove a candidate from your ranking",
 ]
 
 
@@ -119,3 +129,5 @@ def test_fits_discord_limits(locale):
         assert len(translations.get(english, english)) <= 45, english
     for english in BUTTON_TEXT:
         assert len(translations.get(english, english)) <= 80, english
+    for english in SHORT_TEXT:
+        assert len(translations.get(english, english)) <= 100, english

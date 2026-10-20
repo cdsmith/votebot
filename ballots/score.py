@@ -25,8 +25,9 @@ class ScoreBallot(Ballot):
         return _("Rate each candidate from 0 to 5 stars.")
 
     def candidates_per_page(self) -> int:
-        # Four rows; one select per row
-        return 4
+        # One select per row.  Each row and select counts toward Discord's limit
+        # of 40 components, and the rest of the ballot needs 11.
+        return 14
 
     def clear(self) -> None:
         self.ratings.clear()
